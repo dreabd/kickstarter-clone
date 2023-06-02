@@ -25,6 +25,7 @@ class Project(db.Model):
 
     category = db.relationship("Category",back_populates="project")
     funding = db.relationship("Funding",back_populates="project")
+    comments = db.relationship("Comment",back_populates="project")
 
     def to_dict(self):
       return{
