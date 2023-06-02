@@ -5,11 +5,26 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
+        first_name = "Demo",
+        last_name = "User",
+        bio = "Demo is an innovative startup revolutionizing the world of product trials. Founded in 2022, Demo connects consumers with a diverse range of companies offering exclusive trial experiences for their latest products. By seamlessly bridging the gap between businesses and potential customers, Demo is reshaping the way people discover, experience, and provide feedback on cutting-edge innovations.",
+        username='Demo',
+        email='demo@aa.io',
+        password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        first_name = "Mary",
+        last_name = "Nguyen",
+        bio = "Marnie, a visionary illustrator with an unmatched flair for storytelling, is on a mission to bring her imaginative creations to life through Kickstarter. With a portfolio brimming with whimsy and wonder, Marnie captivates audiences with her unique blend of vibrant colors and intricate details. Back Marnie's Kickstarter campaign to embark on a visual journey filled with enchanting characters, captivating narratives, and the magic of art.",
+        username='marnie',
+        email='marnie@aa.io',
+        password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        first_name = "Robert",
+        last_name = "Smith",
+        bio = "Bobbie, a visionary creator at the intersection of technology and design, is launching an exciting Kickstarter campaign to bring his innovative products to the world. With an unwavering commitment to both functionality and aesthetics, Bobbie's designs seamlessly integrate cutting-edge technology into sleek and intuitive devices. Join Bobbie's Kickstarter journey to support the birth of groundbreaking tech products that elevate the user experience and redefine what's possible in the realm of design and technology.",
+        username='bobbie',
+        email='bobbie@aa.io',
+        password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -28,5 +43,5 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM users"))
-        
+
     db.session.commit()
