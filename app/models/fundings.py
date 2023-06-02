@@ -8,7 +8,7 @@ class Funding(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     project_id = db.Column(db.Integer, db.ForeignKey(
         'projects.id'), nullable=False)
     amount_donated = db.Column(db.Integer, nullable=False)
@@ -19,7 +19,7 @@ class Funding(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'user': self.user,
+            'user': self.user_id,
             'project_id': self.project_id,
             'amount_donated': self.amount_donated
         }
