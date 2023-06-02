@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     bio = db.Column(db.Text, nullable=False)
 
     funding = db.relationship('Funding', back_populates='user')
+    comments = db.relationship('Comment', back_populates='user')
 
     @property
     def password(self):
