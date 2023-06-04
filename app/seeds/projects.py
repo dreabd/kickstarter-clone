@@ -1474,25 +1474,34 @@ def seed_projects():
     )
 
     arts = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10, art11, art12]
-    add_art = [db.session.add(art) for art in arts]
+    [db.session.add(art) for art in arts]
 
     comics = [comic1, comic2, comic3, comic4, comic5, comic6, comic7, comic8, comic9, comic10, comic11, comic12]
-    add_comics = [db.session.add(comic) for comic in comics]
+    [db.session.add(comic) for comic in comics]
 
     games = [game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12]
-    add_games = [db.session.add(game) for game in games]
+    [db.session.add(game) for game in games]
 
     foods = [food1, food2, food3, food4, food5, food6, food7, food8, food9, food10, food11, food12]
-    add_foods = [db.session.add(food) for food in foods]
+    [db.session.add(food) for food in foods]
 
     designs = [design1, design2, design3, design4, design5, design6, design7, design8, design9, design10, design11, design12]
-    add_designs = [db.session.add(design) for design in designs]
+    [db.session.add(design) for design in designs]
 
     films = [film1, film2, film3, film4, film5, film6, film7, film8, film9, film10, film11, film12]
-    add_films= [db.session.add(film) for film in films]
+    [db.session.add(film) for film in films]
 
     seed_project_data = [ project_m1, project_m2, project_m3, project_m4, project_m5, project_m6, project_m7, project_m8, project_m9, project_m10, project_m11, project_m12, project_p1, project_p2, project_p3, project_p4, project_p5, project_p6, project_p7, project_p8, project_p9, project_p10, project_p11, project_p12,]
-    add_music_publishing = [db.session.add(seed) for seed in seed_project_data]
+    [db.session.add(seed) for seed in seed_project_data]
 
+
+    db.session.commit()
+
+def undo_projects():
+    if environment == "production":
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.projects RESTART IDENTITY CASCADE;")
+    else:
+        db.session.execute(text("DELETE FROM projects"))
 
     db.session.commit()
