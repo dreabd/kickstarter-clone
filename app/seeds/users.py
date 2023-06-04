@@ -34,10 +34,32 @@ def seed_users():
         city = "Chicago",
         state = "IL"
         )
+    penelope = User(
+        first_name = "Penelope",
+        last_name = "Frankel",
+        bio = "Penelope Frankel is a passionate and talented artist based in the vibrant city of Seattle. With a deep love for creativity and an unwavering dedication to her craft, Penelope has embarked on a mission to bring her unique artistic visions to life through several exciting Kickstarter campaigns.Drawing inspiration from the beautiful landscapes of the Pacific Northwest, Penelope's art captures the essence of nature and the human experience. Her captivating works blend elements of realism and abstract expressionism, resulting in thought-provoking pieces that evoke a wide range of emotions. Driven by a desire to connect with her audience on a profound level, Penelope utilizes various mediums, including painting, sculpture, and mixed media, to push the boundaries of artistic expression.",
+        username='penelope',
+        email='penelope@aa.io',
+        password='password',
+        city = "Seattle",
+        state = "WA"
+    )
+    sylvester = User(
+        first_name = "Sylvester",
+        last_name = "McKinney",
+        bio = "By launching multiple Kickstarter campaigns, Sylvester is likely seeking funding for various artistic endeavors or projects. Kickstarter allows artists to showcase their work, set funding goals, and offer rewards to backers who pledge money towards the campaigns. It's an excellent way for artists to gain financial support, generate buzz for their projects, and engage with their audience.",
+        username='sylvester',
+        email='sylvester@aa.io',
+        password='password',
+        city = "Atlanta",
+        state = "GA"
+    )
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(penelope)
+    db.session.add(sylvester)
     db.session.commit()
 
 
