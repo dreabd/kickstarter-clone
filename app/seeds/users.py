@@ -86,7 +86,7 @@ def seed_users():
         password='password',
         city = "Seattle",
         state = "WA"
-)
+        )
 
     user9 = User(
         first_name = "Innovators",
@@ -97,10 +97,28 @@ def seed_users():
         password='password',
         city = "Boston",
         state = "MA"
-)
-    user10 =
+        )
+    user10 = User(
+        first_name="Ethan",
+        last_name="Reynolds",
+        bio="I am a visionary music producer hailing from the vibrant city of Los Angeles. With an innate ear for sonic artistry, I crafted a distinct sound that seamlessly blends genres and pushes the boundaries of contemporary music. My electrifying productions have garnered critical acclaim, propelling him to the forefront of the LA music scene, where he continues to inspire and captivate audiences with his unparalleled creativity.",
+        username='ER_Records',
+        email='ethan@gmail.com',
+        password='password',
+        city="Los Angeles",
+        state="CA"
+    )
 
-    user11 =
+    user11 = User(
+        first_name="Olivia",
+        last_name="Thompson",
+        bio="I am esteemed publisher making waves in the literary world from her base in Seattle. With a passion for storytelling and an unwavering commitment to nurturing emerging voices, I built a reputable publishing house known for its diverse and thought-provoking titles. My keen editorial eye and strategic approach have led to numerous bestsellers, cementing my status as a prominent figure in the thriving literary community of Seattle.",
+        username='OT_Publishing',
+        email='olivia@gmail.com',
+        password='password',
+        city="Seattle",
+        state="Washington"
+    )
 
     jen = User(
         first_name = "Jen",
