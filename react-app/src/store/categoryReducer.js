@@ -1,6 +1,6 @@
 import { normalizeObj } from './helpers';
 
-const GET_CATEGORIES = 'posts/GET_CATEGORIES';
+const GET_CATEGORIES = 'category/getCategories';
 
 export const getCategories = (categories) => {
     return {
@@ -16,6 +16,7 @@ export const getCategoriesThunk = () => async (dispatch) => {
     const response = await fetch(`/api/categories`)
     if(response.ok){
         const { categories } = await response.json();
+        console.log("thunk categories", categories)
         dispatch(getCategories(categories))
     } else {
         console.log("There was an error getting all categories!")
@@ -25,7 +26,8 @@ export const getCategoriesThunk = () => async (dispatch) => {
 
 const initialState = {};
 
-const categoryReducer = (state = initialState, action) => {
+const category = (state = initialState, action) => {
+    console.log("Action", action, state)
     let newState;
     switch (action.type) {
         case GET_CATEGORIES:
@@ -37,4 +39,4 @@ const categoryReducer = (state = initialState, action) => {
   }
 };
 
-export default categoryReducer;
+export default category;
