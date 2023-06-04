@@ -5,54 +5,76 @@ from sqlalchemy.sql import text
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        first_name = "Demo",
-        last_name = "User",
-        bio = "Demo is an innovative startup revolutionizing the world of product trials. Founded in 2022, Demo connects consumers with a diverse range of companies offering exclusive trial experiences for their latest products. By seamlessly bridging the gap between businesses and potential customers, Demo is reshaping the way people discover, experience, and provide feedback on cutting-edge innovations.",
+        first_name="Demo",
+        last_name="User",
+        bio="Demo is an innovative startup revolutionizing the world of product trials. Founded in 2022, Demo connects consumers with a diverse range of companies offering exclusive trial experiences for their latest products. By seamlessly bridging the gap between businesses and potential customers, Demo is reshaping the way people discover, experience, and provide feedback on cutting-edge innovations.",
         username='Demo',
         email='demo@aa.io',
         password='password',
-        city = "Tacoma",
-        state = "WA"
-        )
+        city="Tacoma",
+        state="WA"
+    )
     marnie = User(
-        first_name = "Mary",
-        last_name = "Nguyen",
-        bio = "Marnie, a visionary illustrator with an unmatched flair for storytelling, is on a mission to bring her imaginative creations to life through Kickstarter. With a portfolio brimming with whimsy and wonder, Marnie captivates audiences with her unique blend of vibrant colors and intricate details. Back Marnie's Kickstarter campaign to embark on a visual journey filled with enchanting characters, captivating narratives, and the magic of art.",
+        first_name="Mary",
+        last_name="Nguyen",
+        bio="Marnie, a visionary illustrator with an unmatched flair for storytelling, is on a mission to bring her imaginative creations to life through Kickstarter. With a portfolio brimming with whimsy and wonder, Marnie captivates audiences with her unique blend of vibrant colors and intricate details. Back Marnie's Kickstarter campaign to embark on a visual journey filled with enchanting characters, captivating narratives, and the magic of art.",
         username='marnie',
         email='marnie@aa.io',
         password='password',
-        city = "Albany",
-        state = "NY"
-        )
+        city="Albany",
+        state="NY"
+    )
     bobbie = User(
-        first_name = "Robert",
-        last_name = "Smith",
-        bio = "Bobbie, a visionary creator at the intersection of technology and design, is launching an exciting Kickstarter campaign to bring his innovative products to the world. With an unwavering commitment to both functionality and aesthetics, Bobbie's designs seamlessly integrate cutting-edge technology into sleek and intuitive devices. Join Bobbie's Kickstarter journey to support the birth of groundbreaking tech products that elevate the user experience and redefine what's possible in the realm of design and technology.",
+        first_name="Robert",
+        last_name="Smith",
+        bio="Bobbie, a visionary creator at the intersection of technology and design, is launching an exciting Kickstarter campaign to bring his innovative products to the world. With an unwavering commitment to both functionality and aesthetics, Bobbie's designs seamlessly integrate cutting-edge technology into sleek and intuitive devices. Join Bobbie's Kickstarter journey to support the birth of groundbreaking tech products that elevate the user experience and redefine what's possible in the realm of design and technology.",
         username='bobbie',
         email='bobbie@aa.io',
         password='password',
-        city = "Chicago",
-        state = "IL"
-        )
+        city="Chicago",
+        state="IL"
+    )
     penelope = User(
-        first_name = "Penelope",
-        last_name = "Frankel",
-        bio = "Penelope Frankel is a passionate and talented artist based in the vibrant city of Seattle. With a deep love for creativity and an unwavering dedication to her craft, Penelope has embarked on a mission to bring her unique artistic visions to life through several exciting Kickstarter campaigns.Drawing inspiration from the beautiful landscapes of the Pacific Northwest, Penelope's art captures the essence of nature and the human experience. Her captivating works blend elements of realism and abstract expressionism, resulting in thought-provoking pieces that evoke a wide range of emotions. Driven by a desire to connect with her audience on a profound level, Penelope utilizes various mediums, including painting, sculpture, and mixed media, to push the boundaries of artistic expression.",
+        first_name="Penelope",
+        last_name="Frankel",
+        bio="Penelope Frankel is a passionate and talented artist based in the vibrant city of Seattle. With a deep love for creativity and an unwavering dedication to her craft, Penelope has embarked on a mission to bring her unique artistic visions to life through several exciting Kickstarter campaigns.Drawing inspiration from the beautiful landscapes of the Pacific Northwest, Penelope's art captures the essence of nature and the human experience. Her captivating works blend elements of realism and abstract expressionism, resulting in thought-provoking pieces that evoke a wide range of emotions. Driven by a desire to connect with her audience on a profound level, Penelope utilizes various mediums, including painting, sculpture, and mixed media, to push the boundaries of artistic expression.",
         username='penelope',
         email='penelope@aa.io',
         password='password',
-        city = "Seattle",
-        state = "WA"
+        city="Seattle",
+        state="WA"
     )
     sylvester = User(
-        first_name = "Sylvester",
-        last_name = "McKinney",
-        bio = "By launching multiple Kickstarter campaigns, Sylvester is likely seeking funding for various artistic endeavors or projects. Kickstarter allows artists to showcase their work, set funding goals, and offer rewards to backers who pledge money towards the campaigns. It's an excellent way for artists to gain financial support, generate buzz for their projects, and engage with their audience.",
+        first_name="Sylvester",
+        last_name="McKinney",
+        bio="By launching multiple Kickstarter campaigns, Sylvester is likely seeking funding for various artistic endeavors or projects. Kickstarter allows artists to showcase their work, set funding goals, and offer rewards to backers who pledge money towards the campaigns. It's an excellent way for artists to gain financial support, generate buzz for their projects, and engage with their audience.",
         username='sylvester',
         email='sylvester@aa.io',
         password='password',
-        city = "Atlanta",
-        state = "GA"
+        city="Atlanta",
+        state="GA"
+    )
+
+    user6 = User(
+        first_name="Mikhail",
+        last_name="Bulgakov",
+        bio="I am here to find support for a number of different projects ranging from tech and design to film. I have successfully had several projects funded in the past and hope to find more success. Thank you in advance for all your support!",
+        username='MikBoi666',
+        email='Mikhail@cbp.com',
+        password='password',
+        city="New York City",
+        state="NY"
+    )
+
+    user7 = User(
+        first_name="Nikolai",
+        last_name="Gogol",
+        bio="Hello! My name is Nikolai and I am from Chicago, IL. I have recently launched several campaigns on Kickstarter looking for support for my tech, dsign, and film projects. I thank you in advance for your support!",
+        username='GoGoGogol',
+        email='Gogol@cbp.com',
+        password='password',
+        city="Chicago",
+        state="IL"
     )
 
     db.session.add(demo)
@@ -60,6 +82,8 @@ def seed_users():
     db.session.add(bobbie)
     db.session.add(penelope)
     db.session.add(sylvester)
+    db.session.add(user6)
+    db.session.add(user7)
     db.session.commit()
 
 
@@ -71,7 +95,8 @@ def seed_users():
 # it will reset the primary keys for you as well.
 def undo_users():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(
+            f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM users"))
 
