@@ -34,7 +34,7 @@ def seed_users():
         city="Chicago",
         state="IL"
     )
-    penelope = User(
+    user4 = User(
         first_name="Penelope",
         last_name="Frankel",
         bio="Penelope Frankel is a passionate and talented artist based in the vibrant city of Seattle. With a deep love for creativity and an unwavering dedication to her craft, Penelope has embarked on a mission to bring her unique artistic visions to life through several exciting Kickstarter campaigns.Drawing inspiration from the beautiful landscapes of the Pacific Northwest, Penelope's art captures the essence of nature and the human experience. Her captivating works blend elements of realism and abstract expressionism, resulting in thought-provoking pieces that evoke a wide range of emotions. Driven by a desire to connect with her audience on a profound level, Penelope utilizes various mediums, including painting, sculpture, and mixed media, to push the boundaries of artistic expression.",
@@ -44,7 +44,7 @@ def seed_users():
         city="Seattle",
         state="WA"
     )
-    sylvester = User(
+    user5 = User(
         first_name="Sylvester",
         last_name="McKinney",
         bio="By launching multiple Kickstarter campaigns, Sylvester is likely seeking funding for various artistic endeavors or projects. Kickstarter allows artists to showcase their work, set funding goals, and offer rewards to backers who pledge money towards the campaigns. It's an excellent way for artists to gain financial support, generate buzz for their projects, and engage with their audience.",
@@ -77,13 +77,78 @@ def seed_users():
         state="IL"
     )
 
+    user8 = User(
+        first_name = "Frankly",
+        last_name = "Delicious",
+        bio = "Frankly Delicious is an exceptional company merging the worlds of gastronomy and gaming with their mouthwatering creations. With a passion for crafting delectable treats and immersive gaming experiences, they are launching an exciting Kickstarter campaign to introduce their unique line of food and game products. Back Frankly Delicious on Kickstarter to savor the blend of tantalizing flavors and thrilling adventures, as they redefine the way we indulge in both gastronomy and gaming.",
+        username='frankly',
+        email='frankly@email.io',
+        password='password',
+        city = "Seattle",
+        state = "WA"
+)
+
+    user9 = User(
+        first_name = "Innovators",
+        last_name = "LLC",
+        bio = "Innovators, a trailblazing company at the forefront of culinary and gaming innovation, is set to revolutionize the way we experience food and entertainment through their captivating creations. With a relentless drive to push boundaries, Innovators is launching an exhilarating Kickstarter campaign to introduce their groundbreaking line of food and game products. Embrace the fusion of tantalizing flavors and immersive gameplay by supporting Innovators on Kickstarter, and join them on their mission to redefine the boundaries of culinary and gaming experiences.",
+        username='innovators',
+        email='innovators@email.io',
+        password='password',
+        city = "Boston",
+        state = "MA"
+)
+    user10 =
+
+    user11 =
+
+    jen = User(
+        first_name = "Jen",
+        last_name = "Samuel",
+        bio = "Interested in tech products",
+        username='jen',
+        email='jen@email.io',
+        password='password',
+        city = "Tuscon",
+        state = "AZ"
+)
+
+    alan = User(
+        first_name = "Alan",
+        last_name = "Branden",
+        bio = "Interested in gaming projects",
+        username='alan',
+        email='alan@email.io',
+        password='password',
+        city = "Milwaukee",
+        state = "WI"
+)
+
+    charlie = User(
+        first_name = "Charlie",
+        last_name = "Kayson",
+        bio = "Interested in design projects",
+        username='charlie',
+        email='charlie@email.io',
+        password='password',
+        city = "Las Vegas",
+        state = "NV"
+)
+
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
-    db.session.add(penelope)
-    db.session.add(sylvester)
+    db.session.add(user4)
+    db.session.add(user5)
     db.session.add(user6)
     db.session.add(user7)
+    db.session.add(user8)
+    db.session.add(user9)
+    db.session.add(user10)
+    db.session.add(user11)
+    db.session.add(jen)
+    db.session.add(charlie)
+    db.session.add(alan)
     db.session.commit()
 
 
