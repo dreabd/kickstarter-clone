@@ -8,9 +8,8 @@ class Funding(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    project_id = db.Column(db.Integer, db.ForeignKey(
-        'projects.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('projects.id')), nullable=False)
     amount_donated = db.Column(db.Integer, nullable=False)
 
     user = db.relationship('User', back_populates='funding')
