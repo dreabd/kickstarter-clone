@@ -20,7 +20,7 @@ const postNewProject = (project) =>{
 
 // ---------- THUNKS ----------
 export const getAllProjectsThunk = () => async(dispatch) =>{
-  const res = await fetch('api/projects')
+  const res = await fetch('/api/projects')
   if(res.ok){
     const{ projects } = await res.json()
     dispatch(getAllProjects(projects))
@@ -34,7 +34,7 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
   const body = {
     project_name: newProject.projectName,
     description:newProject.description,
-    category: newProject.category,
+    category_id: newProject.category_id,
     money_goal: newProject.moneyGoal,
     city: newProject.city,
     state: newProject.state,
@@ -45,12 +45,14 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
     reward_amount: newProject.rewardAmount,
     reward_description: newProject.rewardDescription,
   }
+  console.log("I am above the fetch call in the thunk",body)
 
-  const res = await fetch('api/projects',{
+  const res = await fetch('/api/projects/new/',{
     method:"POST",
     headers: {"Content-Type": "application/json",},
     body: body
   })
+  console.log("I am the response",res)
 
   if (res.ok){
     const { project }= await res.json()

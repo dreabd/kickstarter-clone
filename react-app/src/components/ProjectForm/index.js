@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postNewProjectThunk } from '../../store/projects';
+import { getCategoriesThunk } from '../../store/categoryReducer';
 
 function CreateProjectForm() {
 
@@ -12,7 +13,11 @@ function CreateProjectForm() {
     //useSelectors
     // const sessionUser = useSelector(state => state.session.user);
     const categories = useSelector(state => state.category.categories);
-    const categoryArray = Object.values(categories);
+    // const categoryArray = Object.values(categories);
+
+    useEffect(()=>{
+        dispatch(getCategoriesThunk())
+    },[dispatch])
 
     // const userId = sessionUser.id
 
@@ -59,7 +64,7 @@ function CreateProjectForm() {
         if(city.length < 1) newErrors['city'] = "City is required!"
         if(state.length < 1) newErrors['state'] = "State is required!"
         if(story.length < 1) newErrors['story'] = "Story is required!"
-        if(projectImage.length < 1) newErrors['ProjectImage'] = "Project Image is required!"
+        // if(projectImage.length < 1) newErrors['ProjectImage'] = "Project Image is required!"
         if(endDate == "YYYY-MM-DD") newErrors['endDate'] = "Project End Date is required!"
         // if(rewardName.length < 1) newErrors['rewardName'] = "Reward Name is required!"
         // if(rewardAmount < 1) newErrors['rewardAmount'] = "Reward Amount is required!"
@@ -83,7 +88,7 @@ function CreateProjectForm() {
             setRewardAmount(0);
             setRewardDescription('');
 
-            history.push(`/projects/${newProject.id}`)
+            history.push(`/projects`)
         }
 
     }
@@ -116,9 +121,9 @@ function CreateProjectForm() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}>
                     <option default>Select</option>
-                    {categoryArray.map(category => (
+                    {categories && Object.values(categories).map(category => (
                         <option key={category} value={category.id}>
-                            {category.name}
+                            {category.type}
                         </option>
                     ))}
                     </select>
@@ -162,10 +167,11 @@ function CreateProjectForm() {
                 <label>
                     Project Image <span className='errors'>{errors.projectImage}</span>
                     <input
-                    type='text'
+                    type='file'
+                    accept='image/*'
                     value={projectImage}
                     placeholder='Project Image'
-                    onChange={(e) => setProjectImage(e.target.value)}
+                    onChange={(e) => setProjectImage(e.target.files[0])}
                     />
                 </label>
                 <label>
