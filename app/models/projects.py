@@ -34,9 +34,7 @@ class Project(db.Model):
           "id":self.id,
           "project_name":self.project_name,
           "description":self.description,
-          "category_id":self.category_id,
           "money_goal":self.money_goal,
-          "user_id":self.user_id,
           "city":self.city,
           "state":self.state,
           "story":self.story,
@@ -46,4 +44,8 @@ class Project(db.Model):
           "reward_name":self.reward_name,
           "reward_amount":self.reward_amount,
           "reward_description":self.reward_description,
+          "owner": self.user.to_dict(),
+          "category":self.category.to_dict(),
+        #   "comments":self.comments.to_dict(),
+        #   "funding":self.funding.to_dict(),
       }

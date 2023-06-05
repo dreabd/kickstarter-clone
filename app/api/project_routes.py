@@ -10,17 +10,5 @@ def get_all_projects():
     Should return a JSON obj for the fronted to catch
     '''
     projects = Project.query.all()
-    response = []
-
-    for project in projects:
-        owner = project.user
-        category = project.category
-        project = project.to_dict()
-        project["owner"] = owner.to_dict()
-        project["category"] = category.to_dict()
-        response.append(project)
-
-    # response = [project.to_dict() for project in projects]
+    response = [project.to_dict() for project in projects]
     return { "projects" : response}
-
-
