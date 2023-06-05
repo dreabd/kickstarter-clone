@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import Categories from "./components/Categories";
+import CreateProjectForm from "./components/ProjectForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/categories">
             <Categories />
+          </Route>
+          <Route exact path="/projects/new">
+            <CreateProjectForm />
           </Route>
         </Switch>
       )}
