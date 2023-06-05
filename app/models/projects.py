@@ -46,6 +46,6 @@ class Project(db.Model):
           "reward_description":self.reward_description,
           "owner": self.user.to_dict(),
           "category":self.category.to_dict(),
-        #   "comments":self.comments.to_dict(),
-        #   "funding":self.funding.to_dict(),
+          "comments":self.comments.to_dict(),
+          "funding":self.funding.to_dict(),
       }
