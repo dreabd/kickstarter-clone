@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import postNewProjectThunk from //////////////////////////////////////////////////
-
+import { postNewProjectThunk } from '../../store/projects';
 
 function CreateProjectForm() {
 
