@@ -31,6 +31,7 @@ def post_new_project():
     form['csrf_token'].data = request.cookies['csrf_token']
     print('form...............', {form})
     # if current_user:
+    print('for.errors....................', form.errors)
     if form.errors:
         print("There were some form errors", form.errors)
         return form.errors

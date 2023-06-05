@@ -51,7 +51,7 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
     const res = await fetch('/api/projects/new',{
       method:"POST",
       headers: {"Content-Type": "application/json",},
-      body: body
+      body: JSON.stringify(body)
     })
     console.log("I am the response",res)
 
