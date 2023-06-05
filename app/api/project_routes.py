@@ -36,9 +36,7 @@ def post_new_project():
     form['csrf_token'].data = request.cookies['csrf_token']
     print('form...............', {form})
     # if current_user:
-    if form.errors:
-        print("There were some form errors", form.errors)
-        return form.errors
+    print('for.errors....................', form.errors)
 
     if form.validate_on_submit():
         data = form.data
@@ -74,6 +72,10 @@ def post_new_project():
         db.session.commit()
         print("This is your new Project", new_project)
         return {"project": new_project.to_dict()}
+
+    if form.errors:
+        print("There were some form errors", form.errors)
+        return form.errors
 
 
 @project_routes.route('/')

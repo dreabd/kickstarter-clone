@@ -74,6 +74,7 @@ function CreateProjectForm() {
 
         if(!Object.keys(newErrors).length) {
             const newProject = await dispatch(postNewProjectThunk(form))
+            console.log('returned errrrrors............', newProject)
 
             setProjectName('');
             setDescription('');

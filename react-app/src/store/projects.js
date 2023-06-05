@@ -82,6 +82,7 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
     }
   } catch (e) {
     console.log('catch.........................', e)
+    return e
   }
 
 }
