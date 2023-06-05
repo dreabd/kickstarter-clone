@@ -2,12 +2,19 @@ import { normalizeObj } from './helpers';
 
 // ------------ TYPE VARIABLES ------------
 const GET_ALL_PROJECTS = 'projects/getAllProjects'
+const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) =>{
   return{
     type: GET_ALL_PROJECTS,
     projects
+  }
+}
+const getSingleProject = (project) =>{
+  return{
+    type: GET_SINGLE_PROJECT,
+    project
   }
 }
 const postNewProject = (project) =>{
@@ -27,6 +34,19 @@ export const getAllProjectsThunk = () => async(dispatch) =>{
     return
   } else{
     console.log("Problem with loading all projects")
+  }
+}
+
+export const getSingleProjectThunk = (id) => async(dispatch) =>{
+  console.log("this is the id",id)
+  const res = await fetch(`/api/projects/${id}`)
+  if(res.ok){
+    const{ single_project } = await res.json()
+    dispatch(getSingleProject(single_project))
+    return
+  } else{
+    const { errors } = await res.json()
+    return errors
   }
 }
 
@@ -51,7 +71,7 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
     const res = await fetch('/api/projects/new',{
       method:"POST",
       headers: {"Content-Type": "application/json",},
-      body: body
+      body: JSON.stringify(body)
     })
     console.log("I am the response",res)
 
@@ -66,15 +86,17 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
 
 }
 // --------- INITIAL STATE -------------
-const initialState = {allProjects:{},oneProject:{}}
+const initialState = {allProjects:{},singleProject:{}}
 // ---------- REDUCER ----------
 const projectReducer = (state =initialState,action) =>{
 
   switch(action.type){
     case GET_ALL_PROJECTS:
       return {...state,allProjects:{...normalizeObj(action.projects)}}
+    case GET_SINGLE_PROJECT:
+      return {...state,singleProject:{...action.project}}
     case POST_NEW_PROJECT:
-      return {...state,oneProject:{...normalizeObj(action.project)}}
+      return {...state,singleProject:{...normalizeObj(action.project)}}
     default:
       return state
   }
