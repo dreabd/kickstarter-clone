@@ -1,4 +1,4 @@
-from app.models import Project,User, Category,db
+from app.models import Project, User, Category, db
 from flask import Blueprint, jsonify, session, request
 from ..forms.project_form import ProjectForm
 
@@ -9,7 +9,6 @@ from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_fro
 project_routes = Blueprint('projects', __name__)
 
 
-
 @project_routes.route('/<int:id>')
 def get_single_project(id):
     '''
@@ -18,9 +17,10 @@ def get_single_project(id):
     single_project = Project.query.get(id)
     response = single_project.to_dict()
 
-    return { "single_project" : response}
+    return {"single_project": response}
 
-@project_routes.route("/new",methods=["POST"])
+
+@project_routes.route("/new", methods=["POST"])
 # @login_required
 def post_new_project():
     '''
@@ -29,10 +29,10 @@ def post_new_project():
     print("I am in the backend post")
     form = ProjectForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print('form...............', {form})
     # if current_user:
     if form.errors:
-        print("There were some form errors",form.errors)
+        print("There were some form errors", form.errors)
         return form.errors
 
     if form.validate_on_submit():
@@ -51,24 +51,25 @@ def post_new_project():
             return upload["errors"]
 
         new_project = Project(
-            project_name = data["project_name"],
-            description = data["description"],
-            category_id = data['category_id'],
-            money_goal = data["money_goal"],
-            user_id = 1,
-            city = data["city"],
-            state = data["state"],
-            story = data["story"],
-            project_image = upload["url"],
-            end_date = data["end_date"],
-            reward_name = data["reward_name"],
-            reward_amount = data["reward_amount"],
-            reward_description = data["reward_description"],
-            )
+            project_name=data["project_name"],
+            description=data["description"],
+            category_id=data['category_id'],
+            money_goal=data["money_goal"],
+            user_id=1,
+            city=data["city"],
+            state=data["state"],
+            story=data["story"],
+            project_image=upload["url"],
+            end_date=data["end_date"],
+            reward_name=data["reward_name"],
+            reward_amount=data["reward_amount"],
+            reward_description=data["reward_description"],
+        )
         db.session.add(new_project)
         db.session.commit()
         print("This is your new Project", new_project)
-        return {"project":new_project.to_dict()}
+        return {"project": new_project.to_dict()}
+
 
 @project_routes.route('/')
 def get_all_projects():
@@ -78,4 +79,4 @@ def get_all_projects():
     '''
     projects = Project.query.all()
     response = [project.to_dict() for project in projects]
-    return { "projects" : response}
+    return {"projects": response}

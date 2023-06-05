@@ -122,7 +122,7 @@ function CreateProjectForm() {
                     onChange={(e) => setCategory(e.target.value)}>
                     <option default>Select</option>
                     {categories && Object.values(categories).map(category => (
-                        <option key={category} value={category.id}>
+                        <option key={category.id} value={category.id}>
                             {category.type}
                         </option>
                     ))}

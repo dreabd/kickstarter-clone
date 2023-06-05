@@ -47,18 +47,23 @@ export const postNewProjectThunk = (newProject) => async(dispatch) =>{
   }
   console.log("I am above the fetch call in the thunk",body)
 
-  const res = await fetch('/api/projects/new/',{
-    method:"POST",
-    headers: {"Content-Type": "application/json",},
-    body: body
-  })
-  console.log("I am the response",res)
+  try{
+    const res = await fetch('/api/projects/new',{
+      method:"POST",
+      headers: {"Content-Type": "application/json",},
+      body: body
+    })
+    console.log("I am the response",res)
 
-  if (res.ok){
-    const { project }= await res.json()
-    console.log("New reward data")
-    dispatch(postNewProject(project))
+    if (res.ok){
+      const { project }= await res.json()
+      console.log("New reward data")
+      dispatch(postNewProject(project))
+    }
+  } catch (e) {
+    console.log('catch.........................', e)
   }
+
 }
 // --------- INITIAL STATE -------------
 const initialState = {allProjects:{},oneProject:{}}
