@@ -19,6 +19,7 @@ class User(db.Model, UserMixin):
     city = db.Column(db.String(255), nullable=False)
     state = db.Column(db.String(255), nullable=False)
 
+    project = db.relationship('Project', back_populates='user')
     funding = db.relationship('Funding', back_populates='user')
     comments = db.relationship('Comment', back_populates='user')
 

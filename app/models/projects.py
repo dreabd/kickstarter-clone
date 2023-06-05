@@ -24,6 +24,7 @@ class Project(db.Model):
     reward_amount = db.Column(db.Integer)
     reward_description = db.Column(db.Text)
 
+    user = db.relationship("User",back_populates="project")
     category = db.relationship("Category",back_populates="project")
     funding = db.relationship("Funding",back_populates="project")
     comments = db.relationship("Comment",back_populates="project")
@@ -36,7 +37,8 @@ class Project(db.Model):
           "category_id":self.category_id,
           "money_goal":self.money_goal,
           "user_id":self.user_id,
-          "location":self.location,
+          "city":self.city,
+          "state":self.state,
           "story":self.story,
           "project_image":self.project_image,
           "end_date":self.end_date,

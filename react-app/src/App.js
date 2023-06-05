@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import LandingPage from "./components/LandingPage";
 import Categories from "./components/Categories";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <LandingPage></LandingPage>
     </>
   );
 }
