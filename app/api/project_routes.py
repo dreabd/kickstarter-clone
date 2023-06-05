@@ -12,3 +12,4 @@ def get_all_projects():
     projects = Project.query.all()
     response = [project.to_dict() for project in projects]
     return { "projects" : response}
+
