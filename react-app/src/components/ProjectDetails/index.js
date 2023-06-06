@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getSingleProjectThunk } from "../../store/projects";
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
+import CommentComponent from "../Comments";
 
 
 
@@ -37,7 +38,7 @@ const ProjectDetails = () =>{
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
         <button> Back This Project!</button>
       </div>
-
+      <CommentComponent />
       <div>
         <p>{singleProject.story}</p>
       </div>

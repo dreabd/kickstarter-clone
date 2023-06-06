@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from datetime import date
 
 
 class Comment(db.Model):
@@ -8,9 +9,12 @@ class Comment(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('projects.id')), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('users.id')), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey(
+        add_prefix_for_prod('projects.id')), nullable=False)
     comment = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.Date, nullable=False, default=date.today())
 
     user = db.relationship('User', back_populates='comments')
     project = db.relationship('Project', back_populates='comments')
