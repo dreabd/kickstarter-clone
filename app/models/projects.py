@@ -27,17 +27,12 @@ class Project(db.Model):
     reward_amount = db.Column(db.Integer)
     reward_description = db.Column(db.Text)
 
-<<<<<<< HEAD
-    user = db.relationship("User",back_populates="project")
-    category = db.relationship("Category",back_populates="project")
-    funding = db.relationship("Funding",back_populates="project",cascade="all, delete")
-    comments = db.relationship("Comment",back_populates="project",cascade="all, delete")
-=======
     user = db.relationship("User", back_populates="project")
     category = db.relationship("Category", back_populates="project")
-    funding = db.relationship("Funding", back_populates="project")
-    comments = db.relationship("Comment", back_populates="project")
->>>>>>> Comments-Componanananant
+    funding = db.relationship(
+        "Funding", back_populates="project", cascade="all, delete")
+    comments = db.relationship(
+        "Comment", back_populates="project", cascade="all, delete")
 
     def to_dict(self):
         return {
