@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import Categories from "./components/Categories";
 import CreateProjectForm from "./components/ProjectForm";
+import ProjectDetails from "./components/ProjectDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,12 +31,20 @@ function App() {
           <Route exact path="/categories">
             <Categories />
           </Route>
-          <Route exact path="/projects/new">
-            <CreateProjectForm />
-          </Route>
+
         </Switch>
       )}
-      <LandingPage></LandingPage>
+      <Switch>
+        <Route exact path = "/">
+          <LandingPage />
+        </Route>
+        <Route exact path ="/projects/new">
+          <CreateProjectForm />
+        </Route>
+        <Route exact path ="/projects/:projectId">
+          <ProjectDetails />
+        </Route>
+      </Switch>
     </>
   );
 }
