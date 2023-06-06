@@ -144,27 +144,6 @@ export const postCommentThunk = (form) => async (dispatch) => {
   }
 }
 
-export const postCommentThunk = (form) => async (dispatch) => {
-  // console.log('form inside of the thunk.................',form)
-  // console.log('JSONIFIED form inside of the thunk.................',JSON.stringify(form))
-  const res = await fetch('/api/projects/comments/new', {
-    method: "POST",
-    headers: { "Content-Type": "application/json", },
-    body: JSON.stringify(form)
-  })
-  // console.log('res after returning from backend..........', res)
-  if (res.ok) {
-    const response = await res.json()
-    // console.log("New comment added")
-    dispatch(postNewComment(response))
-    return response
-  } else {
-    const response = await res.json()
-    return {
-      errors: { ...response }
-    }
-  }
-}
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects:{}}
 // ---------- REDUCER ----------
@@ -190,10 +169,10 @@ const projectReducer = (state = initialState, action) => {
       // console.log('newState after updating redux store before return.............', newState)
       return newState
     case DELETE_SINGLE_PROJECT:
-      let newState = {...state}
-      delete newState.allProjects[action.projectId]
-      delete newState.userProjects[action.projectId]
-      return newState
+      let newDeleteState = {...state}
+      delete newDeleteState.allProjects[action.projectId]
+      delete newDeleteState.userProjects[action.projectId]
+      return newDeleteState
     default:
       return state
   }
