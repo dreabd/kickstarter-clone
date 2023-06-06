@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
+// import { postCommentThunk } from "../../store/projects";
 
 function CommentComponent() {
 
@@ -33,7 +34,7 @@ function CommentComponent() {
         setErrors(newErrors);
 
         if (!Object.keys(newErrors).length) {
-            const newComment = await dispatch(/*THUNK GO HERE....*/(form))
+            const newComment = await dispatch(postCommentThunk(form))
         }
 
     }

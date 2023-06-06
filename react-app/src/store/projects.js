@@ -4,6 +4,7 @@ import { normalizeObj } from './helpers';
 const GET_ALL_PROJECTS = 'projects/getAllProjects'
 const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
+const POST_NEW_COMMENT = 'projects/postNewComment'
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) => {
   return {
@@ -21,6 +22,12 @@ const postNewProject = (project) => {
   return {
     type: POST_NEW_PROJECT,
     project
+  }
+}
+const postNewComment = (comment) => {
+  return {
+    type: POST_NEW_COMMENT,
+    comment
   }
 }
 
@@ -93,6 +100,25 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
   }
 
 }
+
+export const postCommentThunk = (form) => async (dispatch) => {
+  const res = await fetch('/api/comments/new', {
+    method: "POST",
+    headers: { "Content-Type": "application/json", },
+    body: JSON.stringify(form)
+  })
+  if (res.ok) {
+    const response = await res.json()
+    console.log("New comment added")
+    dispatch(postNewComment(response.project))
+    return response.project
+  } else {
+    const response = await res.json()
+    return {
+      errors: { ...response }
+    }
+  }
+}
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {} }
 // ---------- REDUCER ----------
@@ -105,6 +131,8 @@ const projectReducer = (state = initialState, action) => {
       return { ...state, singleProject: { ...action.project } }
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
+    case POST_NEW_COMMENT:
+      return //do the stuff here. make it work....
     default:
       return state
   }
