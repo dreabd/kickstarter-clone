@@ -1,6 +1,7 @@
-from app.models import Project, User, Category, db
+from app.models import Project, User, Category, Comment, db
 from flask import Blueprint, jsonify, session, request
 from ..forms.project_form import ProjectForm
+from ..forms.comment_form import CommentForm
 
 from flask_login import current_user, login_user, logout_user, login_required
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
@@ -127,3 +128,33 @@ def get_all_projects():
     projects = Project.query.all()
     response = [project.to_dict() for project in projects]
     return {"projects": response}
+
+
+@project_routes.route("/comments/new", methods=["POST"])
+# @login_required
+def post_new_comment():
+    """
+    Posts form data from the frontend into the comments table.
+    Should return a JSON obj for the fronted to catch
+    """
+    # print('entered the backend.................')
+    form = CommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        data = form.data
+        # print('passed form validators.................')
+        newComment = Comment(
+            user_id=data['user_id'],
+            project_id=data['project_id'],
+            comment=data['comment']
+        )
+
+        db.session.add(newComment)
+        db.session.commit()
+        # print("This is your new comment.................", newComment)
+        return newComment.to_dict()
+
+    if form.errors:
+        print("There were some form errors", form.errors)
+        return form.errors, 400

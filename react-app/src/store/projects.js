@@ -4,6 +4,7 @@ import { normalizeObj } from './helpers';
 const GET_ALL_PROJECTS = 'projects/getAllProjects'
 const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
+const POST_NEW_COMMENT = 'projects/postNewComment'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
 // ---------- ACTION CREATORS ----------
@@ -23,6 +24,12 @@ const postNewProject = (project) => {
   return {
     type: POST_NEW_PROJECT,
     project
+  }
+}
+const postNewComment = (comment) => {
+  return {
+    type: POST_NEW_COMMENT,
+    comment
   }
 }
 const getCurrentProject = (projects) => {
@@ -114,6 +121,50 @@ export const deleteSingleProjectThunk = (projectId) => async (dispatch) =>{
     dispatch(deleteSingleProject(projectId))
   }
 }
+
+export const postCommentThunk = (form) => async (dispatch) => {
+  // console.log('form inside of the thunk.................',form)
+  // console.log('JSONIFIED form inside of the thunk.................',JSON.stringify(form))
+  const res = await fetch('/api/projects/comments/new', {
+    method: "POST",
+    headers: { "Content-Type": "application/json", },
+    body: JSON.stringify(form)
+  })
+  // console.log('res after returning from backend..........', res)
+  if (res.ok) {
+    const response = await res.json()
+    // console.log("New comment added")
+    dispatch(postNewComment(response))
+    return response
+  } else {
+    const response = await res.json()
+    return {
+      errors: { ...response }
+    }
+  }
+}
+
+export const postCommentThunk = (form) => async (dispatch) => {
+  // console.log('form inside of the thunk.................',form)
+  // console.log('JSONIFIED form inside of the thunk.................',JSON.stringify(form))
+  const res = await fetch('/api/projects/comments/new', {
+    method: "POST",
+    headers: { "Content-Type": "application/json", },
+    body: JSON.stringify(form)
+  })
+  // console.log('res after returning from backend..........', res)
+  if (res.ok) {
+    const response = await res.json()
+    // console.log("New comment added")
+    dispatch(postNewComment(response))
+    return response
+  } else {
+    const response = await res.json()
+    return {
+      errors: { ...response }
+    }
+  }
+}
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects:{}}
 // ---------- REDUCER ----------
@@ -128,6 +179,16 @@ const projectReducer = (state = initialState, action) => {
       return{...state,userProjects:{...normalizeObj(action.projects)}}
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
+    case POST_NEW_COMMENT:
+      // console.log('comment entered the reducer..............', action.comment)
+      let newState =  { ...state, singleProject:{ ...state.singleProject }}
+      if(!newState.singleProject.comments) {
+        newState.singleProject.comments = [action.comment]
+      } else if (newState.singleProject.comments) {
+        newState.singleProject.comments.push(action.comment)
+      }
+      // console.log('newState after updating redux store before return.............', newState)
+      return newState
     case DELETE_SINGLE_PROJECT:
       let newState = {...state}
       delete newState.allProjects[action.projectId]

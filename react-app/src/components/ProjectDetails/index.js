@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getSingleProjectThunk } from "../../store/projects";
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
+import CommentComponent from "../Comments";
 
 
 
@@ -13,9 +14,18 @@ const ProjectDetails = () =>{
 
   const singleProject = useSelector( state => state.project.singleProject)
 
+   //listen for user session
+   const sessionUser = useSelector(state => state.session.user);
+   let userId;
+   if(sessionUser) userId = sessionUser.id
+
   useEffect(()=>{
     dispatch(getSingleProjectThunk(projectId))
   },[dispatch, projectId])
+
+  const handleDelete = async () => {
+
+  }
 
   if (!singleProject){
     return null
@@ -37,7 +47,20 @@ const ProjectDetails = () =>{
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
         <button> Back This Project!</button>
       </div>
+      <CommentComponent id={projectId}/>
+      <div>
+        <ul>
+          {singleProject.comments?.map(comment => {
+            return (
+              <div>
+                <li key={comment.id}>{comment.comment}</li>
+                {userId === comment.user_id ? <button onClick={handleDelete}>Delete</button> : null}
+              </div>
 
+            )
+          })}
+        </ul>
+      </div>
       <div>
         <p>{singleProject.story}</p>
       </div>
