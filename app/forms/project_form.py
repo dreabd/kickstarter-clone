@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import (
     StringField,
     TextAreaField,
-    SelectField,
     IntegerField,
     DateField,
     TextAreaField,
@@ -12,12 +11,6 @@ from datetime import date
 
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from ..api.AWS_helpers import ALLOWED_EXTENSIONS
-
-from app.models import Category
-
-# category_choices = Category.query.all()
-# choices = [category.type for category in category_choices]
-
 
 def date_checker(form, field):
     form_date = field.data
@@ -30,12 +23,7 @@ class ProjectForm(FlaskForm):
     description = TextAreaField(
         "Project Name",
         validators=[
-            DataRequired(),
-            Length(
-                min=25,
-                max=255,
-                message="Description must be between 25 to 255 characters.",
-            ),
+            DataRequired()
         ],
     )
     category_id = IntegerField("Category ID", validators=[DataRequired()])
@@ -43,31 +31,27 @@ class ProjectForm(FlaskForm):
     money_goal = IntegerField(
         "Money Goal",
         validators=[
-            DataRequired(),
+            DataRequired()
         ],
     )
     city = StringField("City", validators=[DataRequired()])
     state = StringField(
         "State",
         validators=[
-            DataRequired(),
-            Length(
-                min=2,
-                max=2,
-                message="Please use the state's two character abbreviation.",
-            ),
+            DataRequired()
         ],
     )
     story = TextAreaField(
         "Story",
         validators=[
-            DataRequired(),
-            Length(min=200, message="Story must be at least 200 characters."),
+            DataRequired()
+            # Length(min=200, message="Story must be at least 200 characters."),
         ],
     )
-    # project_image = FileField("Image File", validators=[
-    #                           FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
-    project_image = FileField("Image File")
+    project_image = FileField(
+        "Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))]
+    )
+    # project_image = FileField("Image File")
     end_date = DateField("End Date", validators=[DataRequired(), date_checker])
     reward_name = StringField("Reward Name", validators=[DataRequired()])
     reward_amount = IntegerField("Reward Amount", validators=[DataRequired()])

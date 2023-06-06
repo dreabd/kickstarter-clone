@@ -5,7 +5,20 @@ import { postNewProjectThunk } from '../../store/projects';
 import { getCategoriesThunk } from '../../store/categoryReducer';
 
 function CreateProjectForm() {
-
+    //set up a bunch of state slices
+    const [projectName, setProjectName] = useState('');
+    const [description, setDescription] = useState('');
+    const [category, setCategory] = useState('');
+    const [moneyGoal, setMoneyGoal] = useState(0);
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [story, setStory] = useState('');
+    const [projectImage, setProjectImage] = useState('');
+    const [endDate, setEndDate] = useState('YYYY-MM-DD');//////////////
+    const [rewardName, setRewardName] = useState('');
+    const [rewardAmount, setRewardAmount] = useState(0);
+    const [rewardDescription, setRewardDescription] = useState('');
+    const [errors, setErrors] = useState({});
     //Intialize things
     const history = useHistory();
     const dispatch = useDispatch();
@@ -21,37 +34,22 @@ function CreateProjectForm() {
 
     // const userId = sessionUser.id
 
-    //set up a bunch of state slices
-    const [projectName, setProjectName] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [moneyGoal, setMoneyGoal] = useState(0);
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [story, setStory] = useState('');
-    const [projectImage, setProjectImage] = useState('');
-    const [endDate, setEndDate] = useState('YYYY-MM-DD');//////////////
-    const [rewardName, setRewardName] = useState('');
-    const [rewardAmount, setRewardAmount] = useState(0);
-    const [rewardDescription, setRewardDescription] = useState('');
-    const [errors, setErrors] = useState({});
-
-    //create form for transmital
-    const form = {
-        projectName,
-        description,
-        category,
-        moneyGoal,
-        city,
-        state,
-        story,
-        projectImage,
-        endDate,
-        rewardName,
-        rewardAmount,
-        rewardDescription,
-        //   userId
-    }
+    // //create form for transmital
+    // const form = {
+    //     projectName,
+    //     description,
+    //     category,
+    //     moneyGoal,
+    //     city,
+    //     state,
+    //     story,
+    //     projectImage,
+    //     endDate,
+    //     rewardName,
+    //     rewardAmount,
+    //     rewardDescription,
+    //     //   userId
+    // }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,10 +72,27 @@ function CreateProjectForm() {
         setErrors(newErrors);
 
         if (!Object.keys(newErrors).length) {
-            const newProject = await dispatch(postNewProjectThunk(form))
+            const formData = new FormData()
+            formData.append("project_name", projectName)
+            formData.append("description", description)
+            formData.append("category_id", category)
+            formData.append("money_goal", moneyGoal)
+            formData.append("city", city)
+            formData.append("state", state)
+            formData.append("story", story)
+            formData.append("project_image", projectImage)
+            formData.append("end_date", endDate)
+            formData.append("reward_name", rewardName)
+            formData.append("reward_amount", rewardAmount)
+            formData.append("reward_description", rewardDescription)
+            for (let key of formData.entries()) {
+                console.log(key[0]+ '---->' + key[1])
+            }
+
+            const newProject = await dispatch(postNewProjectThunk(formData))
             if ('errors' in newProject) {
                 // handle errors
-                console.log('returned errrrrors............', newProject)
+                console.log('returned backend errors happened here when making a new project............', newProject)
             } else {
                 console.log("Project successfully created")
                 setProjectName('');
@@ -93,7 +108,7 @@ function CreateProjectForm() {
                 setRewardAmount(0);
                 setRewardDescription('');
 
-                history.push(`/projects/${newProject.id}`)
+                // history.push(`/projects/${newProject.id}`)
             }
         }
 
@@ -175,10 +190,11 @@ function CreateProjectForm() {
                     <input
                         type='file'
                         accept='image/*'
-                        value={projectImage}
+                        // value={projectImage}
                         placeholder='Project Image'
                         onChange={(e) => {
-                            setProjectImage(e.target.value)
+                            console.log("e.target.files????", e.target.files)
+                            setProjectImage(e.target.files[0])
                         }}
                     />
                 </label>

@@ -9,19 +9,6 @@ from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_fro
 project_routes = Blueprint("projects", __name__)
 
 
-@project_routes.route("/<int:id>")
-def get_single_project(id):
-    """ """
-    single_project = Project.query.get(id)
-    print("project...................................", single_project)
-
-    if single_project is None:
-        return {"errors": "Project not Found"}
-
-    response = single_project.to_dict()
-    return {"single_project": response}
-
-
 @project_routes.route("/new", methods=["POST"])
 # @login_required
 def post_new_project():
@@ -31,20 +18,16 @@ def post_new_project():
     print("I am in the backend post")
     form = ProjectForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
-    print("form...............", {form})
+    print("form...............", form)
     # if current_user:
-    print("for.errors....................", form.errors)
 
     if form.validate_on_submit():
         data = form.data
 
         project_image = data["project_image"]
+        print("project image data from the backend route ", project_image)
         # project_image.filename = get_unique_filename(project_image)
         # upload = upload_file_to_s3(project_image)
-
-        # category = data["category"]
-        # category_id = Category.query.filter(Category.type == category).to_dict()
-        # print("I am the category id you SHOULD have selected",category_id["id"])
 
         # if "url" not in upload:
         #     print("Errors Occured in the AWS Upload", upload["errors"])
@@ -59,7 +42,7 @@ def post_new_project():
             description=data["description"],
             category_id=data["category_id"],
             money_goal=data["money_goal"],
-            user_id=1,
+            user_id=current_user.id,
             city=data["city"],
             state=data["state"],
             story=data["story"],
@@ -77,6 +60,19 @@ def post_new_project():
     if form.errors:
         print("There were some form errors", form.errors)
         return form.errors, 400
+
+
+@project_routes.route("/<int:id>")
+def get_single_project(id):
+    """ """
+    single_project = Project.query.get(id)
+    print("project...................................", single_project)
+
+    if single_project is None:
+        return {"errors": "Project not Found"}
+
+    response = single_project.to_dict()
+    return {"single_project": response}
 
 
 @project_routes.route("/")
