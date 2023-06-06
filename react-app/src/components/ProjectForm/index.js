@@ -37,7 +37,7 @@ function CreateProjectForm() {
     const [state, setState] = useState('');
     const [story, setStory] = useState('');
     const [projectImage, setProjectImage] = useState('');
-    const [endDate, setEndDate] = useState('2023-01-01');
+    const [endDate, setEndDate] = useState('2024-01-01');
     const [rewardName, setRewardName] = useState('');
     const [rewardAmount, setRewardAmount] = useState(0);
     const [rewardDescription, setRewardDescription] = useState('');
@@ -137,9 +137,9 @@ function CreateProjectForm() {
     if (!loggedIn) {
         return (
             <>
-                <h2>
+                <h3>
                     Please login or signup with Jumpstarter to create a project!
-                </h2>
+                </h3>
                 <OpenModalButton
                     buttonText="Log In"
                     modalComponent={<LoginFormModal />}

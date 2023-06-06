@@ -9,7 +9,8 @@ import LandingPage from "./components/LandingPage";
 import Categories from "./components/Categories";
 import CreateProjectForm from "./components/ProjectForm";
 import ProjectDetails from "./components/ProjectDetails";
-import ManageProject from "./components/MangeProjects";
+import ManageProject from "./components/ManageProjects";
+import EditProjectForm from "./components/EditProjectForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,19 +37,22 @@ function App() {
         </Switch>
       )}
       <Switch>
-        <Route exact path = "/">
+        <Route exact path="/">
           <LandingPage />
         </Route>
 
-        <Route exact path = "/current">
-          <ManageProject/>
+        <Route exact path="/current">
+          <ManageProject />
         </Route>
 
-        <Route exact path ="/projects/new">
+        <Route exact path="/projects/new">
           <CreateProjectForm />
         </Route>
-        <Route exact path ="/projects/:projectId">
+        <Route exact path="/projects/:projectId">
           <ProjectDetails />
+        </Route>
+        <Route exact path="/projects/:projectId/edit">
+          <EditProjectForm />
         </Route>
       </Switch>
     </>

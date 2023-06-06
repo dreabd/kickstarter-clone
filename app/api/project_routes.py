@@ -24,21 +24,6 @@ def get_current_user_project():
     return {"projects": res }
 
 
-
-
-@project_routes.route("/<int:id>")
-def get_single_project(id):
-    """ """
-    single_project = Project.query.get(id)
-    print("project...................................", single_project)
-
-    if single_project is None:
-        return {"errors": "Project not Found"}
-
-    response = single_project.to_dict()
-    return {"single_project": response}
-
-
 @project_routes.route("/new", methods=["POST"])
 @login_required
 def post_new_project():
