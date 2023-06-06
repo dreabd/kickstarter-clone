@@ -1,0 +1,24 @@
+.errors {
+    color: red;
+    font-size: 12px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+}
+
+.form>label {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.form>label>input {
+    margin-left: 10px;
+}
+
+.form>label>textarea {
+    margin-left: 10px;
+}

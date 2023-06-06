@@ -51,44 +51,30 @@ export const getSingleProjectThunk = (id) => async (dispatch) => {
 }
 
 export const postNewProjectThunk = (newProject) => async (dispatch) => {
-  console.log("New project", newProject)
-  const body = {
-    project_name: newProject.projectName,
-    description: newProject.description,
-    category_id: newProject.category,
-    money_goal: newProject.moneyGoal,
-    city: newProject.city,
-    state: newProject.state,
-    story: newProject.story,
-    project_image: newProject.projectImage,
-    end_date: newProject.endDate,
-    reward_name: newProject.rewardName,
-    reward_amount: newProject.rewardAmount,
-    reward_description: newProject.rewardDescription,
-  }
-  console.log("I am above the fetch call in the thunk", body)
-
   try {
+    console.log("Making post request to new project route")
     const res = await fetch('/api/projects/new', {
       method: "POST",
-      headers: { "Content-Type": "application/json", },
-      body: JSON.stringify(body)
+      body: newProject
     })
-    console.log("I am the response", res)
+    console.log("Post request", res)
 
     if (res.ok) {
+      console.log("Response OK")
       const response = await res.json()
-      console.log("New reward data")
+      console.log("Response data", response)
       dispatch(postNewProject(response.project))
       return response.project
     } else {
+      console.error("Response not OK. Status code:", res.status)
       const response = await res.json()
+      console.log("Response when res is not okay and there are errors:", response)
       return {
         errors: { ...response }
       }
     }
   } catch (e) {
-    console.log('catch.........................', e)
+    console.error('Error caught in postNewProjectThunk', e)
     return e
   }
 

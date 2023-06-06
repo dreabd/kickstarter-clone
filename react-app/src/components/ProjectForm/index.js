@@ -3,24 +3,28 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postNewProjectThunk } from '../../store/projects';
 import { getCategoriesThunk } from '../../store/categoryReducer';
+import './ProjectFormStyles.css'
+
+//this is used to convert the backend errors into a format that the frontend can use
+const caseHelper = (backendstring) => {
+    const backendToFrontend = {
+        project_name: "projectName",
+        description: "description",
+        category_id: "category",
+        money_goal: "moneyGoal",
+        city: "city",
+        state: "state",
+        story: "story",
+        project_image: "projectImage",
+        end_date: "endDate",
+        reward_name: "rewardName",
+        reward_amount: "rewardAmount",
+        reward_description: "rewardDescription"
+    };
+    return backendToFrontend[backendstring]
+}
 
 function CreateProjectForm() {
-
-    //Intialize things
-    const history = useHistory();
-    const dispatch = useDispatch();
-
-    //useSelectors
-    // const sessionUser = useSelector(state => state.session.user);
-    const categories = useSelector(state => state.category.categories);
-    // const categoryArray = Object.values(categories);
-
-    useEffect(() => {
-        dispatch(getCategoriesThunk())
-    }, [dispatch])
-
-    // const userId = sessionUser.id
-
     //set up a bunch of state slices
     const [projectName, setProjectName] = useState('');
     const [description, setDescription] = useState('');
@@ -30,56 +34,83 @@ function CreateProjectForm() {
     const [state, setState] = useState('');
     const [story, setStory] = useState('');
     const [projectImage, setProjectImage] = useState('');
-    const [endDate, setEndDate] = useState('YYYY-MM-DD');//////////////
+    const [endDate, setEndDate] = useState('2023-01-01');
     const [rewardName, setRewardName] = useState('');
     const [rewardAmount, setRewardAmount] = useState(0);
     const [rewardDescription, setRewardDescription] = useState('');
     const [errors, setErrors] = useState({});
 
-    //create form for transmital
-    const form = {
-        projectName,
-        description,
-        category,
-        moneyGoal,
-        city,
-        state,
-        story,
-        projectImage,
-        endDate,
-        rewardName,
-        rewardAmount,
-        rewardDescription,
-        //   userId
-    }
+    //Intialize things
+    const history = useHistory();
+    const dispatch = useDispatch();
+    //useSelectors
+    const categories = useSelector(state => state.category.categories);
+
+    useEffect(() => {
+        // Fetch category data
+        dispatch(getCategoriesThunk())
+    }, [dispatch])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const newErrors = {};
-        //validate data here
+        // validate data on the frontend here
         if (projectName.length < 1) newErrors['projectName'] = "Project name is required!"
         if (description.length < 1) newErrors['description'] = "Description is required!"
-        if (category == "Select") newErrors['category'] = "Category is required!"
+        if (category === "Select") newErrors['category'] = "Category is required!"
         if (moneyGoal < 1) newErrors['moneyGoal'] = "Financial Goal is required!"
         if (city.length < 1) newErrors['city'] = "City is required!"
         if (state.length < 1) newErrors['state'] = "State is required!"
         if (story.length < 1) newErrors['story'] = "Story is required!"
-        // if(projectImage.length < 1) newErrors['ProjectImage'] = "Project Image is required!"
-        if (endDate == "YYYY-MM-DD") newErrors['endDate'] = "Project End Date is required!"
-        // if(rewardName.length < 1) newErrors['rewardName'] = "Reward Name is required!"
-        // if(rewardAmount < 1) newErrors['rewardAmount'] = "Reward Amount is required!"
-        // if(rewardDescription.length < 1) newErrors['rewardDescription'] = "Reward Description is required!"
+        if (endDate === "YYYY-MM-DD") newErrors['endDate'] = "Project End Date is required!"
 
         setErrors(newErrors);
 
-        if (!Object.keys(newErrors).length) {
-            const newProject = await dispatch(postNewProjectThunk(form))
-            if ('errors' in newProject) {
-                // handle errors
-                console.log('returned errrrrors............', newProject)
-            } else {
-                console.log("Project successfully created")
+        // If we have errors, bail out
+        if (Object.keys(newErrors).length) return;
+
+        // Build up our form data
+        const formData = new FormData()
+        formData.append("project_name", projectName)
+        formData.append("description", description)
+        formData.append("category_id", category)
+        formData.append("money_goal", moneyGoal)
+        formData.append("city", city)
+        formData.append("state", state)
+        formData.append("story", story)
+        formData.append("project_image", projectImage)
+        formData.append("end_date", endDate)
+        formData.append("reward_name", rewardName)
+        formData.append("reward_amount", rewardAmount)
+        formData.append("reward_description", rewardDescription)
+
+        // Log our form data
+        console.log("Form Data gathered from form:")
+        for (let key of formData.entries()) {
+            console.log(key[0] + ' ----> ' + key[1])
+        }
+
+        // Post project to the backend
+        const newProjectOrErrors = await dispatch(postNewProjectThunk(formData))
+
+        // Handle backend validation errors
+        if ('errors' in newProjectOrErrors) {
+            // handle errors from the backend which comes in as an object with a key of errors
+            console.error('The backend returned validation errors when creating a new form', newProjectOrErrors)
+            const formErrors = newProjectOrErrors.errors.errors
+            let errorObj = {}
+
+            Object.keys(formErrors).forEach((errorKey) => {
+                const frontEndErrorKey = caseHelper(errorKey)
+                const frontEndErrorString = formErrors[errorKey][0]
+                errorObj[frontEndErrorKey] = frontEndErrorString
+            })
+            setErrors(errorObj)
+
+        } else {
+            if (newProjectOrErrors) {
+                console.log("Project successfully created! ")
                 setProjectName('');
                 setDescription('');
                 setCategory('');
@@ -93,16 +124,17 @@ function CreateProjectForm() {
                 setRewardAmount(0);
                 setRewardDescription('');
 
-                history.push(`/projects/${newProject.id}`)
+                history.push(`/projects/${newProjectOrErrors.id}`)
+            } else {
+                console.error('The postNewProjectThunk returned undefined when creating this project')
             }
         }
-
     }
 
     return (
         <div>
             <h1>Create your new Project!</h1>
-            <form className='form' onSubmit={handleSubmit}>
+            <form className='form' onSubmit={handleSubmit} encType="multipart/form-data">
                 <label>
                     Project Name <span className='errors'>{errors.projectName}</span>
                     <input
@@ -175,10 +207,11 @@ function CreateProjectForm() {
                     <input
                         type='file'
                         accept='image/*'
-                        value={projectImage}
+                        // value={projectImage}
                         placeholder='Project Image'
                         onChange={(e) => {
-                            setProjectImage(e.target.value)
+                            console.log("e.target.files????", e.target.files)
+                            setProjectImage(e.target.files[0])
                         }}
                     />
                 </label>

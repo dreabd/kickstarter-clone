@@ -15,7 +15,7 @@ const ProjectDetails = () =>{
 
   useEffect(()=>{
     dispatch(getSingleProjectThunk(projectId))
-  },[dispatch])
+  },[dispatch, projectId])
 
   if (!singleProject){
     return null
