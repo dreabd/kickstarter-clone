@@ -14,9 +14,18 @@ const ProjectDetails = () =>{
 
   const singleProject = useSelector( state => state.project.singleProject)
 
+   //listen for user session
+   const sessionUser = useSelector(state => state.session.user);
+   let userId;
+   if(sessionUser) userId = sessionUser.id
+
   useEffect(()=>{
     dispatch(getSingleProjectThunk(projectId))
   },[dispatch])
+
+  const handleDelete = async () => {
+
+  }
 
   if (!singleProject){
     return null
@@ -42,7 +51,13 @@ const ProjectDetails = () =>{
       <div>
         <ul>
           {singleProject.comments?.map(comment => {
-            return <li key={comment.id}>{comment.comment}</li>
+            return (
+              <div>
+                <li key={comment.id}>{comment.comment}</li>
+                {userId === comment.user_id ? <button onClick={handleDelete}>Delete</button> : null}
+              </div>
+
+            )
           })}
         </ul>
       </div>
