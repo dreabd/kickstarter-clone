@@ -114,7 +114,7 @@ def post_new_comment():
         db.session.add(newComment)
         db.session.commit()
         # print("This is your new comment.................", newComment)
-        return {"comment": newComment.to_dict()}
+        return newComment.to_dict()
 
     if form.errors:
         print("There were some form errors", form.errors)

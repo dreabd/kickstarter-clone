@@ -40,6 +40,13 @@ const ProjectDetails = () =>{
       </div>
       <CommentComponent id={projectId}/>
       <div>
+        <ul>
+          {singleProject.comments?.map(comment => {
+            return <li key={comment.id}>{comment.comment}</li>
+          })}
+        </ul>
+      </div>
+      <div>
         <p>{singleProject.story}</p>
       </div>
 
