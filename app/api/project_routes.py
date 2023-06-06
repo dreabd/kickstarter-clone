@@ -8,6 +8,23 @@ from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_fro
 
 project_routes = Blueprint("projects", __name__)
 
+@project_routes.route("/current")
+def get_current_user_project():
+    '''
+    Grabs all the spots owned by the current user
+    '''
+
+    id = current_user.id
+    print("This is the id of the current user.........", id)
+
+    projects = Project.query.filter(Project.user_id == id)
+
+    res = [project.to_dict() for project in projects  ]
+
+    return {"response": res }
+
+
+
 
 @project_routes.route("/new", methods=["POST"])
 @login_required
@@ -73,6 +90,9 @@ def get_single_project(id):
 
     response = single_project.to_dict()
     return {"single_project": response}
+
+
+
 
 
 @project_routes.route("/")
