@@ -51,47 +51,30 @@ export const getSingleProjectThunk = (id) => async (dispatch) => {
 }
 
 export const postNewProjectThunk = (newProject) => async (dispatch) => {
-  console.log("New project that was passed to thunk by form component", newProject, JSON.stringify(newProject))
-  for (let key of newProject.entries()) {
-    console.log(key[0] + '---->' + key[1])
-  }
-  // const body = {
-  //   project_name: newProject.projectName,
-  //   description: newProject.description,
-  //   category_id: newProject.category,
-  //   money_goal: newProject.moneyGoal,
-  //   city: newProject.city,
-  //   state: newProject.state,
-  //   story: newProject.story,
-  //   project_image: newProject.projectImage,
-  //   end_date: newProject.endDate,
-  //   reward_name: newProject.rewardName,
-  //   reward_amount: newProject.rewardAmount,
-  //   reward_description: newProject.rewardDescription,
-  // }
-
   try {
+    console.log("Making post request to new project route")
     const res = await fetch('/api/projects/new', {
       method: "POST",
-      // body: JSON.stringify(newProject),
       body: newProject
     })
-    console.log("I am the response in the try block of the thunk", res)
+    console.log("Post request", res)
 
     if (res.ok) {
+      console.log("Response OK")
       const response = await res.json()
-      console.log("New data if the response is okay: first response, then response.project", response, response.project)
+      console.log("Response data", response)
       dispatch(postNewProject(response.project))
       return response.project
     } else {
+      console.error("Response not OK. Status code:", res.status)
       const response = await res.json()
-      console.log("response when res is not okay and there are errors:", response)
+      console.log("Response when res is not okay and there are errors:", response)
       return {
         errors: { ...response }
       }
     }
   } catch (e) {
-    console.log('catch from within the thunk.........................', e)
+    console.error('Error caught in postNewProjectThunk', e)
     return e
   }
 

@@ -12,7 +12,7 @@ from datetime import date
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from ..api.AWS_helpers import ALLOWED_EXTENSIONS
 
-# removed for testing
+
 def date_checker(form, field):
     form_date = field.data
     if form_date < date.today():
@@ -24,36 +24,34 @@ class ProjectForm(FlaskForm):
     description = TextAreaField(
         "Project Name",
         validators=[
-            DataRequired()
+            DataRequired(),
         ],
     )
     category_id = IntegerField("Category ID", validators=[DataRequired()])
-    # category = SelectField("Category", choices=choices, validators=[DataRequired()])
     money_goal = IntegerField(
         "Money Goal",
-        validators=[
-            DataRequired()
-        ],
+        validators=[DataRequired()],
     )
     city = StringField("City", validators=[DataRequired()])
     state = StringField(
         "State",
         validators=[
-            DataRequired()
+            DataRequired(),
+            Length(
+                min=2,
+                max=2,
+                message="Please use the state's two character abbreviation.",
+            ),
         ],
     )
     story = TextAreaField(
         "Story",
-        validators=[
-            DataRequired()
-            # Length(min=200, message="Story must be at least 200 characters."),
-        ],
+        validators=[DataRequired()],
     )
     project_image = FileField(
         "Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))]
     )
-    # project_image = FileField("Image File")
-    end_date = DateField("End Date", validators=[DataRequired()])
+    end_date = DateField("End Date", validators=[DataRequired(), date_checker])
     reward_name = StringField("Reward Name", validators=[DataRequired()])
     reward_amount = IntegerField("Reward Amount", validators=[DataRequired()])
     reward_description = TextAreaField(
