@@ -12,6 +12,7 @@ from datetime import date
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from ..api.AWS_helpers import ALLOWED_EXTENSIONS
 
+# removed for testing
 def date_checker(form, field):
     form_date = field.data
     if form_date < date.today():
@@ -52,7 +53,7 @@ class ProjectForm(FlaskForm):
         "Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))]
     )
     # project_image = FileField("Image File")
-    end_date = DateField("End Date", validators=[DataRequired(), date_checker])
+    end_date = DateField("End Date", validators=[DataRequired()])
     reward_name = StringField("Reward Name", validators=[DataRequired()])
     reward_amount = IntegerField("Reward Amount", validators=[DataRequired()])
     reward_description = TextAreaField(

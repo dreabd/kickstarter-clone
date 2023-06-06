@@ -10,7 +10,7 @@ project_routes = Blueprint("projects", __name__)
 
 
 @project_routes.route("/new", methods=["POST"])
-# @login_required
+@login_required
 def post_new_project():
     """
     Posts form data from the frontend and send back the new project.
@@ -25,17 +25,13 @@ def post_new_project():
         data = form.data
 
         project_image = data["project_image"]
-        print("project image data from the backend route ", project_image)
-        # project_image.filename = get_unique_filename(project_image)
-        # upload = upload_file_to_s3(project_image)
+        print("PROJECT IMAGE data from the backend route ", project_image)
+        project_image.filename = get_unique_filename(project_image.filename)
+        upload = upload_file_to_s3(project_image)
 
-        # if "url" not in upload:
-        #     print("Errors Occured in the AWS Upload", upload["errors"])
-        #     return upload["errors"]
-
-        # Uncomment this line when actually uploading project images
-        # image=upload["url"]
-        image = data["project_image"]
+        if "url" not in upload:
+            print("Errors Occured in the AWS Upload", upload["errors"])
+            return upload["errors"]
 
         new_project = Project(
             project_name=data["project_name"],
@@ -46,7 +42,7 @@ def post_new_project():
             city=data["city"],
             state=data["state"],
             story=data["story"],
-            project_image=image,
+            project_image=upload["url"],
             end_date=data["end_date"],
             reward_name=data["reward_name"],
             reward_amount=data["reward_amount"],
@@ -55,11 +51,15 @@ def post_new_project():
         db.session.add(new_project)
         db.session.commit()
         print("This is your new Project", new_project)
-        return {"project": new_project.to_dict()}
+        return (
+            {"project": new_project.to_dict()},
+            200,
+            {"Content-Type": "application/json"},
+        )
 
     if form.errors:
         print("There were some form errors", form.errors)
-        return form.errors, 400
+        return {"errors": form.errors}, 400, {"Content-Type": "application/json"}
 
 
 @project_routes.route("/<int:id>")

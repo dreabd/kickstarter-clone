@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postNewProjectThunk } from '../../store/projects';
 import { getCategoriesThunk } from '../../store/categoryReducer';
+import './ProjectFormStyles.css'
 
 function CreateProjectForm() {
     //set up a bunch of state slices
@@ -14,7 +15,7 @@ function CreateProjectForm() {
     const [state, setState] = useState('');
     const [story, setStory] = useState('');
     const [projectImage, setProjectImage] = useState('');
-    const [endDate, setEndDate] = useState('YYYY-MM-DD');//////////////
+    const [endDate, setEndDate] = useState('2023-01-01');//////////////
     const [rewardName, setRewardName] = useState('');
     const [rewardAmount, setRewardAmount] = useState(0);
     const [rewardDescription, setRewardDescription] = useState('');
@@ -86,7 +87,7 @@ function CreateProjectForm() {
             formData.append("reward_amount", rewardAmount)
             formData.append("reward_description", rewardDescription)
             for (let key of formData.entries()) {
-                console.log(key[0]+ '---->' + key[1])
+                console.log(key[0] + '---->' + key[1])
             }
 
             const newProject = await dispatch(postNewProjectThunk(formData))
@@ -108,7 +109,7 @@ function CreateProjectForm() {
                 setRewardAmount(0);
                 setRewardDescription('');
 
-                // history.push(`/projects/${newProject.id}`)
+                history.push(`/projects/${newProject.id}`)
             }
         }
 
@@ -117,7 +118,7 @@ function CreateProjectForm() {
     return (
         <div>
             <h1>Create your new Project!</h1>
-            <form className='form' onSubmit={handleSubmit}>
+            <form className='form' onSubmit={handleSubmit} encType="multipart/form-data">
                 <label>
                     Project Name <span className='errors'>{errors.projectName}</span>
                     <input

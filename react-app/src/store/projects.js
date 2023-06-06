@@ -51,7 +51,10 @@ export const getSingleProjectThunk = (id) => async (dispatch) => {
 }
 
 export const postNewProjectThunk = (newProject) => async (dispatch) => {
-  console.log("New project that was passed to thunk by form component", newProject)
+  console.log("New project that was passed to thunk by form component", newProject, JSON.stringify(newProject))
+  for (let key of newProject.entries()) {
+    console.log(key[0] + '---->' + key[1])
+  }
   // const body = {
   //   project_name: newProject.projectName,
   //   description: newProject.description,
@@ -70,8 +73,7 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
   try {
     const res = await fetch('/api/projects/new', {
       method: "POST",
-      headers: { "Content-Type": "application/json", },
-      // body: JSON.stringify(newProject)
+      // body: JSON.stringify(newProject),
       body: newProject
     })
     console.log("I am the response in the try block of the thunk", res)
