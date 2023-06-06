@@ -38,7 +38,7 @@ const ProjectDetails = () =>{
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
         <button> Back This Project!</button>
       </div>
-      <CommentComponent />
+      <CommentComponent id={projectId}/>
       <div>
         <p>{singleProject.story}</p>
       </div>

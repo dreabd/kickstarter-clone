@@ -98,21 +98,22 @@ def post_new_comment():
     Posts form data from the frontend into the comments table.
     Should return a JSON obj for the fronted to catch
     """
+    print('entered the backend.................')
     form = CommentForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
         data = form.data
-
+        print('passed form validators.................')
         newComment = Comment(
-            user_id = data['user_id'],
-            project_id = data['project_id'],
-            comment = data['comment']
+            user_id=data['user_id'],
+            project_id=data['project_id'],
+            comment=data['comment']
         )
 
         db.session.add(newComment)
         db.session.commit()
-        print("This is your new comment!", newComment)
+        print("This is your new comment.................", newComment)
         return {"comment": newComment.to_dict()}
 
     if form.errors:

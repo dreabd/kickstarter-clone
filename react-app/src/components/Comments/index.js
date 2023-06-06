@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-// import { postCommentThunk } from "../../store/projects";
+import { postCommentThunk } from "../../store/projects";
 
-function CommentComponent() {
+function CommentComponent({id}) {
 
     //Initialing stuff
     const dispatch = useDispatch();
-    const {id} = useParams();
+    // const {id} = useParams();
 
     //slices-o-state
     const [commentText, setCommentText] = useState('');
@@ -15,13 +15,14 @@ function CommentComponent() {
 
     //listen for user session
     const sessionUser = useSelector(state => state.session.user);
-    const userId = sessionUser.id
+    let userId;
+    if(sessionUser) userId = sessionUser.id
 
     //init form for transmital
     const form = {
         comment: commentText,
         user_id: userId,
-        project_id: id
+        project_id: parseInt(id)
     }
 
     const handleSubmit = async (e) => {
@@ -32,7 +33,7 @@ function CommentComponent() {
         if (commentText.length < 1) newErrors['commentText'] = "Comment text is required!"
 
         setErrors(newErrors);
-
+        console.log('form before sending to thunk.............',form)
         if (!Object.keys(newErrors).length) {
             const newComment = await dispatch(postCommentThunk(form))
         }
