@@ -102,17 +102,17 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
 }
 
 export const postCommentThunk = (form) => async (dispatch) => {
-  console.log('form inside of the thunk.................',form)
-  console.log('JSONIFIED form inside of the thunk.................',JSON.stringify(form))
+  // console.log('form inside of the thunk.................',form)
+  // console.log('JSONIFIED form inside of the thunk.................',JSON.stringify(form))
   const res = await fetch('/api/projects/comments/new', {
     method: "POST",
     headers: { "Content-Type": "application/json", },
     body: JSON.stringify(form)
   })
-  console.log('res after returning from backend..........', res)
+  // console.log('res after returning from backend..........', res)
   if (res.ok) {
     const response = await res.json()
-    console.log("New comment added")
+    // console.log("New comment added")
     dispatch(postNewComment(response))
     return response
   } else {
@@ -135,11 +135,14 @@ const projectReducer = (state = initialState, action) => {
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     case POST_NEW_COMMENT:
-      console.log('comment entered the reducer..............', action.comment)
+      // console.log('comment entered the reducer..............', action.comment)
       let newState =  { ...state, singleProject:{ ...state.singleProject }}
-      if(newState.singleProject.comments.length) newState.singleProject.comments.push(action.comment)
-      if(!newState.singleProject.comments.length) newState.singleProject.comments = [action.comment]
-      console.log('newState after updating redux store before return.............', newState)
+      if(!newState.singleProject.comments) {
+        newState.singleProject.comments = [action.comment]
+      } else if (newState.singleProject.comments) {
+        newState.singleProject.comments.push(action.comment)
+      }
+      // console.log('newState after updating redux store before return.............', newState)
       return newState
     default:
       return state
