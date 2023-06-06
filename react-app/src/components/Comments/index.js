@@ -10,6 +10,12 @@ function CommentComponent() {
     //listen for user session
     const sessionUser = useSelector(state => state.session.user);
 
+    return (
+        <div>
+
+        </div>
+    )
+
 }
 
 export default CommentComponent
