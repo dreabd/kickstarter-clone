@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { postNewProjectThunk } from '../../store/projects';
 import { getCategoriesThunk } from '../../store/categoryReducer';
+import OpenModalButton from '../OpenModalButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
 import './ProjectFormStyles.css'
 
 //this is used to convert the backend errors into a format that the frontend can use
@@ -45,7 +48,7 @@ function CreateProjectForm() {
     const dispatch = useDispatch();
     //useSelectors
     const categories = useSelector(state => state.category.categories);
-
+    const loggedIn = useSelector(state => state.session.user);
     useEffect(() => {
         // Fetch category data
         dispatch(getCategoriesThunk())
@@ -129,6 +132,25 @@ function CreateProjectForm() {
                 console.error('The postNewProjectThunk returned undefined when creating this project')
             }
         }
+    }
+
+    if (!loggedIn) {
+        return (
+            <>
+                <h2>
+                    Please login or signup with Jumpstarter to create a project!
+                </h2>
+                <OpenModalButton
+                    buttonText="Log In"
+                    modalComponent={<LoginFormModal />}
+                />
+
+                <OpenModalButton
+                    buttonText="Sign Up"
+                    modalComponent={<SignupFormModal />}
+                />
+            </>
+        )
     }
 
     return (
