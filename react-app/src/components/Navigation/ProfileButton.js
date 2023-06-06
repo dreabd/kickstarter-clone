@@ -4,6 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -50,6 +51,9 @@ function ProfileButton({ user }) {
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
+            <li>
+              <NavLink exact to="/current">Manage My Projects</NavLink>
+            </li>
           </>
         ) : (
           <>
@@ -63,6 +67,8 @@ function ProfileButton({ user }) {
               buttonText="Sign Up"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
+
+
             />
           </>
         )}

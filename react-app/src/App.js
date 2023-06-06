@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
@@ -9,6 +9,7 @@ import LandingPage from "./components/LandingPage";
 import Categories from "./components/Categories";
 import CreateProjectForm from "./components/ProjectForm";
 import ProjectDetails from "./components/ProjectDetails";
+import ManageProject from "./components/MangeProjects";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,11 @@ function App() {
         <Route exact path = "/">
           <LandingPage />
         </Route>
+
+        <Route exact path = "/current">
+          <ManageProject/>
+        </Route>
+
         <Route exact path ="/projects/new">
           <CreateProjectForm />
         </Route>
