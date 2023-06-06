@@ -16,9 +16,12 @@ const ManageProject = () => {
 
   console.log(projects)
 
+  const [deleted,setDeleted] = useState(false)
+
   useEffect(() => {
     dispatch(getCurrentProjectThunk())
-  }, [dispatch])
+    setDeleted(false)
+  }, [dispatch,deleted])
 
   const cards = Object.values(projects)?.map(project => {
     return (
@@ -26,11 +29,10 @@ const ManageProject = () => {
         <p>
           {project.project_name}
         </p>
-        <h1>In the cards map function</h1>
         <button onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
         <OpenModalButton
           buttonText={"Delete"}
-          modalComponent={<DeleteForm />}
+          modalComponent={<DeleteForm projectId={project.id} setDeleted={setDeleted} />}
         />
       </div>
     )
