@@ -10,14 +10,18 @@ import DeleteForm from '../DeleteForm';
 const ManageProject =() =>{
   const dispatch = useDispatch()
 
+  // ----- Use Selectors -----
   const user = useSelector(state => state.session.user)
   const projects = useSelector(state => state.project.userProjects)
 
-  console.log(projects)
+  // ----- State Variables ------
+  const [deleted,setDeleted] = useState(false)
+  console.log("deleted state variable in the manage projects component",deleted)
 
   useEffect(()=>{
     dispatch(getCurrentProjectThunk())
-  },[dispatch])
+    setDeleted(false)
+  },[dispatch,deleted])
 
   const cards = Object.values(projects)?.map(project =>{
     return(
@@ -27,7 +31,7 @@ const ManageProject =() =>{
         </p>
         <OpenModalButton
           buttonText={"Delete"}
-          modalComponent={<DeleteForm/>}
+          modalComponent={<DeleteForm setDeleted={setDeleted} projectId={project.id}/>}
         />
       </div>
     )

@@ -39,6 +39,33 @@ def get_single_project(id):
     return {"single_project": response}
 
 
+@project_routes.route("/<int:id>",methods=["DELETE"])
+@login_required
+def delete_single_project(id):
+    '''
+    Takes in a project_id from the frontend then uses that to initalize a
+    delete
+    '''
+
+    project = Project.query.get(id)
+    print(id)
+
+    if(project is None):
+        return {"errors": "Project does not exist"},404
+
+    if(project.user_id != current_user.id):
+        return {"errors": "Forbidden"}, 401
+
+    # Would want to implement something where you can not delete old projects.
+
+    db.session.delete(project)
+    db.session.commit()
+
+    return{"message":"Succesfully Deleted"}
+
+
+
+
 @project_routes.route("/new", methods=["POST"])
 @login_required
 def post_new_project():
@@ -90,23 +117,6 @@ def post_new_project():
     if form.errors:
         print("There were some form errors", form.errors)
         return {"errors": form.errors}, 400, {"Content-Type": "application/json"}
-
-
-@project_routes.route("/<int:id>")
-def get_single_project(id):
-    """ """
-    single_project = Project.query.get(id)
-    print("project...................................", single_project)
-
-    if single_project is None:
-        return {"errors": "Project not Found"}
-
-    response = single_project.to_dict()
-    return {"single_project": response}
-
-
-
-
 
 @project_routes.route("/")
 def get_all_projects():

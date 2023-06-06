@@ -5,6 +5,7 @@ const GET_ALL_PROJECTS = 'projects/getAllProjects'
 const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
+const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) => {
   return {
@@ -31,6 +32,13 @@ const getCurrentProject = (projects) => {
   }
 }
 
+const deleteSingleProject = (projectId) => {
+  return{
+    type: DELETE_SINGLE_PROJECT,
+    projectId
+  }
+}
+
 
 
 
@@ -50,13 +58,9 @@ export const getCurrentProjectThunk = () => async (dispatch) =>{
   const res =await fetch('/api/projects/current')
   if(res.ok){
     const {projects} = await res.json()
-    // console.log(projects)
+    console.log(projects)
     dispatch(getCurrentProject(projects))
     return
-  } else{
-    return {
-      "errors": "Some Errors occured"
-    }
   }
 }
 
@@ -100,7 +104,15 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
     console.error('Error caught in postNewProjectThunk', e)
     return e
   }
+}
 
+export const deleteSingleProjectThunk = (projectId) => async (dispatch) =>{
+  const res = await fetch(`/api/projects/${projectId}`,{
+    method:"DELETE"
+  })
+  if(res.ok){
+    dispatch(deleteSingleProject(projectId))
+  }
 }
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects:{}}
@@ -116,6 +128,11 @@ const projectReducer = (state = initialState, action) => {
       return{...state,userProjects:{...normalizeObj(action.projects)}}
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
+    case DELETE_SINGLE_PROJECT:
+      let newState = {...state}
+      delete newState.allProjects[action.projectId]
+      delete newState.userProjects[action.projectId]
+      return newState
     default:
       return state
   }
