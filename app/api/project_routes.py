@@ -21,14 +21,16 @@ def get_current_user_project():
 
     res = [project.to_dict() for project in projects  ]
 
-    return {"response": res }
+    return {"projects": res }
 
 
 
 
 @project_routes.route("/<int:id>")
 def get_single_project(id):
-    """ """
+    """
+    Grabs a pro
+    """
     single_project = Project.query.get(id)
     print("project...................................", single_project)
 
@@ -37,6 +39,7 @@ def get_single_project(id):
 
     response = single_project.to_dict()
     return {"single_project": response}
+
 
 
 @project_routes.route("/new", methods=["POST"])

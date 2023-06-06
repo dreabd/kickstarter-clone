@@ -4,6 +4,7 @@ import { normalizeObj } from './helpers';
 const GET_ALL_PROJECTS = 'projects/getAllProjects'
 const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
+const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) => {
   return {
@@ -23,6 +24,14 @@ const postNewProject = (project) => {
     project
   }
 }
+const getCurrentProject = (projects) => {
+  return {
+    type: GET_CURRENT_PROJECT,
+    projects
+  }
+}
+
+
 
 
 // ---------- THUNKS ----------
@@ -34,6 +43,20 @@ export const getAllProjectsThunk = () => async (dispatch) => {
     return
   } else {
     console.log("Problem with loading all projects")
+  }
+}
+
+export const getCurrentProjectThunk = () => async (dispatch) =>{
+  const res =await fetch('/api/projects/current')
+  if(res.ok){
+    const {projects} = await res.json()
+    // console.log(projects)
+    dispatch(getCurrentProject(projects))
+    return
+  } else{
+    return {
+      "errors": "Some Errors occured"
+    }
   }
 }
 
@@ -94,7 +117,7 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
 
 }
 // --------- INITIAL STATE -------------
-const initialState = { allProjects: {}, singleProject: {} }
+const initialState = { allProjects: {}, singleProject: {}, userProjects:{}}
 // ---------- REDUCER ----------
 const projectReducer = (state = initialState, action) => {
 
@@ -103,6 +126,8 @@ const projectReducer = (state = initialState, action) => {
       return { ...state, allProjects: { ...normalizeObj(action.projects) } }
     case GET_SINGLE_PROJECT:
       return { ...state, singleProject: { ...action.project } }
+    case GET_CURRENT_PROJECT:
+      return{...state,userProjects:{...normalizeObj(action.projects)}}
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     default:
