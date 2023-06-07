@@ -184,10 +184,8 @@ def update_comment(id):
         if form.data['comment']:
             comment.comment = form.data['comment']
             db.session.commit()
-        print('comment after update!!!!.......', comment.to_dict())
         return comment.to_dict(), 200
     if not comment:
         return {"errors": "Comment does not exist"}, 404
     if form.errors:
-        print("There were some form errors", form.errors)
         return form.errors, 400

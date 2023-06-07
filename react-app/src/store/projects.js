@@ -169,7 +169,7 @@ export const updateCommentThunk = (form, commentId) => async (dispatch) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(form)
   })
-
+  return res;
 }
 
 // --------- INITIAL STATE -------------
