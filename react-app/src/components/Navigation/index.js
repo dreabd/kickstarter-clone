@@ -33,14 +33,14 @@ function Navigation({ isLoaded }){
 				</div>
 			</ul>
 			<ul className='nav-discover-ul'>
-				<li><NavLink exact to="">Arts</NavLink></li>
-				<li><NavLink exact to="">Comics & Illustration</NavLink></li>
-				<li><NavLink exact to="">Design & Tech</NavLink></li>
-				<li><NavLink exact to="">Film</NavLink></li>
-				<li><NavLink exact to="">Food & Craft</NavLink></li>
-				<li><NavLink exact to="">Games</NavLink></li>
-				<li><NavLink exact to="">Music</NavLink></li>
-				<li><NavLink exact to="">Publishing</NavLink></li>
+				<li><NavLink exact to="/discover/arts">Arts</NavLink></li>
+				<li><NavLink exact to="/discover/comics&illustration">Comics & Illustration</NavLink></li>
+				<li><NavLink exact to="/discover/design&tech">Design & Tech</NavLink></li>
+				<li><NavLink exact to="/discover/film">Film</NavLink></li>
+				<li><NavLink exact to="/discover/food&craft">Food & Craft</NavLink></li>
+				<li><NavLink exact to="/discover/games">Games</NavLink></li>
+				<li><NavLink exact to="/discover/music">Music</NavLink></li>
+				<li><NavLink exact to="/discover/publishing">Publishing</NavLink></li>
 			</ul>
 		</div>
 	);

@@ -206,6 +206,19 @@ export const updateCommentThunk = (form, commentId) => async (dispatch) => {
   return res;
 }
 
+export const getAllProjectsByCategoryThunk = (categoryName) => async (dispatch) => {
+  console.log("categoryName from inside yo thunkadunkdunk.....................", categoryName)
+  const res = await fetch(`/api/discover/${categoryName}`)
+  // console.log("res from the backend....................",res.json())
+  if (res.ok) {
+    const { projects } = await res.json()
+    dispatch(getAllProjects(projects))
+    return
+  } else {
+    console.log("Problem with loading all projects")
+  }
+}
+
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects: {} }
 // ---------- REDUCER ----------

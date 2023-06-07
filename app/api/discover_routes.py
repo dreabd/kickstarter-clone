@@ -20,3 +20,17 @@ def get_all_projects():
     projects = Project.query.all()
     response = [project.to_dict() for project in projects]
     return {"projects": response}
+
+
+@discover_routes.route("/<categoryName>")
+def get_all_projects_in_category(categoryName):
+    """
+    Grabs all the Projects of the specified category with the following join: fundings, owner and category.
+    Should return a JSON obj for the fronted to catch
+    """
+    print("categoryName inside on backend..........................", categoryName)
+    projects = Project.query.join(Category).filter(
+        Category.type.like(categoryName)).all()
+    response = [project.to_dict() for project in projects]
+    print("response in backend from db query.......................", response)
+    return {"projects": response}
