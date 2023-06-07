@@ -11,6 +11,7 @@ class Funding(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('projects.id')), nullable=False)
     amount_donated = db.Column(db.Integer, nullable=False)
+    # reward = db.Column(db.Boolean,nullable=False)
 
     user = db.relationship('User', back_populates='funding')
     project = db.relationship('Project', back_populates='funding')

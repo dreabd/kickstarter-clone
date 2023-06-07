@@ -7,6 +7,7 @@ import CommentComponent from "../Comments";
 import { deleteCommentThunk } from "../../store/projects";
 import { updateCommentThunk } from "../../store/projects";
 import UpdateCommentComponent from "../UpdateCommentComponent";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -16,7 +17,6 @@ const ProjectDetails = () =>{
   console.log("this is the id in components",projectId)
   const [update, setUpdate] = useState(false);
   const singleProject = useSelector( state => state.project.singleProject)
-
    //listen for user session
    const sessionUser = useSelector(state => state.session.user);
    let userId;
@@ -58,7 +58,7 @@ const ProjectDetails = () =>{
         {/* Place holder for backing amount */}
         <h3>${singleProject.money_goal?.toLocaleString()}</h3>
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
-        <button> Back This Project!</button>
+        <button><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button>
       </div>
       {!singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId}/>: null}
       <div>

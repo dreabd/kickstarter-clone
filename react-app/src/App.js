@@ -11,6 +11,7 @@ import CreateProjectForm from "./components/ProjectForm";
 import ProjectDetails from "./components/ProjectDetails";
 import ManageProject from "./components/ManageProjects";
 import EditProjectForm from "./components/EditProjectForm";
+import FundingForm from "./components/FundingForm"
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route exact path="/projects/:projectId/edit">
           <EditProjectForm />
+        </Route>
+        <Route exact path="/projects/:projectId/fund">
+          <FundingForm />
         </Route>
       </Switch>
     </>
