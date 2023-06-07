@@ -29,10 +29,11 @@ const postNewProject = (project) => {
   }
 }
 
-const editProject = (project) => {
+const putProject = (project,id) => {
   return {
     type: PUT_PROJECT,
-    project
+    project,
+    id
   }
 }
 const postNewComment = (comment) => {
@@ -140,6 +141,7 @@ export const editProjectThunk = (id, editProject) => async dispatch => {
     if (res.ok) {
       console.log("Edit request OK", res)
       const response = await res.json();
+      dispatch(putProject(response.project,id))
       return response.project;
     } else {
       console.error('Edit response not OK')
@@ -218,6 +220,10 @@ const projectReducer = (state = initialState, action) => {
       return { ...state, userProjects: { ...normalizeObj(action.projects) } }
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
+    case PUT_PROJECT:
+      let newEditState = {...state}
+      newEditState.allProjects[action.id] = action.project
+      return newEditState
     case POST_NEW_COMMENT:
       // console.log('comment entered the reducer..............', action.comment)
       let newState = { ...state, singleProject: { ...state.singleProject } }
