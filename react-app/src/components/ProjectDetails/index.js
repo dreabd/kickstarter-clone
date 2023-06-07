@@ -4,6 +4,7 @@ import { getSingleProjectThunk } from "../../store/projects";
 import { useEffect } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import CommentComponent from "../Comments";
+import { deleteCommentThunk } from "../../store/projects";
 
 
 
@@ -23,7 +24,10 @@ const ProjectDetails = () =>{
     dispatch(getSingleProjectThunk(projectId))
   },[dispatch, projectId])
 
-  const handleDelete = async () => {
+  const handleDelete = async (commentId) => {
+    await dispatch(deleteCommentThunk(commentId))
+    dispatch(getSingleProjectThunk(projectId))
+
 
   }
 
@@ -54,7 +58,7 @@ const ProjectDetails = () =>{
             return (
               <div>
                 <li key={comment.id}>{comment.comment}</li>
-                {userId === comment.user_id ? <button onClick={handleDelete}>Delete</button> : null}
+                {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)}>Delete</button> : null}
               </div>
 
             )

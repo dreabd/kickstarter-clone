@@ -37,6 +37,7 @@ function CommentComponent({id}) {
         if (!Object.keys(newErrors).length) {
             const newComment = await dispatch(postCommentThunk(form))
         }
+        setCommentText('')
 
     }
 

@@ -158,3 +158,18 @@ def post_new_comment():
     if form.errors:
         print("There were some form errors", form.errors)
         return form.errors, 400
+
+@project_routes.route("/comments/<int:id>", methods=["DELETE"])
+#@login_required
+def delete_comment(id):
+    print("hello from delete comments")
+    comment = Comment.query.get(id)
+    print(comment)
+
+    if not comment:
+        return {"errors": "Comment does not exist"},404
+
+    db.session.delete(comment)
+    db.session.commit()
+
+    return{"message":"Succesfully Deleted"}
