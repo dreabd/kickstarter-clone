@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
-import { postCommentThunk, updateCommentThunk } from "../../store/projects";
+import { useHistory } from 'react-router-dom';
+import { getSingleProjectThunk, updateCommentThunk } from "../../store/projects";
 
 //<UpdateCommentComponent commentId={comment.id} projectId={projectId} commentText={comment.comment}/>
 
@@ -9,7 +9,7 @@ function UpdateCommentComponent({commentId, projectId, originalText}) {
 
     //Initialing stuff
     const dispatch = useDispatch();
-    const {id} = useParams();
+
 
     //slices-o-state
     const [commentText, setCommentText] = useState(originalText);
@@ -24,7 +24,7 @@ function UpdateCommentComponent({commentId, projectId, originalText}) {
      const form = {
         comment: commentText,
         user_id: userId,
-        project_id: parseInt(id)
+        project_id: projectId
      }
 
     const handleSubmit = async (e) => {
@@ -38,6 +38,9 @@ function UpdateCommentComponent({commentId, projectId, originalText}) {
         // console.log('form before sending to thunk.............',form)
         if (!Object.keys(newErrors).length) {
             const newComment = await dispatch(updateCommentThunk(form, commentId))
+            dispatch(getSingleProjectThunk(projectId))
+
+
         }
         setCommentText('')
 

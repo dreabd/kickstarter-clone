@@ -177,12 +177,17 @@ def delete_comment(id):
 @project_routes.route("/comments/update/<int:id>", methods=["PUT"])
 def update_comment(id):
     comment = Comment.query.get(id)
-    print('comment in the backend...............', comment.to_dict())
-    if comment:
-        for key, value in request.form:
-            setattr(comment, key, value)
-        db.session.commit()
+    form = CommentForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        if form.data['comment']:
+            comment.comment = form.data['comment']
+            db.session.commit()
         print('comment after update!!!!.......', comment.to_dict())
         return comment.to_dict(), 200
     if not comment:
         return {"errors": "Comment does not exist"}, 404
+    if form.errors:
+        print("There were some form errors", form.errors)
+        return form.errors, 400

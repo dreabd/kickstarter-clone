@@ -163,6 +163,7 @@ export const deleteCommentThunk = (id) => async (dispatch) => {
 
 export const updateCommentThunk = (form, commentId) => async (dispatch) => {
   let id = parseInt(commentId)
+  console.log("comment in thunk", form)
   const res = await fetch(`/api/projects/comments/update/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
