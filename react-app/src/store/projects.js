@@ -4,6 +4,7 @@ import { normalizeObj } from './helpers';
 const GET_ALL_PROJECTS = 'projects/getAllProjects'
 const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
+const PUT_PROJECT = 'projects/editProject'
 const POST_NEW_COMMENT = 'projects/postNewComment'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
@@ -24,6 +25,13 @@ const getSingleProject = (project) => {
 const postNewProject = (project) => {
   return {
     type: POST_NEW_PROJECT,
+    project
+  }
+}
+
+const editProject = (project) => {
+  return {
+    type: PUT_PROJECT,
     project
   }
 }
@@ -117,6 +125,30 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
   } catch (e) {
     console.error('Error caught in postNewProjectThunk', e)
     return e
+  }
+}
+
+export const editProjectThunk = (id, editProject) => async dispatch => {
+  try {
+    console.log("Making post request to edit project route", editProject)
+    const res = await fetch(`/api/projects/${id}/edit`, {
+      method: "PUT",
+      body: editProject
+    })
+    console.log("Edit request", res)
+
+    if (res.ok) {
+      console.log("Edit request OK", res)
+      const response = await res.json();
+      return response.project;
+    } else {
+      console.error('Edit response not OK')
+      const response = await res.json()
+      console.error("Edit response", response)
+      return response;
+    }
+  } catch (e) {
+    console.error("Error making edit request for project", e)
   }
 }
 

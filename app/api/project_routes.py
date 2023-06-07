@@ -1,6 +1,7 @@
 from app.models import Project, User, Category, Comment, db
 from flask import Blueprint, jsonify, session, request
 from ..forms.project_form import ProjectForm
+from ..forms.edit_project_form import EditForm
 from ..forms.comment_form import CommentForm
 
 from flask_login import current_user, login_user, logout_user, login_required
@@ -12,9 +13,9 @@ project_routes = Blueprint("projects", __name__)
 
 @project_routes.route("/current")
 def get_current_user_project():
-    '''
+    """
     Grabs all the spots owned by the current user
-    '''
+    """
 
     id = current_user.id
     print("This is the id of the current user.........", id)
@@ -42,19 +43,22 @@ def get_single_project(id):
 @project_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_single_project(id):
-    '''
+    """
     Takes in a project_id from the frontend then uses that to initalize a
     delete
-    '''
+    """
 
     project = Project.query.get(id)
     print(id)
 
-    if (project is None):
+    if project is None:
         return {"errors": "Project does not exist"}, 404
 
-    if (project.user_id != current_user.id):
+    if project.user_id != current_user.id:
         return {"errors": "Forbidden"}, 401
+
+    if project.id not in range(1, 97):
+        remove_file_from_s3(project.project_image)
 
     # Would want to implement something where you can not delete old projects.
 
@@ -117,6 +121,90 @@ def post_new_project():
         return {"errors": form.errors}, 400, {"Content-Type": "application/json"}
 
 
+@project_routes.route("/<int:id>/edit", methods=["PUT"])
+@login_required
+def edit_project(id):
+    print("EDITING PROJECT", id)
+    edit_form = EditForm()
+    edit_form["csrf_token"].data = request.cookies["csrf_token"]
+    print("FORM", edit_form)
+
+    if edit_form.validate_on_submit():
+        data = edit_form.data
+
+        # TODO - add ability to upload new file
+
+        updated_project = Project.query.get(id)
+
+        if updated_project is None:
+            return {"errors": "Project does not exist"}, 404
+
+        if updated_project.user_id != current_user.id:
+            return {"errors": "Forbidden"}, 401
+
+        prev_project_image = updated_project.project_image
+
+        if data["project_name"]:
+            updated_project.project_name = data["project_name"]
+        if data["description"]:
+            updated_project.description = data["description"]
+        if data["category_id"]:
+            updated_project.category_id = data["category_id"]
+        if data["city"]:
+            updated_project.city = data["city"]
+        if data["state"]:
+            updated_project.state = data["state"]
+        if data["story"]:
+            updated_project.story = data["story"]
+        if data["money_goal"]:
+            updated_project.money_goal = data["money_goal"]
+        if data["project_image"]:
+            # need to call aws helpers
+            # need to delete the old image in the database
+
+            project_image = data["project_image"]
+            print("\nPROJECT IMAGE data from the backend route\n", project_image)
+            project_image.filename = get_unique_filename(project_image.filename)
+            upload = upload_file_to_s3(project_image)
+
+            #            project_image.filename = get_unique_filename(project_image.filename)
+            # upload = upload_file_to_s3(project_image)
+
+            # if "url" not in upload:
+            #     print("Errors Occured in the AWS Upload", upload["errors"])
+            #     return upload["errors"]
+
+            if "url" not in upload:
+                print("Errors Occured in the AWS Upload", upload["errors"])
+                return upload["errors"]
+
+            if updated_project.id not in range(1, 97):
+                remove_file_from_s3(prev_project_image)
+
+            updated_project.project_image = upload["url"]
+        if data["end_date"]:
+            updated_project.end_date = data["end_date"]
+        if data["reward_name"]:
+            updated_project.reward_name = data["reward_name"]
+        if data["reward_amount"]:
+            updated_project.reward_amount = data["reward_amount"]
+        if data["reward_description"]:
+            updated_project.reward_description = data["reward_description"]
+
+        db.session.commit()
+
+        print("This is your new Project", updated_project)
+        return (
+            {"project": updated_project.to_dict()},
+            200,
+            {"Content-Type": "application/json"},
+        )
+
+    if edit_form.errors:
+        print("There were some form errors", edit_form.errors)
+        return {"errors": edit_form.errors}, 400, {"Content-Type": "application/json"}
+
+
 @project_routes.route("/")
 def get_all_projects():
     """
@@ -143,9 +231,9 @@ def post_new_comment():
         data = form.data
         # print('passed form validators.................')
         newComment = Comment(
-            user_id=data['user_id'],
-            project_id=data['project_id'],
-            comment=data['comment']
+            user_id=data["user_id"],
+            project_id=data["project_id"],
+            comment=data["comment"],
         )
 
         db.session.add(newComment)
@@ -181,8 +269,8 @@ def update_comment(id):
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        if form.data['comment']:
-            comment.comment = form.data['comment']
+        if form.data["comment"]:
+            comment.comment = form.data["comment"]
             db.session.commit()
         return comment.to_dict(), 200
     if not comment:
