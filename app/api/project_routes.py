@@ -1,6 +1,7 @@
 from app.models import Project, User, Category, Comment, db
 from flask import Blueprint, jsonify, session, request
 from ..forms.project_form import ProjectForm
+from ..forms.edit_project_form import EditForm
 from ..forms.comment_form import CommentForm
 
 from flask_login import current_user, login_user, logout_user, login_required
@@ -121,7 +122,7 @@ def post_new_project():
 @login_required
 def edit_project(id):
     print("EDITING PROJECT", id)
-    edit_form = ProjectForm()
+    edit_form = EditForm()
     edit_form["csrf_token"].data = request.cookies["csrf_token"]
     print("FORM", edit_form)
 
