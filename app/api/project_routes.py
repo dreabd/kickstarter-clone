@@ -9,6 +9,7 @@ from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_fro
 
 project_routes = Blueprint("projects", __name__)
 
+
 @project_routes.route("/current")
 def get_current_user_project():
     '''
@@ -20,11 +21,9 @@ def get_current_user_project():
 
     projects = Project.query.filter(Project.user_id == id)
 
-    res = [project.to_dict() for project in projects  ]
+    res = [project.to_dict() for project in projects]
 
-    return {"projects": res }
-
-
+    return {"projects": res}
 
 
 @project_routes.route("/<int:id>")
@@ -40,7 +39,7 @@ def get_single_project(id):
     return {"single_project": response}
 
 
-@project_routes.route("/<int:id>",methods=["DELETE"])
+@project_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_single_project(id):
     '''
@@ -51,10 +50,10 @@ def delete_single_project(id):
     project = Project.query.get(id)
     print(id)
 
-    if(project is None):
-        return {"errors": "Project does not exist"},404
+    if (project is None):
+        return {"errors": "Project does not exist"}, 404
 
-    if(project.user_id != current_user.id):
+    if (project.user_id != current_user.id):
         return {"errors": "Forbidden"}, 401
 
     # Would want to implement something where you can not delete old projects.
@@ -62,9 +61,7 @@ def delete_single_project(id):
     db.session.delete(project)
     db.session.commit()
 
-    return{"message":"Succesfully Deleted"}
-
-
+    return {"message": "Succesfully Deleted"}
 
 
 @project_routes.route("/new", methods=["POST"])
@@ -119,6 +116,7 @@ def post_new_project():
         print("There were some form errors", form.errors)
         return {"errors": form.errors}, 400, {"Content-Type": "application/json"}
 
+
 @project_routes.route("/")
 def get_all_projects():
     """
@@ -159,26 +157,32 @@ def post_new_comment():
         print("There were some form errors", form.errors)
         return form.errors, 400
 
+
 @project_routes.route("/comments/<int:id>", methods=["DELETE"])
-#@login_required
+# @login_required
 def delete_comment(id):
     print("hello from delete comments")
     comment = Comment.query.get(id)
     print(comment)
 
     if not comment:
-        return {"errors": "Comment does not exist"},404
+        return {"errors": "Comment does not exist"}, 404
 
     db.session.delete(comment)
     db.session.commit()
 
-    return{"message":"Succesfully Deleted"}
+    return {"message": "Succesfully Deleted"}
 
-@project_routes.route("/comments/<int:id>", methods=["PUT"])
+
+@project_routes.route("/comments/update/<int:id>", methods=["PUT"])
 def update_comment(id):
     comment = Comment.query.get(id)
-
+    print('comment in the backend...............', comment.to_dict())
+    if comment:
+        for key, value in request.form:
+            setattr(comment, key, value)
+        db.session.commit()
+        print('comment after update!!!!.......', comment.to_dict())
+        return comment.to_dict(), 200
     if not comment:
-        return {"errors": "Comment does not exist"},404
-
-        
+        return {"errors": "Comment does not exist"}, 404
