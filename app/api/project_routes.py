@@ -57,7 +57,7 @@ def delete_single_project(id):
     if project.user_id != current_user.id:
         return {"errors": "Forbidden"}, 401
 
-    if(project.id not in range(1,97)):
+    if project.id not in range(1, 97):
         remove_file_from_s3(project.project_image)
 
     # Would want to implement something where you can not delete old projects.
@@ -144,45 +144,51 @@ def edit_project(id):
 
         prev_project_image = updated_project.project_image
 
-        if(data["project_name"]):
+        if data["project_name"]:
             updated_project.project_name = data["project_name"]
-        if(data["description"]):
+        if data["description"]:
             updated_project.description = data["description"]
-        if(data["category_id"]):
+        if data["category_id"]:
             updated_project.category_id = data["category_id"]
-        if(data["city"]):
+        if data["city"]:
             updated_project.city = data["city"]
-        if(data["state"]):
+        if data["state"]:
             updated_project.state = data["state"]
-        if(data["story"]):
+        if data["story"]:
             updated_project.story = data["story"]
-        if(data["money_goal"]):
+        if data["money_goal"]:
             updated_project.money_goal = data["money_goal"]
-        if(data["project_image"]):
+        if data["project_image"]:
             # need to call aws helpers
             # need to delete the old image in the database
 
-            print("PROJECT IMAGE data from the backend route ", project_image)
             project_image = data["project_image"]
+            print("\nPROJECT IMAGE data from the backend route\n", project_image)
             project_image.filename = get_unique_filename(project_image.filename)
             upload = upload_file_to_s3(project_image)
+
+            #            project_image.filename = get_unique_filename(project_image.filename)
+            # upload = upload_file_to_s3(project_image)
+
+            # if "url" not in upload:
+            #     print("Errors Occured in the AWS Upload", upload["errors"])
+            #     return upload["errors"]
 
             if "url" not in upload:
                 print("Errors Occured in the AWS Upload", upload["errors"])
                 return upload["errors"]
 
-            if(updated_project.id not in range(1,97)):
+            if updated_project.id not in range(1, 97):
                 remove_file_from_s3(prev_project_image)
 
-
-            updated_project.project_image = data["project_image"]
-        if(data["end_date"]):
+            updated_project.project_image = upload["url"]
+        if data["end_date"]:
             updated_project.end_date = data["end_date"]
-        if(data["reward_name"]):
+        if data["reward_name"]:
             updated_project.reward_name = data["reward_name"]
-        if(data["reward_amount"]):
+        if data["reward_amount"]:
             updated_project.reward_amount = data["reward_amount"]
-        if(data["reward_description"]):
+        if data["reward_description"]:
             updated_project.reward_description = data["reward_description"]
 
         db.session.commit()

@@ -133,8 +133,7 @@ export const editProjectThunk = (id, editProject) => async dispatch => {
     if (res.ok) {
       console.log("Edit request OK", res)
       const response = await res.json();
-      console.log("Response from edit route - NOT RETURNED YET", response)
-      // TODO - return edited project from the backend?
+      return response.project;
     } else {
       console.error('Edit response not OK')
       const response = await res.json()

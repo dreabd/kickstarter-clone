@@ -64,7 +64,7 @@ const EditProjectForm = () => {
 
     let prevImage = project && project.project_image
     console.log(prevImage)
-    console.log("This is the state variable category is defaulted to..................",category)
+    console.log("This is the state variable category is defaulted to..................", category)
 
     useEffect(() => {
         if (!project) {
@@ -131,7 +131,7 @@ const EditProjectForm = () => {
         console.log("Data returned from edit project thunk", editedProjectOrErrors)
 
         // Handle backend validation errors
-        if(!editedProjectOrErrors) return null
+        if (!editedProjectOrErrors) return null
         if ('errors' in editedProjectOrErrors) {
             // handle errors from the backend which comes in as an object with a key of errors
             console.error('The backend returned validation errors when creating a new form', editedProjectOrErrors)
@@ -144,6 +144,12 @@ const EditProjectForm = () => {
                 errorObj[frontEndErrorKey] = frontEndErrorString
             })
             setErrors(errorObj)
+        } else {
+            if (editedProjectOrErrors) {
+                history.push(`/projects/${editedProjectOrErrors.id}`)
+            } else {
+                console.error("Nothing returned from edit project thunk")
+            }
         }
 
         // TODO - redirect to edited project's show page
@@ -177,8 +183,8 @@ const EditProjectForm = () => {
                     Category <span className='errors'>{errors.category}</span>
                     <select
                         value={category}
-                        onChange={(e) =>{
-                            console.log("This is e.target.value in the on change.................",e.target.value)
+                        onChange={(e) => {
+                            console.log("This is e.target.value in the on change.................", e.target.value)
                             setCategory(e.target.value)
                         }
                         }>
@@ -239,7 +245,7 @@ const EditProjectForm = () => {
                     />
                     <div>
                         <p><a href={projectImage}>Existing Project Image</a></p>
-                        <img className="thumbnail"src={prevImage} alt="project_image" />
+                        <img className="thumbnail" src={prevImage} alt="project_image" />
                     </div>
                 </label>
                 <label>
