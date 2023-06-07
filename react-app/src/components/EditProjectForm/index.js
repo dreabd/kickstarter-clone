@@ -4,6 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { getAllProjectsThunk, editProjectThunk } from '../../store/projects';
 import { getCategoriesThunk } from '../../store/categoryReducer';
 
+import './EditProjectForm.css'
+
 const formatDate = (dateString) => {
     if (!dateString) return;
     const date = new Date(dateString)
@@ -60,13 +62,18 @@ const EditProjectForm = () => {
     const [rewardDescription, setRewardDescription] = useState(project?.reward_description || "");
     const [errors, setErrors] = useState({});
 
+    let prevImage = project && project.project_image
+    console.log(prevImage)
+    console.log("This is the state variable category is defaulted to..................",category)
+
     useEffect(() => {
         if (!project) {
             dispatch(getAllProjectsThunk())
         } else {
             setProjectName(project.project_name)
             setDescription(project.description)
-            setCategory(project.category.type)
+            setCategory(project.category)
+            console.log("This is how it is coming back from the database.......", project.category)
             setMoneyGoal(project.money_goal)
             setCity(project.city)
             setState(project.state)
@@ -102,7 +109,7 @@ const EditProjectForm = () => {
         const formData = new FormData()
         formData.append("project_name", projectName)
         formData.append("description", description)
-        formData.append("category_id", category)
+        formData.append("category_id", category.id)
         formData.append("money_goal", moneyGoal)
         formData.append("city", city)
         formData.append("state", state)
@@ -124,6 +131,7 @@ const EditProjectForm = () => {
         console.log("Data returned from edit project thunk", editedProjectOrErrors)
 
         // Handle backend validation errors
+        if(!editedProjectOrErrors) return null
         if ('errors' in editedProjectOrErrors) {
             // handle errors from the backend which comes in as an object with a key of errors
             console.error('The backend returned validation errors when creating a new form', editedProjectOrErrors)
@@ -169,8 +177,12 @@ const EditProjectForm = () => {
                     Category <span className='errors'>{errors.category}</span>
                     <select
                         value={category}
-                        onChange={(e) => setCategory(e.target.value)}>
-                        <option default>{category}</option>
+                        onChange={(e) =>{
+                            console.log("This is e.target.value in the on change.................",e.target.value)
+                            setCategory(e.target.value)
+                        }
+                        }>
+                        <option default>{category.type}</option>
                         {categories && Object.values(categories).map(category => (
                             <option key={category.id} value={category.id}>
                                 {category.type}
@@ -215,14 +227,20 @@ const EditProjectForm = () => {
                     </textarea>
                 </label>
                 <label>
-                    Project Image (Coming Soon...) <span className='errors'>{errors.projectImage}</span>
+                    Project Image<span className='errors'>{errors.projectImage}</span>
                     <input
                         type='file'
                         accept='image/*'
                         placeholder='Project Image'
-                        disabled
+                        onChange={(e) => {
+                            console.log("e.target.files????", e.target.files)
+                            setProjectImage(e.target.files[0])
+                        }}
                     />
-                    <p><a href={projectImage}>Current Image</a></p>
+                    <div>
+                        <p><a href={projectImage}>Existing Project Image</a></p>
+                        <img className="thumbnail"src={prevImage} alt="project_image" />
+                    </div>
                 </label>
                 <label>
                     End Date <span className='errors'>{errors.endDate}</span>

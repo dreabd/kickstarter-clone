@@ -4,6 +4,7 @@ import { normalizeObj } from './helpers';
 const GET_ALL_PROJECTS = 'projects/getAllProjects'
 const GET_SINGLE_PROJECT = 'projects/getSingleProject'
 const POST_NEW_PROJECT = 'projects/postNewProject'
+const PUT_PROJECT = 'projects/editProject'
 const POST_NEW_COMMENT = 'projects/postNewComment'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
@@ -23,6 +24,13 @@ const getSingleProject = (project) => {
 const postNewProject = (project) => {
   return {
     type: POST_NEW_PROJECT,
+    project
+  }
+}
+
+const editProject = (project) => {
+  return {
+    type: PUT_PROJECT,
     project
   }
 }

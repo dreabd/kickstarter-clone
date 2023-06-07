@@ -49,7 +49,7 @@ class EditForm(FlaskForm):
         validators=[DataRequired()],
     )
     project_image = FileField(
-        "Image File", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))]
+        "Image File", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))]
     )
     end_date = DateField("End Date", validators=[DataRequired(), date_checker])
     reward_name = StringField("Reward Name", validators=[DataRequired()])

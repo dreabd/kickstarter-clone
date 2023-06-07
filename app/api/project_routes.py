@@ -57,6 +57,9 @@ def delete_single_project(id):
     if project.user_id != current_user.id:
         return {"errors": "Forbidden"}, 401
 
+    if(project.id not in range(1,97)):
+        remove_file_from_s3(project.project_image)
+
     # Would want to implement something where you can not delete old projects.
 
     db.session.delete(project)
@@ -130,54 +133,63 @@ def edit_project(id):
         data = edit_form.data
 
         # TODO - add ability to upload new file
-        # project_image = data["project_image"]
-        # print("PROJECT IMAGE data from the backend route ", project_image)
-        # project_image.filename = get_unique_filename(project_image.filename)
-        # upload = upload_file_to_s3(project_image)
 
-        # if "url" not in upload:
-        #     print("Errors Occured in the AWS Upload", upload["errors"])
-        #     return upload["errors"]
+        updated_project = Project.query.get(id)
 
-        new_project = Project(
-            id=id,
-            project_name=data["project_name"],
-            description=data["description"],
-            category_id=data[
-                "category"
-            ],  # TODO - category is not being passed correctly?
-            money_goal=data["money_goal"],
-            user_id=current_user.id,
-            city=data["city"],
-            state=data["state"],
-            story=data["story"],
-            project_image=data[
-                "project_image"
-            ],  # TODO - project_image is also not being passed correctly?
-            end_date=data["end_date"],
-            reward_name=data["reward_name"],
-            reward_amount=data["reward_amount"],
-            reward_description=data["reward_description"],
-        )
-
-        # Delete existing project in db
-        project_in_db = Project.query.get(id)
-
-        if project_in_db is None:
+        if updated_project is None:
             return {"errors": "Project does not exist"}, 404
 
-        if project_in_db.user_id != current_user.id:
+        if updated_project.user_id != current_user.id:
             return {"errors": "Forbidden"}, 401
 
-        db.session.delete(project_in_db)
+        prev_project_image = updated_project.project_image
+
+        if(data["project_name"]):
+            updated_project.project_name = data["project_name"]
+        if(data["description"]):
+            updated_project.description = data["description"]
+        if(data["category_id"]):
+            updated_project.category_id = data["category_id"]
+        if(data["city"]):
+            updated_project.city = data["city"]
+        if(data["state"]):
+            updated_project.state = data["state"]
+        if(data["story"]):
+            updated_project.story = data["story"]
+        if(data["money_goal"]):
+            updated_project.money_goal = data["money_goal"]
+        if(data["project_image"]):
+            # need to call aws helpers
+            # need to delete the old image in the database
+
+            print("PROJECT IMAGE data from the backend route ", project_image)
+            project_image = data["project_image"]
+            project_image.filename = get_unique_filename(project_image.filename)
+            upload = upload_file_to_s3(project_image)
+
+            if "url" not in upload:
+                print("Errors Occured in the AWS Upload", upload["errors"])
+                return upload["errors"]
+
+            if(updated_project.id not in range(1,97)):
+                remove_file_from_s3(prev_project_image)
+
+
+            updated_project.project_image = data["project_image"]
+        if(data["end_date"]):
+            updated_project.end_date = data["end_date"]
+        if(data["reward_name"]):
+            updated_project.reward_name = data["reward_name"]
+        if(data["reward_amount"]):
+            updated_project.reward_amount = data["reward_amount"]
+        if(data["reward_description"]):
+            updated_project.reward_description = data["reward_description"]
+
         db.session.commit()
 
-        # Add new_project in its place
-        db.session.add(new_project)
-        db.session.commit()
-        print("This is your new Project", new_project)
+        print("This is your new Project", updated_project)
         return (
-            {"project": new_project.to_dict()},
+            {"project": updated_project.to_dict()},
             200,
             {"Content-Type": "application/json"},
         )
