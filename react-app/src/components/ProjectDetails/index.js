@@ -36,7 +36,6 @@ const ProjectDetails = () =>{
    //slice of state that makes a ternery truthy to render a component
    setUpdate(true)
 
-
   }
 
 
@@ -69,8 +68,8 @@ const ProjectDetails = () =>{
               <div>
                 <li key={comment.id}>{comment.comment}</li>
                 {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)}>Delete</button> : null}
-                {userId === comment.user_id ? <button onClick={() => handleUpdate(comment.id)}>Update</button> : null}
-                {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment}/> : null}
+                {userId === comment.user_id ? <button onClick={() => handleUpdate()}>Update</button> : null}
+                {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment} setUpdate={setUpdate}/> : null}
               </div>
 
             )

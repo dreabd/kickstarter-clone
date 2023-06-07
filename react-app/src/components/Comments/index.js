@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { postCommentThunk } from "../../store/projects";
+import { getSingleProjectThunk } from "../../store/projects";
 
 function CommentComponent({id}) {
 
@@ -38,6 +39,7 @@ function CommentComponent({id}) {
             const newComment = await dispatch(postCommentThunk(form))
         }
         setCommentText('')
+        await dispatch(getSingleProjectThunk(parseInt(id)))
 
     }
 

@@ -5,7 +5,7 @@ import { getSingleProjectThunk, updateCommentThunk } from "../../store/projects"
 
 //<UpdateCommentComponent commentId={comment.id} projectId={projectId} commentText={comment.comment}/>
 
-function UpdateCommentComponent({commentId, projectId, originalText}) {
+function UpdateCommentComponent({commentId, projectId, originalText, setUpdate}) {
 
     //Initialing stuff
     const dispatch = useDispatch();
@@ -35,15 +35,12 @@ function UpdateCommentComponent({commentId, projectId, originalText}) {
         if (commentText.length < 1) newErrors['commentText'] = "Comment text is required!"
 
         setErrors(newErrors);
-        // console.log('form before sending to thunk.............',form)
         if (!Object.keys(newErrors).length) {
             const newComment = await dispatch(updateCommentThunk(form, commentId))
-            dispatch(getSingleProjectThunk(projectId))
-
-
+            await dispatch(getSingleProjectThunk(projectId))
         }
         setCommentText('')
-
+        setUpdate(false)
     }
 
     return (
