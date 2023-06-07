@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
-import { postCommentThunk } from "../../store/projects";
-import { getSingleProjectThunk } from "../../store/projects";
+import { useHistory } from 'react-router-dom';
+import { getSingleProjectThunk, updateCommentThunk } from "../../store/projects";
 
-function CommentComponent({id}) {
+//<UpdateCommentComponent commentId={comment.id} projectId={projectId} commentText={comment.comment}/>
+
+function UpdateCommentComponent({commentId, projectId, originalText, setUpdate}) {
 
     //Initialing stuff
     const dispatch = useDispatch();
-    // const {id} = useParams();
+
 
     //slices-o-state
-    const [commentText, setCommentText] = useState('');
+    const [commentText, setCommentText] = useState(originalText);
     const [errors, setErrors] = useState({});
 
     //listen for user session
-    const sessionUser = useSelector(state => state.session.user);
-    let userId;
-    if(sessionUser) userId = sessionUser.id
+     const sessionUser = useSelector(state => state.session.user);
+     let userId;
+     if(sessionUser) userId = sessionUser.id
 
-    //init form for transmital
-    const form = {
+    // //init form for transmital
+     const form = {
         comment: commentText,
         user_id: userId,
-        project_id: parseInt(id)
-    }
+        project_id: projectId
+     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,13 +35,12 @@ function CommentComponent({id}) {
         if (commentText.length < 1) newErrors['commentText'] = "Comment text is required!"
 
         setErrors(newErrors);
-        // console.log('form before sending to thunk.............',form)
         if (!Object.keys(newErrors).length) {
-            const newComment = await dispatch(postCommentThunk(form))
+            const newComment = await dispatch(updateCommentThunk(form, commentId))
+            await dispatch(getSingleProjectThunk(projectId))
         }
         setCommentText('')
-        await dispatch(getSingleProjectThunk(parseInt(id)))
-
+        setUpdate(false)
     }
 
     return (
@@ -52,11 +52,11 @@ function CommentComponent({id}) {
                         placeholder='Leave your comment here...'
                         onChange={(e) => setCommentText(e.target.value)}>
                     </textarea>
-                <button className='create-comment-submit-button' type='submit'>Create Comment</button>
+                <button className='create-comment-submit-button' type='submit'>Update Comment</button>
             </form>
         </div>
     )
 
 }
 
-export default CommentComponent
+export default UpdateCommentComponent

@@ -7,6 +7,7 @@ const POST_NEW_PROJECT = 'projects/postNewProject'
 const POST_NEW_COMMENT = 'projects/postNewComment'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
+const DELETE_COMMENT = "projects/deleteComment"
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) => {
   return {
@@ -40,12 +41,18 @@ const getCurrentProject = (projects) => {
 }
 
 const deleteSingleProject = (projectId) => {
-  return{
+  return {
     type: DELETE_SINGLE_PROJECT,
     projectId
   }
 }
 
+const deleteComment = (id) => {
+  return {
+    type: DELETE_COMMENT,
+    id
+  }
+}
 
 
 
@@ -61,10 +68,10 @@ export const getAllProjectsThunk = () => async (dispatch) => {
   }
 }
 
-export const getCurrentProjectThunk = () => async (dispatch) =>{
-  const res =await fetch('/api/projects/current')
-  if(res.ok){
-    const {projects} = await res.json()
+export const getCurrentProjectThunk = () => async (dispatch) => {
+  const res = await fetch('/api/projects/current')
+  if (res.ok) {
+    const { projects } = await res.json()
     console.log(projects)
     dispatch(getCurrentProject(projects))
     return
@@ -113,11 +120,11 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
   }
 }
 
-export const deleteSingleProjectThunk = (projectId) => async (dispatch) =>{
-  const res = await fetch(`/api/projects/${projectId}`,{
-    method:"DELETE"
+export const deleteSingleProjectThunk = (projectId) => async (dispatch) => {
+  const res = await fetch(`/api/projects/${projectId}`, {
+    method: "DELETE"
   })
-  if(res.ok){
+  if (res.ok) {
     dispatch(deleteSingleProject(projectId))
   }
 }
@@ -144,8 +151,29 @@ export const postCommentThunk = (form) => async (dispatch) => {
   }
 }
 
+export const deleteCommentThunk = (id) => async (dispatch) => {
+  id = parseInt(id)
+  const res = await fetch(`/api/projects/comments/${id}`, {
+    method: "DELETE"
+  })
+  if (res.ok) {
+    dispatch(deleteComment(id))
+  }
+}
+
+export const updateCommentThunk = (form, commentId) => async (dispatch) => {
+  let id = parseInt(commentId)
+  console.log("comment in thunk", form)
+  const res = await fetch(`/api/projects/comments/update/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(form)
+  })
+  return res;
+}
+
 // --------- INITIAL STATE -------------
-const initialState = { allProjects: {}, singleProject: {}, userProjects:{}}
+const initialState = { allProjects: {}, singleProject: {}, userProjects: {} }
 // ---------- REDUCER ----------
 const projectReducer = (state = initialState, action) => {
 
@@ -155,13 +183,13 @@ const projectReducer = (state = initialState, action) => {
     case GET_SINGLE_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     case GET_CURRENT_PROJECT:
-      return{...state,userProjects:{...normalizeObj(action.projects)}}
+      return { ...state, userProjects: { ...normalizeObj(action.projects) } }
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     case POST_NEW_COMMENT:
       // console.log('comment entered the reducer..............', action.comment)
-      let newState =  { ...state, singleProject:{ ...state.singleProject }}
-      if(!newState.singleProject.comments) {
+      let newState = { ...state, singleProject: { ...state.singleProject } }
+      if (!newState.singleProject.comments) {
         newState.singleProject.comments = [action.comment]
       } else if (newState.singleProject.comments) {
         newState.singleProject.comments.push(action.comment)
@@ -169,10 +197,15 @@ const projectReducer = (state = initialState, action) => {
       // console.log('newState after updating redux store before return.............', newState)
       return newState
     case DELETE_SINGLE_PROJECT:
-      let newDeleteState = {...state}
+      let newDeleteState = { ...state }
       delete newDeleteState.allProjects[action.projectId]
       delete newDeleteState.userProjects[action.projectId]
       return newDeleteState
+    case DELETE_COMMENT:
+      let newDeleteCommentState = { ...state, singleProject: { ...state.singleProject } }
+      let filteredComments = newDeleteCommentState.singleProject.comments.filter(comment => comment.id !== action.id)
+      newDeleteCommentState.singleProject.comments = filteredComments
+      return newDeleteCommentState
     default:
       return state
   }

@@ -1,9 +1,12 @@
 import React  from "react";
 import { useParams } from "react-router-dom";
 import { getSingleProjectThunk } from "../../store/projects";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
 import CommentComponent from "../Comments";
+import { deleteCommentThunk } from "../../store/projects";
+import { updateCommentThunk } from "../../store/projects";
+import UpdateCommentComponent from "../UpdateCommentComponent";
 
 
 
@@ -11,7 +14,7 @@ const ProjectDetails = () =>{
   const dispatch = useDispatch()
   const {projectId} = useParams()
   console.log("this is the id in components",projectId)
-
+  const [update, setUpdate] = useState(false);
   const singleProject = useSelector( state => state.project.singleProject)
 
    //listen for user session
@@ -23,9 +26,19 @@ const ProjectDetails = () =>{
     dispatch(getSingleProjectThunk(projectId))
   },[dispatch, projectId])
 
-  const handleDelete = async () => {
+  const handleDelete = async (commentId) => {
+    await dispatch(deleteCommentThunk(commentId))
+    dispatch(getSingleProjectThunk(projectId))
 
   }
+
+  const handleUpdate = async () => {
+   //slice of state that makes a ternery truthy to render a component
+   setUpdate(true)
+
+  }
+
+
 
   if (!singleProject){
     return null
@@ -47,14 +60,16 @@ const ProjectDetails = () =>{
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
         <button> Back This Project!</button>
       </div>
-      <CommentComponent id={projectId}/>
+      {!singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId}/>: null}
       <div>
         <ul>
           {singleProject.comments?.map(comment => {
             return (
               <div>
                 <li key={comment.id}>{comment.comment}</li>
-                {userId === comment.user_id ? <button onClick={handleDelete}>Delete</button> : null}
+                {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)}>Delete</button> : null}
+                {userId === comment.user_id ? <button onClick={() => handleUpdate()}>Update</button> : null}
+                {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment} setUpdate={setUpdate}/> : null}
               </div>
 
             )
