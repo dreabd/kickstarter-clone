@@ -81,3 +81,19 @@ li > * {
     padding-right: 150px;
     font-size: 16px;
 }
+
+.nav-discover-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    border-bottom: .5px solid gray;
+    height: 35px;
+}
+
+.main-nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
