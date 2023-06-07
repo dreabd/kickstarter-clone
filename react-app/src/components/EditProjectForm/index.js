@@ -1,13 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, useHistory, useParams } from 'react-router-dom';
-import { getAllProjectsThunk } from '../../store/projects';
+import { useHistory, useParams } from 'react-router-dom';
+import { getAllProjectsThunk, editProjectThunk } from '../../store/projects';
 import { getCategoriesThunk } from '../../store/categoryReducer';
 
-// const formatDate = (dateString) => {
-//     const date = new Date(dateString)
-//     return date.toString().toISOString().split("T")[0]
-// }
+const formatDate = (dateString) => {
+    if (!dateString) return;
+    const date = new Date(dateString)
+    return date.toISOString().split('T')[0];
+}
+
+//this is used to convert the backend errors into a format that the frontend can use
+const caseHelper = (backendstring) => {
+    const backendToFrontend = {
+        project_name: "projectName",
+        description: "description",
+        category_id: "category",
+        money_goal: "moneyGoal",
+        city: "city",
+        state: "state",
+        story: "story",
+        project_image: "projectImage",
+        end_date: "endDate",
+        reward_name: "rewardName",
+        reward_amount: "rewardAmount",
+        reward_description: "rewardDescription"
+    };
+    return backendToFrontend[backendstring]
+}
 
 const EditProjectForm = () => {
     const dispatch = useDispatch()
@@ -34,7 +54,7 @@ const EditProjectForm = () => {
     const [state, setState] = useState(project?.state || "");
     const [story, setStory] = useState(project?.story || "");
     const [projectImage, setProjectImage] = useState(project?.project_image || "");
-    const [endDate, setEndDate] = useState(project?.end_date || '2024-01-01');
+    const [endDate, setEndDate] = useState(formatDate(project?.end_date) || '2024-01-01');
     const [rewardName, setRewardName] = useState(project?.reward_name || "");
     const [rewardAmount, setRewardAmount] = useState(project?.reward_amount || 0);
     const [rewardDescription, setRewardDescription] = useState(project?.reward_description || "");
@@ -52,7 +72,7 @@ const EditProjectForm = () => {
             setState(project.state)
             setStory(project.story)
             setProjectImage(project.project_image)
-            setEndDate(project.end_date)
+            setEndDate(formatDate(project.end_date))
             setRewardName(project.reward_name)
             setRewardAmount(project.reward_amount)
             setRewardDescription(project.reward_description)
@@ -61,6 +81,64 @@ const EditProjectForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const newErrors = {};
+        // validate data on the frontend here
+        if (projectName.length < 1) newErrors['projectName'] = "Project name is required!"
+        if (description.length < 1) newErrors['description'] = "Description is required!"
+        if (category === "Select") newErrors['category'] = "Category is required!"
+        if (moneyGoal < 1) newErrors['moneyGoal'] = "Financial Goal is required!"
+        if (city.length < 1) newErrors['city'] = "City is required!"
+        if (state.length < 1) newErrors['state'] = "State is required!"
+        if (story.length < 1) newErrors['story'] = "Story is required!"
+        if (endDate === "YYYY-MM-DD") newErrors['endDate'] = "Project End Date is required!"
+
+        setErrors(newErrors);
+
+        // If we have errors, bail out
+        if (Object.keys(newErrors).length) return;
+
+        // Build up our form data
+        const formData = new FormData()
+        formData.append("project_name", projectName)
+        formData.append("description", description)
+        formData.append("category_id", category)
+        formData.append("money_goal", moneyGoal)
+        formData.append("city", city)
+        formData.append("state", state)
+        formData.append("story", story)
+        formData.append("project_image", projectImage)
+        formData.append("end_date", endDate)
+        formData.append("reward_name", rewardName)
+        formData.append("reward_amount", rewardAmount)
+        formData.append("reward_description", rewardDescription)
+
+        // Log our form data
+        console.log("Form Data gathered from form:")
+        for (let key of formData.entries()) {
+            console.log(key[0] + ' ----> ' + key[1])
+        }
+
+        const editedProjectOrErrors = await dispatch(editProjectThunk(project.id, formData))
+
+        console.log("Data returned from edit project thunk", editedProjectOrErrors)
+
+        // Handle backend validation errors
+        if ('errors' in editedProjectOrErrors) {
+            // handle errors from the backend which comes in as an object with a key of errors
+            console.error('The backend returned validation errors when creating a new form', editedProjectOrErrors)
+            const formErrors = editedProjectOrErrors.errors
+            let errorObj = {}
+
+            Object.keys(formErrors).forEach((errorKey) => {
+                const frontEndErrorKey = caseHelper(errorKey)
+                const frontEndErrorString = formErrors[errorKey][0]
+                errorObj[frontEndErrorKey] = frontEndErrorString
+            })
+            setErrors(errorObj)
+        }
+
+        // TODO - redirect to edited project's show page
     }
 
     if (!project) return <p>Project loading...</p>
@@ -137,17 +215,14 @@ const EditProjectForm = () => {
                     </textarea>
                 </label>
                 <label>
-                    Project Image <span className='errors'>{errors.projectImage}</span>
+                    Project Image (Coming Soon...) <span className='errors'>{errors.projectImage}</span>
                     <input
                         type='file'
                         accept='image/*'
-                        // value={projectImage}
                         placeholder='Project Image'
-                        onChange={(e) => {
-                            console.log("e.target.files????", e.target.files)
-                            setProjectImage(e.target.files[0])
-                        }}
+                        disabled
                     />
+                    <p><a href={projectImage}>Current Image</a></p>
                 </label>
                 <label>
                     End Date <span className='errors'>{errors.endDate}</span>
@@ -185,9 +260,9 @@ const EditProjectForm = () => {
                         onChange={(e) => setRewardDescription(e.target.value)}>
                     </textarea>
                 </label>
-                <button className='create-project-submit-button' type='submit'>Create Project</button>
+                <button className='create-project-submit-button' type='submit'>Update Project</button>
             </form>
-        </div>
+        </div >
     )
 }
 

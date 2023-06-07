@@ -40,7 +40,7 @@ const getCurrentProject = (projects) => {
 }
 
 const deleteSingleProject = (projectId) => {
-  return{
+  return {
     type: DELETE_SINGLE_PROJECT,
     projectId
   }
@@ -61,10 +61,10 @@ export const getAllProjectsThunk = () => async (dispatch) => {
   }
 }
 
-export const getCurrentProjectThunk = () => async (dispatch) =>{
-  const res =await fetch('/api/projects/current')
-  if(res.ok){
-    const {projects} = await res.json()
+export const getCurrentProjectThunk = () => async (dispatch) => {
+  const res = await fetch('/api/projects/current')
+  if (res.ok) {
+    const { projects } = await res.json()
     console.log(projects)
     dispatch(getCurrentProject(projects))
     return
@@ -113,11 +113,36 @@ export const postNewProjectThunk = (newProject) => async (dispatch) => {
   }
 }
 
-export const deleteSingleProjectThunk = (projectId) => async (dispatch) =>{
-  const res = await fetch(`/api/projects/${projectId}`,{
-    method:"DELETE"
+export const editProjectThunk = (id, editProject) => async dispatch => {
+  try {
+    console.log("Making post request to edit project route", editProject)
+    const res = await fetch(`/api/projects/${id}/edit`, {
+      method: "PUT",
+      body: editProject
+    })
+    console.log("Edit request", res)
+
+    if (res.ok) {
+      console.log("Edit request OK", res)
+      const response = await res.json();
+      console.log("Response from edit route - NOT RETURNED YET", response)
+      // TODO - return edited project from the backend?
+    } else {
+      console.error('Edit response not OK')
+      const response = await res.json()
+      console.error("Edit response", response)
+      return response;
+    }
+  } catch (e) {
+    console.error("Error making edit request for project", e)
+  }
+}
+
+export const deleteSingleProjectThunk = (projectId) => async (dispatch) => {
+  const res = await fetch(`/api/projects/${projectId}`, {
+    method: "DELETE"
   })
-  if(res.ok){
+  if (res.ok) {
     dispatch(deleteSingleProject(projectId))
   }
 }
@@ -145,7 +170,7 @@ export const postCommentThunk = (form) => async (dispatch) => {
 }
 
 // --------- INITIAL STATE -------------
-const initialState = { allProjects: {}, singleProject: {}, userProjects:{}}
+const initialState = { allProjects: {}, singleProject: {}, userProjects: {} }
 // ---------- REDUCER ----------
 const projectReducer = (state = initialState, action) => {
 
@@ -155,13 +180,13 @@ const projectReducer = (state = initialState, action) => {
     case GET_SINGLE_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     case GET_CURRENT_PROJECT:
-      return{...state,userProjects:{...normalizeObj(action.projects)}}
+      return { ...state, userProjects: { ...normalizeObj(action.projects) } }
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     case POST_NEW_COMMENT:
       // console.log('comment entered the reducer..............', action.comment)
-      let newState =  { ...state, singleProject:{ ...state.singleProject }}
-      if(!newState.singleProject.comments) {
+      let newState = { ...state, singleProject: { ...state.singleProject } }
+      if (!newState.singleProject.comments) {
         newState.singleProject.comments = [action.comment]
       } else if (newState.singleProject.comments) {
         newState.singleProject.comments.push(action.comment)
@@ -169,7 +194,7 @@ const projectReducer = (state = initialState, action) => {
       // console.log('newState after updating redux store before return.............', newState)
       return newState
     case DELETE_SINGLE_PROJECT:
-      let newDeleteState = {...state}
+      let newDeleteState = { ...state }
       delete newDeleteState.allProjects[action.projectId]
       delete newDeleteState.userProjects[action.projectId]
       return newDeleteState
