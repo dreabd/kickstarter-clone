@@ -173,3 +173,12 @@ def delete_comment(id):
     db.session.commit()
 
     return{"message":"Succesfully Deleted"}
+
+@project_routes.route("/comments/<int:id>", methods=["PUT"])
+def update_comment(id):
+    comment = Comment.query.get(id)
+
+    if not comment:
+        return {"errors": "Comment does not exist"},404
+
+        
