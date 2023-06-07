@@ -1,5 +1,5 @@
 from app.models import Project, User, Category, Comment, db
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, request
 from ..forms.project_form import ProjectForm
 from ..forms.edit_project_form import EditForm
 from ..forms.comment_form import CommentForm

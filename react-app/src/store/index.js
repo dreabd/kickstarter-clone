@@ -7,7 +7,7 @@ import projectReducer from './projects';
 const rootReducer = combineReducers({
   session,
   category,
-  project:projectReducer
+  project:projectReducer,
 });
 
 

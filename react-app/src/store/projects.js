@@ -9,6 +9,7 @@ const POST_NEW_COMMENT = 'projects/postNewComment'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
 const DELETE_COMMENT = "projects/deleteComment"
+
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) => {
   return {
@@ -29,7 +30,7 @@ const postNewProject = (project) => {
   }
 }
 
-const putProject = (project,id) => {
+const putProject = (project, id) => {
   return {
     type: PUT_PROJECT,
     project,
@@ -62,8 +63,6 @@ const deleteComment = (id) => {
     id
   }
 }
-
-
 
 // ---------- THUNKS ----------
 export const getAllProjectsThunk = () => async (dispatch) => {
@@ -141,7 +140,7 @@ export const editProjectThunk = (id, editProject) => async dispatch => {
     if (res.ok) {
       console.log("Edit request OK", res)
       const response = await res.json();
-      dispatch(putProject(response.project,id))
+      dispatch(putProject(response.project, id))
       return response.project;
     } else {
       console.error('Edit response not OK')
@@ -206,6 +205,19 @@ export const updateCommentThunk = (form, commentId) => async (dispatch) => {
   return res;
 }
 
+export const searchAllProjectsThunk = (query) => async (dispatch) => {
+  console.log("in the thunk! here is the search query:", query)
+  console.log("this is what the fetch url looks like: ", `/api/search?query=${query}`)
+  const res = await fetch(`/api/search?query=${query}`)
+  if (res.ok) {
+    //projects here will be filtered based on the search query
+    const { projects } = await res.json()
+    dispatch(getAllProjects(projects))
+    return
+  } else {
+    console.log("Problem with loading projects with query params")
+  }
+}
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects: {} }
 // ---------- REDUCER ----------
@@ -221,7 +233,7 @@ const projectReducer = (state = initialState, action) => {
     case POST_NEW_PROJECT:
       return { ...state, singleProject: { ...action.project } }
     case PUT_PROJECT:
-      let newEditState = {...state}
+      let newEditState = { ...state }
       newEditState.allProjects[action.id] = action.project
       return newEditState
     case POST_NEW_COMMENT:
