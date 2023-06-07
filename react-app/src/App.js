@@ -11,6 +11,7 @@ import CreateProjectForm from "./components/ProjectForm";
 import ProjectDetails from "./components/ProjectDetails";
 import ManageProject from "./components/ManageProjects";
 import EditProjectForm from "./components/EditProjectForm";
+import DiscoverPage from "./components/Discover";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,11 +41,12 @@ function App() {
         <Route exact path="/">
           <LandingPage />
         </Route>
-
         <Route exact path="/current">
           <ManageProject />
         </Route>
-
+        <Route exact path="/discover">
+          <DiscoverPage />
+        </Route>
         <Route exact path="/projects/new">
           <CreateProjectForm />
         </Route>

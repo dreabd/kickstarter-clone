@@ -9,3 +9,14 @@ from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_fro
 
 
 discover_routes = Blueprint("discover", __name__)
+
+
+@discover_routes.route("/")
+def get_all_projects():
+    """
+    Grabs all the Projects with the following join: fundings, owner and category.
+    Should return a JSON obj for the fronted to catch
+    """
+    projects = Project.query.all()
+    response = [project.to_dict() for project in projects]
+    return {"projects": response}
