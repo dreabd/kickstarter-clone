@@ -10,8 +10,9 @@ const DiscoverCategoriesPage = () => {
   const { category } = useParams();
 
   useEffect(() => {
-    console.log("category in the useEffect........................", category)
+
     dispatch(getAllProjectsByCategoryThunk( category ))
+
   }, [dispatch, category]);
 
   const cards = Object.values(projects)?.map(project => {
@@ -31,7 +32,7 @@ const DiscoverCategoriesPage = () => {
 
   return (
     <div>
-      <h1>I am a discover page</h1>
+      <h1>{category}</h1>
       {cards}
     </div>
   )

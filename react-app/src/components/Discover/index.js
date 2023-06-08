@@ -28,7 +28,7 @@ const DiscoverPage = () => {
   console.log(projects)
   return (
     <div>
-      <h1>I am a discover page</h1>
+      <h1>Discover</h1>
       {cards}
     </div>
   )
