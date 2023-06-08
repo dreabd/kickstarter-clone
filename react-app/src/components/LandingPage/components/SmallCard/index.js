@@ -9,6 +9,7 @@ const SmallCard = ({ project }) => {
         return total
     }, 0)
     const percentFunded = Math.floor((totalFunding / project.money_goal * 100))
+    
     return (
         <div className='small-card-container'>
             <img src={project.project_image} className='small-card-image' />

@@ -1187,7 +1187,7 @@ def seed_projects():
         city="Northhampton",
         state="MA",
         story="Hi! My name is Lisa Bastoni, and I am a songwriter living in Northampton, Massachusetts. I am launching this kickstarter today to raise funds for a new record - my first full length album in five years!For the first time in my musical life, I will be recording the songs live with a great band in the studio. I would greatly appreciate your support, and would love to have you along for the ride.If you have known me for awhile, then you know that I have taken a twisty kind of a path through music and art (and life) over the past 20+ years, always coming back to music, or art, or both. The two are completely entwined, and I can't imagine my life without one or the other. Since our last full-length record was released in 2019, I've been able to focus more on the art side of things, including a number of lyric videos for other songwriters, re-entering the day job work force as a part time elementary school art teacher, and culminating with my first ever art show, currently on display at Club Passim. It's all work that I deeply enjoy, though lately I've felt a calling back to music.",
-        project_image="",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m4.jpeg",
         end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
         reward_name="Digital Download",
         reward_amount=15,
