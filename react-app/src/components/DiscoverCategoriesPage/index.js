@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllProjectsByCategoryThunk } from "../../store/projects";
 
 const DiscoverCategoriesPage = () => {
@@ -8,6 +8,7 @@ const DiscoverCategoriesPage = () => {
   const projects = useSelector(state => state.project.allProjects);
   const dispatch = useDispatch();
   const { category } = useParams();
+  const history = useHistory()
 
   useEffect(() => {
 
@@ -17,7 +18,9 @@ const DiscoverCategoriesPage = () => {
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div style={{ border: "1px solid black", padding: "1rem 1rem" }}>
+      <div style={{ border: "1px solid black", padding: "1rem 1rem" }} onClick={(e) => {
+        history.push(`/projects/${project.id}`)
+      }}>
         <h3>
           {project.project_name}
         </h3>

@@ -34,7 +34,7 @@ function CommentComponent({id}) {
         if (commentText.length < 1) newErrors['commentText'] = "Comment text is required!"
 
         setErrors(newErrors);
-        // console.log('form before sending to thunk.............',form)
+
         if (!Object.keys(newErrors).length) {
             const newComment = await dispatch(postCommentThunk(form))
         }

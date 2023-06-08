@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProjectsThunk } from "../../store/projects";
 import "./discoverPage.css"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const DiscoverPage = () => {
   const projects = useSelector(state => state.project.allProjects)
   const dispatch = useDispatch()
+  const history = useHistory()
 
   useEffect(() => {
     dispatch(getAllProjectsThunk())
@@ -13,7 +15,9 @@ const DiscoverPage = () => {
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div className="project-card">
+      <div className="project-card" onClick={(e) => {
+        history.push(`/projects/${project.id}`)
+      }}>
         <div className="project-card-img-container">
         <img src={project.project_image} alt="" className="project-card-img"/>
         </div>
