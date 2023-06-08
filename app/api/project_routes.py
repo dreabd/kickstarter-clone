@@ -289,7 +289,12 @@ def post_new_comment():
         db.session.add(newComment)
         db.session.commit()
         # print("This is your new comment.................", newComment)
-        return newComment.to_dict()
+        # query user db to get username
+        user = User.query.filter(User.id == form.data['user_id']).first()
+
+        response = {"newComment": newComment.to_dict(), "user": user.to_dict()}
+        print('response....', response)
+        return response
 
     if form.errors:
         print("There were some form errors", form.errors)
