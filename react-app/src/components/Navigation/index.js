@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import { searchAllProjectsThunk } from '../../store/projects';
@@ -9,6 +9,7 @@ function Navigation({ isLoaded }) {
 	const [search, setSearch] = useState('')
 	const sessionUser = useSelector(state => state.session.user);
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	return (
 		<div className='main-nav-container'>
@@ -35,9 +36,10 @@ function Navigation({ isLoaded }) {
 							}}
 						/>
 						{/* dispatch the search thunk here, passing it e.target.value */}
-						<button onClick={(e) => {
+						<button onClick={async (e) => {
 							console.log("search query: ", search)
-							dispatch(searchAllProjectsThunk(search))
+							await dispatch(searchAllProjectsThunk(search))
+							history.push("/projects/search")
 						}}>Search</button>
 					</label>
 					{isLoaded && (

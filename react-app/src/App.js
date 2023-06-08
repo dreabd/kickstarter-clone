@@ -12,6 +12,7 @@ import ProjectDetails from "./components/ProjectDetails";
 import ManageProject from "./components/ManageProjects";
 import EditProjectForm from "./components/EditProjectForm";
 import DiscoverPage from "./components/Discover";
+import SearchResults from "./components/SearchResults";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ function App() {
         </Route>
         <Route exact path="/projects/new">
           <CreateProjectForm />
+        </Route>
+        <Route exact path="/projects/search">
+          <SearchResults />
         </Route>
         <Route exact path="/projects/:projectId">
           <ProjectDetails />

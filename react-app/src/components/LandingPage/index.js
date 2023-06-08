@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProjectsThunk } from "../../store/projects";
+import { useHistory } from "react-router-dom";
 
 const LandingPage = () => {
   const projects = useSelector(state => state.project.allProjects)
   const dispatch = useDispatch()
+  const history = useHistory()
 
   useEffect(() => {
     dispatch(getAllProjectsThunk())
@@ -12,7 +14,10 @@ const LandingPage = () => {
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div style={{ border: "1px solid black", padding: "1rem 1rem" }}>
+      <div onClick={(e) => {
+        history.push(`/projects/${project.id}`)
+    }}
+      style={{ border: "1px solid black", padding: "1rem 1rem" }}>
         <h3>
           {project.project_name}
         </h3>

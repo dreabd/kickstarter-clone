@@ -16,16 +16,18 @@ const ManageProject = () => {
 
   console.log(projects)
 
-  const [deleted,setDeleted] = useState(false)
+  const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
     dispatch(getCurrentProjectThunk())
     setDeleted(false)
-  }, [dispatch,deleted])
+  }, [dispatch, deleted])
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div>
+      <div onClick={(e) => {
+        history.push(`/projects/${project.id}`)
+      }}>
         <p>
           {project.project_name}
         </p>
