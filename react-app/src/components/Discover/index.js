@@ -14,6 +14,12 @@ const DiscoverPage = () => {
   }, [dispatch])
 
   const cards = Object.values(projects)?.map(project => {
+    const totalFunding = Object.values(project.funding).reduce((total, fundingItem) => {
+      total += fundingItem.amount_donated
+      return total
+    }, 0)
+
+    const percentFunded = Math.floor((totalFunding / project.money_goal * 100))
     return (
       <div className="project-card" onClick={(e) => {
         history.push(`/projects/${project.id}`)
@@ -26,9 +32,9 @@ const DiscoverPage = () => {
             {project.project_name}
           </h3>
           <p> {project.description}</p>
-          <p>95% funded</p>
+          <p>{percentFunded}% funded</p>
           <p>
-            {project.owner.first_name} {project.owner.last_name}
+            By {project.owner.first_name} {project.owner.last_name}
           </p>
         </div>
       </div>
