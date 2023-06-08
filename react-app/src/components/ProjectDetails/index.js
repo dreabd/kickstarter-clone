@@ -38,12 +38,18 @@ const ProjectDetails = () =>{
 
   }
 
-
+  const moneyRaised = () =>{
+    let total = 0
+    for(let people of singleProject.funding){
+      console.log(people)
+      total += people.amount_donated
+    }
+    return total * 10
+  }
 
   if (!singleProject){
     return null
   }
-
   return(
     <div>
       <h1> {singleProject.project_name} </h1>
@@ -55,10 +61,11 @@ const ProjectDetails = () =>{
       </div>
 
       <div>
-        {/* Place holder for backing amount */}
+        <h3>Amount of Backers:{singleProject.funding?.length}</h3>
+        <h3>Money Raised so Far:{moneyRaised()}</h3>
         <h3>${singleProject.money_goal?.toLocaleString()}</h3>
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
-        <button><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button>
+        {userId !== singleProject.owner?.id ? <button><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : "You have this many backers supporting your cause"}
       </div>
       {!singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId}/>: null}
       <div>

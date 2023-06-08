@@ -1,3 +1,4 @@
+import { compose } from 'redux';
 import { normalizeObj } from './helpers';
 
 // ------------ TYPE VARIABLES ------------
@@ -9,6 +10,7 @@ const POST_NEW_COMMENT = 'projects/postNewComment'
 const GET_CURRENT_PROJECT = "projects/getCurrentProject"
 const DELETE_SINGLE_PROJECT = "projects/deleteSingleProject"
 const DELETE_COMMENT = "projects/deleteComment"
+const POST_FUNDING = "project/postFunding"
 // ---------- ACTION CREATORS ----------
 const getAllProjects = (projects) => {
   return {
@@ -63,8 +65,12 @@ const deleteComment = (id) => {
   }
 }
 
-
-
+const postFunding = (funding) => {
+  return {
+    type: POST_FUNDING,
+    funding,
+  }
+}
 // ---------- THUNKS ----------
 export const getAllProjectsThunk = () => async (dispatch) => {
   const res = await fetch('/api/projects')
@@ -206,6 +212,21 @@ export const updateCommentThunk = (form, commentId) => async (dispatch) => {
   return res;
 }
 
+export const postFundingThunk = (funding) => async dispatch =>{
+  const res = await fetch(`/api/projects/fund`,{
+    method: "POST",
+    body: funding
+  })
+
+  console.log("I am the response in the post funding thunk", res)
+  if(res.ok){
+    console.log("RESPONSE INDEED OKAY")
+    const {funding} = await res.json()
+    dispatch(postFunding(funding))
+    return
+  }
+}
+
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects: {} }
 // ---------- REDUCER ----------
@@ -234,6 +255,13 @@ const projectReducer = (state = initialState, action) => {
       }
       // console.log('newState after updating redux store before return.............', newState)
       return newState
+    case POST_FUNDING:
+      let fundingState = {...state}
+      if (!fundingState.singleProject.funding) {
+        fundingState.singleProject.funding = [action.funding]
+      } else if (fundingState.singleProject.funding) {
+        fundingState.singleProject.funding.push(action.funding)
+      }
     case DELETE_SINGLE_PROJECT:
       let newDeleteState = { ...state }
       delete newDeleteState.allProjects[action.projectId]

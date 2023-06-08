@@ -52,5 +52,5 @@ class Project(db.Model):
             "owner": self.user.to_dict(),
             "category": self.category.to_dict(),
             "comments": [comment.to_dict() for comment in self.comments],
-            "funding": [funding.to_dict() for funding in self.funding]
+            "funding": [funding.to_dict() for funding in self.funding],
         }
