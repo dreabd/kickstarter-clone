@@ -42,7 +42,6 @@ const ProjectDetails = () =>{
   const moneyRaised = () =>{
     let total = 0
     for(let people of singleProject.funding){
-      console.log(people)
       total += people.amount_donated
     }
     return `$${total.toLocaleString()}`
@@ -64,7 +63,7 @@ const ProjectDetails = () =>{
       <div>
         <h3>Amount of Backers: {singleProject.funding?.length}</h3>
         <h3>Money Raised so Far: {singleProject.funding && moneyRaised()}</h3>
-        <h3>${singleProject.money_goal?.toLocaleString()}</h3>
+        <h3>Money Goal: ${singleProject.money_goal?.toLocaleString()}</h3>
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
         {userId !== singleProject.owner?.id ? <button><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button>Check Out Your Supporters</button></NavLink>}
       </div>
