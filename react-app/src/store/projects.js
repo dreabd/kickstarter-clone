@@ -241,7 +241,7 @@ export const searchAllProjectsThunk = (query) => async (dispatch) => {
 
 
 export const getAllProjectsByCategoryThunk = (categoryName) => async (dispatch) => {
-  console.log("categoryName from inside yo thunkadunkdunk.....................", categoryName)
+  // console.log("categoryName from inside yo thunkadunkdunk.....................", categoryName)
   const res = await fetch(`/api/discover/${categoryName}`)
   // console.log("res from the backend....................",res.json())
   if (res.ok) {
