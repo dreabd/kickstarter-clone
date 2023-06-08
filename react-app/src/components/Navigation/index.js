@@ -23,7 +23,7 @@ function Navigation({ isLoaded }) {
 					</li>
 				</div>
 				<li >
-					<NavLink exact to="/"><p className='logo'>Jumpstarter</p></NavLink>
+					<NavLink exact to="/"><p className='logo'>JUMPSTARTER</p></NavLink>
 				</li>
 				<div className='navbar-rightmost'>
 					<div className='search-bar'>

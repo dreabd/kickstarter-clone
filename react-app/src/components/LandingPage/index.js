@@ -1,40 +1,63 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProjectsThunk } from "../../store/projects";
-import { useHistory } from "react-router-dom";
+import DataBar from "./components/DataBar";
+import ProjectCard from "../ProjectCard";
+import SmallCard from "./components/SmallCard";
+import FeaturedBar from "./components/FeaturedBar";
+import './LandingPage.css';
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 const LandingPage = () => {
   const projects = useSelector(state => state.project.allProjects)
+  const projectsArray = Object.values(projects)
   const dispatch = useDispatch()
-  const history = useHistory()
+  const featuredProject = projectsArray[getRandomInt(projectsArray.length)]
+  const artProjects = projectsArray.filter(project => project.category.type === "Arts")
+  const featuredArtProjects = [artProjects[getRandomInt(artProjects.length)], artProjects[getRandomInt(artProjects.length)], artProjects[getRandomInt(artProjects.length)]]
+  // Top 5 projects with most # of funders
+  const trendingProjects = projectsArray.toSorted((projectA, projectB) => {
+    return projectB.funding.length - projectA.funding.length
+  }).slice(0, 5)
+  const lastChanceProjects = projectsArray.toSorted((projectA, projectB) => {
+    return Math.abs(Date.now() - new Date(projectA.end_date)) - Math.abs(Date.now() - new Date(projectB.end_date));
+  }).slice(0, 5)
 
   useEffect(() => {
     dispatch(getAllProjectsThunk())
   }, [dispatch])
 
-  const cards = Object.values(projects)?.map(project => {
+  const feelingArtsyCards = featuredArtProjects?.map(project => {
     return (
-      <div onClick={(e) => {
-        history.push(`/projects/${project.id}`)
-    }}
-      style={{ border: "1px solid black", padding: "1rem 1rem" }}>
-        <h3>
-          {project.project_name}
-        </h3>
-        <p>
-          {project.owner.first_name} {project.owner.last_name}
-        </p>
-        <img src={project.project_image} alt="" />
-        <p> {project.category.type}</p>
-      </div>
+      <SmallCard key={project?.id} project={project} />
     )
   })
 
   console.log(projects)
+  if (!projects) return <h1>Projects loading...</h1>
   return (
     <div>
-      <h1>I am a landing page</h1>
-      {cards}
+      <div className="landing-title-container">
+        <h2>Bring a creative project to life: </h2>
+      </div>
+      <DataBar projects={projects} />
+      <div className="featured-project-container">
+        <div className="featured-box">
+          <p className="title">FEATURED PROJECT</p>
+          <ProjectCard project={featuredProject} />
+        </div>
+        <div className="feeling-artsy">
+          <p className="title artsy-title">FEELING ARTSY? </p>
+          {feelingArtsyCards}
+        </div>
+      </div>
+      <hr />
+      <FeaturedBar projects={trendingProjects} title={'Trending'} />
+      <hr />
+      <FeaturedBar projects={lastChanceProjects} title={'Last Chance'} />
     </div>
   )
 }

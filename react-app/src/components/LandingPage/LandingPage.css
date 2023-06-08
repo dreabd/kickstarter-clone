@@ -1,0 +1,24 @@
+.landing-title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.featured-project-container {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+}
+
+.featured-box {
+    width: 60vw;
+    margin: 20px;
+    padding: 0 20px;
+    border-right: 1px solid #DCDEDD;
+}
+
+.feeling-artsy {
+    margin: 20px;
+}
+
+.artsy-title {
+    margin-bottom: 40px;
+}

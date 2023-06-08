@@ -1,0 +1,9 @@
+.featured-bar {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-projects-container {
+    display: flex;
+}

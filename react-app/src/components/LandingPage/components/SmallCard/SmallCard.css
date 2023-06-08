@@ -1,0 +1,33 @@
+.small-card-container {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.small-card-image {
+    height: 100px;
+    margin-right: 10px;
+}
+
+.small-card-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.small-card-title {
+    margin: 0;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.funded {
+    color: rgb(3, 115, 98);
+    font-size: 12px;
+    margin: 0;
+}
+
+.owner {
+    color: rgb(101, 105, 105);
+    font-size: 10px;
+}
