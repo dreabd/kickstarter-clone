@@ -30,8 +30,14 @@ def get_all_projects_in_category(categoryName):
     """
     categoryStart = categoryName[:4]
 
-    projects = Project.query.join(Category).filter(
-        Category.type.like(f'%{categoryStart}%')).all()
+    category_id = Category.query.filter(Category.type.like(f"%{categoryStart}%")).first()
+
+    print("category id.............................",category_id.id)
+    print("category index.............................",category_id)
+    print("category index.............................",category_id.to_dict())
+    projects = Project.query.filter(Project.category_id == category_id.id).all()
+    # projects = Project.query.join(Category).filter(
+    #     Category.type.like(f'%{categoryStart}%')).all()
     response = [project.to_dict() for project in projects]
     print("response in backend from db query.......................", response)
     return {"projects": response}
