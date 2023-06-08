@@ -38,10 +38,10 @@ const putProject = (project, id) => {
     id
   }
 }
-const postNewComment = (comment) => {
+const postNewComment = (response) => {
   return {
     type: POST_NEW_COMMENT,
-    comment
+    response
   }
 }
 const getCurrentProject = (projects) => {
@@ -180,7 +180,7 @@ export const postCommentThunk = (form) => async (dispatch) => {
   // console.log('res after returning from backend..........', res)
   if (res.ok) {
     const response = await res.json()
-    // console.log("New comment added")
+    console.log("response in post comment", response)
     dispatch(postNewComment(response))
     return response
   } else {
@@ -270,16 +270,17 @@ const projectReducer = (state = initialState, action) => {
       let newEditState = { ...state }
       newEditState.allProjects[action.id] = action.project
       return newEditState
-    case POST_NEW_COMMENT:
+    //case POST_NEW_COMMENT:
       // console.log('comment entered the reducer..............', action.comment)
-      let newState = { ...state, singleProject: { ...state.singleProject } }
-      if (!newState.singleProject.comments) {
-        newState.singleProject.comments = [action.comment]
-      } else if (newState.singleProject.comments) {
-        newState.singleProject.comments.push(action.comment)
-      }
+      //let newState = { ...state, singleProject: { ...state.singleProject } }
+      //if (!newState.singleProject.comments) {
+      //  newState.singleProject.comments = [action.comment]
+      //} else if (newState.singleProject.comments) {
+       // newState.singleProject.comments.push(action.response)
+        //newState.singleProject.comments.push(action.response.user)
+      //}
       // console.log('newState after updating redux store before return.............', newState)
-      return newState
+      //return newState
     case POST_FUNDING:
       let fundingState = {...state}
       if (!fundingState.singleProject.funding) {

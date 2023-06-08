@@ -73,7 +73,7 @@ const ProjectDetails = () =>{
           {singleProject.comments?.map(comment => {
             return (
               <div>
-                <li key={comment.id}>{comment.comment}</li>
+                <li key={comment.id}>{comment.user.username}, {comment.comment}</li>
                 {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)}>Delete</button> : null}
                 {userId === comment.user_id ? <button onClick={() => handleUpdate()}>Update</button> : null}
                 {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment} setUpdate={setUpdate}/> : null}
