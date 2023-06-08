@@ -1,0 +1,43 @@
+.label-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.label-container>h3 {
+    font-weight: 500;
+    color: #656969;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.databar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 80px;
+    margin-bottom: 1.2rem;
+}
+
+.databar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.17);
+
+}
+
+.databar-item {
+    padding: 1.5rem;
+    border: 1px solid #DCDEDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.databar-item>span {
+    color: #037362;
+    font-size: 2rem;
+}
