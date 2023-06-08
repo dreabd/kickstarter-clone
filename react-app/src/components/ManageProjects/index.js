@@ -25,9 +25,7 @@ const ManageProject = () => {
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div onClick={(e) => {
-        history.push(`/projects/${project.id}`)
-      }}>
+      <div>
         <p>
           {project.project_name}
         </p>

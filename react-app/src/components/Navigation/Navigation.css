@@ -107,4 +107,9 @@ li > * {
   margin-right: 80px;
   letter-spacing: .8px;
   margin-top: 8px;
+  margin-left: 150px;
+}
+
+.search-bar {
+  margin-right: 150px;
 }

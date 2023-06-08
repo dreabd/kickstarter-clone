@@ -12,6 +12,7 @@ const DeleteForm = ({projectId,setDeleted}) => {
   const deleteProject = (e) => {
     dispatch(deleteSingleProjectThunk(projectId))
       .then(setDeleted(true))
+      // .then(dispatch(getCurrentProjectThunk()))
       .then(closeModal)
   }
 

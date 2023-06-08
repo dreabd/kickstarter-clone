@@ -26,14 +26,14 @@ function Navigation({ isLoaded }) {
 					<NavLink exact to="/"><p className='logo'>Jumpstarter</p></NavLink>
 				</li>
 				<div className='navbar-rightmost'>
-					<label>
-						Search the Site!
+					<div className='search-bar'>
 						<input
 							type='search'
 							placeholder='Search by project name or details here!'
 							onChange={(e) => {
 								setSearch(e.target.value)
 							}}
+
 						/>
 						{/* dispatch the search thunk here, passing it e.target.value */}
 						<button onClick={async (e) => {
@@ -41,7 +41,7 @@ function Navigation({ isLoaded }) {
 							await dispatch(searchAllProjectsThunk(search))
 							history.push("/projects/search")
 						}}>Search</button>
-					</label>
+					</div>
 					{isLoaded && (
 						<li>
 							<ProfileButton user={sessionUser} />
