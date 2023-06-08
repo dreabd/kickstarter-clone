@@ -67,7 +67,7 @@ const ProjectDetails = () =>{
         <h3>This Project will only be funded if it reaches its goal by {singleProject.end_date}</h3>
         {userId !== singleProject.owner?.id ? <button><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button>Check Out Your Supporters</button></NavLink>}
       </div>
-      {!singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId}/>: null}
+      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId}/>: null}
       <div>
         <ul>
           {singleProject.comments?.map(comment => {
