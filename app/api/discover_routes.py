@@ -30,7 +30,7 @@ def get_all_projects_in_category(categoryName):
     """
     categoryStart = categoryName[:4]
 
-    category_id = Category.query.filter(Category.type.like(f"%{categoryStart}%")).first()
+    category_id = Category.query.filter(Category.type.ilike(f"%{categoryStart}%")).first()
 
     # print("category id.............................",category_id.id)
     # print("category index.............................",category_id)
