@@ -8,8 +8,8 @@ funding_routes = Blueprint('fund', __name__)
 @funding_routes.route('/user')
 def get_user_funding():
     # fundeds = Project.query.filter(Project.funding.user_id == current_user.id).first()
-    funded = Project.
+    projects = Funding.query.filter(Funding.user_id ==current_user.id).all()
 
-    # res = [funded.to_dict() for funded in fundeds]
+    res = [project.to_dict_project() for project in projects]
 
-    return {"funded": "res"}
+    return {"funded": res}

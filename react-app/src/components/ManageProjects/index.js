@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { getCurrentProjectThunk } from '../../store/projects';
+import { getUserFundingThunk } from '../../store/funding';
 import OpenModalButton from '../OpenModalButton';
 import DeleteForm from '../DeleteForm';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -13,13 +15,14 @@ const ManageProject = () => {
 
   const user = useSelector(state => state.session.user)
   const projects = useSelector(state => state.project.userProjects)
-
+  const funded = useSelector(state => state.funding.userProjects)
   console.log(projects)
 
   const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
     dispatch(getCurrentProjectThunk())
+    dispatch(getUserFundingThunk())
     setDeleted(false)
   }, [dispatch, deleted])
 
@@ -38,6 +41,18 @@ const ManageProject = () => {
     )
   })
 
+  console.log("funded.................................", funded)
+
+  const funding_cards = Object.values(funded)?.map(fund => {
+    return (
+      <div style={{padding:"8px"}}>
+        <button>
+          <NavLink exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
+        </button>
+      </div>
+    )
+  })
+
 
   // console.log("I am the cards",cards)
 
@@ -46,10 +61,14 @@ const ManageProject = () => {
   }
   return (
     <div>
-      <h1>
-        I am in the manage projects
-      </h1>
-      {cards}
+      <div>
+        <h3>Your Projects</h3>
+        {cards}
+      </div>
+      <div style={{display:"flex",flexDirection:"column"}}>
+        <h3>Projects Your Are Backing</h3>
+        {funding_cards}
+      </div>
     </div>
   )
 }

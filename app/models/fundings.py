@@ -25,3 +25,14 @@ class Funding(db.Model):
             'reward': self.reward,
             'user': self.user.to_dict()
         }
+
+    def to_dict_project(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'project_id': self.project_id,
+            'amount_donated': self.amount_donated,
+            'reward': self.reward,
+            'user': self.user.to_dict(),
+            'project_name': self.project.to_dict()['project_name']
+        }
