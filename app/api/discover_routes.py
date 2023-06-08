@@ -28,9 +28,10 @@ def get_all_projects_in_category(categoryName):
     Grabs all the Projects of the specified category with the following join: fundings, owner and category.
     Should return a JSON obj for the fronted to catch
     """
-    print("categoryName inside on backend..........................", categoryName)
+    categoryStart = categoryName[:4]
+
     projects = Project.query.join(Category).filter(
-        Category.type.like(categoryName)).all()
+        Category.type.like(f'%{categoryStart}%')).all()
     response = [project.to_dict() for project in projects]
     print("response in backend from db query.......................", response)
     return {"projects": response}
