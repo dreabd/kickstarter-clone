@@ -8,7 +8,7 @@ const FundingDetails = ({ project }) => {
   const dispatch = useDispatch()
   const fundings = useSelector(state => state.funding.project)
 
-  console.log("This is the project id in the funding detail component", project.id)
+  // console.log("This is the project id in the funding detail component", project.id)
   // ----- useEffect -----
   useEffect(() => {
     dispatch(getProjectFundingThunk(project.id))
@@ -17,7 +17,7 @@ const FundingDetails = ({ project }) => {
   // ---- HTML Element Functions -----
   const user_info =
     Object.values(fundings)?.map(funding => {
-      console.log(funding.reward)
+      // console.log(funding.reward)
       return (
         <div>
           <h4>{funding.user.email}</h4>

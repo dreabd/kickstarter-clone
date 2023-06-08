@@ -28,7 +28,7 @@ const FundingForm = () => {
   const submitFunding = (e) => {
     e.preventDefault();
     const err = {}
-    if (amount < 0) err["amount"] = "Please enter a valid amount"
+    if (amount <= 0) err["amount"] = "Please enter a valid amount"
 
     if (Object.values(err).length) return setErrors(err)
     console.log("I have been submitted")
@@ -38,6 +38,8 @@ const FundingForm = () => {
     console.log("Values I will send to the backend", { reward, amount, id: user?.id, projectId: project.id })
 
     const formData = new FormData()
+    console.log("reward..........................", reward)
+
 
     formData.append("reward", reward)
     formData.append("amount_donated", amount)
@@ -53,22 +55,25 @@ const FundingForm = () => {
     return history.push(`/projects/${projectId}`)
   }
 
+
+
   const rewardRendering = () => {
-    if (amount >= project.reward_amount) {
-      return (
-        <div>
-          <h3> You donation of ${amount} qualifies you to receive a reward! </h3>
-          <label>
-            Would you like to receive it?
-            <input
-              type="checkbox"
-              value={reward}
-              onChange={e => setReward(!reward)}
-            />
-          </label>
-        </div>
-      )
-    } return null
+    return (
+      <div>
+        <label>
+          Would you like to receive it?
+          <input
+            type="checkbox"
+            value={reward}
+            defaultValue={reward}
+            onChange={e => {
+              setAmount(project.reward_amount)
+              setReward(!reward)
+            }}
+          />
+        </label>
+      </div>
+    )
   }
 
 
@@ -99,11 +104,11 @@ const FundingForm = () => {
             onChange={e => setAmount(e.target.value)}
           />
         </label>
-        {rewardRendering()}
         <button type='submit'>Submit</button>
       </form>
       <div className="rewards">
         <h2>Donate: ${project.reward_amount}</h2>
+        {rewardRendering()}
         <h4>Here's what you'll get</h4>
         <h3>{project.reward_name}</h3>
         <p>{project.reward_description}</p>

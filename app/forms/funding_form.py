@@ -8,6 +8,6 @@ from datetime import date
 
 
 class FundingForm(FlaskForm):
-    reward = BooleanField("Reward", validators=[DataRequired()])
+    reward = BooleanField("Reward",default=False)
     amount_donated = IntegerField("Amount Donated", validators=[DataRequired()])
     project_id = IntegerField("Project ID",validators=[DataRequired()])
