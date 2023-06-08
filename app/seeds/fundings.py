@@ -22,9 +22,9 @@ def seed_fundings():
 def undo_fundings():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.fundings RESTART IDENTITY CASCADE;"
+            f"TRUNCATE table {SCHEMA}.funding RESTART IDENTITY CASCADE;"
         )
     else:
-        db.session.execute(text("DELETE FROM fundings"))
+        db.session.execute(text("DELETE FROM funding"))
 
     db.session.commit()
