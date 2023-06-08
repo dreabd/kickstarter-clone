@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-
+import FundingDetails from "../FundingDetails";
 
 import { getSingleProjectThunk, postFundingThunk } from "../../store/projects";
 
@@ -71,6 +71,8 @@ const FundingForm = () => {
     } return null
   }
 
+
+
   console.log("List of those who funded this project", project?.funding)
   console.log("I am the current user", user?.id)
   // Want to create some conditional rendering that would load
@@ -78,7 +80,9 @@ const FundingForm = () => {
 
   if (user?.id === project?.owner?.id) {
     return (
-      <h1> Silly Billy You Own This Project</h1>
+      <FundingDetails
+        project={project}
+      />
     )
   }
 

@@ -207,6 +207,19 @@ def edit_project(id):
         print("There were some form errors", edit_form.errors)
         return {"errors": edit_form.errors}, 400, {"Content-Type": "application/json"}
 
+@project_routes.route("/<int:id>/fund")
+def get_project_fund(id):
+    print("I am the first line in the backend")
+    fundings = Funding.query.filter(Funding.project_id == id)
+
+    res = [funding.to_dict() for funding in fundings]
+
+    # need handle errors still
+
+    return {"funding":res},200
+
+
+
 @project_routes.route("/fund",methods=["POST"])
 def post_project_fund():
     print("I am the first line in the backend")

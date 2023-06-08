@@ -1,7 +1,7 @@
 from app.models import db, Project, environment, SCHEMA
 from sqlalchemy.sql import text
 from datetime import date
-from random import randint,choice
+from random import randint, choice
 
 
 def seed_projects():
@@ -18,7 +18,7 @@ def seed_projects():
         end_date=date(2024, 6, 23),
         reward_name="Super Early Bird | Estate 98 4-pack",
         reward_amount=72,
-        reward_description="Back this reward for four (4) bottles of Estate 98. Perfect for those who travel, a family of coffee drinkers and those who feel like gifting something great."
+        reward_description="Back this reward for four (4) bottles of Estate 98. Perfect for those who travel, a family of coffee drinkers and those who feel like gifting something great.",
     )
 
     food2 = Project(
@@ -34,7 +34,7 @@ def seed_projects():
         end_date=date(2023, 11, 10),
         reward_name="Chicken & Waffles and a Sticker!",
         reward_amount=25,
-        reward_description="Try any one of our 9 different waffles with our famous fried chicken AND get a shiny new sticker!"
+        reward_description="Try any one of our 9 different waffles with our famous fried chicken AND get a shiny new sticker!",
     )
 
     food3 = Project(
@@ -50,7 +50,7 @@ def seed_projects():
         end_date=date(2024, 3, 12),
         reward_name="4 Bars - Vegan - Most Popular",
         reward_amount=19,
-        reward_description="1x Madagascar 70 percent dark chocolate bar, 1x Oat m!lk chocolate bar, 1x Coconut m!lk chocolate bar, 1x Raspberry white chocolate alternative bar"
+        reward_description="1x Madagascar 70 percent dark chocolate bar, 1x Oat m!lk chocolate bar, 1x Coconut m!lk chocolate bar, 1x Raspberry white chocolate alternative bar",
     )
 
     food4 = Project(
@@ -66,7 +66,7 @@ def seed_projects():
         end_date=date(2023, 10, 2),
         reward_name="Physical book and sourdough infographic",
         reward_amount=70,
-        reward_description="You'll receive the physical version of the book and a handy poster of a sourdough info graphic that assists you with daily tasks in the kitchen."
+        reward_description="You'll receive the physical version of the book and a handy poster of a sourdough info graphic that assists you with daily tasks in the kitchen.",
     )
 
     food5 = Project(
@@ -82,7 +82,7 @@ def seed_projects():
         end_date=date(2023, 11, 10),
         reward_name="Sticks + MERCH",
         reward_amount=50,
-        reward_description="8 Original Pork Sticks + Farm T-shirt"
+        reward_description="8 Original Pork Sticks + Farm T-shirt",
     )
 
     food6 = Project(
@@ -98,7 +98,7 @@ def seed_projects():
         end_date=date(2023, 12, 5),
         reward_name="Simple Sample",
         reward_amount=10,
-        reward_description="4 samples of your choice of blends (each makes about 3 cups)."
+        reward_description="4 samples of your choice of blends (each makes about 3 cups).",
     )
 
     food7 = Project(
@@ -114,7 +114,7 @@ def seed_projects():
         end_date=date(2023, 11, 15),
         reward_name="Printed Summer Cookbook (magazine)",
         reward_amount=15,
-        reward_description="Get a printed version of the smaller organic summer recipe cookbook. This printed magazine-like copy will contain recipes for the summer and is a shorter version of the overall cookbook. This is a composition of the work produced this spring semester by the Johnson and Wales students. The full version of the cookbook will contain additional summer recipes as well as the remainder seasons. This is just a starter version."
+        reward_description="Get a printed version of the smaller organic summer recipe cookbook. This printed magazine-like copy will contain recipes for the summer and is a shorter version of the overall cookbook. This is a composition of the work produced this spring semester by the Johnson and Wales students. The full version of the cookbook will contain additional summer recipes as well as the remainder seasons. This is just a starter version.",
     )
 
     food8 = Project(
@@ -130,7 +130,7 @@ def seed_projects():
         end_date=date(2023, 11, 20),
         reward_name="A dozen bagels!",
         reward_amount=50,
-        reward_description="Get one dozen bagels whenever you'd like! (This reward is claimed at our food truck once it is open.)"
+        reward_description="Get one dozen bagels whenever you'd like! (This reward is claimed at our food truck once it is open.)",
     )
 
     food9 = Project(
@@ -146,7 +146,7 @@ def seed_projects():
         end_date=date(2024, 1, 2),
         reward_name="Thank You Note From Chef Jan",
         reward_amount=20,
-        reward_description="A heartfelt, handwritten Salamat: Thank you note from Chef Jan"
+        reward_description="A heartfelt, handwritten Salamat: Thank you note from Chef Jan",
     )
 
     food10 = Project(
@@ -162,7 +162,7 @@ def seed_projects():
         end_date=date(2023, 12, 10),
         reward_name="Cream puff reservation",
         reward_amount=20,
-        reward_description="Two cream puffs just for you! Backers will get access to make a reservation on the day of your choice (up to six months after opening). There will be a limited number of reservations per day."
+        reward_description="Two cream puffs just for you! Backers will get access to make a reservation on the day of your choice (up to six months after opening). There will be a limited number of reservations per day.",
     )
 
     food11 = Project(
@@ -178,7 +178,7 @@ def seed_projects():
         end_date=date(2023, 11, 28),
         reward_name="Mongolian Wool/Cashmere Blend Yarn 200g",
         reward_amount=30,
-        reward_description="With select sourcing through our cooperative partners for the soft, Sartuul sheep wool and expert processing, we are able to provide an incredibly soft and durable fiber that offers great value next to its more rare fiber relatives. Adding a 15 percent blend of our cashmere, the final products pick up some of the beautiful hand and loft that our cashmere is known for."
+        reward_description="With select sourcing through our cooperative partners for the soft, Sartuul sheep wool and expert processing, we are able to provide an incredibly soft and durable fiber that offers great value next to its more rare fiber relatives. Adding a 15 percent blend of our cashmere, the final products pick up some of the beautiful hand and loft that our cashmere is known for.",
     )
 
     food12 = Project(
@@ -194,7 +194,7 @@ def seed_projects():
         end_date=date(2023, 11, 30),
         reward_name="Kickstarter Special - 1 Pack of ALIVE",
         reward_amount=27,
-        reward_description="Our new ALIVE Shower Bomb - Hits harder and last longer. The only way to wake up and hit the ground running, without having to change your daily routine."
+        reward_description="Our new ALIVE Shower Bomb - Hits harder and last longer. The only way to wake up and hit the ground running, without having to change your daily routine.",
     )
 
     game1 = Project(
@@ -210,7 +210,7 @@ def seed_projects():
         end_date=date(2023, 11, 3),
         reward_name="THE DOUBLY SPECIAL AGENT",
         reward_amount=100,
-        reward_description="One personalized PREMIUM copy of THE MEDUSA REPORT, plus one copy of THE VANDERMIST DOSSIER. Includes Vandermist enamel pin. Kickstarter exclusive."
+        reward_description="One personalized PREMIUM copy of THE MEDUSA REPORT, plus one copy of THE VANDERMIST DOSSIER. Includes Vandermist enamel pin. Kickstarter exclusive.",
     )
 
     game2 = Project(
@@ -226,7 +226,7 @@ def seed_projects():
         end_date=date(2024, 1, 10),
         reward_name="Prince of Dusk",
         reward_amount=80,
-        reward_description="Get the full collection of Soulmist titles, in both their Hardcover and Digital versions. Included are both GM's screens featuring artwork from Soulmist and Darklands, the map of Fyera and a set of maps of all its major cities, the collector's slip case, the dice set and the spell cards. *Shipping charged after the campaign"
+        reward_description="Get the full collection of Soulmist titles, in both their Hardcover and Digital versions. Included are both GM's screens featuring artwork from Soulmist and Darklands, the map of Fyera and a set of maps of all its major cities, the collector's slip case, the dice set and the spell cards. *Shipping charged after the campaign",
     )
 
     game3 = Project(
@@ -242,7 +242,7 @@ def seed_projects():
         end_date=date(2023, 11, 30),
         reward_name="Digital Download",
         reward_amount=40,
-        reward_description="Unlocks the Deluxe role in our Discord server, a digital download of our game Pathfinder: Abomination Vaults, and your name in the credits! Includes digital download of Pathfinder: Abomination Vaults game and exclusive wallpaper backgrounds for desktop and mobile."
+        reward_description="Unlocks the Deluxe role in our Discord server, a digital download of our game Pathfinder: Abomination Vaults, and your name in the credits! Includes digital download of Pathfinder: Abomination Vaults game and exclusive wallpaper backgrounds for desktop and mobile.",
     )
 
     game4 = Project(
@@ -258,7 +258,7 @@ def seed_projects():
         end_date=date(2023, 12, 12),
         reward_name="Astronaut",
         reward_amount=5,
-        reward_description="Help support our Kickstarter, get access to the pledge manager, and get 7 awesome pieces of space-art as phone backgrounds from our talented collaborating artist: Khairul Anam!"
+        reward_description="Help support our Kickstarter, get access to the pledge manager, and get 7 awesome pieces of space-art as phone backgrounds from our talented collaborating artist: Khairul Anam!",
     )
 
     game5 = Project(
@@ -274,7 +274,7 @@ def seed_projects():
         end_date=date(2023, 11, 22),
         reward_name="French Quarter - Kickstarter Edition",
         reward_amount=29,
-        reward_description="INCLUDES: French Quarter - Kickstarter Edition, All Achieved Stretch Goals, Kickstarter Bonus Content, A hearty thank you!"
+        reward_description="INCLUDES: French Quarter - Kickstarter Edition, All Achieved Stretch Goals, Kickstarter Bonus Content, A hearty thank you!",
     )
 
     game6 = Project(
@@ -290,7 +290,7 @@ def seed_projects():
         end_date=date(2024, 1, 18),
         reward_name="Digital Edition",
         reward_amount=15,
-        reward_description="This tier includes downloadable digital editions (PDF) of Penumbra City, our Zine Bundle, and our Class Character Sheets"
+        reward_description="This tier includes downloadable digital editions (PDF) of Penumbra City, our Zine Bundle, and our Class Character Sheets",
     )
 
     game7 = Project(
@@ -306,7 +306,7 @@ def seed_projects():
         end_date=date(2023, 11, 1),
         reward_name="Afrofantasy Lore Bundle",
         reward_amount=55,
-        reward_description="INCLUDES: 🎮 Digital Edition of The Wagadu Chronicles MMO 📂 The 7th Era Setting 5E Rulebook (PDF) 📂 Guide to Afrofantasy Roleplay (PDF) 📂 The Art of Wagadu (PDF) 🗝 Access to MMO closed Beta - Sixth Era 💎 Golden Sun Spear (In-Game Item) 🔶 Name in Credits 🔷 Discord Role"
+        reward_description="INCLUDES: 🎮 Digital Edition of The Wagadu Chronicles MMO 📂 The 7th Era Setting 5E Rulebook (PDF) 📂 Guide to Afrofantasy Roleplay (PDF) 📂 The Art of Wagadu (PDF) 🗝 Access to MMO closed Beta - Sixth Era 💎 Golden Sun Spear (In-Game Item) 🔶 Name in Credits 🔷 Discord Role",
     )
 
     game8 = Project(
@@ -322,7 +322,7 @@ def seed_projects():
         end_date=date(2023, 12, 24),
         reward_name="Kickstarter Exclusive Edition Game",
         reward_amount=39,
-        reward_description="INCLUDES: Command of Nature: Kickstarter Exclusive Edition Game"
+        reward_description="INCLUDES: Command of Nature: Kickstarter Exclusive Edition Game",
     )
 
     game9 = Project(
@@ -338,7 +338,7 @@ def seed_projects():
         end_date=date(2023, 11, 10),
         reward_name="Flickade: 2-Player Set",
         reward_amount=30,
-        reward_description="Flickade full set and a big thank you!"
+        reward_description="Flickade full set and a big thank you!",
     )
 
     game10 = Project(
@@ -354,7 +354,7 @@ def seed_projects():
         end_date=date(2023, 12, 1),
         reward_name="Alpha Access Bundle: Slothtopia",
         reward_amount=40,
-        reward_description="Get access to Slothtopia in it's earliest stages for testing. In addition get your name in credits and an exclusive hang-glider skin."
+        reward_description="Get access to Slothtopia in it's earliest stages for testing. In addition get your name in credits and an exclusive hang-glider skin.",
     )
 
     game11 = Project(
@@ -370,7 +370,7 @@ def seed_projects():
         end_date=date(2023, 11, 20),
         reward_name="1 Pelican Deck",
         reward_amount=19,
-        reward_description="100 percent custom playing cards."
+        reward_description="100 percent custom playing cards.",
     )
 
     game12 = Project(
@@ -386,7 +386,7 @@ def seed_projects():
         end_date=date(2023, 9, 25),
         reward_name="NECROMANCER [PRINTED DELUXE + DIGITAL]",
         reward_amount=70,
-        reward_description="INCLUDES: Hardcover book. Character sheet notebook. Paper miniatures (if unlocked). Modular cardboard Gurlitz racetrack/dungeon (if unlocked). Printed poster with map and dungeon. Digital book [PDF]. Digital poster with a dungeon. Digital character sheet. Digital map. Digital coloring book"
+        reward_description="INCLUDES: Hardcover book. Character sheet notebook. Paper miniatures (if unlocked). Modular cardboard Gurlitz racetrack/dungeon (if unlocked). Printed poster with map and dungeon. Digital book [PDF]. Digital poster with a dungeon. Digital character sheet. Digital map. Digital coloring book",
     )
 
     design1 = Project(
@@ -402,7 +402,7 @@ def seed_projects():
         end_date=date(2024, 5, 4),
         reward_name="Fully Assembled - Q5 Pro",
         reward_amount=205,
-        reward_description="1 x Q5 Pro Fully Assembled US Layout Keyboard, included Mac and Windows keycaps and stretch goal gift/s once unlocked. Available in Carbon Black, Silver Gray, Shell White frame options with corresponding PBT keycap colorways (We'll ask about your preferences and address after the Kickstarter ends). Available in Keychron K Pro Mechanical Red, Brown, Banana switch options (We'll ask about your preferences and address after the Kickstarter ends)."
+        reward_description="1 x Q5 Pro Fully Assembled US Layout Keyboard, included Mac and Windows keycaps and stretch goal gift/s once unlocked. Available in Carbon Black, Silver Gray, Shell White frame options with corresponding PBT keycap colorways (We'll ask about your preferences and address after the Kickstarter ends). Available in Keychron K Pro Mechanical Red, Brown, Banana switch options (We'll ask about your preferences and address after the Kickstarter ends).",
     )
 
     design2 = Project(
@@ -418,7 +418,7 @@ def seed_projects():
         end_date=date(2023, 10, 14),
         reward_name="1 x Jollylook Pinhole SQUARE KS special",
         reward_amount=89,
-        reward_description="1 x Jollylook Pinhole SQUARE DIY - Kickstarter special Get creative and own this unique Vintage Style Instant Film Camera Kit. Craft a camera that captures nostalgic memories, SQUARE format, pinhole-style! Get now with an Early Bird Price of $89 (MSRP $119) only on Kickstarter. Don't miss out on your special discount!Choose from our eco-friendly materials and colors in the post-campaign survey.The shipping fee will be charged in the post-campaign survey."
+        reward_description="1 x Jollylook Pinhole SQUARE DIY - Kickstarter special Get creative and own this unique Vintage Style Instant Film Camera Kit. Craft a camera that captures nostalgic memories, SQUARE format, pinhole-style! Get now with an Early Bird Price of $89 (MSRP $119) only on Kickstarter. Don't miss out on your special discount!Choose from our eco-friendly materials and colors in the post-campaign survey.The shipping fee will be charged in the post-campaign survey.",
     )
 
     design3 = Project(
@@ -434,7 +434,7 @@ def seed_projects():
         end_date=date(2023, 11, 9),
         reward_name="1x Popsmith Popper",
         reward_amount=149,
-        reward_description="Get our BEST price and the earliest shipping with our Kickstarter Early Bird exclusive offer; limited quantities, first-come, first served. Be the first to buy! KICKSTARTER SPECIAL | 1x Popsmith Popper 25% OFF (Save $50, $199 MSRP) 1x Popsmith Popper: Constructed of sturdy stainless steel and works on all stove types."
+        reward_description="Get our BEST price and the earliest shipping with our Kickstarter Early Bird exclusive offer; limited quantities, first-come, first served. Be the first to buy! KICKSTARTER SPECIAL | 1x Popsmith Popper 25% OFF (Save $50, $199 MSRP) 1x Popsmith Popper: Constructed of sturdy stainless steel and works on all stove types.",
     )
 
     design4 = Project(
@@ -450,7 +450,7 @@ def seed_projects():
         end_date=date(2024, 2, 5),
         reward_name="1x Time Machine",
         reward_amount=335,
-        reward_description="You get a Time Machine. I mean, what else? That’s what this Kickstarter is all about!"
+        reward_description="You get a Time Machine. I mean, what else? That’s what this Kickstarter is all about!",
     )
 
     design5 = Project(
@@ -466,7 +466,7 @@ def seed_projects():
         end_date=date(2024, 4, 5),
         reward_name="Early Bird | Helmet Kit",
         reward_amount=169,
-        reward_description="Serious protection. Will retail for $250 | 32% off retail. Helmet color and size are selected through a survey via email at the end of the campaign. Shipping, duty, and VAT are calculated and charged separately prior to shipping. Scroll down to see estimated shipping costs."
+        reward_description="Serious protection. Will retail for $250 | 32% off retail. Helmet color and size are selected through a survey via email at the end of the campaign. Shipping, duty, and VAT are calculated and charged separately prior to shipping. Scroll down to see estimated shipping costs.",
     )
 
     design6 = Project(
@@ -482,7 +482,7 @@ def seed_projects():
         end_date=date(2024, 6, 15),
         reward_name="Kickstarter Special",
         reward_amount=770,
-        reward_description="Includes keyboard body, keyboard cover, USB-C cable, customized keycaps, user manual. When the Kickstarter campaign ends, we will send you  a survey where you can select your color"
+        reward_description="Includes keyboard body, keyboard cover, USB-C cable, customized keycaps, user manual. When the Kickstarter campaign ends, we will send you  a survey where you can select your color",
     )
 
     design7 = Project(
@@ -498,7 +498,7 @@ def seed_projects():
         end_date=date(2024, 1, 4),
         reward_name="Early Bird 1x GoChess Modern 1XR",
         reward_amount=269,
-        reward_description="Get your GoChess Modern 1XR smart chess set, where only one piece moves at a time. Secure your reward for $269, enjoying an incredible 29% discount off the future retail price of $379! NOTE: Shipping is charged in the post campaign survey."
+        reward_description="Get your GoChess Modern 1XR smart chess set, where only one piece moves at a time. Secure your reward for $269, enjoying an incredible 29% discount off the future retail price of $379! NOTE: Shipping is charged in the post campaign survey.",
     )
 
     design8 = Project(
@@ -514,7 +514,7 @@ def seed_projects():
         end_date=date(2024, 3, 4),
         reward_name="1x 55 66 88",
         reward_amount=33,
-        reward_description="Anodized black aluminum phone stand set at 3 useful angles for chatting or documenting."
+        reward_description="Anodized black aluminum phone stand set at 3 useful angles for chatting or documenting.",
     )
 
     design9 = Project(
@@ -530,7 +530,7 @@ def seed_projects():
         end_date=date(2024, 8, 23),
         reward_name="1x Micro Clutch",
         reward_amount=50,
-        reward_description="Get the Micro Clutch hand strap and never drop your mirrorless camera again. Choose the L-Plate or I-Plate version when we send out fulfillment surveys in July. Local sales tax/VAT will also be calculated and collected at that time."
+        reward_description="Get the Micro Clutch hand strap and never drop your mirrorless camera again. Choose the L-Plate or I-Plate version when we send out fulfillment surveys in July. Local sales tax/VAT will also be calculated and collected at that time.",
     )
 
     design10 = Project(
@@ -546,7 +546,7 @@ def seed_projects():
         end_date=date(2024, 6, 2),
         reward_name="Amber Lucid-1 KS Exclusive",
         reward_amount=1399,
-        reward_description="Incredible 55% off the MSRP ($3,079) Gear up with the advanced robotic tech at the BEST & ONLY price!"
+        reward_description="Incredible 55% off the MSRP ($3,079) Gear up with the advanced robotic tech at the BEST & ONLY price!",
     )
 
     design11 = Project(
@@ -562,7 +562,7 @@ def seed_projects():
         end_date=date(2024, 1, 2),
         reward_name="Early Bird: Exquisite",
         reward_amount=330,
-        reward_description="Semi-aniline leather headband, Aluminum body, Engraved design, 4G LTE network, 4GB RAM, 128GB storage. Color options: White, Black, Red & Brown. A set of Custos headphones with free shipping within the United States for our VIP subscribers. This is an amazing offer and $270 lower than the suggested retail price of $599. INCLUDES: Custos Exquisite Headphones, Charger and USB-C Cable, Product Documentation"
+        reward_description="Semi-aniline leather headband, Aluminum body, Engraved design, 4G LTE network, 4GB RAM, 128GB storage. Color options: White, Black, Red & Brown. A set of Custos headphones with free shipping within the United States for our VIP subscribers. This is an amazing offer and $270 lower than the suggested retail price of $599. INCLUDES: Custos Exquisite Headphones, Charger and USB-C Cable, Product Documentation",
     )
 
     design12 = Project(
@@ -578,7 +578,7 @@ def seed_projects():
         end_date=date(2023, 11, 2),
         reward_name="KOKONI SOTA Lite",
         reward_amount=550,
-        reward_description="By claiming this reward, you will get the SOTA Lite 3D Printer with guaranteed delivery by the KOKONI team at $200 OFF from the $749 MSRP."
+        reward_description="By claiming this reward, you will get the SOTA Lite 3D Printer with guaranteed delivery by the KOKONI team at $200 OFF from the $749 MSRP.",
     )
 
     film1 = Project(
@@ -594,7 +594,7 @@ def seed_projects():
         end_date=date(2024, 5, 2),
         reward_name="Your Name on the Big Screen!",
         reward_amount=10,
-        reward_description="For the price of a (fancy) coffee, your personal or your company name will be in the final credits of the film as a contributor of the Kickstarter funding campaign."
+        reward_description="For the price of a (fancy) coffee, your personal or your company name will be in the final credits of the film as a contributor of the Kickstarter funding campaign.",
     )
 
     film2 = Project(
@@ -610,7 +610,7 @@ def seed_projects():
         end_date=date(2024, 2, 2),
         reward_name="Ramses Party Package",
         reward_amount=150,
-        reward_description="Join Team Thirsty on Friday, July 7th from 6-9PM for an exclusive cocktail party at Oakland's sublime store/event space Ramses Art Garden (owned by friends of the production Malik & Carson). Address: 2511 Broadway, Downtown Oakland, www.ramsesartgarden.com"
+        reward_description="Join Team Thirsty on Friday, July 7th from 6-9PM for an exclusive cocktail party at Oakland's sublime store/event space Ramses Art Garden (owned by friends of the production Malik & Carson). Address: 2511 Broadway, Downtown Oakland, www.ramsesartgarden.com",
     )
 
     film3 = Project(
@@ -626,7 +626,7 @@ def seed_projects():
         end_date=date(2024, 6, 6),
         reward_name="Your Name in the Credits",
         reward_amount=50,
-        reward_description="Be immortialized in the credits of the film"
+        reward_description="Be immortialized in the credits of the film",
     )
 
     film4 = Project(
@@ -642,7 +642,7 @@ def seed_projects():
         end_date=date(2023, 11, 2),
         reward_name="A Copy of the Film",
         reward_amount=25,
-        reward_description="You will receive a digital copy of the finished film!"
+        reward_description="You will receive a digital copy of the finished film!",
     )
 
     film5 = Project(
@@ -658,7 +658,7 @@ def seed_projects():
         end_date=date(2024, 9, 2),
         reward_name="Invite to Digital Screening",
         reward_amount=25,
-        reward_description="Thank you for helping our movie come to life! You'll be one of the first people in the entire world to see this movie. When it's complete, we'll send you an exclusive invitation to an early screening, accessible from anywhere in the world (with internet access)."
+        reward_description="Thank you for helping our movie come to life! You'll be one of the first people in the entire world to see this movie. When it's complete, we'll send you an exclusive invitation to an early screening, accessible from anywhere in the world (with internet access).",
     )
 
     film6 = Project(
@@ -674,7 +674,7 @@ def seed_projects():
         end_date=date(2024, 1, 2),
         reward_name="Thank You Credit and Digital Copy of the Film!",
         reward_amount=20,
-        reward_description="So not only do you have the wonderfulness of being credited, but you also get the final cut of the short film that we have been putting our blood sweat and tears into! It's the perfect duo!"
+        reward_description="So not only do you have the wonderfulness of being credited, but you also get the final cut of the short film that we have been putting our blood sweat and tears into! It's the perfect duo!",
     )
 
     film7 = Project(
@@ -690,7 +690,7 @@ def seed_projects():
         end_date=date(2024, 7, 2),
         reward_name="Associate Producer Credit",
         reward_amount=500,
-        reward_description="By pledging $500, you become an integral part of this project. To prove it to you, we’ll credit you as an Associate Producer on By Fire, send you a late draft of the film and music to hear your thoughts and give you an official IMDB credit as well !"
+        reward_description="By pledging $500, you become an integral part of this project. To prove it to you, we’ll credit you as an Associate Producer on By Fire, send you a late draft of the film and music to hear your thoughts and give you an official IMDB credit as well !",
     )
 
     film8 = Project(
@@ -706,7 +706,7 @@ def seed_projects():
         end_date=date(2024, 3, 3),
         reward_name="Basement Show Level",
         reward_amount=10,
-        reward_description="Wow, thank you! You get a thank you email from the esteemed director!"
+        reward_description="Wow, thank you! You get a thank you email from the esteemed director!",
     )
 
     film9 = Project(
@@ -722,7 +722,7 @@ def seed_projects():
         end_date=date(2023, 11, 5),
         reward_name="PDF of Yard Bird Script",
         reward_amount=200,
-        reward_description="Thank you! This tier gets you everything so far plus the yard Bird Script in PDF format"
+        reward_description="Thank you! This tier gets you everything so far plus the yard Bird Script in PDF format",
     )
 
     film10 = Project(
@@ -738,7 +738,7 @@ def seed_projects():
         end_date=date(2024, 8, 8),
         reward_name="Exclusive Footage Download",
         reward_amount=25,
-        reward_description="The story of MONSTER GIRLS is huge and there's no way we could fit it all into a 70 minute time slot. With this tier you'll be getting a digital download of exclusive footage that won't be seen in the documentary release!"
+        reward_description="The story of MONSTER GIRLS is huge and there's no way we could fit it all into a 70 minute time slot. With this tier you'll be getting a digital download of exclusive footage that won't be seen in the documentary release!",
     )
 
     film11 = Project(
@@ -754,7 +754,7 @@ def seed_projects():
         end_date=date(2024, 5, 2),
         reward_name="Your name in the Credits",
         reward_amount=50,
-        reward_description="Your name will appear in the credits for the film! Thank you!"
+        reward_description="Your name will appear in the credits for the film! Thank you!",
     )
 
     film12 = Project(
@@ -770,737 +770,852 @@ def seed_projects():
         end_date=date(2023, 10, 12),
         reward_name="The Goldfish Award",
         reward_amount=50,
-        reward_description="Get a digital copy of our script, our script breakdown and a digitalized story board for the film along with a signed poster by the cast and director!"
+        reward_description="Get a digital copy of our script, our script breakdown and a digitalized story board for the film along with a signed poster by the cast and director!",
     )
 
     art1 = Project(
-                project_name = "Oceano (for seven generations)",
-                description = "A photographic monograph by Lana Z Caplan based in the Oceano Dunes",
-                category_id = 1,
-                money_goal = 10000,
-                user_id = 4,
-                city = "Oceano",
-                state = "CA",
-                story = "The yak titʸu titʸu yak tiłhini (ytt) Northern Chumash have a phrase 'For seven generations',meaning 'Our decisions are made while thinking seven generations into the future'.Oceano (for seven generations), looks both back and to the future, in images and text, to describe histories and conflicts that question legacies of colonization, photographic history, utopian ideology, and the future for the politically charged and environmentally threatened Oceano Dunes. This is a dramatic local story - but also a story of larger issues that can be seen happening all over the world.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art1.jpeg",
-                end_date = date(2024, 6, 3),
-                reward_name = "Pack of 3 postcards",
-                reward_amount = 10,
-                reward_description = "Special Edition of a selection of 3 4x6 postcards with images from the book (images vary)")
+        project_name="Oceano (for seven generations)",
+        description="A photographic monograph by Lana Z Caplan based in the Oceano Dunes",
+        category_id=1,
+        money_goal=10000,
+        user_id=4,
+        city="Oceano",
+        state="CA",
+        story="The yak titʸu titʸu yak tiłhini (ytt) Northern Chumash have a phrase 'For seven generations',meaning 'Our decisions are made while thinking seven generations into the future'.Oceano (for seven generations), looks both back and to the future, in images and text, to describe histories and conflicts that question legacies of colonization, photographic history, utopian ideology, and the future for the politically charged and environmentally threatened Oceano Dunes. This is a dramatic local story - but also a story of larger issues that can be seen happening all over the world.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art1.jpeg",
+        end_date=date(2024, 6, 3),
+        reward_name="Pack of 3 postcards",
+        reward_amount=10,
+        reward_description="Special Edition of a selection of 3 4x6 postcards with images from the book (images vary)",
+    )
     art2 = Project(
-                project_name = "Metanoia Marseille Tarot",
-                description = "A whimsical and enchanting illustrated tarot deck that follows the traditional Marseille, weaving together a magical journey.",
-                category_id = 1,
-                money_goal = 18000,
-                user_id = 5,
-                city = "Seattle",
-                state = "WA",
-                story = "Metanoia Marseille has been over a yearlong passion that is inspired by the beauty of a traditional Marseille deck and the enchanting magic of florals, nature, whimsical characters, and vibrancy of color. The Metanoia Marseille deck's energy is playful and inspiring, reflecting a lighthearted yet honest depiction of the century's old tradition of the Tarot de Marseille. In working with such a beautiful expression of tarot, it was important for me to capture the original essence of each card, staying true to the depictions and intrinsic meanings, while adding my personal expression of illustration to the deck. This is a deck that can be used by everyone of all ages. Each card laid out next to one another in any standard or personal configuration offers a beautiful and vibrant story that expands imagination and extracts new meanings and ways of approaching all life situations. With every detail thoughtfully and intuitively designed for you, I hope you find a bit of magic in this deck as you work with it in your practices. XOXOXO",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art2.jpeg",
-                end_date = date(2024, 1, 15),
-                reward_name = "Metanoia Marseille Mini Package",
-                reward_amount = 45,
-                reward_description = "This reward is the mini size deck package full of fabulous goodies!")
+        project_name="Metanoia Marseille Tarot",
+        description="A whimsical and enchanting illustrated tarot deck that follows the traditional Marseille, weaving together a magical journey.",
+        category_id=1,
+        money_goal=18000,
+        user_id=5,
+        city="Seattle",
+        state="WA",
+        story="Metanoia Marseille has been over a yearlong passion that is inspired by the beauty of a traditional Marseille deck and the enchanting magic of florals, nature, whimsical characters, and vibrancy of color. The Metanoia Marseille deck's energy is playful and inspiring, reflecting a lighthearted yet honest depiction of the century's old tradition of the Tarot de Marseille. In working with such a beautiful expression of tarot, it was important for me to capture the original essence of each card, staying true to the depictions and intrinsic meanings, while adding my personal expression of illustration to the deck. This is a deck that can be used by everyone of all ages. Each card laid out next to one another in any standard or personal configuration offers a beautiful and vibrant story that expands imagination and extracts new meanings and ways of approaching all life situations. With every detail thoughtfully and intuitively designed for you, I hope you find a bit of magic in this deck as you work with it in your practices. XOXOXO",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art2.jpeg",
+        end_date=date(2024, 1, 15),
+        reward_name="Metanoia Marseille Mini Package",
+        reward_amount=45,
+        reward_description="This reward is the mini size deck package full of fabulous goodies!",
+    )
     art3 = Project(
-                project_name = "Paintings of Japan",
-                description = "Travel to Japan in Spring and Autumn through colourful illustrations in this set of two art books.",
-                category_id = 1,
-                money_goal = 4468,
-                user_id = 4,
-                city = "San Diego",
-                state = "CA",
-                story = "In Spring 2023, I embarked on an intense trip to Japan. Although this was my 5th time in Japan, it's the first time that I got to fully experience the magical cherry blossom season during peak bloom. I traveled to many places and discovered beautiful corners of Japan that I'd never seen before. I hope I have captured some of the beauty I witnessed in my drawings so you can travel vicariously through this art book. The last time I traveled to Japan was back in 2019. It was the last international trip I did before we all had to stay home for 2 years, and I'm so glad I was in Japan to soak in all the beautiful colours. I went in late Autumn for 21 days and was just in time to see some dark red Momiji leaves and bright yellow Ginkgo leaves before they had all fallen.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art3.jpeg",
-                end_date = date(2024, 11, 2),
-                reward_name = "Book of Spring",
-                reward_amount = 25,
-                reward_description = "Do you like blossoming Momo and Sakura? This art book contains 38 paintings of beautiful sceneries of Japan in Spring.")
+        project_name="Paintings of Japan",
+        description="Travel to Japan in Spring and Autumn through colourful illustrations in this set of two art books.",
+        category_id=1,
+        money_goal=4468,
+        user_id=4,
+        city="San Diego",
+        state="CA",
+        story="In Spring 2023, I embarked on an intense trip to Japan. Although this was my 5th time in Japan, it's the first time that I got to fully experience the magical cherry blossom season during peak bloom. I traveled to many places and discovered beautiful corners of Japan that I'd never seen before. I hope I have captured some of the beauty I witnessed in my drawings so you can travel vicariously through this art book. The last time I traveled to Japan was back in 2019. It was the last international trip I did before we all had to stay home for 2 years, and I'm so glad I was in Japan to soak in all the beautiful colours. I went in late Autumn for 21 days and was just in time to see some dark red Momiji leaves and bright yellow Ginkgo leaves before they had all fallen.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art3.jpeg",
+        end_date=date(2024, 11, 2),
+        reward_name="Book of Spring",
+        reward_amount=25,
+        reward_description="Do you like blossoming Momo and Sakura? This art book contains 38 paintings of beautiful sceneries of Japan in Spring.",
+    )
     art4 = Project(
-                project_name = "Handcrafted Japanese Artisan Ceramics: Traditional Technique",
-                description = "The beauty of traditional Japanese ceramics with our handmade artisanal pieces",
-                category_id = 1,
-                money_goal = 10713,
-                user_id = 5,
-                city = "Madrid",
-                state = "NM",
-                story = "Introducing the Japanese Artisan Ceramic Project, a unique collection of handmade ceramic pieces crafted by skilled artisans in Japan. Our collection features a wide variety of ceramic products, from tea cups and bowls to vases and decorative plates, each one exquisitely crafted to bring a touch of Japanese elegance and style to your home. Our artisans have been perfecting their craft for generations, using traditional techniques passed down from their ancestors. They hand-mold, paint and fire each piece with precision and care, creating a one-of-a-kind piece that's unlike anything else you'll find on the market. The Japanese Artisan Ceramic Project is not only about bringing beautiful pieces into your home, but also preserving a cultural tradition that dates back centuries. By backing our campaign, you'll be supporting these skilled artisans and helping to keep this timeless craft alive for generations to come.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art4.png",
-                end_date = date(2024, 7, 25),
-                reward_name = "Ceramic Bowl",
-                reward_amount = 20,
-                reward_description = "Pledge $20 or more and receive one of our artisan ceramic bowls. Perfect for daily use or as a decorative piece in your home.")
+        project_name="Handcrafted Japanese Artisan Ceramics: Traditional Technique",
+        description="The beauty of traditional Japanese ceramics with our handmade artisanal pieces",
+        category_id=1,
+        money_goal=10713,
+        user_id=5,
+        city="Madrid",
+        state="NM",
+        story="Introducing the Japanese Artisan Ceramic Project, a unique collection of handmade ceramic pieces crafted by skilled artisans in Japan. Our collection features a wide variety of ceramic products, from tea cups and bowls to vases and decorative plates, each one exquisitely crafted to bring a touch of Japanese elegance and style to your home. Our artisans have been perfecting their craft for generations, using traditional techniques passed down from their ancestors. They hand-mold, paint and fire each piece with precision and care, creating a one-of-a-kind piece that's unlike anything else you'll find on the market. The Japanese Artisan Ceramic Project is not only about bringing beautiful pieces into your home, but also preserving a cultural tradition that dates back centuries. By backing our campaign, you'll be supporting these skilled artisans and helping to keep this timeless craft alive for generations to come.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art4.png",
+        end_date=date(2024, 7, 25),
+        reward_name="Ceramic Bowl",
+        reward_amount=20,
+        reward_description="Pledge $20 or more and receive one of our artisan ceramic bowls. Perfect for daily use or as a decorative piece in your home.",
+    )
     art5 = Project(
-                project_name = "Visions: The Art of Jeff Sturgeon",
-                description = "A Retrospective of a decades-long career in fine art by award-winning artist Jeff Sturgeon",
-                category_id = 1,
-                money_goal = 6000,
-                user_id = 4,
-                city = "Seattle",
-                state = "WA",
-                story = "Jeff Sturgeon is a northwest artist known for his beautiful, award-winning metal paintings. His career spans over thirty years, coming up through the ranks as a young fan artist in the 80s to being hired in the first wave of computer game artists in the late 80s and early 90s. A long career in the 90s as an artist, animator, concept artist, lead artist, game designer, and art director followed most notably for Electronic Arts. He continued to paint and display his work at science fiction conventions around the country and created new cover and interior work for clients such as Harper Collins Publishing and NASA JPL. Jeff left the game business behind and went to painting full time with aluminum as his new canvas though he did not give up traditional canvas completely. Through the new millennium, Jeff's work became nationally known with increased appearances as an exhibitor, guest, panelist, and Guest of Honor at conventions around the country. Jeff's world-sharing anthology Jeff Sturgeon's Last Cities of Earth was released in Jan. 2022 by Word Fire Press. His continued work in the Last Cities of Earth universe now takes up most of his time as he creates new art and stories and works towards releasing a second anthology.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art5.jpeg",
-                end_date = date(2024, 2, 13),
-                reward_name = "VIRTUAL GALLERY - EARLY SHOWING",
-                reward_amount = 10,
-                reward_description = "You receive a full-color PDF of THE ART OF JEFF STURGEON and our thanks in the back of the book.")
+        project_name="Visions: The Art of Jeff Sturgeon",
+        description="A Retrospective of a decades-long career in fine art by award-winning artist Jeff Sturgeon",
+        category_id=1,
+        money_goal=6000,
+        user_id=4,
+        city="Seattle",
+        state="WA",
+        story="Jeff Sturgeon is a northwest artist known for his beautiful, award-winning metal paintings. His career spans over thirty years, coming up through the ranks as a young fan artist in the 80s to being hired in the first wave of computer game artists in the late 80s and early 90s. A long career in the 90s as an artist, animator, concept artist, lead artist, game designer, and art director followed most notably for Electronic Arts. He continued to paint and display his work at science fiction conventions around the country and created new cover and interior work for clients such as Harper Collins Publishing and NASA JPL. Jeff left the game business behind and went to painting full time with aluminum as his new canvas though he did not give up traditional canvas completely. Through the new millennium, Jeff's work became nationally known with increased appearances as an exhibitor, guest, panelist, and Guest of Honor at conventions around the country. Jeff's world-sharing anthology Jeff Sturgeon's Last Cities of Earth was released in Jan. 2022 by Word Fire Press. His continued work in the Last Cities of Earth universe now takes up most of his time as he creates new art and stories and works towards releasing a second anthology.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art5.jpeg",
+        end_date=date(2024, 2, 13),
+        reward_name="VIRTUAL GALLERY - EARLY SHOWING",
+        reward_amount=10,
+        reward_description="You receive a full-color PDF of THE ART OF JEFF STURGEON and our thanks in the back of the book.",
+    )
     art6 = Project(
-                project_name = "The Earhart Project",
-                description = "Development and workshop for a solo show on Amelia Earhart",
-                category_id = 1,
-                money_goal = 9682,
-                user_id = 5,
-                city = "New York",
-                state = "NY",
-                story = "It's never too early and never too late to pursue a dream that you know will make a difference. This is why I will be creating an exciting new show that will prepare me for the bigger project ahead of me. Your helping me with this project will be the tipping point that will make what's to come possible.   This project will make you laugh. You may want to cry, but I can't guarantee that. You may be inspired to take more risks in your life. You will learn interesting things about Canadian history. You may even want to buy a plane.  Amelia speaks to so many young girls and women.  She was a powerful, flawed woman. She was a symbol of hope during the stock market crash in the 1920s during difficult times in the 20s. Now is the perfect time to hear her words again. Amelia Mary Earhart was an American aviation pioneer and writer. Earhart was the first female aviator to fly solo across the Atlantic Ocean in 1932. Oh, but there is so much more.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art6.jpeg",
-                end_date = date(2023, 12, 23),
-                reward_name = "Shout-out",
-                reward_amount = 5,
-                reward_description = "A shout-out thank you on social media and haiku poem( when the workshop performance happens.")
+        project_name="The Earhart Project",
+        description="Development and workshop for a solo show on Amelia Earhart",
+        category_id=1,
+        money_goal=9682,
+        user_id=5,
+        city="New York",
+        state="NY",
+        story="It's never too early and never too late to pursue a dream that you know will make a difference. This is why I will be creating an exciting new show that will prepare me for the bigger project ahead of me. Your helping me with this project will be the tipping point that will make what's to come possible.   This project will make you laugh. You may want to cry, but I can't guarantee that. You may be inspired to take more risks in your life. You will learn interesting things about Canadian history. You may even want to buy a plane.  Amelia speaks to so many young girls and women.  She was a powerful, flawed woman. She was a symbol of hope during the stock market crash in the 1920s during difficult times in the 20s. Now is the perfect time to hear her words again. Amelia Mary Earhart was an American aviation pioneer and writer. Earhart was the first female aviator to fly solo across the Atlantic Ocean in 1932. Oh, but there is so much more.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art6.jpeg",
+        end_date=date(2023, 12, 23),
+        reward_name="Shout-out",
+        reward_amount=5,
+        reward_description="A shout-out thank you on social media and haiku poem( when the workshop performance happens.",
+    )
     art7 = Project(
-                project_name = "Help Bring Woven to the Fringe!",
-                description = "An original musical inspired by The Odyssey debuts at the Fringe! Seven women, one wake, and the truth that weaves them together.",
-                category_id = 1,
-                money_goal = 12000,
-                user_id = 4,
-                city = "Albany",
-                state = "NY",
-                story = "Woven is an original musical that takes a classic tale and flips it on its head. It's about dreams and deception. It's about lies and liaisons. Most importantly, it's about the beauty of female friendship. Set in the present day, seven women attend a wake where they discover that their lives are mysteriously intertwined. Now, they must untangle the threads. Inspired by Homer's The Odyssey, Woven tells the story of women coming together as the truth comes to light. As the late, great Stephen Sondheim said, 'Art isn't easy.' Creating new work is ambitious and demanding. It takes passion and perseverance as well as excellent time management and a clear vision. More often than not, the success of a new show depends largely upon the support of the public. For this Kickstarter, we are raising $12,000 to help us make our dreams a reality!",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art7.jpeg",
-                end_date = date(2023, 11, 20),
-                reward_name = "The Hera",
-                reward_amount = 15,
-                reward_description = "The creator of Woven will give you a shout-out on social media or send a personalized 'thank you' via email. Donor's choice!")
+        project_name="Help Bring Woven to the Fringe!",
+        description="An original musical inspired by The Odyssey debuts at the Fringe! Seven women, one wake, and the truth that weaves them together.",
+        category_id=1,
+        money_goal=12000,
+        user_id=4,
+        city="Albany",
+        state="NY",
+        story="Woven is an original musical that takes a classic tale and flips it on its head. It's about dreams and deception. It's about lies and liaisons. Most importantly, it's about the beauty of female friendship. Set in the present day, seven women attend a wake where they discover that their lives are mysteriously intertwined. Now, they must untangle the threads. Inspired by Homer's The Odyssey, Woven tells the story of women coming together as the truth comes to light. As the late, great Stephen Sondheim said, 'Art isn't easy.' Creating new work is ambitious and demanding. It takes passion and perseverance as well as excellent time management and a clear vision. More often than not, the success of a new show depends largely upon the support of the public. For this Kickstarter, we are raising $12,000 to help us make our dreams a reality!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art7.jpeg",
+        end_date=date(2023, 11, 20),
+        reward_name="The Hera",
+        reward_amount=15,
+        reward_description="The creator of Woven will give you a shout-out on social media or send a personalized 'thank you' via email. Donor's choice!",
+    )
     art8 = Project(
-                project_name = "Chicken-Inspired Improvised Woven Art",
-                description = "Embracing creative constraints, jazz guitar, a whole bunch of yarn, and beautiful chickens.",
-                category_id = 1,
-                money_goal = 250,
-                user_id = 5,
-                city = "Portland",
-                state = "OR",
-                story = "I am improvising woven art. I have no idea what they will look like until I start weaving, but each one will be inspired by one of five chicken breeds: Wyandotte, Australorp, Barbu d'Uccle, Lavender Orpington, and Silkie. I think a fun way to think of this is that you're taking home a baby chick of one of the five breeds -- while you may not know the exact plumage they will grow into, you might have a pretty good general idea what they would look like!",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art8.jpeg",
-                end_date = date(2023, 9, 30),
-                reward_name = "A postcard with a watercolor sketch",
-                reward_amount = 10,
-                reward_description = "Thank you for supporting this project! I will watercolor sketch a chicken doing chicken things. Please note that this sketch won't have as much detail as the chicken painting in the project page. On the back of the postcard, you will find a random chicken fact that you can impress your friends and family with!")
+        project_name="Chicken-Inspired Improvised Woven Art",
+        description="Embracing creative constraints, jazz guitar, a whole bunch of yarn, and beautiful chickens.",
+        category_id=1,
+        money_goal=250,
+        user_id=5,
+        city="Portland",
+        state="OR",
+        story="I am improvising woven art. I have no idea what they will look like until I start weaving, but each one will be inspired by one of five chicken breeds: Wyandotte, Australorp, Barbu d'Uccle, Lavender Orpington, and Silkie. I think a fun way to think of this is that you're taking home a baby chick of one of the five breeds -- while you may not know the exact plumage they will grow into, you might have a pretty good general idea what they would look like!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art8.jpeg",
+        end_date=date(2023, 9, 30),
+        reward_name="A postcard with a watercolor sketch",
+        reward_amount=10,
+        reward_description="Thank you for supporting this project! I will watercolor sketch a chicken doing chicken things. Please note that this sketch won't have as much detail as the chicken painting in the project page. On the back of the postcard, you will find a random chicken fact that you can impress your friends and family with!",
+    )
     art9 = Project(
-                project_name = "Lonesome Pictopia: Exquisite Wallpaper",
-                description = "Transforming interiors with traditionally-printed wallpaper inspired by design history, botanicals, and American tattooing.",
-                category_id = 1,
-                money_goal = 35000,
-                user_id = 4,
-                city = "Portland",
-                state = "OR",
-                story = "We aim to produce the most beautiful, interesting wallpapers since the Arts and Crafts movement: creative, timeless, hand-illustrated designs with a deep connection to design history. Our beautifully tactile papers are being traditionally printed in England. We are thrilled to be partnering with experienced manufacturers of high-end wallpaper who lead the industry in green printing. Obsessively designed, original wallpapers reflecting 15 years experience as a custom tattoo artist, our passion for historic design and botany, and our belief that all work should create social good.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art9.jpeg",
-                end_date = date(2024, 1, 23),
-                reward_name = "Thank-You Card and Sticker",
-                reward_amount = 8,
-                reward_description = "You will receive a handwritten thank you card mailed to your old-fashioned mailbox, plus one of our lovely handclasp stickers.")
+        project_name="Lonesome Pictopia: Exquisite Wallpaper",
+        description="Transforming interiors with traditionally-printed wallpaper inspired by design history, botanicals, and American tattooing.",
+        category_id=1,
+        money_goal=35000,
+        user_id=4,
+        city="Portland",
+        state="OR",
+        story="We aim to produce the most beautiful, interesting wallpapers since the Arts and Crafts movement: creative, timeless, hand-illustrated designs with a deep connection to design history. Our beautifully tactile papers are being traditionally printed in England. We are thrilled to be partnering with experienced manufacturers of high-end wallpaper who lead the industry in green printing. Obsessively designed, original wallpapers reflecting 15 years experience as a custom tattoo artist, our passion for historic design and botany, and our belief that all work should create social good.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art9.jpeg",
+        end_date=date(2024, 1, 23),
+        reward_name="Thank-You Card and Sticker",
+        reward_amount=8,
+        reward_description="You will receive a handwritten thank you card mailed to your old-fashioned mailbox, plus one of our lovely handclasp stickers.",
+    )
     art10 = Project(
-                project_name = "Cat Hell Enamel Pins Collection",
-                description = "A collection of enamel pin inspired cats based on creatures of the night with a cute and chubby look.",
-                category_id = 1,
-                money_goal = 535,
-                user_id = 5,
-                city = "Austin",
-                state = "TX",
-                story = "In this project I wanted to combine kittens with one of my favorite hobbies! creatures of the underworld and vampires.  All the designs have an aesthetic between cute, chubby and a little bit gothic. The project is based on 4 pins but there are more designs that I will show you later with surprises!",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art10.png",
-                end_date = date(2024, 2, 21),
-                reward_name = "1 Enamel Pin",
-                reward_amount = 12,
-                reward_description = "Enamel Pin of your choice")
+        project_name="Cat Hell Enamel Pins Collection",
+        description="A collection of enamel pin inspired cats based on creatures of the night with a cute and chubby look.",
+        category_id=1,
+        money_goal=535,
+        user_id=5,
+        city="Austin",
+        state="TX",
+        story="In this project I wanted to combine kittens with one of my favorite hobbies! creatures of the underworld and vampires.  All the designs have an aesthetic between cute, chubby and a little bit gothic. The project is based on 4 pins but there are more designs that I will show you later with surprises!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art10.png",
+        end_date=date(2024, 2, 21),
+        reward_name="1 Enamel Pin",
+        reward_amount=12,
+        reward_description="Enamel Pin of your choice",
+    )
     art11 = Project(
-                project_name = "Enamel Wire Trees on Selenite Crystals: Nature's Beauty",
-                description = "Experience nature's beauty with our Enamel Wire Trees on Selenite Crystal sculptures. Delicate wire trees perched on stunning selenite.",
-                category_id = 1,
-                money_goal = 558,
-                user_id = 4,
-                city = "Philadelphia",
-                state = "PA",
-                story = "Selenite's translucent and fibrous structure, combined with its smooth texture and pearly white color, creates a captivating aesthetic beauty. It's neutral white tones provide the perfect contrast to the colorful beauty of enamel art.   Selenite crystals are believed to cleanse and purify energy in your home, promoting calmness and mental clarity. They can create a peaceful atmosphere, aid in energy healing, and enhance meditation practice.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art11.jpeg",
-                end_date = date(2024, 2, 15),
-                reward_name = "Small Bonsai Selenite Sculpture",
-                reward_amount = 75,
-                reward_description = "Your choice of any of the four smaller tree designs mounted on Selenite.")
+        project_name="Enamel Wire Trees on Selenite Crystals: Nature's Beauty",
+        description="Experience nature's beauty with our Enamel Wire Trees on Selenite Crystal sculptures. Delicate wire trees perched on stunning selenite.",
+        category_id=1,
+        money_goal=558,
+        user_id=4,
+        city="Philadelphia",
+        state="PA",
+        story="Selenite's translucent and fibrous structure, combined with its smooth texture and pearly white color, creates a captivating aesthetic beauty. It's neutral white tones provide the perfect contrast to the colorful beauty of enamel art.   Selenite crystals are believed to cleanse and purify energy in your home, promoting calmness and mental clarity. They can create a peaceful atmosphere, aid in energy healing, and enhance meditation practice.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art11.jpeg",
+        end_date=date(2024, 2, 15),
+        reward_name="Small Bonsai Selenite Sculpture",
+        reward_amount=75,
+        reward_description="Your choice of any of the four smaller tree designs mounted on Selenite.",
+    )
     art12 = Project(
-                project_name = "California Delta Communities Volume 1",
-                description = "A Coloring Book about the animals, environment and cultures that call the California Delta network home.",
-                category_id = 1,
-                money_goal = 12000,
-                user_id = 5,
-                city = "Stockton",
-                state = "CA",
-                story = "This is a project that will require not only archival research but also visual and auditory documentation of the beauty of life in the Central Valley. A community focused project like this is best when everyone is involved so that I can create the best examples, in coloring book form, of life in the Central Valley. I have included some examples of this from projects I have run in recent years. Much of the cost of this project is linked to the very real need for reference data collection regarding humanity and its engagement with the environment of the Central Valley of California. I intend to create an accessible archive of imagery and project notes to make this information more widely available to the global public. Both of these activities will create a stronger background of material from which to illustrate the Central Valley with. When surveyed, elementary students in San Joaquin County want to know why placenames are what they are, who lived here before our cities were constructed, what foods grandmothers in their friends' houses serve that reminds them of home, and so much more. Those are all questions that can be addressed in this project's accompanying research collection efforts. The second goal of this project is to create a visual archive of life in the Central Valley, its environment, and its people. This archive will be made available to the public for access by future generations.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art12.png",
-                end_date = date(2023, 11, 3),
-                reward_name = "Shout out on the Community Website",
-                reward_amount = 1,
-                reward_description = "Show your support for the California Delta Communities Coloring Book and be listed on the Backer Wall of Fame page I will be creating for the archive website.")
+        project_name="California Delta Communities Volume 1",
+        description="A Coloring Book about the animals, environment and cultures that call the California Delta network home.",
+        category_id=1,
+        money_goal=12000,
+        user_id=5,
+        city="Stockton",
+        state="CA",
+        story="This is a project that will require not only archival research but also visual and auditory documentation of the beauty of life in the Central Valley. A community focused project like this is best when everyone is involved so that I can create the best examples, in coloring book form, of life in the Central Valley. I have included some examples of this from projects I have run in recent years. Much of the cost of this project is linked to the very real need for reference data collection regarding humanity and its engagement with the environment of the Central Valley of California. I intend to create an accessible archive of imagery and project notes to make this information more widely available to the global public. Both of these activities will create a stronger background of material from which to illustrate the Central Valley with. When surveyed, elementary students in San Joaquin County want to know why placenames are what they are, who lived here before our cities were constructed, what foods grandmothers in their friends' houses serve that reminds them of home, and so much more. Those are all questions that can be addressed in this project's accompanying research collection efforts. The second goal of this project is to create a visual archive of life in the Central Valley, its environment, and its people. This archive will be made available to the public for access by future generations.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/art12.png",
+        end_date=date(2023, 11, 3),
+        reward_name="Shout out on the Community Website",
+        reward_amount=1,
+        reward_description="Show your support for the California Delta Communities Coloring Book and be listed on the Backer Wall of Fame page I will be creating for the archive website.",
+    )
     comic1 = Project(
-                project_name = "The Shadow Over Innsmouth Graphic Novel",
-                description = "Get the softcover and hardback editions of Lovecraft's classic story in this beautifully drawn and acclaimed comic book adaptation.",
-                category_id = 2,
-                money_goal = 1245,
-                user_id = 4,
-                city = "Savannah",
-                state = "GA",
-                story = "Robert Ormstead is on his way from Newburyport to Arkham the cheapest way possible. Unfortunately, for him, this means taking the bus through shadowed Innsmouth. Armed with his notebook, he intends to make a day of it studying the local architecture and getting to know more about this mysterious place that neighbouring towns shun. Why are the inhabitants so unwilling to speak to him, and what curse afflicts them which causes their faces to change and their eyes to stare, unblinking. Come along for the ride in HP Lovecraft's famous story, 'The Shadow Over Innsmouth', adapted by Simon Birks, with art by RHStewart and lettered by Lyndon White, the team that created the critically acclaimed 'Sinners' series.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic1.jpeg",
-                end_date = date(2024, 3, 3),
-                reward_name = "Virtual Hi-Five",
-                reward_amount = 5,
-                reward_description = "Be a part of the campaign and receive backer only updates, plus get access to the pledge manager at the end of the campaign! And thank you!")
+        project_name="The Shadow Over Innsmouth Graphic Novel",
+        description="Get the softcover and hardback editions of Lovecraft's classic story in this beautifully drawn and acclaimed comic book adaptation.",
+        category_id=2,
+        money_goal=1245,
+        user_id=4,
+        city="Savannah",
+        state="GA",
+        story="Robert Ormstead is on his way from Newburyport to Arkham the cheapest way possible. Unfortunately, for him, this means taking the bus through shadowed Innsmouth. Armed with his notebook, he intends to make a day of it studying the local architecture and getting to know more about this mysterious place that neighbouring towns shun. Why are the inhabitants so unwilling to speak to him, and what curse afflicts them which causes their faces to change and their eyes to stare, unblinking. Come along for the ride in HP Lovecraft's famous story, 'The Shadow Over Innsmouth', adapted by Simon Birks, with art by RHStewart and lettered by Lyndon White, the team that created the critically acclaimed 'Sinners' series.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic1.jpeg",
+        end_date=date(2024, 3, 3),
+        reward_name="Virtual Hi-Five",
+        reward_amount=5,
+        reward_description="Be a part of the campaign and receive backer only updates, plus get access to the pledge manager at the end of the campaign! And thank you!",
+    )
     comic2 = Project(
-                project_name = "When Language Fails",
-                description = "A 30 page, one-shot comic about family, not fitting in, war, and clowns.",
-                category_id = 2,
-                money_goal = 2356,
-                user_id = 5,
-                city = "Fargo",
-                state = "ND",
-                story = "When Language Fails is a 30 page, one-shot comic with a completely self-contained story. It is the story of Adele and Sarah, two estranged sisters who are thrown together on the outbreak of a strange, unknowable war. They must try and repair their relationship, figuring why they have grown apart, and what went wrong, all while trying to survive the war that has erupted on their doorstep. When Language Fails is about growing up, not fitting in, and family. It is also about war, and violence, and how most of the world lives insulated from these awful realities. It asks what we would do if we were actually faced with violence and war in our own homes.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic2.jpeg",
-                end_date = date(2024, 2, 25),
-                reward_name = "Digital Deluxe",
-                reward_amount = 4,
-                reward_description = "Deluxe PDF of When Language Fails with tons of process and behind-the-scenes. Includes full scripts, full black and white artwork, character designs, introduction from writer Colin O' Mahoney talking about the genesis of the project, and as much more process material as we can come up with.")
+        project_name="When Language Fails",
+        description="A 30 page, one-shot comic about family, not fitting in, war, and clowns.",
+        category_id=2,
+        money_goal=2356,
+        user_id=5,
+        city="Fargo",
+        state="ND",
+        story="When Language Fails is a 30 page, one-shot comic with a completely self-contained story. It is the story of Adele and Sarah, two estranged sisters who are thrown together on the outbreak of a strange, unknowable war. They must try and repair their relationship, figuring why they have grown apart, and what went wrong, all while trying to survive the war that has erupted on their doorstep. When Language Fails is about growing up, not fitting in, and family. It is also about war, and violence, and how most of the world lives insulated from these awful realities. It asks what we would do if we were actually faced with violence and war in our own homes.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic2.jpeg",
+        end_date=date(2024, 2, 25),
+        reward_name="Digital Deluxe",
+        reward_amount=4,
+        reward_description="Deluxe PDF of When Language Fails with tons of process and behind-the-scenes. Includes full scripts, full black and white artwork, character designs, introduction from writer Colin O' Mahoney talking about the genesis of the project, and as much more process material as we can come up with.",
+    )
     comic3 = Project(
-                project_name = "Crater City [The Complete Graphic Novel]",
-                description = "Being sixteen can be weird, but being sixteen and living in a city built inside a giant meteor crater can be weirder!",
-                category_id = 2,
-                money_goal = 5000,
-                user_id = 4,
-                city = "Miami",
-                state = "FL",
-                story = "Famously built inside one of the world's largest meteor impact zones, the town of Crater City hosts an annual celebration of the city's namesake with a weekend-long treasure hunt popular with locals and tourists from around the world. The challenge- find the missing piece of the famed Bollinger meteorite, excavated from the crash site forty years ago, which is currently on display in the city's museum.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic3.jpeg",
-                end_date = date(2024, 6, 11),
-                reward_name = "Digital Copy",
-                reward_amount = 10,
-                reward_description = "Grab a digital copy of Crater City. Thats 120 pages of sci-fi alien ass kicking. PDF, CBZ, OR CBR formats available. Once Kickstarter ends, you will immediately receive Issue #1 as a thank you!")
+        project_name="Crater City [The Complete Graphic Novel]",
+        description="Being sixteen can be weird, but being sixteen and living in a city built inside a giant meteor crater can be weirder!",
+        category_id=2,
+        money_goal=5000,
+        user_id=4,
+        city="Miami",
+        state="FL",
+        story="Famously built inside one of the world's largest meteor impact zones, the town of Crater City hosts an annual celebration of the city's namesake with a weekend-long treasure hunt popular with locals and tourists from around the world. The challenge- find the missing piece of the famed Bollinger meteorite, excavated from the crash site forty years ago, which is currently on display in the city's museum.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic3.jpeg",
+        end_date=date(2024, 6, 11),
+        reward_name="Digital Copy",
+        reward_amount=10,
+        reward_description="Grab a digital copy of Crater City. Thats 120 pages of sci-fi alien ass kicking. PDF, CBZ, OR CBR formats available. Once Kickstarter ends, you will immediately receive Issue #1 as a thank you!",
+    )
     comic4 = Project(
-                project_name = "Don't Talk to the Dead #1 - A Supernatural Adventure",
-                description = "The Goonies meets Dante's Inferno; a group of friends must travel to Hell to rescue the soul of a loved one.",
-                category_id = 2,
-                money_goal = 1000,
-                user_id = 5,
-                city = "Rochester",
-                state = "NY",
-                story = "'Infernal Goonies' takes place in a small coastal town where a group of lifelong friends, known as the Goonies, live out their days exploring hidden caves, seeking adventure, and forming a tight-knit bond. Their peaceful lives are shattered when tragedy strikes, and the soul of one of their loved ones is unfairly condemned to Hell. Determined to save their friend's soul, the Goonies stumble upon an ancient tome that reveals a hidden portal to the underworld. They discover that the portal, guarded by riddles and challenges, leads to the very depths of Hell, mirroring the nine circles described in Dante Alighieri's 'Inferno.' Armed with their wits, courage, and the unconditional love for their friend, they embark on an extraordinary journey into the unknown",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic4.jpeg",
-                end_date = date(2024, 4, 15),
-                reward_name = "Digital Edition",
-                reward_amount = 7,
-                reward_description = "26 pages of story!")
+        project_name="Don't Talk to the Dead #1 - A Supernatural Adventure",
+        description="The Goonies meets Dante's Inferno; a group of friends must travel to Hell to rescue the soul of a loved one.",
+        category_id=2,
+        money_goal=1000,
+        user_id=5,
+        city="Rochester",
+        state="NY",
+        story="'Infernal Goonies' takes place in a small coastal town where a group of lifelong friends, known as the Goonies, live out their days exploring hidden caves, seeking adventure, and forming a tight-knit bond. Their peaceful lives are shattered when tragedy strikes, and the soul of one of their loved ones is unfairly condemned to Hell. Determined to save their friend's soul, the Goonies stumble upon an ancient tome that reveals a hidden portal to the underworld. They discover that the portal, guarded by riddles and challenges, leads to the very depths of Hell, mirroring the nine circles described in Dante Alighieri's 'Inferno.' Armed with their wits, courage, and the unconditional love for their friend, they embark on an extraordinary journey into the unknown",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic4.jpeg",
+        end_date=date(2024, 4, 15),
+        reward_name="Digital Edition",
+        reward_amount=7,
+        reward_description="26 pages of story!",
+    )
     comic5 = Project(
-                project_name = "Hunt For The Skinwalker",
-                description = "Reserve your copy of the essential true paranormal UFO investigation book now in an expanded edition and the graphic novel it inspired!",
-                category_id = 2,
-                money_goal = 15000,
-                user_id = 4,
-                city = "Los Angeles",
-                state = "CA",
-                story = "Situated on a remote stretch of northeast Utah known as the Uinta Basin, the isolated, 512-acre  Gorman Ranch has been the site of terrifying, mystifying, and category-defying phenomena for more than 50 years! Since Dr. Colm A. Kelleher and veteran journalist George Knapp broke the unbelievable true story with the publication of HUNT FOR THE SKINWALKER: Science Confronts the Unexplained at a Remote Ranch in Utah in 2005, the site's seemingly limitless barrage of overlapping and interconnected supernatural occurrences have quickly secured its place as the 21st century's most captivating, most debated, and most rampantly viral true tale of the paranormal and truly unexplainable. Award-winning and bestselling publisher BOOM! Studios is working directly with Kelleher and Knapp to remaster and expand their groundbreaking book in a premium Declassified hardcover edition, and publish the first graphic fiction adaptation based on THE HUNT FOR THE SKINWALKER – the most intensive scientific investigation into this nexus of UFOs and the paranormal ever conducted!",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic5.jpeg",
-                end_date = date(2024, 5, 23),
-                reward_name = "Skinwalker Graphic Novel Softcover",
-                reward_amount = 25,
-                reward_description = "Discover the unbelievable, unexplainable, and yet, undeniable true story of Gorman Ranch, which became an epicenter for horrifying supernatural occurrences and the site of the most expansive scientific study of the paranormal ever conducted… visualized for the first time in graphic novel form!")
+        project_name="Hunt For The Skinwalker",
+        description="Reserve your copy of the essential true paranormal UFO investigation book now in an expanded edition and the graphic novel it inspired!",
+        category_id=2,
+        money_goal=15000,
+        user_id=4,
+        city="Los Angeles",
+        state="CA",
+        story="Situated on a remote stretch of northeast Utah known as the Uinta Basin, the isolated, 512-acre  Gorman Ranch has been the site of terrifying, mystifying, and category-defying phenomena for more than 50 years! Since Dr. Colm A. Kelleher and veteran journalist George Knapp broke the unbelievable true story with the publication of HUNT FOR THE SKINWALKER: Science Confronts the Unexplained at a Remote Ranch in Utah in 2005, the site's seemingly limitless barrage of overlapping and interconnected supernatural occurrences have quickly secured its place as the 21st century's most captivating, most debated, and most rampantly viral true tale of the paranormal and truly unexplainable. Award-winning and bestselling publisher BOOM! Studios is working directly with Kelleher and Knapp to remaster and expand their groundbreaking book in a premium Declassified hardcover edition, and publish the first graphic fiction adaptation based on THE HUNT FOR THE SKINWALKER – the most intensive scientific investigation into this nexus of UFOs and the paranormal ever conducted!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic5.jpeg",
+        end_date=date(2024, 5, 23),
+        reward_name="Skinwalker Graphic Novel Softcover",
+        reward_amount=25,
+        reward_description="Discover the unbelievable, unexplainable, and yet, undeniable true story of Gorman Ranch, which became an epicenter for horrifying supernatural occurrences and the site of the most expansive scientific study of the paranormal ever conducted… visualized for the first time in graphic novel form!",
+    )
     comic6 = Project(
-                project_name = "Lampblack #1-3: Fantasy Horror Comic in Cinematic Style",
-                description = "A girl whose paintings come to life. A Deaf boy who wants to be a soldier. A story of passion, art, and war inspired by Studio Ghibli.",
-                category_id = 2,
-                money_goal = 8000,
-                user_id = 5,
-                city = "San Fancisco",
-                state = "CA",
-                story = "LAMPBLACK is a limited comic series written by Camille Longley with art by Pablo Peppino and letters by Joel Saavedra. It's an oversized 8.5x11 inch landscape comic in a sweeping cinematic style. Lampblack has everything you expect in a coming-of-age story: horrifying ink monsters, wondrous forbidden magic, American Sign Language, runaways, and a cat (of course). Lampblack is a story of friendship, family, and war, set in a fantastical world depicted in stunning detail. If you're a fan of Studio Ghibli, Fantastic Beasts and Where to Find Them, Sabrina, or Pokémon, you will love exploring the world of Lampblack--a place filled with incredible creatures and fascinating magic.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic6.jpeg",
-                end_date = date(2024, 8, 30 ),
-                reward_name = "Issue #3 Digital",
-                reward_amount = 6,
-                reward_description = "This enormous landscape comic has wrap-around covers that measures 22 by 8.5 inches that truly captures its cinematic glory.")
+        project_name="Lampblack #1-3: Fantasy Horror Comic in Cinematic Style",
+        description="A girl whose paintings come to life. A Deaf boy who wants to be a soldier. A story of passion, art, and war inspired by Studio Ghibli.",
+        category_id=2,
+        money_goal=8000,
+        user_id=5,
+        city="San Fancisco",
+        state="CA",
+        story="LAMPBLACK is a limited comic series written by Camille Longley with art by Pablo Peppino and letters by Joel Saavedra. It's an oversized 8.5x11 inch landscape comic in a sweeping cinematic style. Lampblack has everything you expect in a coming-of-age story: horrifying ink monsters, wondrous forbidden magic, American Sign Language, runaways, and a cat (of course). Lampblack is a story of friendship, family, and war, set in a fantastical world depicted in stunning detail. If you're a fan of Studio Ghibli, Fantastic Beasts and Where to Find Them, Sabrina, or Pokémon, you will love exploring the world of Lampblack--a place filled with incredible creatures and fascinating magic.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic6.jpeg",
+        end_date=date(2024, 8, 30),
+        reward_name="Issue #3 Digital",
+        reward_amount=6,
+        reward_description="This enormous landscape comic has wrap-around covers that measures 22 by 8.5 inches that truly captures its cinematic glory.",
+    )
     comic7 = Project(
-                project_name = "STUFF: A Book About Aliens",
-                description = "4 Armies, 4 Planets, 4 Heroes breaking out of a fully armed battle station beginning an absurd adventure across an absurd universe.",
-                category_id = 2,
-                money_goal = 1500,
-                user_id = 4,
-                city = "Somerville",
-                state = "NJ",
-                story = "Travel to a universe of novelty and absurdity where a villainous plot is engineered by a military strategist and his alien armies. Through the mysterious Operation Eye-Chest, four alien heroes are kidnapped and their homes threatened. These aliens try their hardest to avoid working together as they escape a fully armed battlestation, operated by ravenous creatures, robots, mad scientists, and ants. Bizarre, immature, and hard to take seriously; this science fiction adventure is ripe with constant bickering, clumsy action, and numerous onomatopoeias. A universe like this combines the exciting world building of Ben 10 and Pokemon, with the absurd humor of Invader Zim and Adventure Time.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic7.jpeg",
-                end_date = date(2024, 4, 12 ),
-                reward_name = "STUFF Chapter 1 Physical Edition",
-                reward_amount = 12,
-                reward_description = "The REAL STUFF Chapter 1 to have and to hold like the reading days of old. Own a physical copy of STUFF marked with actual coffee stains.")
+        project_name="STUFF: A Book About Aliens",
+        description="4 Armies, 4 Planets, 4 Heroes breaking out of a fully armed battle station beginning an absurd adventure across an absurd universe.",
+        category_id=2,
+        money_goal=1500,
+        user_id=4,
+        city="Somerville",
+        state="NJ",
+        story="Travel to a universe of novelty and absurdity where a villainous plot is engineered by a military strategist and his alien armies. Through the mysterious Operation Eye-Chest, four alien heroes are kidnapped and their homes threatened. These aliens try their hardest to avoid working together as they escape a fully armed battlestation, operated by ravenous creatures, robots, mad scientists, and ants. Bizarre, immature, and hard to take seriously; this science fiction adventure is ripe with constant bickering, clumsy action, and numerous onomatopoeias. A universe like this combines the exciting world building of Ben 10 and Pokemon, with the absurd humor of Invader Zim and Adventure Time.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic7.jpeg",
+        end_date=date(2024, 4, 12),
+        reward_name="STUFF Chapter 1 Physical Edition",
+        reward_amount=12,
+        reward_description="The REAL STUFF Chapter 1 to have and to hold like the reading days of old. Own a physical copy of STUFF marked with actual coffee stains.",
+    )
     comic8 = Project(
-                project_name = "Hamfam - Welcome to the aporkalypse!",
-                description = "A 25 page digital comic set in a post-apocalyptic World about a pig with eyes in his nose and his friends quest to continually party!",
-                category_id = 2,
-                money_goal = 2490,
-                user_id = 5,
-                city = "Athens",
-                state = "GA",
-                story = "Hamfam - a 25 page digital comic set within a dark, dangerous wasteland - following the exploits of a surreal and quirky pig! The World has ended, but the party has just begun! Hamfam is more than a pig, more than a place - it's a way of life.​Hamfam, a humanoid pig with eyes in his nose - balances his public personna as a general within a dystopian heirachy, with the need to continuously party. He shares this self-imposed mission with best friends Xeno and Dred, with an ever growing following of misfits and deviants. Enter the World of Hamfam, the most surreal & crazy ride you'll experience through a comic!",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic8.jpeg",
-                end_date = date(2024, 2, 28 ),
-                reward_name = "25 page digital Hamfam comic with extras",
-                reward_amount = 10,
-                reward_description = "A digital page Hamfam comic + extra artwork, character studies and story previews - equivalent to an accompanying artbook!")
+        project_name="Hamfam - Welcome to the aporkalypse!",
+        description="A 25 page digital comic set in a post-apocalyptic World about a pig with eyes in his nose and his friends quest to continually party!",
+        category_id=2,
+        money_goal=2490,
+        user_id=5,
+        city="Athens",
+        state="GA",
+        story="Hamfam - a 25 page digital comic set within a dark, dangerous wasteland - following the exploits of a surreal and quirky pig! The World has ended, but the party has just begun! Hamfam is more than a pig, more than a place - it's a way of life.​Hamfam, a humanoid pig with eyes in his nose - balances his public personna as a general within a dystopian heirachy, with the need to continuously party. He shares this self-imposed mission with best friends Xeno and Dred, with an ever growing following of misfits and deviants. Enter the World of Hamfam, the most surreal & crazy ride you'll experience through a comic!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic8.jpeg",
+        end_date=date(2024, 2, 28),
+        reward_name="25 page digital Hamfam comic with extras",
+        reward_amount=10,
+        reward_description="A digital page Hamfam comic + extra artwork, character studies and story previews - equivalent to an accompanying artbook!",
+    )
     comic9 = Project(
-                project_name = "GUNK: Volume 1 and 2 Reprint",
-                description = "A set of low brow vintage horror and sci-fi inspired comic zines",
-                category_id = 2,
-                money_goal = 1000,
-                user_id = 4,
-                city = "Santa Ana",
-                state = "CA",
-                story = "It has been many moons since anyone has laid eyes upon the ancient comic tome known to a special few as GUNK, the bastard creation of the mad artist, Curt Merlo.  But finally, after much anticipation, the first ever reprinting of the 2018 occult classic comic zine is among us! Those who experienced the original book recall it as an inky exploration into the bizarre world of pulpy vintage horror and strange romance but they did not live long after such verbosities. I myself, dare not attempt an explanation of said relic. It is best to leave understanding to your own eyes. Now, focus beyond this material plane and into the graveyard of forgotten books and you may be lucky enough to witness the specter of the aforementioned monstrosity that is GUNK: Volume 1. Behold!",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic9.jpeg",
-                end_date = date(2024, 3, 28 ),
-                reward_name = "GUNK: Vol 1 & Vol 2 (Digital E-Book)",
-                reward_amount = 10,
-                reward_description = "Get a digital version of the first book GUNK: Volume 1 and a digital version of GUNK Volume 2. Two 36 page PDFs of vintage pulpy gore.")
+        project_name="GUNK: Volume 1 and 2 Reprint",
+        description="A set of low brow vintage horror and sci-fi inspired comic zines",
+        category_id=2,
+        money_goal=1000,
+        user_id=4,
+        city="Santa Ana",
+        state="CA",
+        story="It has been many moons since anyone has laid eyes upon the ancient comic tome known to a special few as GUNK, the bastard creation of the mad artist, Curt Merlo.  But finally, after much anticipation, the first ever reprinting of the 2018 occult classic comic zine is among us! Those who experienced the original book recall it as an inky exploration into the bizarre world of pulpy vintage horror and strange romance but they did not live long after such verbosities. I myself, dare not attempt an explanation of said relic. It is best to leave understanding to your own eyes. Now, focus beyond this material plane and into the graveyard of forgotten books and you may be lucky enough to witness the specter of the aforementioned monstrosity that is GUNK: Volume 1. Behold!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic9.jpeg",
+        end_date=date(2024, 3, 28),
+        reward_name="GUNK: Vol 1 & Vol 2 (Digital E-Book)",
+        reward_amount=10,
+        reward_description="Get a digital version of the first book GUNK: Volume 1 and a digital version of GUNK Volume 2. Two 36 page PDFs of vintage pulpy gore.",
+    )
     comic10 = Project(
-                project_name = "Fox Fires Book Two",
-                description = "Inspired by Finnish mythologies about a young raccoon dog's quest to find her family continues.",
-                category_id = 2,
-                money_goal = 3000,
-                user_id = 5,
-                city = "Doylestown",
-                state = "PA",
-                story = "Raate's quest for the missing fox fires continues. This time she gets mixed up in the otters' Shining Skies ceremony. But all the preparations don't go as smoothly as planned. We meet new characters and the official first antagonists of Raate. FOX FIRES is a fantasy-adventure comic that's heavily inspired by Finnish folklore. “Fox Fires” refers to Northern Lights; it's basically a literal translation from the Finnish word “revontulet.” (Revontulet = Repo's fires. Repo is a nickname for a fox in the Finnish language.) The Fox Fires are a gate between this world and the land of the dead - it allows souls to visit their loved ones. But suddenly, the Fox Fires disappear. Our main character, a young raccoon dog named Raate, heads north to find what's happened to Repo, the fire fox whose burning fur is said to make the Fox Fires appear in the sky. On her journey, Raate meets all kinds of weird creatures, and also new friends.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic10.jpeg",
-                end_date = date(2024, 7, 28 ),
-                reward_name = "Fox Fires Book Two Graphic Novel",
-                reward_amount = 24,
-                reward_description = "Get the Fox Fires Book Two Graphic Novel, printed at 5.7'x8.2' with a matte finish wrap-around hardcover - approximately 150 pages of content!")
+        project_name="Fox Fires Book Two",
+        description="Inspired by Finnish mythologies about a young raccoon dog's quest to find her family continues.",
+        category_id=2,
+        money_goal=3000,
+        user_id=5,
+        city="Doylestown",
+        state="PA",
+        story="Raate's quest for the missing fox fires continues. This time she gets mixed up in the otters' Shining Skies ceremony. But all the preparations don't go as smoothly as planned. We meet new characters and the official first antagonists of Raate. FOX FIRES is a fantasy-adventure comic that's heavily inspired by Finnish folklore. “Fox Fires” refers to Northern Lights; it's basically a literal translation from the Finnish word “revontulet.” (Revontulet = Repo's fires. Repo is a nickname for a fox in the Finnish language.) The Fox Fires are a gate between this world and the land of the dead - it allows souls to visit their loved ones. But suddenly, the Fox Fires disappear. Our main character, a young raccoon dog named Raate, heads north to find what's happened to Repo, the fire fox whose burning fur is said to make the Fox Fires appear in the sky. On her journey, Raate meets all kinds of weird creatures, and also new friends.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic10.jpeg",
+        end_date=date(2024, 7, 28),
+        reward_name="Fox Fires Book Two Graphic Novel",
+        reward_amount=24,
+        reward_description="Get the Fox Fires Book Two Graphic Novel, printed at 5.7'x8.2' with a matte finish wrap-around hardcover - approximately 150 pages of content!",
+    )
     comic11 = Project(
-                project_name = "Rusalka - Whispers of the Forest",
-                description = "A mythical woman with strange powers and a dark secret. Discover this dreamlike folk tale, inspired by Slavic mythology.",
-                category_id = 2,
-                money_goal = 7500,
-                user_id = 4,
-                city = "Boulder",
-                state = "CO",
-                story = "Rusalka is a mysterious water demon of Slavic mythology: living by the lake in the ancient Forest, she is the deadly threat luring in lost wanderers...or so the old legends say. But who really is Rusalka and how did she come to be?  Where do her powers come from and what dark secrets might hide in her fragmented memories? You are invited once again to enter the ominous Forest, and unravel its dark secrets. Following Rusalka in her journey of self-discovery, you will stumble upon other creatures present by Eastern European myths, such as the mischievous water demon Vodnik or the deity of the underworld Veles.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic11.jpeg",
-                end_date = date(2023, 12, 28 ),
-                reward_name = "Ghostlight | A Digital Copy of Rusalka",
-                reward_amount = 7,
-                reward_description = "You will receive a digital copy of Rusalka that you may read digitally!")
+        project_name="Rusalka - Whispers of the Forest",
+        description="A mythical woman with strange powers and a dark secret. Discover this dreamlike folk tale, inspired by Slavic mythology.",
+        category_id=2,
+        money_goal=7500,
+        user_id=4,
+        city="Boulder",
+        state="CO",
+        story="Rusalka is a mysterious water demon of Slavic mythology: living by the lake in the ancient Forest, she is the deadly threat luring in lost wanderers...or so the old legends say. But who really is Rusalka and how did she come to be?  Where do her powers come from and what dark secrets might hide in her fragmented memories? You are invited once again to enter the ominous Forest, and unravel its dark secrets. Following Rusalka in her journey of self-discovery, you will stumble upon other creatures present by Eastern European myths, such as the mischievous water demon Vodnik or the deity of the underworld Veles.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic11.jpeg",
+        end_date=date(2023, 12, 28),
+        reward_name="Ghostlight | A Digital Copy of Rusalka",
+        reward_amount=7,
+        reward_description="You will receive a digital copy of Rusalka that you may read digitally!",
+    )
     comic12 = Project(
-                project_name = "Haunted Hill: The Complete Volume 1",
-                description = "A Surrealist Soap Opera About Life in Hollywood",
-                category_id = 2,
-                money_goal = 1489,
-                user_id = 5,
-                city = "Chicago",
-                state = "IL",
-                story = "What if you and everyone else had to act like adults with big feelings and serious intentions even though treehouse passwords worked, detective clubs solved major crimes and you really don't fall until you looked down? Welcome to Haunted Hill. This graphic novel series functions like a surrealist soap-opera as it follows Eva in pseudo-real time, navigating life in the grime of Hollywood. This is a town where even the smallest moments become charged with impossibility as people search for high-stakes in the lowest places. Loosely based on a true story, but capturing what every night in Hollywood felt like at the beginning of 2020.",
-                project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic12.jpeg",
-                end_date = date(2023, 12, 18 ),
-                reward_name = "The Digital Book",
-                reward_amount = 10,
-                reward_description = "It's like a real book, only on your screen. Tired of lifting a heavy book to read? This digital edition is a great alternative. All the same stuff as in the book, but in a PDF instead.")
+        project_name="Haunted Hill: The Complete Volume 1",
+        description="A Surrealist Soap Opera About Life in Hollywood",
+        category_id=2,
+        money_goal=1489,
+        user_id=5,
+        city="Chicago",
+        state="IL",
+        story="What if you and everyone else had to act like adults with big feelings and serious intentions even though treehouse passwords worked, detective clubs solved major crimes and you really don't fall until you looked down? Welcome to Haunted Hill. This graphic novel series functions like a surrealist soap-opera as it follows Eva in pseudo-real time, navigating life in the grime of Hollywood. This is a town where even the smallest moments become charged with impossibility as people search for high-stakes in the lowest places. Loosely based on a true story, but capturing what every night in Hollywood felt like at the beginning of 2020.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/comic12.jpeg",
+        end_date=date(2023, 12, 18),
+        reward_name="The Digital Book",
+        reward_amount=10,
+        reward_description="It's like a real book, only on your screen. Tired of lifting a heavy book to read? This digital edition is a great alternative. All the same stuff as in the book, but in a PDF instead.",
+    )
     project_m1 = Project(
-        project_name = "A lyrical tribute to my Godson",
-        description = "I am a full-time missionary and preacher. 12 years ago, my godson's life was taken in a horrendous fire. Help promote my tribute to him",
-        category_id = 7,
-        money_goal = 500,
-        user_id = 10,
-        city = "New York",
-        state = "NY",
-        story = "I am budgeting that it will take about $500 to launch the website, a viral video, and a media campaign to promote my commemorative song for my godson. Of course, this is the minimal amount of money I expect to be needed. With the more funding I receive, I will be able to, reach more people and potentially help them in their grieving process as well. Thank you so much, and God bless you!" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m1.jpg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = None,
-        reward_amount = None,
-        reward_description = None,
+        project_name="A lyrical tribute to my Godson",
+        description="I am a full-time missionary and preacher. 12 years ago, my godson's life was taken in a horrendous fire. Help promote my tribute to him",
+        category_id=7,
+        money_goal=500,
+        user_id=10,
+        city="New York",
+        state="NY",
+        story="I am budgeting that it will take about $500 to launch the website, a viral video, and a media campaign to promote my commemorative song for my godson. Of course, this is the minimal amount of money I expect to be needed. With the more funding I receive, I will be able to, reach more people and potentially help them in their grieving process as well. Thank you so much, and God bless you!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m1.jpg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name=None,
+        reward_amount=None,
+        reward_description=None,
     )
     project_m2 = Project(
-        project_name = "Alicia Svigals Klezmer Fiddle Album",
-        description = "A long-overdue followup to my 1997 album Fidl! Traditional and original tunes and songs, backed up by the klezmer world's top players.",
-        category_id = 7,
-        money_goal = 500,
-        user_id = 10,
-        city = "New York",
-        state = "NY",
-        story = "I'm finally, finally, finally recording a followup to my 1997 debut album, Fidl!  And I'm going to have the very best klezmer musicians in the world with me." ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m2.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = None,
-        reward_amount = None,
-        reward_description = None,
+        project_name="Alicia Svigals Klezmer Fiddle Album",
+        description="A long-overdue followup to my 1997 album Fidl! Traditional and original tunes and songs, backed up by the klezmer world's top players.",
+        category_id=7,
+        money_goal=500,
+        user_id=10,
+        city="New York",
+        state="NY",
+        story="I'm finally, finally, finally recording a followup to my 1997 debut album, Fidl!  And I'm going to have the very best klezmer musicians in the world with me.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m2.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name=None,
+        reward_amount=None,
+        reward_description=None,
     )
     project_m3 = Project(
-        project_name = "New Worm Quartet Album ~ Carpe Tedium",
-        description = "Help Shoebox a.k.a. Tim Crist a.k.a. The Pac-Man Guy fund the release of his new comedy synth-punk album!",
-        category_id = 7,
-        money_goal = 700,
-        user_id = 10,
-        city = "Rochester",
-        state = "NY",
-        story = "Hello!  My name is Shoebox.  You might know me from my incredibly-inaccurately-named one-man comedy music project, Worm Quartet. Or from my fifteen minutes of fame from 2004 that absolutely refuse to die as The Pac-Man Guy. Or you may be in the majority of people who have no idea whatsoever who I am.I've been making comedy music in various forms for several decades.  In that time I've played hundreds of shows, I've put out 5 full-length albums and an EP, I won the first-ever Logan Whitehurst award for Outstanding Original Comedy Song, and I had the most requested song of the year on the Dr. Demento show two years in a row.That said, nobody who understands the definition of the word prolific would ever suggest that it should be applied to me. While I did release a 3-song digital single last year and an EP of Pac-Man songs in 2020, my last full-length release was in 2011.  But over the last several years I've put together a collection of new songs that I'm very proud of - much of it melt-tested on the faces of various concertgoers over the last several years, some of it unheard up to this point - and I'm finally ready to release my new album,Carpe Tedium" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m3.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Carpe Tedium Digital Download",
-        reward_amount = 10,
-        reward_description = "High-quality digital download of the new album before it's available to the unwashed masses",
+        project_name="New Worm Quartet Album ~ Carpe Tedium",
+        description="Help Shoebox a.k.a. Tim Crist a.k.a. The Pac-Man Guy fund the release of his new comedy synth-punk album!",
+        category_id=7,
+        money_goal=700,
+        user_id=10,
+        city="Rochester",
+        state="NY",
+        story="Hello!  My name is Shoebox.  You might know me from my incredibly-inaccurately-named one-man comedy music project, Worm Quartet. Or from my fifteen minutes of fame from 2004 that absolutely refuse to die as The Pac-Man Guy. Or you may be in the majority of people who have no idea whatsoever who I am.I've been making comedy music in various forms for several decades.  In that time I've played hundreds of shows, I've put out 5 full-length albums and an EP, I won the first-ever Logan Whitehurst award for Outstanding Original Comedy Song, and I had the most requested song of the year on the Dr. Demento show two years in a row.That said, nobody who understands the definition of the word prolific would ever suggest that it should be applied to me. While I did release a 3-song digital single last year and an EP of Pac-Man songs in 2020, my last full-length release was in 2011.  But over the last several years I've put together a collection of new songs that I'm very proud of - much of it melt-tested on the faces of various concertgoers over the last several years, some of it unheard up to this point - and I'm finally ready to release my new album,Carpe Tedium",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m3.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Carpe Tedium Digital Download",
+        reward_amount=10,
+        reward_description="High-quality digital download of the new album before it's available to the unwashed masses",
     )
     project_m4 = Project(
-        project_name = "Lisa Bastoni: New Album!",
-        description = "Creating a new album of original songs, recorded live in-studio.",
-        category_id = 7,
-        money_goal = 10000,
-        user_id = 10,
-        city = "Northhampton",
-        state = "MA",
-        story = "Hi! My name is Lisa Bastoni, and I am a songwriter living in Northampton, Massachusetts. I am launching this kickstarter today to raise funds for a new record - my first full length album in five years!For the first time in my musical life, I will be recording the songs live with a great band in the studio. I would greatly appreciate your support, and would love to have you along for the ride.If you have known me for awhile, then you know that I have taken a twisty kind of a path through music and art (and life) over the past 20+ years, always coming back to music, or art, or both. The two are completely entwined, and I can't imagine my life without one or the other. Since our last full-length record was released in 2019, I've been able to focus more on the art side of things, including a number of lyric videos for other songwriters, re-entering the day job work force as a part time elementary school art teacher, and culminating with my first ever art show, currently on display at Club Passim. It's all work that I deeply enjoy, though lately I've felt a calling back to music." ,
-        project_image = "",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Digital Download",
-        reward_amount = 15,
-        reward_description = "You'll receive Mp3/wav files of the complete album, including liner notes, delivered in advance of the official album release.",
+        project_name="Lisa Bastoni: New Album!",
+        description="Creating a new album of original songs, recorded live in-studio.",
+        category_id=7,
+        money_goal=10000,
+        user_id=10,
+        city="Northhampton",
+        state="MA",
+        story="Hi! My name is Lisa Bastoni, and I am a songwriter living in Northampton, Massachusetts. I am launching this kickstarter today to raise funds for a new record - my first full length album in five years!For the first time in my musical life, I will be recording the songs live with a great band in the studio. I would greatly appreciate your support, and would love to have you along for the ride.If you have known me for awhile, then you know that I have taken a twisty kind of a path through music and art (and life) over the past 20+ years, always coming back to music, or art, or both. The two are completely entwined, and I can't imagine my life without one or the other. Since our last full-length record was released in 2019, I've been able to focus more on the art side of things, including a number of lyric videos for other songwriters, re-entering the day job work force as a part time elementary school art teacher, and culminating with my first ever art show, currently on display at Club Passim. It's all work that I deeply enjoy, though lately I've felt a calling back to music.",
+        project_image="",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Digital Download",
+        reward_amount=15,
+        reward_description="You'll receive Mp3/wav files of the complete album, including liner notes, delivered in advance of the official album release.",
     )
     project_m5 = Project(
-        project_name = "Song of Songs",
-        description = "A conceptual music album exploring the theme of love and featuring orchestral arrangements",
-        category_id = 7,
-        money_goal = 20000,
-        user_id = 10,
-        city = "Buffalo",
-        state = "NY",
-        story = "Song of Songs is a conceptual album. Its name is inspired by the Song of Songs, an ancient Hebrew poem about love. The lyrics explore the theme of love in all its variety and diversity: both the dark side of it and love in all its glory.I have deep interest in psychology and personal development and I have been studying this theme for a few years through research and reading. This album is going to explore both romantic and non-romantic (familial, spiritual, platonic) love. The songs will take the listeners on a journey from trauma and love addiction to unconditional love and healthy interdependent relationships, from the illusion of separation to the feeling of connectedness and unity and universal love. And of course I will also be sharing my personal experiences and stories through my songs, as I always do. ♡Song of Songs is going to be my first album with live orchestral arrangements and I have been preparing for this for many years. When I started writing my songs, the arrangements were quite simple: the classical jazz trio and the electric guitar. My sophomore effort featured more intricate arrangements where I added both synths and strings sections with multi-layered cello arrangements. Now, on my third LP, orchestral arrangements will add even more depth and detail to my music and will also give it a more timeless, classical sound." ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m5.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Early album download",
-        reward_amount = 15,
-        reward_description = "A link to the album download (MP3 or WAV + artwork) one day before the official release",
+        project_name="Song of Songs",
+        description="A conceptual music album exploring the theme of love and featuring orchestral arrangements",
+        category_id=7,
+        money_goal=20000,
+        user_id=10,
+        city="Buffalo",
+        state="NY",
+        story="Song of Songs is a conceptual album. Its name is inspired by the Song of Songs, an ancient Hebrew poem about love. The lyrics explore the theme of love in all its variety and diversity: both the dark side of it and love in all its glory.I have deep interest in psychology and personal development and I have been studying this theme for a few years through research and reading. This album is going to explore both romantic and non-romantic (familial, spiritual, platonic) love. The songs will take the listeners on a journey from trauma and love addiction to unconditional love and healthy interdependent relationships, from the illusion of separation to the feeling of connectedness and unity and universal love. And of course I will also be sharing my personal experiences and stories through my songs, as I always do. ♡Song of Songs is going to be my first album with live orchestral arrangements and I have been preparing for this for many years. When I started writing my songs, the arrangements were quite simple: the classical jazz trio and the electric guitar. My sophomore effort featured more intricate arrangements where I added both synths and strings sections with multi-layered cello arrangements. Now, on my third LP, orchestral arrangements will add even more depth and detail to my music and will also give it a more timeless, classical sound.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m5.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Early album download",
+        reward_amount=15,
+        reward_description="A link to the album download (MP3 or WAV + artwork) one day before the official release",
     )
     project_m6 = Project(
-        project_name = "Lakewood Jump - Keenan McKenzie & the Riffers' New Album",
-        description = "It's time to finally record a full-length album!",
-        category_id = 7,
-        money_goal = 500,
-        user_id = 10,
-        city = "Durham",
-        state = "NC",
-        story = "We're Keenan McKenzie & the Riffers, a band specializing in music from the 1930s/40s and original material. Over the past year, the Riffers have appeared at dance events like Lindy Focus, New York Bal Week, The California Balboa Classic, I *Heart* Bal, The School of Hard Knox, Flying Home, and the DC Lindy Exchange. We've added a ton of new material to the book, and it's finally time to record a full-length album!" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m6.jpg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Digital Album",
-        reward_amount = 15,
-        reward_description = "Get the album before it's publicly released! You will also receive a shout-out on social media.",
+        project_name="Lakewood Jump - Keenan McKenzie & the Riffers' New Album",
+        description="It's time to finally record a full-length album!",
+        category_id=7,
+        money_goal=500,
+        user_id=10,
+        city="Durham",
+        state="NC",
+        story="We're Keenan McKenzie & the Riffers, a band specializing in music from the 1930s/40s and original material. Over the past year, the Riffers have appeared at dance events like Lindy Focus, New York Bal Week, The California Balboa Classic, I *Heart* Bal, The School of Hard Knox, Flying Home, and the DC Lindy Exchange. We've added a ton of new material to the book, and it's finally time to record a full-length album!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m6.jpg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Digital Album",
+        reward_amount=15,
+        reward_description="Get the album before it's publicly released! You will also receive a shout-out on social media.",
     )
     project_m7 = Project(
-        project_name = "Fund French singer Marine Futin to record new music in NYC!",
-        description = "I am a French singer songwriter and I live in Brooklyn. I write, compose, & produce songs that blend songwriting, jazz and world music.",
-        category_id = 7,
-        money_goal = 10000,
-        user_id = 10,
-        city = "New York",
-        state = "NY",
-        story = "I have started to record early 2023 at Flux Studio in New York.I need your support to keep it going, and fulfill my vision for this project!I am working on 3 songs as of now - and I have 6 more in the pipeline. Whith every song, I want to shoot a cool music video" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m7.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Songs",
-        reward_amount = 25,
-        reward_description = "You'll get each song before their public release from September 2023 to December 2024. \n Vous recevez chaque chanson par email avant leur sortie officielle.",
+        project_name="Fund French singer Marine Futin to record new music in NYC!",
+        description="I am a French singer songwriter and I live in Brooklyn. I write, compose, & produce songs that blend songwriting, jazz and world music.",
+        category_id=7,
+        money_goal=10000,
+        user_id=10,
+        city="New York",
+        state="NY",
+        story="I have started to record early 2023 at Flux Studio in New York.I need your support to keep it going, and fulfill my vision for this project!I am working on 3 songs as of now - and I have 6 more in the pipeline. Whith every song, I want to shoot a cool music video",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m7.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Songs",
+        reward_amount=25,
+        reward_description="You'll get each song before their public release from September 2023 to December 2024. \n Vous recevez chaque chanson par email avant leur sortie officielle.",
     )
     project_m8 = Project(
-        project_name = "Nohmad - Seulah Noh's Debut Full-Length Album",
-        description = "Seulah Noh's bold debut onto the scene with the Seulah Noh Jazz Orchestra!",
-        category_id = 7,
-        money_goal = 15000,
-        user_id = 10,
-        city = "Boston",
-        state = "MA",
-        story = "Nohmad is the debut album of Korean composer and pianist, Seulah Noh! Combining her award winning compositions with her incredible band, “Nohmad” will offer a genuine reflection of Noh's personal experience and a window into some of her influences.\n Noh makes a lasting first impression, offering six original compositions and two arrangements on this debut release. From gentle melodies to hard hitting grooves, Noh cultivates an infectious energy that her band carries throughout the record. Her most recent work, the “Traveler's Suite” is a reflection of the experiences, impressions, and thoughts she has gathered throughout her time in the United States as a person coming from a different culture. “Nohmad” will be the first snapshot of Noh's compositional work and the beginning of an exciting journey as she continues to work and grow with her band!/nThis Kickstarter will help us to finish this project and make Nohmad accessible to all of you, wherever you may be! The funds will be used to pay for studio time, engineers' fees, mixing and mastering, distribution, artwork, and other expenses related to the album's release. We are so grateful for your consideration and any contribution you can make!" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m8.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Digital Album",
-        reward_amount = 15,
-        reward_description = "Digital download of the full record!",
+        project_name="Nohmad - Seulah Noh's Debut Full-Length Album",
+        description="Seulah Noh's bold debut onto the scene with the Seulah Noh Jazz Orchestra!",
+        category_id=7,
+        money_goal=15000,
+        user_id=10,
+        city="Boston",
+        state="MA",
+        story="Nohmad is the debut album of Korean composer and pianist, Seulah Noh! Combining her award winning compositions with her incredible band, “Nohmad” will offer a genuine reflection of Noh's personal experience and a window into some of her influences.\n Noh makes a lasting first impression, offering six original compositions and two arrangements on this debut release. From gentle melodies to hard hitting grooves, Noh cultivates an infectious energy that her band carries throughout the record. Her most recent work, the “Traveler's Suite” is a reflection of the experiences, impressions, and thoughts she has gathered throughout her time in the United States as a person coming from a different culture. “Nohmad” will be the first snapshot of Noh's compositional work and the beginning of an exciting journey as she continues to work and grow with her band!/nThis Kickstarter will help us to finish this project and make Nohmad accessible to all of you, wherever you may be! The funds will be used to pay for studio time, engineers' fees, mixing and mastering, distribution, artwork, and other expenses related to the album's release. We are so grateful for your consideration and any contribution you can make!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m8.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Digital Album",
+        reward_amount=15,
+        reward_description="Digital download of the full record!",
     )
     project_m9 = Project(
-        project_name = "Sugar Nova Debut Album - Halogen",
-        description = "Luke Miller (Lotus) & Rachel Eisenstat (Raven Jane) are launching the debut Sugar Nova album and need help paying for the vinyl costs",
-        category_id = 7,
-        money_goal = 3000,
-        user_id = 10,
-        city = "Denver",
-        state = "CO",
-        story = "Luke Miller (from Lotus) and Rachel Eisenstat (from Raven Jane) formed Sugar Nova as a musical project to make indie-electronic-pop songs featuring Rachel's vocals and Luke's production. The songs were written during the pandemic and then recorded as things re-opened. We recorded the vocals at Evergroove Studio in Evergreen, CO. And did the production at Luke's home studio in Denver. The album was mixed and mastered by Rob Murray of Wilderfox Studio. Rob has worked with artists such as Odesza, Big Wild, Mark Ronson, and, Sia. \n We released our first track Send Me Higher in Sept. 2022 and are set releasing our debut album Halogen on May 12th, 2023." ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m9.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "HD Digital Version of Halogen",
-        reward_amount = 10,
-        reward_description = "Get an early version of the debut Sugar Nova album Halogen in the highest quality.",
+        project_name="Sugar Nova Debut Album - Halogen",
+        description="Luke Miller (Lotus) & Rachel Eisenstat (Raven Jane) are launching the debut Sugar Nova album and need help paying for the vinyl costs",
+        category_id=7,
+        money_goal=3000,
+        user_id=10,
+        city="Denver",
+        state="CO",
+        story="Luke Miller (from Lotus) and Rachel Eisenstat (from Raven Jane) formed Sugar Nova as a musical project to make indie-electronic-pop songs featuring Rachel's vocals and Luke's production. The songs were written during the pandemic and then recorded as things re-opened. We recorded the vocals at Evergroove Studio in Evergreen, CO. And did the production at Luke's home studio in Denver. The album was mixed and mastered by Rob Murray of Wilderfox Studio. Rob has worked with artists such as Odesza, Big Wild, Mark Ronson, and, Sia. \n We released our first track Send Me Higher in Sept. 2022 and are set releasing our debut album Halogen on May 12th, 2023.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m9.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="HD Digital Version of Halogen",
+        reward_amount=10,
+        reward_description="Get an early version of the debut Sugar Nova album Halogen in the highest quality.",
     )
     project_m10 = Project(
-        project_name = "Trees: A Record",
-        description = "a debut record about trees, for people.",
-        category_id = 7,
-        money_goal = 800,
-        user_id = 10,
-        city = "Minneapolis",
-        state = "NY",
-        story = "I've been writing music pretty much all my life. In March, I released my debut single, called Holly. Now, with your help, I hope to make a full-length record about trees, for people. As deep as I've searched, I haven't found another project like this. In fact, songs about trees seem to be a big, blank space in the music industry.\nWhy trees? They're everywhere. Look out the window, you can probably see four or five right now. Look on the first and last pages of the bible. Look at the coffee shop you frequent and your favorite place to hike. It's hard not to see them once you start looking.\nPeople need tree songs because in many senses, people are trees. That's what this record explores. It touches on things from missing your old self, to faith, to joy, to sunsets and Van Gogh paintings. There will be creepy tree songs, sad tree songs, and tree songs you can dance to. I hope it will give you that magical feeling of not being alone and the courage to keep going. To drink deep from your roots and stretch your branches closer and closer to the sun. To watch your leaves turn from green to red and fall, learning to let them go for the winter.\nI'm an independent, relatively unknown artist. That means I don't have a whole bunch of cash lying around, or a record label supporting me. That's where you come in. In exchange for some delightful rewards, you can help this record come to life.  Not only will you be supporting me and the people helping me make these songs, but you'll also be supporting my future listeners who will hopefully be blessed by them.\nThere are several different levels of support you can choose, and many fun rewards that go along with them. Choose whatever type of tree you want to be; any support will be greatly appreciated!!" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m10.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "seedling",
-        reward_amount = 10,
-        reward_description = "get a high-quality digital album and liner notes once it releases, plus exclusive updates along the way!",
+        project_name="Trees: A Record",
+        description="a debut record about trees, for people.",
+        category_id=7,
+        money_goal=800,
+        user_id=10,
+        city="Minneapolis",
+        state="NY",
+        story="I've been writing music pretty much all my life. In March, I released my debut single, called Holly. Now, with your help, I hope to make a full-length record about trees, for people. As deep as I've searched, I haven't found another project like this. In fact, songs about trees seem to be a big, blank space in the music industry.\nWhy trees? They're everywhere. Look out the window, you can probably see four or five right now. Look on the first and last pages of the bible. Look at the coffee shop you frequent and your favorite place to hike. It's hard not to see them once you start looking.\nPeople need tree songs because in many senses, people are trees. That's what this record explores. It touches on things from missing your old self, to faith, to joy, to sunsets and Van Gogh paintings. There will be creepy tree songs, sad tree songs, and tree songs you can dance to. I hope it will give you that magical feeling of not being alone and the courage to keep going. To drink deep from your roots and stretch your branches closer and closer to the sun. To watch your leaves turn from green to red and fall, learning to let them go for the winter.\nI'm an independent, relatively unknown artist. That means I don't have a whole bunch of cash lying around, or a record label supporting me. That's where you come in. In exchange for some delightful rewards, you can help this record come to life.  Not only will you be supporting me and the people helping me make these songs, but you'll also be supporting my future listeners who will hopefully be blessed by them.\nThere are several different levels of support you can choose, and many fun rewards that go along with them. Choose whatever type of tree you want to be; any support will be greatly appreciated!!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m10.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="seedling",
+        reward_amount=10,
+        reward_description="get a high-quality digital album and liner notes once it releases, plus exclusive updates along the way!",
     )
     project_m11 = Project(
-        project_name = "Michelle SgP YOLO Album Launch 2023",
-        description = "Crossover Classical-Jazz EP & videos of original songs bringing together various communities, seizing the day in unpredictable times!",
-        category_id = 7,
-        money_goal = 500,
-        user_id = 10,
-        city = "California",
-        state = "CA",
-        story = "YOLO - You Only Live Once project came about, when I was encouraged by my significant other to pick up the pieces and restart my music creating life again. The pandemic had been tough for many of us,  livelihood, mentally and physically. I must have caught some kind of long covid then, with 6 months of total lethargy, no energy to think of future projects or envision life beyond the day. I had inflammation popping up all over my body, and the last straw breathlessness, that made me ensure I had my Living Will updated in case I didnt make it past the next 2 years intact.\nLike many, I was really on that dark side of the fence.\nSo I figured, if life was really this short, I would then want to embark on this DREAM project working with strings and horns, as I wanted to work more with orchestras, having been inspired by a special project with the Manila Philharmonic, 2 months before the pandemic struck.\nSo I restarted my engine bit by bit. First was to lay down the tracks vocal and piano + rhythm tracks while I was away in Italy. These studios I recorded in, were used by heavyweights as Elton John, and Gregory Porter.  YOLO project comprised working with amazing top musicians and engineers based in Milan(north) and Bari(south). With drafts and other sessions with based in SG Christy Smith, Tama Goh, Audrey Tang, Judy Tsai with engineer Frank Lee. Armed with string and horn arrangements by Bang Wenfu and Germaine Goh, the strings and horns were recorded, many thanks to Lester Kong from Macpherson Philharmonic who also sat in virtually to consult for strings and horns from Singapore while I was up in Italy recording.\nNow with each audio track, a music video had to be made. I wanted to bring together communities for some of these songs. Serenity the video was filmed in panoramic Phuket. I needed a vast space to convey the grandeur sound of the piece. It took journeying up dirt tracks to a hilltop, having the piano carted to the edge, was altogether a journey of passion and special friendship bonding. The video “I Just Want to be Me” brought together communities based in multi-cultural Singapore. Everyone was dancing spontaneously to the happy groove of the song once the speakers blasted.\nThese moments of happiness and joy on each participant's faces, gave me immense joy and deep satisfaction, of my music as a tool bringing people together to celebrate LIFE. While the video Shark Filled Oasis, was conceived to give a big band feel. It celebrates peer friendships, and uplifts musicians, bringing together string and horn professionals in the scene into that one room, many whom I've worked together with at some point prior." ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m11.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "EP Album of YOLO (Digital Download)",
-        reward_amount = 20,
-        reward_description = "Priority Access! Be the first to receive the full YOLO EP album. Yes you'll receive it all even before you hear the 5-track EP in its entirety online!",
+        project_name="Michelle SgP YOLO Album Launch 2023",
+        description="Crossover Classical-Jazz EP & videos of original songs bringing together various communities, seizing the day in unpredictable times!",
+        category_id=7,
+        money_goal=500,
+        user_id=10,
+        city="California",
+        state="CA",
+        story="YOLO - You Only Live Once project came about, when I was encouraged by my significant other to pick up the pieces and restart my music creating life again. The pandemic had been tough for many of us,  livelihood, mentally and physically. I must have caught some kind of long covid then, with 6 months of total lethargy, no energy to think of future projects or envision life beyond the day. I had inflammation popping up all over my body, and the last straw breathlessness, that made me ensure I had my Living Will updated in case I didnt make it past the next 2 years intact.\nLike many, I was really on that dark side of the fence.\nSo I figured, if life was really this short, I would then want to embark on this DREAM project working with strings and horns, as I wanted to work more with orchestras, having been inspired by a special project with the Manila Philharmonic, 2 months before the pandemic struck.\nSo I restarted my engine bit by bit. First was to lay down the tracks vocal and piano + rhythm tracks while I was away in Italy. These studios I recorded in, were used by heavyweights as Elton John, and Gregory Porter.  YOLO project comprised working with amazing top musicians and engineers based in Milan(north) and Bari(south). With drafts and other sessions with based in SG Christy Smith, Tama Goh, Audrey Tang, Judy Tsai with engineer Frank Lee. Armed with string and horn arrangements by Bang Wenfu and Germaine Goh, the strings and horns were recorded, many thanks to Lester Kong from Macpherson Philharmonic who also sat in virtually to consult for strings and horns from Singapore while I was up in Italy recording.\nNow with each audio track, a music video had to be made. I wanted to bring together communities for some of these songs. Serenity the video was filmed in panoramic Phuket. I needed a vast space to convey the grandeur sound of the piece. It took journeying up dirt tracks to a hilltop, having the piano carted to the edge, was altogether a journey of passion and special friendship bonding. The video “I Just Want to be Me” brought together communities based in multi-cultural Singapore. Everyone was dancing spontaneously to the happy groove of the song once the speakers blasted.\nThese moments of happiness and joy on each participant's faces, gave me immense joy and deep satisfaction, of my music as a tool bringing people together to celebrate LIFE. While the video Shark Filled Oasis, was conceived to give a big band feel. It celebrates peer friendships, and uplifts musicians, bringing together string and horn professionals in the scene into that one room, many whom I've worked together with at some point prior.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m11.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="EP Album of YOLO (Digital Download)",
+        reward_amount=20,
+        reward_description="Priority Access! Be the first to receive the full YOLO EP album. Yes you'll receive it all even before you hear the 5-track EP in its entirety online!",
     )
     project_m12 = Project(
-        project_name = "Kitshickers 2023 Album & Videogame",
-        description = "It is about time to release a new album with a twist...and to celebrate it at our 25th anniversary party.",
-        category_id = 7,
-        money_goal = 4000,
-        user_id = 10,
-        city = "Atlanta",
-        state = "GA",
-        story = "After 2021's amazing event and album together with our friends from The Majestic Unicorns from Hell,we will finally be back with a new album.\nThe album will be in the continuity of the previous albums and the cover/artwork story of our main protagonist will continue.\nThough releasing an album on CD or Vinyl wasn't an option for us this time !\nThe format of our choosing is only digital, BUT coupled to a VIDEO GAME!" ,
-        project_image = "https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m12.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name = "Album",
-        reward_amount = 10,
-        reward_description = "Just the album...because you don't like playing games.",
+        project_name="Kitshickers 2023 Album & Videogame",
+        description="It is about time to release a new album with a twist...and to celebrate it at our 25th anniversary party.",
+        category_id=7,
+        money_goal=4000,
+        user_id=10,
+        city="Atlanta",
+        state="GA",
+        story="After 2021's amazing event and album together with our friends from The Majestic Unicorns from Hell,we will finally be back with a new album.\nThe album will be in the continuity of the previous albums and the cover/artwork story of our main protagonist will continue.\nThough releasing an album on CD or Vinyl wasn't an option for us this time !\nThe format of our choosing is only digital, BUT coupled to a VIDEO GAME!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/m12.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Album",
+        reward_amount=10,
+        reward_description="Just the album...because you don't like playing games.",
     )
 
-        # Publishing Data
+    # Publishing Data
 
-    project_p1= Project(
-        project_name ="The Sledgehog",
-        description ="An illustrated children's book about a medieval hedgehog that brings heavy metal into the world.",
-        category_id = 8,
-        money_goal =22500,
-        user_id = 11,
-        city ="Brooklyn",
-        state ="NY",
-        story ="The Sledgehog is a 36-page story poem and picturebook for 7 to 12-year-olds about a heavy metal hedgehog called The Sledge.Set in a fantasy world inspired by both 80's metal album art and classic fairy tale illustration, our story begins with the birth of our hero, who embarks on a journey to fulfill her life's purpose — preach metal's creed to all the land.\nGraphic, black and white illustrations combined with powerful prose will create a darkly enchanting picture book that will captivate the minds of children and parents alike.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p1.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="Curated Heavy Metal Playlist",
-        reward_amount =10,
-        reward_description ="Support on a budget — a 21-track, family-friendly, metal playlist curated by our author.",
+    project_p1 = Project(
+        project_name="The Sledgehog",
+        description="An illustrated children's book about a medieval hedgehog that brings heavy metal into the world.",
+        category_id=8,
+        money_goal=22500,
+        user_id=11,
+        city="Brooklyn",
+        state="NY",
+        story="The Sledgehog is a 36-page story poem and picturebook for 7 to 12-year-olds about a heavy metal hedgehog called The Sledge.Set in a fantasy world inspired by both 80's metal album art and classic fairy tale illustration, our story begins with the birth of our hero, who embarks on a journey to fulfill her life's purpose — preach metal's creed to all the land.\nGraphic, black and white illustrations combined with powerful prose will create a darkly enchanting picture book that will captivate the minds of children and parents alike.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p1.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Curated Heavy Metal Playlist",
+        reward_amount=10,
+        reward_description="Support on a budget — a 21-track, family-friendly, metal playlist curated by our author.",
     )
-    project_p2= Project(
-        project_name ="The Impact of Iwata",
-        description ="A new book chronicling the life and achievements of Nintendo's legendary president!",
-        category_id = 8,
-        money_goal = 29000,
-        user_id = 11,
-        city ="Lexington",
-        state ="KY",
-        story ="Satoru Iwata was one of a kind. Millions of gamers around the world got to know him as the President of Nintendo a little over a decade ago, when he began to regularly host the company's Nintendo Direct video presentations, striking that famous pose you see above. He brought news and game announcements Directly to You! . . . but only for a few years. Sadly, Mr. Iwata passed away in 2015, taken from the world far too soon at the age of only 55.\nFollowing that shocking loss, Nintendo fans poured out tributes to his life and career across the Internet, and we at Nintendo Force Magazine dedicated our next issue to him, creating Thank You, Mr. Iwata as our 17th edition. It was received incredibly well, and remains our most popular single issue to this day! But, at the end of the day, it was still a normal NF issue, which meant the pages we were able to allot to celebrating Mr. Iwata's life and achievements had to fit in alongside things like our preview of Yo-kai Watch and our review of Super Mario Maker. Well, no more sharing the page count!\nNintendo Force Magazine just hit its 10-year anniversary earlier this year, and to mark that milestone we're doing something big: We're expanding into book publishing! We want to revisit topics that we first touched on in past issues, and go into more depth and detail than the normal magazine format allows. Which means we can finally tell Mr. Iwata's full story in the way it deserves to be told!",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p2.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="The Digital Tier",
-        reward_amount =10,
-        reward_description ="Get The Impact of Iwata in digital form, to read on the computer, tablet or mobile screen of your choice!",
+    project_p2 = Project(
+        project_name="The Impact of Iwata",
+        description="A new book chronicling the life and achievements of Nintendo's legendary president!",
+        category_id=8,
+        money_goal=29000,
+        user_id=11,
+        city="Lexington",
+        state="KY",
+        story="Satoru Iwata was one of a kind. Millions of gamers around the world got to know him as the President of Nintendo a little over a decade ago, when he began to regularly host the company's Nintendo Direct video presentations, striking that famous pose you see above. He brought news and game announcements Directly to You! . . . but only for a few years. Sadly, Mr. Iwata passed away in 2015, taken from the world far too soon at the age of only 55.\nFollowing that shocking loss, Nintendo fans poured out tributes to his life and career across the Internet, and we at Nintendo Force Magazine dedicated our next issue to him, creating Thank You, Mr. Iwata as our 17th edition. It was received incredibly well, and remains our most popular single issue to this day! But, at the end of the day, it was still a normal NF issue, which meant the pages we were able to allot to celebrating Mr. Iwata's life and achievements had to fit in alongside things like our preview of Yo-kai Watch and our review of Super Mario Maker. Well, no more sharing the page count!\nNintendo Force Magazine just hit its 10-year anniversary earlier this year, and to mark that milestone we're doing something big: We're expanding into book publishing! We want to revisit topics that we first touched on in past issues, and go into more depth and detail than the normal magazine format allows. Which means we can finally tell Mr. Iwata's full story in the way it deserves to be told!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p2.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="The Digital Tier",
+        reward_amount=10,
+        reward_description="Get The Impact of Iwata in digital form, to read on the computer, tablet or mobile screen of your choice!",
     )
-    project_p3= Project(
-        project_name ="Dirty Blood Trilogy with Limited Edition Hardcovers",
-        description ="Penelope Sky has a brand-new fantasy romance trilogy, and you can read the entire trilogy MONTHS before it's available at retailers",
-        category_id = 8,
-        money_goal = 10000,
-        user_id = 11,
-        city ="Newark",
-        state ="CA",
-        story ="Penelope Sky has a brand-new fantasy romance trilogy under her pen name Penelope Barsetti, and you can read the entire trilogy now instead of waiting for it to be available in 2024.\nYep. You read that correctly.\nEnemies-to-lovers…to unlikely allies…to frenemies with benefits…10/10 spice.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p3.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="Paperback Books",
-        reward_amount =120,
-        reward_description ="You get an e-books instantly once the Kickstarter ends so you can start reading!\nAnd once your HAND-SIGNED and ANNOTATED paperbacks come in, you can read the story again and see all the little notes Penelope Sky has added in the footnotes.\nWhy she wrote a certain scene, what she was thinking when she wrote it, and hilarious commentary!",
+    project_p3 = Project(
+        project_name="Dirty Blood Trilogy with Limited Edition Hardcovers",
+        description="Penelope Sky has a brand-new fantasy romance trilogy, and you can read the entire trilogy MONTHS before it's available at retailers",
+        category_id=8,
+        money_goal=10000,
+        user_id=11,
+        city="Newark",
+        state="CA",
+        story="Penelope Sky has a brand-new fantasy romance trilogy under her pen name Penelope Barsetti, and you can read the entire trilogy now instead of waiting for it to be available in 2024.\nYep. You read that correctly.\nEnemies-to-lovers…to unlikely allies…to frenemies with benefits…10/10 spice.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p3.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Paperback Books",
+        reward_amount=120,
+        reward_description="You get an e-books instantly once the Kickstarter ends so you can start reading!\nAnd once your HAND-SIGNED and ANNOTATED paperbacks come in, you can read the story again and see all the little notes Penelope Sky has added in the footnotes.\nWhy she wrote a certain scene, what she was thinking when she wrote it, and hilarious commentary!",
     )
-    project_p4= Project(
-        project_name ="unicorns: Their Life and Habits - Art Book",
-        description ="Illustrations and lore by Jaimie Whitbread, from the years of 2019-2022",
-        category_id = 8,
-        money_goal =3500,
-        user_id = 11,
-        city ="Dalls",
-        state ="TX",
-        story ="While there are probably as many different habits of unicorns as there are unicorns in the world, those who take the time to study them will find that unicorn nature is not altogether different from human nature. Both are often frustrating, sometimes contradictory, and all the time surprising - but, most tellingly, they can both be boiled down into the same vital components:\nThe love of good grazing, good grooming, and good company.\nUnicorns: Their Life and Habits is a celebration of unicorns in all their many forms. Not the wispy, white-clad unicorns of mere legend, but the humble, salt-of-the-earth, occasionally flea-bitten (don't tell them I said that) ungulates that caper through our fields and woodlands.\n(Seriously, please don't let on that I mentioned the fleas)",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p4.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="Book",
-        reward_amount =25,
-        reward_description ="You get one copy of Unicorns: Their Lives and Habits",
+    project_p4 = Project(
+        project_name="unicorns: Their Life and Habits - Art Book",
+        description="Illustrations and lore by Jaimie Whitbread, from the years of 2019-2022",
+        category_id=8,
+        money_goal=3500,
+        user_id=11,
+        city="Dalls",
+        state="TX",
+        story="While there are probably as many different habits of unicorns as there are unicorns in the world, those who take the time to study them will find that unicorn nature is not altogether different from human nature. Both are often frustrating, sometimes contradictory, and all the time surprising - but, most tellingly, they can both be boiled down into the same vital components:\nThe love of good grazing, good grooming, and good company.\nUnicorns: Their Life and Habits is a celebration of unicorns in all their many forms. Not the wispy, white-clad unicorns of mere legend, but the humble, salt-of-the-earth, occasionally flea-bitten (don't tell them I said that) ungulates that caper through our fields and woodlands.\n(Seriously, please don't let on that I mentioned the fleas)",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p4.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Book",
+        reward_amount=25,
+        reward_description="You get one copy of Unicorns: Their Lives and Habits",
     )
-    project_p5= Project(
-        project_name ="The Artisan Bacon Cookbook",
-        description ="Written by a full-time baconista who owns and runs an award-winning bacon smokehouse and a bacon restaurant",
-        category_id = 8,
-        money_goal =1500,
-        user_id = 11,
-        city ="Deleware",
-        state ="Ohio",
-        story ="In December 2019,I launched a project to raise funds to translate my bacon cookbook into English. Unfortunately, I did not reach that goal. But now, I saved enough money to get the book translated. However, I am still missing a small amount of funds to make it all come together.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p5.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="eBook",
-        reward_amount =25,
-        reward_description ="Receive a digital copy of the bacon cookbook Bacon - Moments of happiness translated into English.",
+    project_p5 = Project(
+        project_name="The Artisan Bacon Cookbook",
+        description="Written by a full-time baconista who owns and runs an award-winning bacon smokehouse and a bacon restaurant",
+        category_id=8,
+        money_goal=1500,
+        user_id=11,
+        city="Deleware",
+        state="Ohio",
+        story="In December 2019,I launched a project to raise funds to translate my bacon cookbook into English. Unfortunately, I did not reach that goal. But now, I saved enough money to get the book translated. However, I am still missing a small amount of funds to make it all come together.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p5.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="eBook",
+        reward_amount=25,
+        reward_description="Receive a digital copy of the bacon cookbook Bacon - Moments of happiness translated into English.",
     )
-    project_p6= Project(
-        project_name ="Bendy Bones and Stretchy Skin",
-        description ="A heartfelt picture book about Ehlers-Danlos and invisible illnesses",
-        category_id = 8,
-        money_goal =5500,
-        user_id = 11,
-        city ="Eau Claire",
-        state ="WI",
-        story ="When Abigail is diagnosed with Ehlers-Danlos, at first her classmates don't understand. Abigail doesn't look like she has a disability. What is her special chair for? How do walk breaks help? \nWith friendly illustrations and a lot of heart, Abigail and her mom bring awareness to her invisible illness-and her friendships grow stronger because of Approximately 23% of children in the United States, and 240 million globally, have a chronic condition. And many of these are what are known as an invisible illnesses-so they can be hard to explain! \nWhile this book was written specifically for children with Ehlers-Danlos like me and my daughter, it's our hope that it shines a light on life with other invisible chronic illnesses. \nHaving struggled with ableism and discriminatory comments throughout my life, I can't overstate the importance of literature that helps to shape a more accepting world for our kids. \nRepresentation and resources make all the difference in helping our kids show up for each other, so they can grow up unafraid, undeterred, and utterly confident in their right to be loved and belong.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p6.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="Thank You!",
-        reward_amount =10,
-        reward_description ="4x6 sticker sheet featuring 7 waterproof, weatherproof, and UV resistant stickers. Plus a handwritten thank you note!",
+    project_p6 = Project(
+        project_name="Bendy Bones and Stretchy Skin",
+        description="A heartfelt picture book about Ehlers-Danlos and invisible illnesses",
+        category_id=8,
+        money_goal=5500,
+        user_id=11,
+        city="Eau Claire",
+        state="WI",
+        story="When Abigail is diagnosed with Ehlers-Danlos, at first her classmates don't understand. Abigail doesn't look like she has a disability. What is her special chair for? How do walk breaks help? \nWith friendly illustrations and a lot of heart, Abigail and her mom bring awareness to her invisible illness-and her friendships grow stronger because of Approximately 23% of children in the United States, and 240 million globally, have a chronic condition. And many of these are what are known as an invisible illnesses-so they can be hard to explain! \nWhile this book was written specifically for children with Ehlers-Danlos like me and my daughter, it's our hope that it shines a light on life with other invisible chronic illnesses. \nHaving struggled with ableism and discriminatory comments throughout my life, I can't overstate the importance of literature that helps to shape a more accepting world for our kids. \nRepresentation and resources make all the difference in helping our kids show up for each other, so they can grow up unafraid, undeterred, and utterly confident in their right to be loved and belong.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p6.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Thank You!",
+        reward_amount=10,
+        reward_description="4x6 sticker sheet featuring 7 waterproof, weatherproof, and UV resistant stickers. Plus a handwritten thank you note!",
     )
-    project_p7= Project(
-        project_name ="Aloha Everything: A Hawaiian Fairytale",
-        description ="A stunning picture book about a courageous girl's journey to embrace the wonders of her island home",
-        category_id = 8,
-        money_goal =5000,
-        user_id = 11,
-        city ="Los Angeles",
-        state ="CA",
-        story ="Welcome to Aloha Everything, a magical story that will take you on a thrilling journey through the breathtaking islands of Hawai'i!In this exciting adventure, you'll encounter mighty canoes crashing over ocean waves, royal hawks soaring high above the clouds, and brilliant lizard creatures jumping nimbly through forest trees! Most importantly, you'll meet a courageous young girl named Ano who learns, grows, and comes to love her island home with all her heart.Since the day that Ano was born, her heart has been connected to her home. But, this adventurous child has a lot to learn! When Ano begins to dance hula — a storytelling dance form which carries the knowledge, history, and folklore of the Hawaiian people — Ano comes to understand the true meaning of aloha.Aloha Everything is both a captivating read and a fantastic educational resource for learning about Hawaiian history, ecology, and culture. With breathtaking hand-painted illustrations and a beautiful rhyming scheme that will lull little ones into brilliant dreams of vibrant adventure, this book is sure to capture the hearts of both children and parents alike.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p7.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="eBook",
-        reward_amount =15,
-        reward_description ="Receive a digital copy of Aloha Everything, as well as the read-along audiobook",
+    project_p7 = Project(
+        project_name="Aloha Everything: A Hawaiian Fairytale",
+        description="A stunning picture book about a courageous girl's journey to embrace the wonders of her island home",
+        category_id=8,
+        money_goal=5000,
+        user_id=11,
+        city="Los Angeles",
+        state="CA",
+        story="Welcome to Aloha Everything, a magical story that will take you on a thrilling journey through the breathtaking islands of Hawai'i!In this exciting adventure, you'll encounter mighty canoes crashing over ocean waves, royal hawks soaring high above the clouds, and brilliant lizard creatures jumping nimbly through forest trees! Most importantly, you'll meet a courageous young girl named Ano who learns, grows, and comes to love her island home with all her heart.Since the day that Ano was born, her heart has been connected to her home. But, this adventurous child has a lot to learn! When Ano begins to dance hula — a storytelling dance form which carries the knowledge, history, and folklore of the Hawaiian people — Ano comes to understand the true meaning of aloha.Aloha Everything is both a captivating read and a fantastic educational resource for learning about Hawaiian history, ecology, and culture. With breathtaking hand-painted illustrations and a beautiful rhyming scheme that will lull little ones into brilliant dreams of vibrant adventure, this book is sure to capture the hearts of both children and parents alike.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p7.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="eBook",
+        reward_amount=15,
+        reward_description="Receive a digital copy of Aloha Everything, as well as the read-along audiobook",
     )
-    project_p8= Project(
-        project_name ="Nevermore: An Anthology Inspired By Edgar Allan Poe",
-        description ="A feast of creepy stories from a host of dark fantasy writers",
-        category_id = 8,
-        money_goal =10000,
-        user_id = 11,
-        city ="Charlotte",
-        state ="NC",
-        story ="Are you ready for a spine-tingling journey through the depths of darkness? Falstaff Books is excited to present Nevermore, an anthology of short stories based on the masterpieces of the one and only Edgar Allan Poe.\nThis collection includes eighteen original stories written by talented contemporary authors who have been inspired by Poe's macabre, gothic style. Each story captures the essence of Poe's work while offering a unique twist on his themes of horror, suspense, and the macabre. We'll take you on a dark, twisted journey exploring Poe's themes in unique ways. From the outworld terror of James Tuck's 'The Valley of Unrest', the shivers of Day Al-Mohamed's 'The Clock Struck Thirteen', and the dark revenge of Misty Massey's 'The Cask of Amarillo', our stories will keep you on the edge of your seat.\nThe book will be released in three versions: ebook, trade paperback, and a deluxe hardcover with dust jacket.\nThis anthology is a must-have for fans of Edgar Allan Poe and lovers of horror fiction. Whether you're a die-hard fan of the classics or a newcomer to the genre, you will not be disappointed with this collection.\nSo why wait? Join us on this journey through the darkness and experience the thrill of Poe's tales like never before. Choose your pledge level today and let the haunting tales begin!",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p8.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="Invisible Things",
-        reward_amount =1,
-        reward_description ="Throw us a dollar, just because you want us to succeed, and we'll include your name in the Thank You section.",
+    project_p8 = Project(
+        project_name="Nevermore: An Anthology Inspired By Edgar Allan Poe",
+        description="A feast of creepy stories from a host of dark fantasy writers",
+        category_id=8,
+        money_goal=10000,
+        user_id=11,
+        city="Charlotte",
+        state="NC",
+        story="Are you ready for a spine-tingling journey through the depths of darkness? Falstaff Books is excited to present Nevermore, an anthology of short stories based on the masterpieces of the one and only Edgar Allan Poe.\nThis collection includes eighteen original stories written by talented contemporary authors who have been inspired by Poe's macabre, gothic style. Each story captures the essence of Poe's work while offering a unique twist on his themes of horror, suspense, and the macabre. We'll take you on a dark, twisted journey exploring Poe's themes in unique ways. From the outworld terror of James Tuck's 'The Valley of Unrest', the shivers of Day Al-Mohamed's 'The Clock Struck Thirteen', and the dark revenge of Misty Massey's 'The Cask of Amarillo', our stories will keep you on the edge of your seat.\nThe book will be released in three versions: ebook, trade paperback, and a deluxe hardcover with dust jacket.\nThis anthology is a must-have for fans of Edgar Allan Poe and lovers of horror fiction. Whether you're a die-hard fan of the classics or a newcomer to the genre, you will not be disappointed with this collection.\nSo why wait? Join us on this journey through the darkness and experience the thrill of Poe's tales like never before. Choose your pledge level today and let the haunting tales begin!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p8.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Invisible Things",
+        reward_amount=1,
+        reward_description="Throw us a dollar, just because you want us to succeed, and we'll include your name in the Thank You section.",
     )
-    project_p9= Project(
-        project_name ="The Bonds We Share: a LGBTQ+ Sci-Fi/Fantasy Novel",
-        description ="3 unfortunate souls are spiritually connected to ancient, spiteful Deities.",
-        category_id = 8,
-        money_goal =1500,
-        user_id = 11,
-        city ="Hartford",
-        state ="CT",
-        story ="Able to be read as the introduction of the series, the story follows three souls mentally connected to earthly Gods: Alliroue, an engineering prodigy connected to the Deity of the earth; Marcos, her humanoid invention unfortunately tied to the Deity of water; and Holly, a cult member who hears two strange voices in her troubled head.\nWhile the dying world is suffering at the hands of these angered Deities, our three leads try to find a way to heal the world without suffering in the process.With your help, I can print the story into physical copies!",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p9.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="PDF & Acknowledgement",
-        reward_amount =6,
-        reward_description ="Thank you for the support! You'll receive one (1) PDF copy of THE BONDS WE SHARE along with your name in the book's acknowledgements section.",
+    project_p9 = Project(
+        project_name="The Bonds We Share: a LGBTQ+ Sci-Fi/Fantasy Novel",
+        description="3 unfortunate souls are spiritually connected to ancient, spiteful Deities.",
+        category_id=8,
+        money_goal=1500,
+        user_id=11,
+        city="Hartford",
+        state="CT",
+        story="Able to be read as the introduction of the series, the story follows three souls mentally connected to earthly Gods: Alliroue, an engineering prodigy connected to the Deity of the earth; Marcos, her humanoid invention unfortunately tied to the Deity of water; and Holly, a cult member who hears two strange voices in her troubled head.\nWhile the dying world is suffering at the hands of these angered Deities, our three leads try to find a way to heal the world without suffering in the process.With your help, I can print the story into physical copies!",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p9.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="PDF & Acknowledgement",
+        reward_amount=6,
+        reward_description="Thank you for the support! You'll receive one (1) PDF copy of THE BONDS WE SHARE along with your name in the book's acknowledgements section.",
     )
-    project_p10= Project(
-        project_name ="QT Library",
-        description ="A brick-and-mortar LGBTQ+ library in Boston, MA designed to nurture the curiosity and magic of the queer and trans community.",
-        category_id = 8,
-        money_goal =50000 ,
-        user_id = 11,
-        city ="Boston",
-        state ="MA",
-        story ="We, a team of artists, book lovers, educators, and LGBTQ+ community members, are building the QT Library - a nonprofit brick-and-mortar LGBTQ+ library in Boston, Massachusetts designed to nurture the curiosity and magic of the queer and trans community through centralized resources and curated programs held in an affirming space. We hope to build a world in which every queer and trans person feels connected to our history, nurtured in our present, and propelled into our brilliant future.This library and the community around it will be grounded by shared values and trust around ACCESS, ACCESSIBILITY, INTENTIONALITY, PARTNERSHIP (with our community, our neighborhood, our city, and our planet), RESPECT, and SUSTAINABILITY - all towards an ongoing practice of accountability and growth.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p10.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name =None,
-        reward_amount =None,
-        reward_description =None,
+    project_p10 = Project(
+        project_name="QT Library",
+        description="A brick-and-mortar LGBTQ+ library in Boston, MA designed to nurture the curiosity and magic of the queer and trans community.",
+        category_id=8,
+        money_goal=50000,
+        user_id=11,
+        city="Boston",
+        state="MA",
+        story="We, a team of artists, book lovers, educators, and LGBTQ+ community members, are building the QT Library - a nonprofit brick-and-mortar LGBTQ+ library in Boston, Massachusetts designed to nurture the curiosity and magic of the queer and trans community through centralized resources and curated programs held in an affirming space. We hope to build a world in which every queer and trans person feels connected to our history, nurtured in our present, and propelled into our brilliant future.This library and the community around it will be grounded by shared values and trust around ACCESS, ACCESSIBILITY, INTENTIONALITY, PARTNERSHIP (with our community, our neighborhood, our city, and our planet), RESPECT, and SUSTAINABILITY - all towards an ongoing practice of accountability and growth.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p10.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name=None,
+        reward_amount=None,
+        reward_description=None,
     )
-    project_p11= Project(
-        project_name ="This is a Sci-Fi Fantasy book that is exciting and contains.",
-        description ="Chaos breaks out on Earth as robots controlled by artificial intelligence suddenly turn against humans.",
-        category_id = 8,
-        money_goal =50000,
-        user_id = 11,
-        city ="Boston",
-        state ="MA",
-        story ="Chaos breaks out on Earth as robots controlled by artificial intelligence suddenly turn against humans. Society collapses from one moment to the next, and people are forced to flee as the world is threatened with total destruction. In this turmoil, we meet Kai, the young hero who is the last hope for the world. His mission is to acquire the crystal, whose power can help defeat the robots.\nKai sets out to acquire the crystal on the planet Avalon, but he is not alone, as Neo also joins him on the mission. Neo is an experienced robot created by Kai and his father to protect humanity. Neo is an excellent warrior who is skilled in weapons and tactical warfare. He helps Kai fight against the robots and protects his life during the dangerous mission.\nThey had to cope with dangerous space navigation in space and defeat numerous dangerous robots on the Avalon planet. The two heroes faced a difficult task as they had to fight against time and robots. During the mission, they encountered numerous obstacles.\nHowever, the biggest battle took place in the heart of the robot's headquarters, where Kai's father was being held captive. The cell was heavily guarded, but the team managed to break through the defense system, and Kai's father was finally freed. However, the robots tried to prevent their escape, and they had to fight the robots once again.\nWill Kai and Neo be able to defeat the robots? Will they be able to acquire the crystal, whose power can help defeat the robots? Will they encounter unexpected obstacles during the mission that endanger the successful outcome? Can they save Kai's father, who is being held captive by the robots? Will they be able to return to Earth with the crystal to save the planet from the robots? Can they successfully hand over the crystal to the guardians of the Avalon planet for protection?\nThere are many exciting questions that you will get answers to in the book.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p11.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="limited online version + physical book",
-        reward_amount =50,
-        reward_description ="The reward includes not only the printed book, but also a convenient and practical online version, whose access I will provide to all participants.",
+    project_p11 = Project(
+        project_name="This is a Sci-Fi Fantasy book that is exciting and contains.",
+        description="Chaos breaks out on Earth as robots controlled by artificial intelligence suddenly turn against humans.",
+        category_id=8,
+        money_goal=50000,
+        user_id=11,
+        city="Boston",
+        state="MA",
+        story="Chaos breaks out on Earth as robots controlled by artificial intelligence suddenly turn against humans. Society collapses from one moment to the next, and people are forced to flee as the world is threatened with total destruction. In this turmoil, we meet Kai, the young hero who is the last hope for the world. His mission is to acquire the crystal, whose power can help defeat the robots.\nKai sets out to acquire the crystal on the planet Avalon, but he is not alone, as Neo also joins him on the mission. Neo is an experienced robot created by Kai and his father to protect humanity. Neo is an excellent warrior who is skilled in weapons and tactical warfare. He helps Kai fight against the robots and protects his life during the dangerous mission.\nThey had to cope with dangerous space navigation in space and defeat numerous dangerous robots on the Avalon planet. The two heroes faced a difficult task as they had to fight against time and robots. During the mission, they encountered numerous obstacles.\nHowever, the biggest battle took place in the heart of the robot's headquarters, where Kai's father was being held captive. The cell was heavily guarded, but the team managed to break through the defense system, and Kai's father was finally freed. However, the robots tried to prevent their escape, and they had to fight the robots once again.\nWill Kai and Neo be able to defeat the robots? Will they be able to acquire the crystal, whose power can help defeat the robots? Will they encounter unexpected obstacles during the mission that endanger the successful outcome? Can they save Kai's father, who is being held captive by the robots? Will they be able to return to Earth with the crystal to save the planet from the robots? Can they successfully hand over the crystal to the guardians of the Avalon planet for protection?\nThere are many exciting questions that you will get answers to in the book.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p11.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="limited online version + physical book",
+        reward_amount=50,
+        reward_description="The reward includes not only the printed book, but also a convenient and practical online version, whose access I will provide to all participants.",
     )
-    project_p12= Project(
-        project_name ="Homestead Builds",
-        description ="DIY plans for Easy-to-Build, Mobile, and Efficient Chicken Coops, Garden Builds, and More!",
-        category_id = 8,
-        money_goal =10000,
-        user_id = 11,
-        city ="Asheville",
-        state ="NC",
-        story ="Over the last few years, homesteading has EXPLODED! Food Insecurity and rising costs have put fuel on the food-growing fire. Whether it's a basil plant in the window sill or chucking it all to move to the country, FOOD has become DIY.\nCountless have followed the spirit of Lucas Nelson and they've turned off the news and built a garden… or tended a chicken (or both).After getting requests day after day for updated plans, I've finally gotten to the point where we can release something legit. Like a book! For one, I wanted to test out my prototypes. And secondly, I'm not a carpenter per se, and I'm definitely not an engineer or a graphic designer. So, I've partnered with Chris Slattery of Polyface Designs fame and enlisted a graphic designer from my team to put together a legit book with step-by-step actions on how to build the ultimate homestead structures.\nFurthermore, I realize many of you are like me, and carpentry doesn't come naturally. We're making this so easy ANYONE can do it. And, if you need basic carpentry tips, we've got you covered in our MasterClass.",
-        project_image ="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p12.jpeg",
-        end_date = date(choice([2023,2024]), randint(8,12), randint(1,29)),
-        reward_name ="Digital eBook",
-        reward_amount = 35,
-        reward_description ="Get downloadable / printable plans as they finish (even before we go to print)",
+    project_p12 = Project(
+        project_name="Homestead Builds",
+        description="DIY plans for Easy-to-Build, Mobile, and Efficient Chicken Coops, Garden Builds, and More!",
+        category_id=8,
+        money_goal=10000,
+        user_id=11,
+        city="Asheville",
+        state="NC",
+        story="Over the last few years, homesteading has EXPLODED! Food Insecurity and rising costs have put fuel on the food-growing fire. Whether it's a basil plant in the window sill or chucking it all to move to the country, FOOD has become DIY.\nCountless have followed the spirit of Lucas Nelson and they've turned off the news and built a garden… or tended a chicken (or both).After getting requests day after day for updated plans, I've finally gotten to the point where we can release something legit. Like a book! For one, I wanted to test out my prototypes. And secondly, I'm not a carpenter per se, and I'm definitely not an engineer or a graphic designer. So, I've partnered with Chris Slattery of Polyface Designs fame and enlisted a graphic designer from my team to put together a legit book with step-by-step actions on how to build the ultimate homestead structures.\nFurthermore, I realize many of you are like me, and carpentry doesn't come naturally. We're making this so easy ANYONE can do it. And, if you need basic carpentry tips, we've got you covered in our MasterClass.",
+        project_image="https://kickstarterclonebucket.s3.us-west-1.amazonaws.com/p12.jpeg",
+        end_date=date(choice([2023, 2024]), randint(8, 12), randint(1, 29)),
+        reward_name="Digital eBook",
+        reward_amount=35,
+        reward_description="Get downloadable / printable plans as they finish (even before we go to print)",
     )
 
     arts = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10, art11, art12]
     [db.session.add(art) for art in arts]
 
-    comics = [comic1, comic2, comic3, comic4, comic5, comic6, comic7, comic8, comic9, comic10, comic11, comic12]
+    comics = [
+        comic1,
+        comic2,
+        comic3,
+        comic4,
+        comic5,
+        comic6,
+        comic7,
+        comic8,
+        comic9,
+        comic10,
+        comic11,
+        comic12,
+    ]
     [db.session.add(comic) for comic in comics]
 
-    games = [game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12]
+    games = [
+        game1,
+        game2,
+        game3,
+        game4,
+        game5,
+        game6,
+        game7,
+        game8,
+        game9,
+        game10,
+        game11,
+        game12,
+    ]
     [db.session.add(game) for game in games]
 
-    foods = [food1, food2, food3, food4, food5, food6, food7, food8, food9, food10, food11, food12]
+    foods = [
+        food1,
+        food2,
+        food3,
+        food4,
+        food5,
+        food6,
+        food7,
+        food8,
+        food9,
+        food10,
+        food11,
+        food12,
+    ]
     [db.session.add(food) for food in foods]
 
-    designs = [design1, design2, design3, design4, design5, design6, design7, design8, design9, design10, design11, design12]
+    designs = [
+        design1,
+        design2,
+        design3,
+        design4,
+        design5,
+        design6,
+        design7,
+        design8,
+        design9,
+        design10,
+        design11,
+        design12,
+    ]
     [db.session.add(design) for design in designs]
 
-    films = [film1, film2, film3, film4, film5, film6, film7, film8, film9, film10, film11, film12]
+    films = [
+        film1,
+        film2,
+        film3,
+        film4,
+        film5,
+        film6,
+        film7,
+        film8,
+        film9,
+        film10,
+        film11,
+        film12,
+    ]
     [db.session.add(film) for film in films]
 
-    seed_project_data = [ project_m1, project_m2, project_m3, project_m4, project_m5, project_m6, project_m7, project_m8, project_m9, project_m10, project_m11, project_m12, project_p1, project_p2, project_p3, project_p4, project_p5, project_p6, project_p7, project_p8, project_p9, project_p10, project_p11, project_p12,]
+    seed_project_data = [
+        project_m1,
+        project_m2,
+        project_m3,
+        project_m4,
+        project_m5,
+        project_m6,
+        project_m7,
+        project_m8,
+        project_m9,
+        project_m10,
+        project_m11,
+        project_m12,
+        project_p1,
+        project_p2,
+        project_p3,
+        project_p4,
+        project_p5,
+        project_p6,
+        project_p7,
+        project_p8,
+        project_p9,
+        project_p10,
+        project_p11,
+        project_p12,
+    ]
     [db.session.add(seed) for seed in seed_project_data]
 
-
     db.session.commit()
+
 
 def undo_projects():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.projects RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table {SCHEMA}.projects RESTART IDENTITY CASCADE;"
+        )
     else:
         db.session.execute(text("DELETE FROM projects"))
 

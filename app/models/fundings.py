@@ -19,7 +19,9 @@ class Funding(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'user': self.user_id,
+            'user_id': self.user_id,
             'project_id': self.project_id,
-            'amount_donated': self.amount_donated
+            'amount_donated': self.amount_donated,
+            'reward': self.reward,
+            'user': self.user.to_dict()
         }
