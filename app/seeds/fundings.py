@@ -6,7 +6,7 @@ from random import choice, randint
 
 def seed_fundings():
     funding_list = []
-    for i in range(0, 10000):
+    for i in range(0, 1000):
         funding_seed = Funding(
             user_id=choice([1, 2, 3, 12, 13, 14]),
             project_id=randint(1, 95),
