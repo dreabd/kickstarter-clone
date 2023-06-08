@@ -32,9 +32,9 @@ def get_all_projects_in_category(categoryName):
 
     category_id = Category.query.filter(Category.type.like(f"%{categoryStart}%")).first()
 
-    print("category id.............................",category_id.id)
-    print("category index.............................",category_id)
-    print("category index.............................",category_id.to_dict())
+    # print("category id.............................",category_id.id)
+    # print("category index.............................",category_id)
+    # print("category index.............................",category_id.to_dict())
     projects = Project.query.filter(Project.category_id == category_id.id).all()
     # projects = Project.query.join(Category).filter(
     #     Category.type.like(f'%{categoryStart}%')).all()
