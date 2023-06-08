@@ -80,7 +80,7 @@ def post_new_project():
     print("I am in the backend post")
     form = ProjectForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
-    print("form...............", form)
+    # print("form...............", form)
     # if current_user:
 
     if form.validate_on_submit():
