@@ -14,6 +14,7 @@ import EditProjectForm from "./components/EditProjectForm";
 import DiscoverPage from "./components/Discover";
 import SearchResults from "./components/SearchResults";
 import DiscoverCategoriesPage from "./components/DiscoverCategoriesPage";
+import FundingForm from "./components/FundingForm"
 
 function App() {
   const dispatch = useDispatch();
@@ -63,6 +64,9 @@ function App() {
         </Route>
         <Route exact path="/projects/:projectId/edit">
           <EditProjectForm />
+        </Route>
+        <Route exact path="/projects/:projectId/fund">
+          <FundingForm />
         </Route>
       </Switch>
     </>

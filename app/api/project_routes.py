@@ -1,8 +1,9 @@
-from app.models import Project, User, Category, Comment, db
-from flask import Blueprint, request
+from app.models import Project, User, Category, Comment, Funding, db
+from flask import Blueprint, jsonify, session, request
 from ..forms.project_form import ProjectForm
 from ..forms.edit_project_form import EditForm
 from ..forms.comment_form import CommentForm
+from ..forms.funding_form import FundingForm
 
 from flask_login import current_user, login_user, logout_user, login_required
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
@@ -29,7 +30,9 @@ def get_current_user_project():
 
 @project_routes.route("/<int:id>")
 def get_single_project(id):
-    """ """
+    """
+    Grabs a single project byt it's id
+    """
     single_project = Project.query.get(id)
     # print("project...................................", single_project)
 
@@ -204,6 +207,52 @@ def edit_project(id):
     if edit_form.errors:
         print("There were some form errors", edit_form.errors)
         return {"errors": edit_form.errors}, 400, {"Content-Type": "application/json"}
+
+@project_routes.route("/<int:id>/fund")
+def get_project_fund(id):
+    print("I am the first line in the backend")
+    fundings = Funding.query.filter(Funding.project_id == id)
+
+    res = [funding.to_dict() for funding in fundings]
+
+    # need handle errors still
+
+    return {"funding":res},200
+
+
+
+@project_routes.route("/fund",methods=["POST"])
+def post_project_fund():
+    print("I am the first line in the backend")
+
+    form = FundingForm()
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    print("Form..........................",form)
+
+    if form.validate_on_submit():
+        data = form.data
+
+        new_funding = Funding(
+            user_id = current_user.id,
+            project_id = data["project_id"],
+            amount_donated = data["amount_donated"],
+            reward = data["reward"],
+        )
+
+        db.session.add(new_funding)
+        db.session.commit()
+
+        return {"funding" : new_funding.to_dict()} ,200
+
+    if form.errors:
+        print("There were some form errors", form.errors)
+        return {"errors": form.errors}, 400, {"Content-Type": "application/json"}
+
+
+
+
 
 
 @project_routes.route("/")
