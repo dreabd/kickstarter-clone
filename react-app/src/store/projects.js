@@ -218,6 +218,20 @@ export const searchAllProjectsThunk = (query) => async (dispatch) => {
     console.log("Problem with loading projects with query params")
   }
 }
+
+
+export const getAllProjectsByCategoryThunk = (categoryName) => async (dispatch) => {
+  console.log("categoryName from inside yo thunkadunkdunk.....................", categoryName)
+  const res = await fetch(`/api/discover/${categoryName}`)
+  // console.log("res from the backend....................",res.json())
+  if (res.ok) {
+    const { projects } = await res.json()
+    dispatch(getAllProjects(projects))
+    return
+  } else {
+    console.log("Problem with loading projects")
+  }
+}
 // --------- INITIAL STATE -------------
 const initialState = { allProjects: {}, singleProject: {}, userProjects: {} }
 // ---------- REDUCER ----------

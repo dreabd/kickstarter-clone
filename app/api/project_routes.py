@@ -31,7 +31,7 @@ def get_current_user_project():
 def get_single_project(id):
     """ """
     single_project = Project.query.get(id)
-    print("project...................................", single_project)
+    # print("project...................................", single_project)
 
     if single_project is None:
         return {"errors": "Project not Found"}
@@ -164,7 +164,8 @@ def edit_project(id):
 
             project_image = data["project_image"]
             print("\nPROJECT IMAGE data from the backend route\n", project_image)
-            project_image.filename = get_unique_filename(project_image.filename)
+            project_image.filename = get_unique_filename(
+                project_image.filename)
             upload = upload_file_to_s3(project_image)
 
             #            project_image.filename = get_unique_filename(project_image.filename)

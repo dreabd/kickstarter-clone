@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProjectsThunk } from "../../store/projects";
-import { useHistory } from "react-router-dom";
+import "./discoverPage.css"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const DiscoverPage = () => {
   const projects = useSelector(state => state.project.allProjects)
@@ -14,18 +15,22 @@ const DiscoverPage = () => {
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div onClick={(e) => {
+      <div className="project-card" onClick={(e) => {
         history.push(`/projects/${project.id}`)
-      }}
-        style={{ border: "1px solid black", padding: "1rem 1rem" }}>
-        <h3>
-          {project.project_name}
-        </h3>
-        <p>
-          {project.owner.first_name} {project.owner.last_name}
-        </p>
-        <img src={project.project_image} alt="" />
-        <p> {project.category.type}</p>
+      }}>
+        <div className="project-card-img-container">
+        <img src={project.project_image} alt="" className="project-card-img"/>
+        </div>
+        <div className="project-card-bottom">
+          <h3>
+            {project.project_name}
+          </h3>
+          <p> {project.description}</p>
+          <p>95% funded</p>
+          <p>
+            {project.owner.first_name} {project.owner.last_name}
+          </p>
+        </div>
       </div>
     )
   })
@@ -33,8 +38,12 @@ const DiscoverPage = () => {
   console.log(projects)
   return (
     <div>
-      <h1>I am a discover page</h1>
-      {cards}
+      <h1 className="header">Discover</h1>
+      <div className="project-card-gallery-container">
+        <div className="project-card-gallery">
+          {cards}
+        </div>
+      </div>
     </div>
   )
 }
