@@ -18,8 +18,8 @@ function Navigation({ isLoaded }){
 					<NavLink exact to="/projects/new">Start a project</NavLink>
 					</li>
 				</div>
-				<li>
-					<NavLink exact to="/">Jumpstarter Logo</NavLink>
+				<li >
+					<NavLink exact to="/"><p className='logo'>Jumpstarter</p></NavLink>
 				</li>
 				<div className='navbar-rightmost'>
 					<li className='search-link'>
