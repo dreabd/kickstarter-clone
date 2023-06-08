@@ -10,7 +10,6 @@ def search_projects():
     Searches through all of the projects based on query parameters from the search bar.
     Should return a JSON obj for the fronted to catch
     """
-    args = request.args
     search_query = request.args.get("query")
     print("search param being picked up by backend route: ", search_query)
     project_query = (
