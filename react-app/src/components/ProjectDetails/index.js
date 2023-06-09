@@ -88,6 +88,7 @@ const ProjectDetails = () =>{
           <p>{singleProject.reward_description}</p>
         </div>
       </div>
+      <h2>Comments</h2>
       {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId} setUpdate={setUpdate}/>: null}
       <div>
         <ul>
