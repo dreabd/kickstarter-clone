@@ -5,5 +5,10 @@
 }
 
 .featured-projects-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.featured-projects-container img {
+    height: 150px;
 }

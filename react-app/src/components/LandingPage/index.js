@@ -58,6 +58,7 @@ const LandingPage = () => {
       <FeaturedBar projects={trendingProjects} title={'Trending'} />
       <hr />
       <FeaturedBar projects={lastChanceProjects} title={'Last Chance'} />
+      <hr />
     </div>
   )
 }

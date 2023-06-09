@@ -30,7 +30,7 @@ const FundingForm = () => {
     e.preventDefault();
     const err = {}
     if (amount <= 0) err["amount"] = "Please enter a valid amount"
-
+    if (reward && amount < project.reward_amount) err["amount"] = "Amount pledged must be more than the reward cost to receive the reward"
     if (Object.values(err).length) return setErrors(err)
     console.log("I have been submitted")
     console.log("values the user inputs", reward, amount)
@@ -61,14 +61,17 @@ const FundingForm = () => {
   const rewardRendering = () => {
     return (
       <div>
+        {/* {Object.values(errors).length ? <p className="errors">{errors.amount}</p> : null} */}
         <label>
-          Would you like to receive it?
+          Please select if you would to receive this project's reward:
           <input
             type="checkbox"
             value={reward}
             defaultValue={reward}
             onChange={e => {
-              setAmount(project.reward_amount)
+              if (amount < project.reward_amount && !reward) {
+                setAmount(project.reward_amount)
+              }
               setReward(!reward)
             }}
           />
@@ -106,16 +109,16 @@ const FundingForm = () => {
               placeholder="Amount to Pledge"
               onChange={e => setAmount(e.target.value)}
             />
-            <button type='submit'>Submit</button>
+            <button className='submit-funding-button' type='submit'>Submit</button>
           </div>
         </label>
       </form>
       <div className="rewards">
-        <h2>Donate: ${project.reward_amount}</h2>
-        {rewardRendering()}
-        <h4>Here's what you'll get</h4>
+        <h2>Reward Details</h2>
+        <h4>Here's what you'll get with a pledge of ${project.reward_amount} or more:</h4>
         <h3>{project.reward_name}</h3>
         <p>{project.reward_description}</p>
+        {rewardRendering()}
       </div>
     </div>
   )

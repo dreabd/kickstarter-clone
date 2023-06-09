@@ -16,9 +16,7 @@
 }
 
 .comment-area {
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; */
+   margin-left: -35px;
 }
 
 .details-main-container {
@@ -47,6 +45,7 @@
     height: 450px;
     width: 800px;
     object-fit: cover;
+    border: 1px solid black;
 }
 
 .top-portion {

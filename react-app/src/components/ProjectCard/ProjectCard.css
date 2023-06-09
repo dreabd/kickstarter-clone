@@ -5,6 +5,7 @@
 .card {
     padding: 10px;
     padding-bottom: 40px;
+    cursor: pointer;
 }
 
 .card-img {

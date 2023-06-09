@@ -7,8 +7,6 @@
   font-size: 16px;
   justify-content: center;
   padding: 10px;
-  position: absolute;
-  right: 50px;
   top: 20px;
   width: 80px;
   /* margin-top: 5px; */
@@ -30,8 +28,9 @@
 .navbar-leftmost {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  padding-left: 25px;
+  width: 223px;
 }
 
 .navbarlink {
@@ -57,6 +56,7 @@
   border-bottom: .5px solid gray;
   height: 70px;
   margin-top: -5px;
+  padding: 0;
 }
 
 
@@ -117,14 +117,11 @@ li>* {
   font-family: "Modak";
   font-size: 36px;
   color: #05ce78;
-  margin-right: 80px;
   letter-spacing: 1.25px;
   margin-top: 8px;
-  margin-left: 150px;
 }
 
 .search-bar-container {
-  margin-right: 150px;
   border: 1px solid lightgray;
   padding: 8px;
   display: flex;
@@ -133,7 +130,7 @@ li>* {
 
 .search-bar {
   border: none;
-  width: 250px;
+  width: 125px;
 }
 
 .search-button {

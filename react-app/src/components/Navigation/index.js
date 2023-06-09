@@ -30,7 +30,7 @@ function Navigation({ isLoaded }) {
 						<input
 							type='search'
 							className='search-bar'
-							placeholder='Search by project name or details here!'
+							placeholder='Search by project!'
 							onChange={(e) => {
 								setSearch(e.target.value)
 							}}
@@ -45,9 +45,7 @@ function Navigation({ isLoaded }) {
 							}}><i class="fa-solid fa-magnifying-glass"></i></button>
 					</div>
 					{isLoaded && (
-						<li>
-							<ProfileButton user={sessionUser} />
-						</li>
+						<ProfileButton user={sessionUser} />
 					)}
 				</div>
 			</ul>
