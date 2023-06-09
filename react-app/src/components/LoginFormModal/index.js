@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import * as sessionActions from "../../store/session";
 import "./LoginForm.css";
 
 function LoginFormModal() {
@@ -23,9 +24,7 @@ function LoginFormModal() {
 
   const handleClickDemoUser = async (e) => {
     e.preventDefault();
-    setEmail('frankly@email.io');
-    setPassword('password');
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(sessionActions.login('frankly@email.io', "password"));
     if (data) {
       setErrors(data);
     } else {
@@ -36,7 +35,7 @@ function LoginFormModal() {
   return (
     <>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="loginForm"onSubmit={handleSubmit}>
         <ul>
           {errors?.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -61,7 +60,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
-        <a className="demo-user-link" href="#" onClick={handleClickDemoUser}>Log in as Demo User</a>
+        <button className="demo-user-link" href="#" onClick={handleClickDemoUser}>Log in as Demo User</button>
       </form>
     </>
   );

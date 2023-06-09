@@ -67,7 +67,7 @@ const ManageProject = () => {
       </div>
       <div style={{display:"flex",flexDirection:"column"}}>
         <h3>Projects Your Are Backing</h3>
-        {funding_cards}
+        {funding_cards.length ? funding_cards : <NavLink exact to="/discover"><button>Discover Projects You Want to Back!</button></NavLink>}
       </div>
     </div>
   )
