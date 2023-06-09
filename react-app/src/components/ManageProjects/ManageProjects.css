@@ -1,8 +1,9 @@
-.manage-your-projects>h5{
-  margin:0;
-  padding:0;
+.manage-your-projects>h5 {
+  margin: 0;
+  padding: 0;
 }
-.manage-your-projects{
+
+.manage-your-projects {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,15 +12,16 @@
   align-items: baseline;
 }
 
-.manage-cards{
+.manage-cards {
   display: flex;
   flex-direction: column;
   width: 30rem;
   /* height: 25rem; */
 }
-.manage-cards>h4{
-  margin:0;
-  padding:8px 8px;
+
+.manage-cards>h4 {
+  margin: 0;
+  padding: 8px 8px;
   display: flex;
   flex-direction: column;
   justify-content: baseline;
@@ -27,7 +29,7 @@
   height: 2rem;
 }
 
-.manage-project-img{
+.manage-project-img {
   width: 100%;
   height: 14rem;
   overflow: hidden;
@@ -36,7 +38,7 @@
   box-shadow: 8px 4px 10px black;
 }
 
-.manage-button-container{
+.manage-button-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -44,7 +46,11 @@
   gap: 1rem;
 }
 
-.manage-button-container > button{
+.manage-button-container>button {
+  border: none;
+  background: none;
+  margin: 20px;
+  font-size: 16px;
   font-size: 1.3rem;
   margin-top: 1rem;
   background-color: #007460;
@@ -54,12 +60,12 @@
 
 }
 
-.manage-button-container > button:hover{
+.manage-button-container>button:hover {
   background-color: #06c7a7;
   cursor: pointer;
 }
 
-.manage-button-container > button:active{
+.manage-button-container>button:active {
   background-color: white;
   color: #007460;
   box-shadow: 2px 2px 0px black;

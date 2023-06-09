@@ -1,40 +1,54 @@
-
-.funding-form-div{
+.funding-form-div {
+  /* width: 50rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 1rem 1rem ;
 }
 
-.funding-form{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.funding-form-input-container{
+.funding-form-input-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
-
+  padding: 1rem 1rem;
+  border: 3px solid #007460;
+  color: white;
+  background-color: #007460;
+  width: fit-content;
 }
 
-.funding-form-input-container > input{
-  font-size:2rem;
-
+.funding-form-input-container>input {
+  font-size: 2rem;
+  color: white;
+  background-color: #007460;
+  border: 1px solid white;
 }
 
-.funding-form-input-container > span{
-  font-size:3rem;
-  color: #007460;
+.funding-form-input-container>span {
+  font-size: 3rem;
+  color: white;
 }
 
-.funding-form-input-container > button{
-  font-size:2rem;
+.funding-form-input-container>button {
+  font-size: 1.5rem;
   background-color: #007460;
   color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.rewards {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  width: 50rem;
+}
+
+.errors-funding{
+  font-size: 1.5rem;
+  color:red;
 }

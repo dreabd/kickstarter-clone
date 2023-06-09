@@ -94,11 +94,11 @@ const FundingForm = () => {
 
   return (
     <div className="funding-form-div">
-      {Object.values(errors).length ? <p className="errors">{errors.amount}</p> : null}
+      {Object.values(errors).length ? <p className="errors-funding">{errors.amount}</p> : null}
       <form className="funding-form" onSubmit={submitFunding}>
         <label className="funding-form-pledge">
-          <h1>Amount to Pledge:</h1>
           <div className="funding-form-input-container">
+          <h1>Amount to Pledge:</h1>
             <span className="dollar-sign">$</span>
             <input
               type="number"
