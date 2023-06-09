@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch, } from "react-redux";
 import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import "./LoginForm.css";
+
 
 function LoginFormModal() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -18,6 +21,8 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
+      history.push("/")
+
       closeModal()
     }
   };
@@ -28,6 +33,7 @@ function LoginFormModal() {
     if (data) {
       setErrors(data);
     } else {
+      history.push("/")
       closeModal()
     }
   }
