@@ -17,7 +17,7 @@ const ManageProject = () => {
   const user = useSelector(state => state.session.user)
   const projects = useSelector(state => state.project.userProjects)
   const funded = useSelector(state => state.funding.userProjects)
-  console.log(projects)
+  // console.log(projects)
 
   const [deleted, setDeleted] = useState(false)
 
@@ -36,7 +36,7 @@ const ManageProject = () => {
           <img className='manage-project-img' src={project.project_image} alt="" />
         </NavLink>
         <div className='manage-button-container'>
-          <button onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
+          <button  onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
           <OpenModalButton
             className="project-delete-button"
             buttonText={"Delete"}
@@ -47,13 +47,13 @@ const ManageProject = () => {
     )
   })
 
-  console.log("funded.................................", funded)
+  // console.log("funded.................................", funded)
 
   const funding_cards = Object.values(funded)?.map(fund => {
     return (
       <div style={{ padding: "8px" }}>
-        <button>
-          <NavLink exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
+        <button className='buttons'>
+          <NavLink style={{textDecoration:'none',color:"white"}} exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
         </button>
       </div>
     )
@@ -73,7 +73,7 @@ const ManageProject = () => {
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <h3>Projects Your Are Backing</h3>
-        {funding_cards.length ? funding_cards : <NavLink exact to="/discover"><button>Discover Projects You Want to Back!</button></NavLink>}
+        {funding_cards.length ? funding_cards : <NavLink exact to="/discover"><button className='buttons'>Discover Projects You Want to Back!</button></NavLink>}
       </div>
     </div>
   )
