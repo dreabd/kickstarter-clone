@@ -62,7 +62,7 @@ const FundingForm = () => {
     return (
       <div>
         <label>
-          Would you like to receive it?
+          Please select if you would to receive this project's reward:
           <input
             type="checkbox"
             value={reward}
@@ -106,16 +106,16 @@ const FundingForm = () => {
               placeholder="Amount to Pledge"
               onChange={e => setAmount(e.target.value)}
             />
-            <button type='submit'>Submit</button>
+            <button className='submit-funding-button' type='submit'>Submit</button>
           </div>
         </label>
       </form>
       <div className="rewards">
-        <h2>Donate: ${project.reward_amount}</h2>
-        {rewardRendering()}
-        <h4>Here's what you'll get</h4>
+        <h2>Reward Details</h2>
+        <h4>Here's what you'll get with a pledge of ${project.reward_amount} or more:</h4>
         <h3>{project.reward_name}</h3>
         <p>{project.reward_description}</p>
+        {rewardRendering()}
       </div>
     </div>
   )

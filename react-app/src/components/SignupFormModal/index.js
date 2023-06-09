@@ -162,7 +162,9 @@ function SignupFormModal() {
 						required
 					/>
 				</label>
-				<button type="submit">Sign Up</button>
+				<div className='signup-button-container'>
+				<button className = "signup-button" type="submit">Sign Up</button>
+				</div>
 			</form>
 		</>
 	);
