@@ -1,0 +1,10 @@
+.comment-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-comment-submit-button {
+    width: 420px;
+    background-color: #007460;
+    color: white;
+}

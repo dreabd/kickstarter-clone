@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { postCommentThunk } from "../../store/projects";
 import { getSingleProjectThunk } from "../../store/projects";
+import "./CommentForm.css"
+
 
 function CommentComponent({id}) {
 
@@ -44,16 +46,17 @@ function CommentComponent({id}) {
     }
 
     return (
-        <div>
+        <div className="comment-form-container">
             <form className='project-form' onSubmit={handleSubmit}>
                     <textarea
                         type='text'
                         value={commentText}
                         placeholder='Leave your comment here...'
-                        onChange={(e) => setCommentText(e.target.value)}>
+                        onChange={(e) => setCommentText(e.target.value)}
+                        rows="5" cols="50">
                     </textarea>
-                <button className='create-comment-submit-button' type='submit'>Create Comment</button>
             </form>
+            <button className='create-comment-submit-button' type='submit'>Submit</button>
         </div>
     )
 
