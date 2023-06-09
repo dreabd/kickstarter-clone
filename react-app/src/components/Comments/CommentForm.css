@@ -8,3 +8,12 @@
     background-color: #007460;
     color: white;
 }
+
+.project-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-textarea {
+    width: 415px;
+}
