@@ -70,11 +70,11 @@ const ProjectDetails = () =>{
 
         <div>
           <h2 className="amount-pledged">{singleProject.funding && moneyRaised()}</h2>
-          <h5>pledged of ${singleProject.money_goal?.toLocaleString()} goal</h5>
+          <h5 className="bottom-labels">pledged of ${singleProject.money_goal?.toLocaleString()} goal</h5>
           <h2>{singleProject.funding?.length}</h2>
-          <h5>backers</h5>
+          <h5 className="bottom-labels">backers</h5>
           <h3>{singleProject.end_date}</h3>
-          <div>{userId !== singleProject.owner?.id ? <button className="buttons"><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div>
+          <div>{userId !== singleProject.owner?.id ? <button className="buttons"><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div>
         </div>
       </div>
       <div className="second-level-container">
