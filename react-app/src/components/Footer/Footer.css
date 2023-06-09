@@ -1,21 +1,37 @@
 .footer-title {
     padding-left: 40px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .footer-container {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    justify-content: space-around;
 }
 
 .link-container {
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    /* text-align: center; */
+    /* justify-content: space-around; */
+
 }
 
 .fa-brands {
     font-size: 30px;
     color: black;
+    padding: 4px;
 }
+
+.person-container {
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    align-items: center;
+}
+
+/* .icon-footer {
+    justify-content: space-between;
+} */
