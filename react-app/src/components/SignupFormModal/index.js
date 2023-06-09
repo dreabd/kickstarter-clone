@@ -19,45 +19,45 @@ function SignupFormModal() {
 	const [submited, setSubmitted] = useState(false)
 	const { closeModal } = useModal();
 
-	useEffect(()=>{
-		const errors ={}
+	useEffect(() => {
+		const errors = {}
 
-		if(username.length < 5) errors["username"] = "Please make sure your username is more than 5 characthers."
-		if(!username.length) errors["username"] = "Please type a valid username."
-
-		if(!firstName.length) errors["firstName"] = "Please type a valid first name."
-		if(!lastName.length) errors["lastName"] = "Please type a valid last name."
-		if(!city.length) errors["city"] = "Please type a valid city."
-		if(state.length !== 2 ) errors["state"] = "Please type the intials of your state."
-		if(!bio.length) errors["bio"] = "Please type a valid bio."
-		if(bio.length < 50) errors["bio"] = "Please type at least 50 characters for your bio."
+		if (username.length < 4) errors["username"] = "Please make sure your username is more than 4 characters."
+		if (!username.length) errors["username"] = "Please type a valid username."
+		if (!firstName.length) errors["firstName"] = "Please type a valid first name."
+		if (!lastName.length) errors["lastName"] = "Please type a valid last name."
+		if (!city.length) errors["city"] = "Please type a valid city."
+		if (state.length !== 2) errors["state"] = "Please use your state's two character abbreviation."
+		if (!bio.length) errors["bio"] = "Please include a personal biography that is at least 50 characters."
+		if (bio.length < 50) errors["bio"] = "Please type at least 50 characters for your bio."
+		if (!email.includes('@') || !email.includes('.')) errors["email"] = "Please include a valid email."
 
 		setErrors(errors)
-	},[email,username,firstName,lastName,city,state,bio,password,])
+	}, [email, username, firstName, lastName, city, state, bio, password,])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		setSubmitted(true)
 
-		if(Object.values(errors).length) return
+		if (Object.values(errors).length) return
 
 		if (password === confirmPassword) {
 
 			const formData = new FormData()
 
-			formData.append("email",email)
-			formData.append("username",username)
-			formData.append("first_name",firstName)
-			formData.append("last_name",lastName)
-			formData.append("city",city)
-			formData.append("state",state)
-			formData.append("bio",bio)
-			formData.append("hashed_password",password)
+			formData.append("email", email)
+			formData.append("username", username)
+			formData.append("first_name", firstName)
+			formData.append("last_name", lastName)
+			formData.append("city", city)
+			formData.append("state", state)
+			formData.append("bio", bio)
+			formData.append("hashed_password", password)
 
 			console.log("Form Data gathered from form:")
 			for (let key of formData.entries()) {
-					console.log(key[0] + ' ----> ' + key[1])
+				console.log(key[0] + ' ----> ' + key[1])
 			}
 
 			const data = await dispatch(signUp(formData));
@@ -163,7 +163,7 @@ function SignupFormModal() {
 					/>
 				</label>
 				<div className='signup-button-container'>
-				<button className = "signup-button" type="submit">Sign Up</button>
+					<button className="signup-button" type="submit">Sign Up</button>
 				</div>
 			</form>
 		</>

@@ -30,7 +30,7 @@ const FundingForm = () => {
     e.preventDefault();
     const err = {}
     if (amount <= 0) err["amount"] = "Please enter a valid amount"
-
+    if (reward && amount < project.reward_amount) err["amount"] = "Amount pledged must be more than the reward cost to receive the reward"
     if (Object.values(err).length) return setErrors(err)
     console.log("I have been submitted")
     console.log("values the user inputs", reward, amount)
@@ -61,6 +61,7 @@ const FundingForm = () => {
   const rewardRendering = () => {
     return (
       <div>
+        {/* {Object.values(errors).length ? <p className="errors">{errors.amount}</p> : null} */}
         <label>
           Please select if you would to receive this project's reward:
           <input
@@ -68,7 +69,9 @@ const FundingForm = () => {
             value={reward}
             defaultValue={reward}
             onChange={e => {
-              setAmount(project.reward_amount)
+              if (amount < project.reward_amount && !reward) {
+                setAmount(project.reward_amount)
+              }
               setReward(!reward)
             }}
           />
