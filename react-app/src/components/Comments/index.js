@@ -27,12 +27,12 @@ function CommentComponent({id}) {
         user_id: userId,
         project_id: parseInt(id)
     }
+    const newErrors = {};
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         //validate data here
-        const newErrors = {};
         if (commentText.length < 1) newErrors['commentText'] = "Comment text is required!"
 
         setErrors(newErrors);
@@ -47,6 +47,7 @@ function CommentComponent({id}) {
 
     return (
         <div className="comment-form-container">
+            <div className="errors">{newErrors.commentText ? newErrors.commentText : null}</div>
             <form className='project-form' onSubmit={handleSubmit}>
                     <textarea
                         type='text'
