@@ -31,6 +31,7 @@ const FundingForm = () => {
     const err = {}
     if (amount <= 0) err["amount"] = "Please enter a valid amount"
     if (reward && amount < project.reward_amount) err["amount"] = "Amount pledged must be more than the reward cost to receive the reward"
+    if (!user) err["user"] = "Please log in before backing a project"
     if (Object.values(err).length) return setErrors(err)
     console.log("I have been submitted")
     console.log("values the user inputs", reward, amount)
@@ -98,10 +99,11 @@ const FundingForm = () => {
   return (
     <div className="funding-form-div">
       {Object.values(errors).length ? <p className="errors-funding">{errors.amount}</p> : null}
+      {Object.values(errors).length ? <p className="errors-funding">{errors.user}</p> : null}
       <form className="funding-form" onSubmit={submitFunding}>
         <label className="funding-form-pledge">
           <div className="funding-form-input-container">
-          <h1>Amount to Pledge:</h1>
+            <h1>Amount to Pledge:</h1>
             <span className="dollar-sign">$</span>
             <input
               type="number"

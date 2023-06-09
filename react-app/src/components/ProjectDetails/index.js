@@ -76,7 +76,7 @@ const ProjectDetails = () => {
           <h5 className="bottom-labels">backers</h5>
           <h3 className="amount-pledged">{singleProject.days_left}</h3>
           <h5 className="bottom-labels-days">days to go</h5>
-          <div>{userId !== singleProject.owner?.id ? <button className="buttons" onClick={() => history.push(`/projects/${projectId}/fund`)}><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div>
+          {userId? <div>{ userId !== singleProject.owner?.id ? <button className="buttons" onClick={() => history.push(`/projects/${projectId}/fund`)}><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div> : <p style={{color: "#009e74"}}>Login to Back This Project!!</p>}
         </div>
       </div>
       <div className="second-level-container">
