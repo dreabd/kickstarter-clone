@@ -64,7 +64,7 @@ const ProjectDetails = () =>{
             <img className="project-image" src={singleProject.project_image} alt="" />
             <div className="category-and-location">
               <p>{singleProject.category?.type}</p>
-              <p><i class="fa-solid fa-location-dot"></i>  {singleProject.city},{singleProject.state}</p>
+              <p className="city-state"><i class="fa-solid fa-location-dot"></i>  {singleProject.city}, {singleProject.state}</p>
             </div>
         </div>
 
@@ -73,8 +73,8 @@ const ProjectDetails = () =>{
           <h5 className="bottom-labels">pledged of ${singleProject.money_goal?.toLocaleString()} goal</h5>
           <h2>{singleProject.funding?.length}</h2>
           <h5 className="bottom-labels">backers</h5>
-          <h3>{singleProject.days_left}</h3>
-          <h5>days to go</h5>
+          <h3 className="amount-pledged">{singleProject.days_left}</h3>
+          <h5 className="bottom-labels-days">days to go</h5>
           <div>{userId !== singleProject.owner?.id ? <button className="buttons"><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div>
         </div>
       </div>
