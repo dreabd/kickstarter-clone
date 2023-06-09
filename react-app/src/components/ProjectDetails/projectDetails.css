@@ -8,6 +8,7 @@
     height: 50px;
     background-color: #007460;
     color: white;
+    text-decoration: none;
 }
 
 .comment-area {
@@ -88,7 +89,7 @@
 
 }
 
-h5 {
+.bottom-labels {
     font-weight: 100;
-    margin-top: -20px;
+    margin-top: -5px;
 }
