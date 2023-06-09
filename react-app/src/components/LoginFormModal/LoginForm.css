@@ -1,0 +1,28 @@
+h2{
+  margin:0;
+  padding:0;
+}
+
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:1rem 2rem ;
+  gap: .5rem;
+  width: 20rem;
+  height: auto;
+  background-color: white;
+  border-radius: 15%;
+
+}
+
+.loginForm > *{
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+}
+
+.loginForm > label > input{
+  padding: 4px;
+}
