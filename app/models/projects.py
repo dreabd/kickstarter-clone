@@ -51,6 +51,7 @@ class Project(db.Model):
             "reward_description": self.reward_description,
             "owner": self.user.to_dict(),
             "category": self.category.to_dict(),
+            "days_left": (self.end_date - date.today()).days,
             "comments": [comment.to_dict() for comment in self.comments],
             "funding": [funding.to_dict() for funding in self.funding],
         }
