@@ -1,0 +1,21 @@
+.funding-details-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1rem ;
+}
+
+.funding-details-card{
+  color: white;
+  background-color:#007460;
+  border: 1px solid black;
+  padding: 1rem 1rem ;
+  border-radius: 4px;
+}
+
+.title-funding-details{
+  color:#007460;
+}
