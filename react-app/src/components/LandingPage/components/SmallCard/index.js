@@ -1,7 +1,9 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 import './SmallCard.css'
 
 const SmallCard = ({ project }) => {
+    const history = useHistory()
     if (!project) return <p>Loading...</p>
 
     const totalFunding = Object.values(project.funding).reduce((total, fundingItem) => {
@@ -9,9 +11,11 @@ const SmallCard = ({ project }) => {
         return total
     }, 0)
     const percentFunded = Math.floor((totalFunding / project.money_goal * 100))
-    
+
     return (
-        <div className='small-card-container'>
+        <div className='small-card-container' onClick={(e) => {
+            history.push(`/projects/${project.id}`)
+        }}>
             <img src={project.project_image} className='small-card-image' />
             <div className='small-card-info-container'>
                 <h3 className='small-card-title'>{project.project_name}</h3>
