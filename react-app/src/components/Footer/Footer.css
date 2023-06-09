@@ -1,7 +1,21 @@
-.title {
+.footer-title {
     padding-left: 40px;
+    margin-top: 40px;
 }
 
 .footer-container {
-    padding: 40px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.fa-brands {
+    font-size: 30px;
+    color: black;
 }
