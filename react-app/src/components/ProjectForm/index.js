@@ -46,6 +46,7 @@ function CreateProjectForm() {
     //Intialize things
     const history = useHistory();
     const dispatch = useDispatch();
+
     //useSelectors
     const categories = useSelector(state => state.category.categories);
     const loggedIn = useSelector(state => state.session.user);
@@ -155,8 +156,8 @@ function CreateProjectForm() {
 
     return (
         <div>
-            <h1>Create your new Project!</h1>
             <form className='form' onSubmit={handleSubmit} encType="multipart/form-data">
+                <h1>Create your new Project!</h1>
                 <label>
                     Project Name <span className='errors'>{errors.projectName}</span>
                     <input
@@ -190,7 +191,7 @@ function CreateProjectForm() {
                 </label>
                 <label>
                     Financial Goal <span className='errors'>{errors.moneyGoal}</span>
-                    <input
+                    $<input
                         type='number'
                         value={moneyGoal}
                         placeholder='Financial Goal'
@@ -221,7 +222,8 @@ function CreateProjectForm() {
                         type='text'
                         value={story}
                         placeholder='Project Story'
-                        onChange={(e) => setStory(e.target.value)}>
+                        onChange={(e) => setStory(e.target.value)}
+                        rows="7" cols="50">
                     </textarea>
                 </label>
                 <label>
@@ -257,7 +259,7 @@ function CreateProjectForm() {
                 </label>
                 <label>
                     Reward Amount<span className='errors'>{errors.rewardAmount}</span>
-                    <input
+                    $<input
                         type='number'
                         value={rewardAmount}
                         placeholder='Reward Amount'
@@ -270,7 +272,8 @@ function CreateProjectForm() {
                         type='text'
                         value={rewardDescription}
                         placeholder='Reward Description'
-                        onChange={(e) => setRewardDescription(e.target.value)}>
+                        onChange={(e) => setRewardDescription(e.target.value)}
+                        rows="5" cols="50">
                     </textarea>
                 </label>
                 <button className='create-project-submit-button' type='submit'>Create Project</button>

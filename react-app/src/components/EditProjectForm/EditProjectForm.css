@@ -3,3 +3,45 @@
   height: 8rem;
   object-fit: contain;
 }
+
+.errors {
+  color: red;
+  font-size: 12px;
+}
+
+.form {
+  text-align: left;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form>label {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.form>label>input {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.form>label>textarea {
+  margin-left: 10px;
+}
+
+
+
+select {
+  width: 100%
+}
+
+.create-project-submit-button {
+  margin-top: 20px;
+  width: 100%
+}
+
+h1 {
+  padding-left: 10px;
+}
