@@ -5,6 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { NavLink } from "react-router-dom";
+import './ProfileButton.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -40,8 +41,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu} className="header-dropdown-button">
-        <i className="fas fa-user-circle" />
+      <button onClick={openMenu} className="header-dropdown-button">Login
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -58,21 +58,21 @@ function ProfileButton({ user }) {
         ) : (
           <>
             <OpenModalButton
-              buttonText="Log In"
+              buttonText="Login"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
-
+            <hr className='bar' />
+            <p className="modal-text">New to Jumpstarter?</p>
             <OpenModalButton
-              buttonText="Sign Up"
+              buttonText="Sign Up Here"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
-
 
             />
           </>
         )}
-      </ul>
+      </ul >
     </>
   );
 }

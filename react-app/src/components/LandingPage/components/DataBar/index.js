@@ -31,15 +31,15 @@ const DataBar = ({ projects }) => {
                 <div className="databar">
                     <div className="databar-item">
                         <span>{projectsFunded}</span>
-                        <p>projects funded</p>
+                        <p className="databar-text">projects funded</p>
                     </div>
                     <div className="databar-item">
                         <span>${totalFunding.toLocaleString()}</span>
-                        <p>towards creative work</p>
+                        <p className="databar-text">towards creative work</p>
                     </div>
                     <div className="databar-item">
                         <span>{totalPledges.toLocaleString()}</span>
-                        <p>pledges</p>
+                        <p className="databar-text">pledges</p>
                     </div>
                 </div>
             </div>
