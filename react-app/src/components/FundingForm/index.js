@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import FundingDetails from "../FundingDetails";
+import "./FundingForm.css"
 
 import { getSingleProjectThunk, postFundingThunk } from "../../store/projects";
 
@@ -92,19 +93,22 @@ const FundingForm = () => {
   }
 
   return (
-    <div className="">
-      <form onSubmit={submitFunding}>
-        <label>
-          <span className="erros">{errors.amount}</span>
-          Amount to Pledge: $
-          <input
-            type="number"
-            value={amount}
-            placeholder="Amount to Pledge"
-            onChange={e => setAmount(e.target.value)}
-          />
+    <div className="funding-form-div">
+      {Object.values(errors).length ? <p className="errors">{errors.amount}</p> : null}
+      <form className="funding-form" onSubmit={submitFunding}>
+        <label className="funding-form-pledge">
+          <h1>Amount to Pledge:</h1>
+          <div className="funding-form-input-container">
+            <span className="dollar-sign">$</span>
+            <input
+              type="number"
+              value={amount}
+              placeholder="Amount to Pledge"
+              onChange={e => setAmount(e.target.value)}
+            />
+            <button type='submit'>Submit</button>
+          </div>
         </label>
-        <button type='submit'>Submit</button>
       </form>
       <div className="rewards">
         <h2>Donate: ${project.reward_amount}</h2>

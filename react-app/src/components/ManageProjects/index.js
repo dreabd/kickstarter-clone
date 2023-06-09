@@ -6,6 +6,7 @@ import { getUserFundingThunk } from '../../store/funding';
 import OpenModalButton from '../OpenModalButton';
 import DeleteForm from '../DeleteForm';
 import { NavLink } from 'react-router-dom';
+import "./ManageProjects.css"
 
 
 
@@ -28,15 +29,20 @@ const ManageProject = () => {
 
   const cards = Object.values(projects)?.map(project => {
     return (
-      <div>
-        <p>
-          {project.project_name}
-        </p>
-        <button onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
-        <OpenModalButton
-          buttonText={"Delete"}
-          modalComponent={<DeleteForm projectId={project.id} setDeleted={setDeleted} />}
-        />
+      <div className='manage-cards'>
+        <h4>{project.project_name}</h4>
+
+        <NavLink exact to={`/projects/${project.id}`}>
+          <img className='manage-project-img' src={project.project_image} alt="" />
+        </NavLink>
+        <div className='manage-button-container'>
+          <button onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
+          <OpenModalButton
+            className="project-delete-button"
+            buttonText={"Delete"}
+            modalComponent={<DeleteForm projectId={project.id} setDeleted={setDeleted} />}
+          />
+        </div>
       </div>
     )
   })
@@ -45,7 +51,7 @@ const ManageProject = () => {
 
   const funding_cards = Object.values(funded)?.map(fund => {
     return (
-      <div style={{padding:"8px"}}>
+      <div style={{ padding: "8px" }}>
         <button>
           <NavLink exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
         </button>
@@ -56,16 +62,16 @@ const ManageProject = () => {
 
   // console.log("I am the cards",cards)
 
-  if (!user) {
-    return <Redirect to="/" />
-  }
+  // if (!user) {
+  //   return <Redirect to="/" />
+  // }
   return (
     <div>
-      <div>
-        <h3>Your Projects</h3>
+      <h1>Your Projects</h1>
+      <div className='manage-your-projects'>
         {cards}
       </div>
-      <div style={{display:"flex",flexDirection:"column"}}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
         <h3>Projects Your Are Backing</h3>
         {funding_cards.length ? funding_cards : <NavLink exact to="/discover"><button>Discover Projects You Want to Back!</button></NavLink>}
       </div>

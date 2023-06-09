@@ -1,0 +1,40 @@
+
+.funding-form-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.funding-form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.funding-form-input-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+
+}
+
+.funding-form-input-container > input{
+  font-size:2rem;
+
+}
+
+.funding-form-input-container > span{
+  font-size:3rem;
+  color: #007460;
+}
+
+.funding-form-input-container > button{
+  font-size:2rem;
+  background-color: #007460;
+  color: white;
+}

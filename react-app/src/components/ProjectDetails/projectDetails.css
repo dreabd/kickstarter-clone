@@ -66,7 +66,7 @@
 
 }
 
-h5 {
+.amount-pledged > h5 {
     font-weight: 100;
     margin-top: -20px;
 }
