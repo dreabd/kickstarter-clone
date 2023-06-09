@@ -64,17 +64,18 @@ const ProjectDetails = () =>{
             <img className="project-image" src={singleProject.project_image} alt="" />
             <div className="category-and-location">
               <p>{singleProject.category?.type}</p>
-              <p><i class="fa-solid fa-location-dot"></i>  {singleProject.city},{singleProject.state}</p>
+              <p className="city-state"><i class="fa-solid fa-location-dot"></i>  {singleProject.city}, {singleProject.state}</p>
             </div>
         </div>
 
         <div>
           <h2 className="amount-pledged">{singleProject.funding && moneyRaised()}</h2>
-          <h5>pledged of ${singleProject.money_goal?.toLocaleString()} goal</h5>
+          <h5 className="bottom-labels">pledged of ${singleProject.money_goal?.toLocaleString()} goal</h5>
           <h2>{singleProject.funding?.length}</h2>
-          <h5>backers</h5>
-          <h3>{singleProject.end_date}</h3>
-          <div>{userId !== singleProject.owner?.id ? <button className="buttons"><NavLink exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div>
+          <h5 className="bottom-labels">backers</h5>
+          <h3 className="amount-pledged">{singleProject.days_left}</h3>
+          <h5 className="bottom-labels-days">days to go</h5>
+          <div>{userId !== singleProject.owner?.id ? <button className="buttons"><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div>
         </div>
       </div>
       <div className="second-level-container">
@@ -87,15 +88,15 @@ const ProjectDetails = () =>{
           <p>{singleProject.reward_description}</p>
         </div>
       </div>
-      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId}/>: null}
+      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId} setUpdate={setUpdate}/>: null}
       <div>
         <ul>
           {singleProject.comments?.map(comment => {
             return (
               <div className="comment-area">
-                <li key={comment.id}>{comment.user.username}, {comment.comment}</li>
-                {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)}>Delete</button> : null}
-                {userId === comment.user_id ? <button onClick={() => handleUpdate()}>Update</button> : null}
+                <li key={comment.id} className="individual-comment">{comment.user.first_name} says, {comment.comment}</li>
+                {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)} className="update-delete-buttons">Delete</button> : null}
+                {userId === comment.user_id ? <button onClick={() => handleUpdate()} className="update-delete-buttons">Update</button> : null}
                 {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment} setUpdate={setUpdate}/> : null}
               </div>
 

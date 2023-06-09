@@ -1,0 +1,11 @@
+.modal-button {
+    border: none;
+    background: none;
+    margin: 20px;
+    font-size: 16px;
+}
+
+.modal-button:hover {
+    cursor: pointer;
+    color: #037362;
+}

@@ -8,6 +8,17 @@
     height: 50px;
     background-color: #007460;
     color: white;
+    text-decoration: none;
+}
+
+.city-state {
+    color: #007460;
+}
+
+.comment-area {
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
 }
 
 .details-main-container {
@@ -22,6 +33,16 @@
     padding-right: 50px;
 }
 
+.individual-comment {
+    border: .5px solid gray;
+    width: 50%;
+    word-wrap: break-word;
+    list-style: none;
+    padding: 5px;
+    margin-bottom: 5px;
+
+}
+
 .project-image {
     height: 450px;
     width: 800px;
@@ -31,6 +52,12 @@
 .top-portion {
     display: flex;
     flex-direction: row;
+}
+
+.update-delete-buttons {
+    margin-right: 10px;
+    background-color: #007460;
+    color: white;
 }
 
 .category-and-location {
@@ -46,27 +73,34 @@
 }
 
 .second-level-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 .story-container {
     padding-right: 100px;
+    grid-column: 1 / 3;
+    grid-row: 1;
 }
 
-.comment-are {
-
-}
 
 .reward-container {
     /* padding-left: 100px; */
     border: 1px solid black;
     padding: 10px;
+    grid-column: 3;
+    grid-row: auto;
 
 }
 
-.amount-pledged > h5 {
+.bottom-labels {
     font-weight: 100;
-    margin-top: -20px;
+    margin-top: -5px;
+}
+
+.bottom-labels-days {
+    font-weight: 100;
+    margin-top: -32px;
 }

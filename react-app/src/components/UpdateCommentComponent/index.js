@@ -44,15 +44,18 @@ function UpdateCommentComponent({commentId, projectId, originalText, setUpdate})
     }
 
     return (
-        <div>
+        <div className="comment-form-container">
+            <div className="errors">{errors.commentText ? errors.commentText : null}</div>
             <form className='project-form' onSubmit={handleSubmit}>
                     <textarea
                         type='text'
                         value={commentText}
                         placeholder='Leave your comment here...'
-                        onChange={(e) => setCommentText(e.target.value)}>
+                        onChange={(e) => setCommentText(e.target.value)}
+                        rows="5" cols="50"
+                        className="form-textarea">
                     </textarea>
-                <button className='create-comment-submit-button' type='submit'>Update Comment</button>
+            <button className='create-comment-submit-button' type='submit'>Update</button>
             </form>
         </div>
     )

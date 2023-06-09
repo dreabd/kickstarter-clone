@@ -6,7 +6,7 @@ import { getSingleProjectThunk } from "../../store/projects";
 import "./CommentForm.css"
 
 
-function CommentComponent({id}) {
+function CommentComponent({id, setUpdate}) {
 
     //Initialing stuff
     const dispatch = useDispatch();
@@ -27,12 +27,12 @@ function CommentComponent({id}) {
         user_id: userId,
         project_id: parseInt(id)
     }
+    const newErrors = {};
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         //validate data here
-        const newErrors = {};
         if (commentText.length < 1) newErrors['commentText'] = "Comment text is required!"
 
         setErrors(newErrors);
@@ -41,22 +41,25 @@ function CommentComponent({id}) {
             const newComment = await dispatch(postCommentThunk(form))
         }
         setCommentText('')
+        setUpdate(false)
         await dispatch(getSingleProjectThunk(parseInt(id)))
 
     }
 
     return (
         <div className="comment-form-container">
+            <div className="errors">{errors.commentText ? errors.commentText : null}</div>
             <form className='project-form' onSubmit={handleSubmit}>
                     <textarea
                         type='text'
                         value={commentText}
                         placeholder='Leave your comment here...'
                         onChange={(e) => setCommentText(e.target.value)}
-                        rows="5" cols="50">
+                        rows="5" cols="50"
+                        className="form-textarea">
                     </textarea>
-            </form>
             <button className='create-comment-submit-button' type='submit'>Submit</button>
+            </form>
         </div>
     )
 
