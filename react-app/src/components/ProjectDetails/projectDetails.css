@@ -10,6 +10,12 @@
     color: white;
 }
 
+.comment-area {
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
+}
+
 .details-main-container {
     padding: 40px;
 }
@@ -22,6 +28,16 @@
     padding-right: 50px;
 }
 
+.individual-comment {
+    border: .5px solid gray;
+    width: 50%;
+    word-wrap: break-word;
+    list-style: none;
+    padding: 5px;
+    margin-bottom: 5px;
+
+}
+
 .project-image {
     height: 450px;
     width: 800px;
@@ -31,6 +47,12 @@
 .top-portion {
     display: flex;
     flex-direction: row;
+}
+
+.update-delete-buttons {
+    margin-right: 10px;
+    background-color: #007460;
+    color: white;
 }
 
 .category-and-location {
