@@ -93,9 +93,9 @@ const ProjectDetails = () =>{
           {singleProject.comments?.map(comment => {
             return (
               <div className="comment-area">
-                <li key={comment.id}>{comment.user.username}, {comment.comment}</li>
-                {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)}>Delete</button> : null}
-                {userId === comment.user_id ? <button onClick={() => handleUpdate()}>Update</button> : null}
+                <li key={comment.id} className="individual-comment">{comment.user.first_name} says, {comment.comment}</li>
+                {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)} className="update-delete-buttons">Delete</button> : null}
+                {userId === comment.user_id ? <button onClick={() => handleUpdate()} className="update-delete-buttons">Update</button> : null}
                 {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment} setUpdate={setUpdate}/> : null}
               </div>
 
