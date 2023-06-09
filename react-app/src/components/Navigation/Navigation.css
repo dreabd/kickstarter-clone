@@ -89,7 +89,7 @@ li > * {
     justify-content: space-between;
     align-items: flex-start;
     list-style: none;
-    border-bottom: .5px solid gray;
+    /* border-bottom: .5px solid gray; */
     height: 35px;
     margin-right: 40px;
 }
@@ -112,4 +112,10 @@ li > * {
 
 .search-bar {
   margin-right: 150px;
+}
+
+.bar {
+  border-bottom: .5px solid lightgray;
+  width: 100%;
+  margin-top: -10px;
 }

@@ -59,6 +59,7 @@ function Navigation({ isLoaded }) {
 				<li><NavLink exact to="/discover/music">Music</NavLink></li>
 				<li><NavLink exact to="/discover/publishing">Publishing</NavLink></li>
 			</ul>
+			<hr className='bar'/>
 		</div>
 	);
 }
