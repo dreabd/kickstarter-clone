@@ -17,7 +17,7 @@ const ManageProject = () => {
   const user = useSelector(state => state.session.user)
   const projects = useSelector(state => state.project.userProjects)
   const funded = useSelector(state => state.funding.userProjects)
-  console.log(projects)
+  // console.log(projects)
 
   const [deleted, setDeleted] = useState(false)
 
@@ -47,13 +47,13 @@ const ManageProject = () => {
     )
   })
 
-  console.log("funded.................................", funded)
+  // console.log("funded.................................", funded)
 
   const funding_cards = Object.values(funded)?.map(fund => {
     return (
       <div style={{ padding: "8px" }}>
         <button className='buttons'>
-          <NavLink exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
+          <NavLink style={{textDecoration:'none',color:"white"}} exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
         </button>
       </div>
     )
