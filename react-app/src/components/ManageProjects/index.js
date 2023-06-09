@@ -56,9 +56,9 @@ const ManageProject = () => {
 
   // console.log("I am the cards",cards)
 
-  // if (!user) {
-  //   return <Redirect to="/" />
-  // }
+  if (!user) {
+    return <Redirect to="/" />
+  }
   return (
     <div>
       <div>
