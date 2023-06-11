@@ -41,7 +41,7 @@ const LandingPage = () => {
   return (
     <div>
       <div className="landing-title-container">
-        <h2>Bring a creative project to life: </h2>
+        <h2>Bring a creative project to life. </h2>
       </div>
       <DataBar projects={projects} />
       <div className="featured-project-container">
