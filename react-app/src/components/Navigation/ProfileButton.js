@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -9,9 +9,10 @@ import './ProfileButton.css';
 import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
+  const [showMenu, setShowMenu] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory()
-  const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
   const openMenu = () => {
@@ -44,18 +45,19 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu} className="header-dropdown-button">Login
+      <button onClick={openMenu} className="header-dropdown-button">
+        {sessionUser ? <i class="fa-regular fa-user"></i> : 'Login'}
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
             <li>{user.username}</li>
-            <li>{user.email}</li>
+            <li className="email-field">{user.email}</li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <NavLink className="category-link" exact to="/current">Manage My Projects</NavLink>
             </li>
             <li>
-              <NavLink exact to="/current">Manage My Projects</NavLink>
+              <button className="login-button" onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (
