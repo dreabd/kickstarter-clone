@@ -35,8 +35,8 @@
     background: #028858;
     color: white;
     padding: 10px;
-    /* margin: 10px; */
     margin-bottom: 70px;
+    cursor: pointer;
   }
 
   .errors{
