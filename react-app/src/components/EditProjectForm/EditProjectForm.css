@@ -1,4 +1,4 @@
-.thumbnail{
+.thumbnail {
   width: 10rem;
   height: 8rem;
   object-fit: contain;
@@ -11,7 +11,8 @@
 
 .form {
   text-align: left;
-  width: 30%;
+  min-width: 30rem;
+  padding: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -23,6 +24,11 @@
 }
 
 .form>label>input {
+  margin-left: 10px;
+  width: 100%;
+}
+
+.form>label>select {
   margin-left: 10px;
   width: 100%;
 }
