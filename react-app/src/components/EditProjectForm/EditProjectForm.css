@@ -87,3 +87,7 @@
   height: 6rem;
   object-fit: contain;
 }
+
+.edit-your-project {
+  padding-left: 60px;
+}

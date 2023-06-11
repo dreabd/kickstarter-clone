@@ -160,7 +160,7 @@ const EditProjectForm = () => {
     return (
         <div>
             <form className='signupForm' onSubmit={handleSubmit} encType="multipart/form-data">
-                <h1>Edit your Project!</h1>
+                <h1 className='edit-your-project'>Edit your project!</h1>
                 <label>
                     Project Name <span className='errors'>{errors.projectName}</span>
                     <input
