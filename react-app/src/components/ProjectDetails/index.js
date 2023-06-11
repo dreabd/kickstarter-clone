@@ -66,6 +66,7 @@ const ProjectDetails = () => {
           <div className="category-and-location">
             <p>{singleProject.category?.type}</p>
             <p className="city-state"><i class="fa-solid fa-location-dot"></i>  {singleProject.city}, {singleProject.state}</p>
+            <p>By {singleProject.owner.first_name} {singleProject.owner.last_name}</p>
           </div>
         </div>
 
