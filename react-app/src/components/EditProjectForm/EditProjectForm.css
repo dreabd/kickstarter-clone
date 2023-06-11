@@ -92,3 +92,10 @@
 .edit-your-project {
   padding-left: 60px;
 }
+
+input::file-selector-button {
+  margin-left: 1px;
+  background: #028858;
+  color: white;
+  cursor: pointer;
+}
