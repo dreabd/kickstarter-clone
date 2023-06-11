@@ -66,6 +66,7 @@ const ProjectDetails = () => {
           <div className="category-and-location">
             <p>{singleProject.category?.type}</p>
             <p className="city-state"><i class="fa-solid fa-location-dot"></i>  {singleProject.city}, {singleProject.state}</p>
+            <p>By {singleProject.owner?.first_name} {singleProject.owner?.last_name}</p>
           </div>
         </div>
 
@@ -76,7 +77,7 @@ const ProjectDetails = () => {
           <h5 className="bottom-labels">backers</h5>
           <h3 className="amount-pledged">{singleProject.days_left}</h3>
           <h5 className="bottom-labels-days">days to go</h5>
-          {userId? <div>{ userId !== singleProject.owner?.id ? <button className="buttons" onClick={() => history.push(`/projects/${projectId}/fund`)}><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div> : <p style={{color: "#009e74"}}>Login to Back This Project!!</p>}
+          {userId ? <div>{userId !== singleProject.owner?.id ? <button className="buttons" onClick={() => history.push(`/projects/${projectId}/fund`)}><NavLink className="buttons" exact to={`/projects/${projectId}/fund`}>Back This Project!</NavLink></button> : <NavLink exact to={`/projects/${projectId}/fund`}><button className="buttons">Check Out Your Supporters</button></NavLink>}</div> : <p style={{ color: "#009e74" }}>Login to Back This Project!!</p>}
         </div>
       </div>
       <div className="second-level-container">
@@ -91,13 +92,14 @@ const ProjectDetails = () => {
         </div>
       </div>
       <h2>Comments</h2>
-      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId} setUpdate={setUpdate} /> : null}
+      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId} setUpdate={setUpdate} /> : <p>Please login to post a comment</p>}
       <div>
         <ul>
           {singleProject.comments?.map(comment => {
             return (
               <div className="comment-area">
-                <li key={comment.id} className="individual-comment">{comment.user.first_name} says, {comment.comment}</li>
+                <span className="username-says">{comment.user.first_name} says...</span>
+                <li key={comment.id} className="individual-comment"> {comment.comment}</li>
                 {userId === comment.user_id ? <button onClick={() => handleDelete(comment.id)} className="update-delete-buttons">Delete</button> : null}
                 {userId === comment.user_id ? <button onClick={() => handleUpdate()} className="update-delete-buttons">Update</button> : null}
                 {userId === comment.user_id && update ? <UpdateCommentComponent commentId={comment.id} projectId={projectId} originalText={comment.comment} setUpdate={setUpdate} /> : null}

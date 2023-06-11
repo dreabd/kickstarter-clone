@@ -9,3 +9,8 @@
     cursor: pointer;
     color: #037362;
 }
+
+.email-field {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #DCDEDD;
+}

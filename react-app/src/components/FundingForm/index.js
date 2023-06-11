@@ -103,12 +103,12 @@ const FundingForm = () => {
       <form className="funding-form" onSubmit={submitFunding}>
         <label className="funding-form-pledge">
           <div className="funding-form-input-container">
-            <h1>Amount to Pledge:</h1>
+            <h2>Amount to Pledge:</h2>
             <span className="dollar-sign">$</span>
             <input
               type="number"
               value={amount}
-              placeholder="Amount to Pledge"
+              // placeholder="Amount to Pledge"
               onChange={e => setAmount(e.target.value)}
             />
             <button className='submit-funding-button' type='submit'>Submit</button>

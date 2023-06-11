@@ -35,10 +35,18 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 350px;
+    height: 70px;
 }
 
 
 .databar-item>span {
     color: #037362;
     font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 10px;
+}
+
+.databar-text {
+    font-family: Arial, Helvetica, sans-serif;
 }

@@ -31,10 +31,15 @@ function Navigation({ isLoaded }) {
 							type='search'
 							className='search-bar'
 							placeholder='Search by project!'
-							onChange={(e) => {
+							onChange={async (e) => {
 								setSearch(e.target.value)
 							}}
-
+							onKeyDown={async (e) => {
+								if (e.key === 'Enter') {
+									await dispatch(searchAllProjectsThunk(search))
+									history.push("/projects/search")
+								}
+							}}
 						/>
 						{/* dispatch the search thunk here, passing it e.target.value */}
 						<button className='search-button'
@@ -48,7 +53,7 @@ function Navigation({ isLoaded }) {
 						<ProfileButton user={sessionUser} />
 					)}
 				</div>
-			</ul>
+			</ul >
 			<ul className='nav-discover-ul'>
 				<li><NavLink exact to="/discover/arts" className='category-link'>Arts</NavLink></li>
 				<li><NavLink exact to="/discover/comics&illustration" className='category-link'>Comics & Illustration</NavLink></li>
@@ -60,7 +65,7 @@ function Navigation({ isLoaded }) {
 				<li><NavLink exact to="/discover/publishing" className='category-link'>Publishing</NavLink></li>
 			</ul>
 			<hr className='bar' />
-		</div>
+		</div >
 	);
 }
 

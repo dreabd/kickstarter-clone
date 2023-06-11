@@ -23,6 +23,21 @@
 
 .profile-dropdown {
   position: absolute;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10px;
+  list-style-type: none;
+  padding: 20px 20px 10px 20px;
+  position: absolute;
+  top: 74px;
+  right: 12px;
+  background-color: white;
+  min-width: 1rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
 }
 
 .navbar-leftmost {
@@ -59,24 +74,6 @@
   padding: 0;
 }
 
-
-.profile-dropdown {
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-bottom: 10px;
-  list-style-type: none;
-  padding: 10px 20px;
-  position: absolute;
-  top: 74px;
-  right: 12px;
-  background-color: white;
-  min-width: 1rem;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
 .profile-dropdown.hidden {
   display: none;
 }
@@ -99,13 +96,13 @@ li>* {
 .nav-discover-ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
   list-style: none;
-  /* border-bottom: .5px solid gray; */
   height: 35px;
   margin-right: 40px;
 }
+
 
 .main-nav-container {
   display: flex;
@@ -131,6 +128,7 @@ li>* {
 .search-bar {
   border: none;
   width: 125px;
+  outline: none;
 }
 
 .search-button {

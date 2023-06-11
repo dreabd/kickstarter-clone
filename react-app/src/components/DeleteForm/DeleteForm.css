@@ -1,0 +1,24 @@
+.delete-modal {
+    padding: 20px;
+    width: 400px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-container button {
+    margin: 10px;
+    padding: 10px 16px;
+    background-color: #007460;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+
+.delete-button {
+    background-color: #E74C3C !important;
+}
