@@ -36,7 +36,7 @@ const ManageProject = () => {
           <img className='manage-project-img' src={project.project_image} alt="" />
         </NavLink>
         <div className='manage-button-container'>
-          <button  onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
+          <button onClick={() => history.push(`/projects/${project.id}/edit`)} >Edit</button>
           <OpenModalButton
             className="project-delete-button"
             buttonText={"Delete"}
@@ -53,7 +53,7 @@ const ManageProject = () => {
     return (
       <div style={{ padding: "8px" }}>
         <button className='buttons'>
-          <NavLink style={{textDecoration:'none',color:"white"}} exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
+          <NavLink style={{ textDecoration: 'none', color: "white" }} exact to={`/projects/${fund.project_id}`}>{fund.project_name}</NavLink>
         </button>
       </div>
     )
@@ -67,13 +67,13 @@ const ManageProject = () => {
   // }
   return (
     <div>
-      <h1>Your Projects</h1>
+      <h2>Your Projects: {cards.length}</h2>
       <div className='manage-your-projects'>
         {cards}
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <h3>Projects Your Are Backing</h3>
-        {funding_cards.length ? funding_cards : <NavLink exact to="/discover"><button className='buttons'>Discover Projects You Want to Back!</button></NavLink>}
+        <h2>Projects You Are Backing: {funding_cards.length}</h2>
+        {funding_cards.length ? funding_cards : <NavLink exact to="/discover"><button className='buttons'>Discover Projects To Back!</button></NavLink>}
       </div>
     </div>
   )

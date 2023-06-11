@@ -1,0 +1,13 @@
+.search-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 800px;
+}

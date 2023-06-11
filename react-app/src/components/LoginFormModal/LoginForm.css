@@ -66,6 +66,7 @@
   color: white;
   padding: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .demo-user-button {
@@ -74,4 +75,5 @@
   background: #CACFD2;
   color: black;
   padding: 10px;
+  cursor: pointer;
 }

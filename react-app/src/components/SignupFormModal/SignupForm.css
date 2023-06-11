@@ -1,19 +1,20 @@
-.signupForm >h2{
+.signupForm>h2 {
   margin: 0;
   padding: 0;
 }
+
 .signupForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 1rem ;
+  padding: 1rem 1rem;
   gap: 4px;
   width: 20rem;
   height: auto;
 
 }
 
-.signupForm > *{
+.signupForm>* {
   display: flex;
   flex-direction: column;
 }
@@ -23,7 +24,7 @@
   align-items: center;
 }
 
-.signup-button{
+.signup-button {
   width: 100%;
   height: 2rem;
   border: none;
@@ -33,13 +34,19 @@
   color: white;
   padding: 10px;
   margin: 10px;
+  cursor: pointer;
 }
 
-.errors{
+.errors {
   color: #FF5A5F;
 }
 
-.signupForm >label > input{
-  border: 2px solid black;
+.signupForm>label>input {
+  border: 1px solid #DCDEDD;
+  padding: 4px 4px;
+}
+
+.signupForm>label>textarea {
+  border: 1px solid #DCDEDD;
   padding: 4px 4px;
 }

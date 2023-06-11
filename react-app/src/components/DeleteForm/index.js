@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { deleteSingleProjectThunk } from "../../store/projects";
-import { getCurrentProjectThunk } from "../../store/projects";
+// import { getCurrentProjectThunk } from "../../store/projects";
+import './DeleteForm.css'
 
-const DeleteForm = ({projectId,setDeleted}) => {
+const DeleteForm = ({ projectId, setDeleted }) => {
   const { closeModal } = useModal()
   const dispatch = useDispatch()
 
@@ -18,10 +19,12 @@ const DeleteForm = ({projectId,setDeleted}) => {
 
 
   return (
-    <div >
-      <h2>Confirm Delete</h2>
-      <button onClick={deleteProject}>Yes</button>
-      <button onClick={closeModal}>Cancel</button>
+    <div className="delete-modal">
+      <h2>Are you sure you want to delete this Project?</h2>
+      <div className="button-container">
+        <button onClick={closeModal}>Cancel</button>
+        <button className="delete-button" onClick={deleteProject}>Delete</button>
+      </div>
     </div>
   )
 }

@@ -16,7 +16,7 @@
 }
 
 .comment-area {
-   margin-left: -35px;
+    margin-left: -35px;
 }
 
 .details-main-container {
@@ -45,7 +45,7 @@
 
 .project-image {
     height: 450px;
-    width: 800px;
+    width: 55vw;
     object-fit: cover;
     border: 1px solid black;
 }

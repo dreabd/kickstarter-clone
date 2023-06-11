@@ -35,7 +35,7 @@
   overflow: hidden;
   object-fit: cover;
   max-width: 100%;
-  box-shadow: 8px 4px 10px black;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.17);
 }
 
 .manage-button-container {
@@ -50,12 +50,12 @@
   border: none;
   background: none;
   margin: 20px;
-  font-size: 16px;
-  font-size: 1.3rem;
+  font-size: 14px;
+  height: 32px;
   margin-top: 1rem;
   background-color: #007460;
   color: white;
-  width: 30rem;
+  width: 10rem;
   box-shadow: 1px 1px 3px black;
 
 }
