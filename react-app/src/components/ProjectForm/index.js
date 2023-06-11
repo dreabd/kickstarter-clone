@@ -157,7 +157,7 @@ function CreateProjectForm() {
     return (
         <div>
             <form className='signupForm' onSubmit={handleSubmit} encType="multipart/form-data">
-                <h1>Create your new Project!</h1>
+                <h1>Create your new project!</h1>
                 <label>
                     Project Name <span className='errors'>{errors.projectName}</span>
                     <input
@@ -181,7 +181,7 @@ function CreateProjectForm() {
                     <select
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}>
-                        <option default>Select</option>
+                        <option default>Select a Category</option>
                         {categories && Object.values(categories).map(category => (
                             <option key={category.id} value={category.id}>
                                 {category.type}
@@ -191,12 +191,16 @@ function CreateProjectForm() {
                 </label>
                 <label>
                     Financial Goal <span className='errors'>{errors.moneyGoal}</span>
-                    <input
-                        type='number'
-                        value={moneyGoal}
-                        placeholder='Financial Goal'
-                        onChange={(e) => setMoneyGoal(e.target.value)}
-                    />
+                    <div className='dollar-sign-div'>
+                        <span className='just-the-dollar-sign'>$</span>
+                        <input
+                            type='number'
+                            value={moneyGoal}
+                            placeholder="0"
+                            onChange={(e) => setMoneyGoal(e.target.value)}
+                            className='dollar-input'
+                        />
+                    </div>
                 </label>
                 <label>
                     City <span className='errors'>{errors.city}</span>
@@ -246,6 +250,7 @@ function CreateProjectForm() {
                         value={endDate}
                         placeholder='End Date'
                         onChange={(e) => setEndDate(e.target.value)}
+                        className='end-date'
                     />
                 </label>
                 <label>
@@ -259,12 +264,16 @@ function CreateProjectForm() {
                 </label>
                 <label>
                     Reward Amount<span className='errors'>{errors.rewardAmount}</span>
-                    <input
-                        type='number'
-                        value={rewardAmount}
-                        placeholder='Reward Amount'
-                        onChange={(e) => setRewardAmount(e.target.value)}
-                    />
+                    <div className='dollar-sign-div'>
+                        <span className='just-the-dollar-sign'>$</span>
+                        <input
+                            type='number'
+                            value={rewardAmount}
+                            placeholder='0'
+                            onChange={(e) => setRewardAmount(e.target.value)}
+                            className='dollar-input'
+                        />
+                    </div>
                 </label>
                 <label>
                     Reward Description <span className='errors'>{errors.rewardDescription}</span>

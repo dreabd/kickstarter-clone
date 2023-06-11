@@ -17,6 +17,8 @@
   .signupForm > *{
     display: flex;
     flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
   }
 
   .signup-button-container {
@@ -33,11 +35,16 @@
     background: #028858;
     color: white;
     padding: 10px;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-bottom: 70px;
   }
 
   .errors{
     color: #FF5A5F;
+  }
+
+  .signupForm >label {
+    font-size: 16px;
   }
 
   .signupForm >label > input{
@@ -53,5 +60,24 @@
   .signupForm >label > textarea{
     border: 2px solid black;
     padding: 4px 4px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .dollar-sign-div {
+    border: 2px solid black;
+    padding: 4px 4px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .dollar-input {
+    border: none;
+    font-size: 16px;
+  }
+
+  .just-the-dollar-sign {
+    font-size: 18px;
+  }
+
+  .end-date {
+    font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
   }
