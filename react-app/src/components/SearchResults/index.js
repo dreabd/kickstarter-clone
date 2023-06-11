@@ -1,33 +1,36 @@
 import React from "react";
-import {useSelector} from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import ProjectCard from '../ProjectCard'
+import './SearchResults.css'
 
 const SearchResults = () => {
     const projects = useSelector(state => state.project.allProjects)
-    const history = useHistory()
-    const cards = Object.values(projects)?.map(project => {
+    const projectsArray = Object.values(projects);
+
+    const cards = projectsArray?.map(project => {
         return (
-            <div onClick={(e) => {
-                history.push(`/projects/${project.id}`)
-            }}
-            style={{ border: "1px solid black", padding: "1rem 1rem" }}>
-                <h3>
-                    {project.project_name}
-                </h3>
-                <p>
-                    {project.owner.first_name} {project.owner.last_name}
-                </p>
-                <img src={project.project_image} alt="" />
-                <p> {project.category.type}</p>
-            </div>
+            <ProjectCard project={project} />
         )
     })
 
-    console.log(projects)
+    if (projectsArray.length === 0) {
+        return (
+            <div className="search-page">
+                <div style={{ height: '550px' }}>
+                    <h1>No Search Results. Try another search.</h1>
+                </div>
+            </div>
+        )
+    }
+
+    console.log("Projects", projects)
     return (
-        <div>
-            <h1>Search Results: </h1>
-            {cards}
+        <div className="search-page">
+            <div className="search-results-container">
+                <h1>Search Results: {cards.length}</h1>
+                {cards}
+            </div>
         </div>
     )
 }

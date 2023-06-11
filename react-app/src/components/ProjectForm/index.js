@@ -137,20 +137,22 @@ function CreateProjectForm() {
 
     if (!loggedIn) {
         return (
-            <>
-                <h3>
+            <div className='logged-out-project-form'>
+                <h2>
                     Please login or signup with Jumpstarter to create a project!
-                </h3>
-                <OpenModalButton
-                    buttonText="Log In"
-                    modalComponent={<LoginFormModal />}
-                />
+                </h2>
+                <div>
+                    <OpenModalButton
+                        buttonText="Log In"
+                        modalComponent={<LoginFormModal />}
+                    />
 
-                <OpenModalButton
-                    buttonText="Sign Up"
-                    modalComponent={<SignupFormModal />}
-                />
-            </>
+                    <OpenModalButton
+                        buttonText="Sign Up"
+                        modalComponent={<SignupFormModal />}
+                    />
+                </div>
+            </div>
         )
     }
 
