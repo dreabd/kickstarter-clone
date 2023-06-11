@@ -159,7 +159,7 @@ const EditProjectForm = () => {
 
     return (
         <div>
-            <form className='form' onSubmit={handleSubmit} encType="multipart/form-data">
+            <form className='signupForm' onSubmit={handleSubmit} encType="multipart/form-data">
                 <h1>Edit your Project!</h1>
                 <label>
                     Project Name <span className='errors'>{errors.projectName}</span>
@@ -198,12 +198,16 @@ const EditProjectForm = () => {
                 </label>
                 <label>
                     Financial Goal <span className='errors'>{errors.moneyGoal}</span>
-                    $<input
-                        type='number'
-                        value={moneyGoal}
-                        placeholder='Financial Goal'
-                        onChange={(e) => setMoneyGoal(e.target.value)}
-                    />
+                    <div className='dollar-sign-div'>
+                        <span className='just-the-dollar-sign'>$</span>
+                        <input
+                            type='number'
+                            value={moneyGoal}
+                            placeholder="0"
+                            onChange={(e) => setMoneyGoal(e.target.value)}
+                            className='dollar-input'
+                        />
+                    </div>
                 </label>
                 <label>
                     City <span className='errors'>{errors.city}</span>
@@ -256,6 +260,7 @@ const EditProjectForm = () => {
                         value={endDate}
                         placeholder='End Date'
                         onChange={(e) => setEndDate(e.target.value)}
+                        className='end-date'
                     />
                 </label>
                 <label>
@@ -269,12 +274,16 @@ const EditProjectForm = () => {
                 </label>
                 <label>
                     Reward Amount<span className='errors'>{errors.rewardAmount}</span>
-                    $<input
-                        type='number'
-                        value={rewardAmount}
-                        placeholder='Reward Amount'
-                        onChange={(e) => setRewardAmount(e.target.value)}
-                    />
+                    <div className='dollar-sign-div'>
+                        <span className='just-the-dollar-sign'>$</span>
+                        <input
+                            type='number'
+                            value={rewardAmount}
+                            placeholder='0'
+                            onChange={(e) => setRewardAmount(e.target.value)}
+                            className='dollar-input'
+                        />
+                    </div>
                 </label>
                 <label>
                     Reward Description <span className='errors'>{errors.rewardDescription}</span>
@@ -286,7 +295,9 @@ const EditProjectForm = () => {
                         rows="5" cols="50">
                     </textarea>
                 </label>
-                <button className='create-project-submit-button' type='submit'>Update Project</button>
+                <div className='signup-button-container'>
+                    <button className='signup-button' type='submit'>Update Project</button>
+                </div>
             </form>
         </div >
     )
