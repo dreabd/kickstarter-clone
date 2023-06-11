@@ -99,13 +99,13 @@ li>* {
 .nav-discover-ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: flex-start;
   list-style: none;
-  /* border-bottom: .5px solid gray; */
   height: 35px;
   margin-right: 40px;
 }
+
 
 .main-nav-container {
   display: flex;
