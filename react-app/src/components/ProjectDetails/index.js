@@ -92,7 +92,7 @@ const ProjectDetails = () => {
         </div>
       </div>
       <h2>Comments</h2>
-      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId} setUpdate={setUpdate} /> : <p>Please login to post a comment</p>}
+      {sessionUser && !singleProject.comments?.find(comment => comment.user_id === userId) ? <CommentComponent id={projectId} setUpdate={setUpdate} /> : !sessionUser ? <p>Please login to post a comment</p> : null}
       <div>
         <ul>
           {singleProject.comments?.map(comment => {
