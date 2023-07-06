@@ -17,11 +17,28 @@ function SignupFormModal() {
 	const [bio, setBio] = useState("")
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const [errors, setErrors] = useState([]);
+	const [errors, setErrors] = useState({});
 	const [submited, setSubmitted] = useState(false)
 	const { closeModal } = useModal();
 
-	useEffect(() => {
+	// useEffect(() => {
+	// 	const errors = {}
+
+	// 	if (username.length < 4) errors["username"] = "Please make sure your username is more than 4 characters."
+	// 	if (!username.length) errors["username"] = "Please type a valid username."
+	// 	if (!firstName.length) errors["firstName"] = "Please type a valid first name."
+	// 	if (!lastName.length) errors["lastName"] = "Please type a valid last name."
+	// 	if (!city.length) errors["city"] = "Please type a valid city."
+	// 	if (state.length !== 2) errors["state"] = "Please use your state's two character abbreviation."
+	// 	if (!bio.length) errors["bio"] = "Please include a personal biography that is at least 50 characters."
+	// 	if (bio.length < 50) errors["bio"] = "Please type at least 50 characters for your bio."
+	// 	if (!email.includes('@') || !email.includes('.')) errors["email"] = "Please include a valid email."
+
+	// 	setErrors(errors)
+	// }, [email, username, firstName, lastName, city, state, bio, password,])
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 		const errors = {}
 
 		if (username.length < 4) errors["username"] = "Please make sure your username is more than 4 characters."
@@ -35,10 +52,6 @@ function SignupFormModal() {
 		if (!email.includes('@') || !email.includes('.')) errors["email"] = "Please include a valid email."
 
 		setErrors(errors)
-	}, [email, username, firstName, lastName, city, state, bio, password,])
-
-	const handleSubmit = async (e) => {
-		e.preventDefault();
 
 		setSubmitted(true)
 
@@ -70,9 +83,11 @@ function SignupFormModal() {
 				closeModal();
 			}
 		} else {
-			setErrors([
-				"Confirm Password field must be the same as the Password field",
-			]);
+			errors['password'] = "Confirm Password field must be the same as the Password field"
+			setErrors(errors)
+			// setErrors([
+			// 	"Confirm Password field must be the same as the Password field",
+			// ]);
 		}
 	};
 
@@ -80,13 +95,14 @@ function SignupFormModal() {
 		<>
 			<form className="signupForm" onSubmit={handleSubmit}>
 				<h2>Sign Up</h2>
-				<ul className="errors">
+				{/* <ul className="errors">
 					{submited && Object.values(errors).map((error, idx) => (
 						<li key={idx}>{error}</li>
 					))}
-				</ul>
+				</ul> */}
 				<label>
 					First Name
+					<span className='login-error-item'>{errors.firstName}</span>
 					<input
 						type="text"
 						value={firstName}
@@ -96,6 +112,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					Last Name
+					<span className='login-error-item'>{errors.lastName}</span>
 					<input
 						type="text"
 						value={lastName}
@@ -105,6 +122,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					Bio
+					<span className='login-error-item'>{errors.bio}</span>
 					<textarea
 						value={bio}
 						onChange={(e) => setBio(e.target.value)}
@@ -113,6 +131,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					City
+					<span className='login-error-item'>{errors.city}</span>
 					<input
 						type="text"
 						value={city}
@@ -122,6 +141,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					State
+					<span className='login-error-item'>{errors.state}</span>
 					<input
 						type="text"
 						value={state}
@@ -131,6 +151,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					Email
+					<span className='login-error-item'>{errors.email}</span>
 					<input
 						type="text"
 						value={email}
@@ -140,6 +161,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					Username
+					<span className='login-error-item'>{errors.username}</span>
 					<input
 						type="text"
 						value={username}
@@ -149,6 +171,7 @@ function SignupFormModal() {
 				</label>
 				<label>
 					Password
+					<span className='login-error-item'>{errors.password}</span>
 					<input
 						type="password"
 						value={password}
