@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CommentComponent from "../Comments";
 import { deleteCommentThunk } from "../../store/projects";
-import { updateCommentThunk } from "../../store/projects";
 import UpdateCommentComponent from "../UpdateCommentComponent";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-import FundingDetails from "../FundingDetails";
 import "./projectDetails.css"
 import NotFound from "../404Page";
+import LoadingGIF from './green_loading.gif'
 
 const ProjectDetails = () => {
   const dispatch = useDispatch()
@@ -18,6 +17,7 @@ const ProjectDetails = () => {
   const { projectId } = useParams()
   console.log("this is the id in components", projectId)
   const [update, setUpdate] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const singleProject = useSelector(state => state.project.singleProject)
   //listen for user session
   const sessionUser = useSelector(state => state.session.user);
@@ -25,8 +25,14 @@ const ProjectDetails = () => {
   if (sessionUser) userId = sessionUser.id
 
   useEffect(() => {
-    dispatch(getSingleProjectThunk(projectId))
+    async function fetchSingleProject() {
+      await dispatch(getSingleProjectThunk(projectId))
+      setIsLoading(false)
+    }
+
+    fetchSingleProject()
   }, [dispatch, projectId])
+
 
   const handleDelete = async (commentId) => {
     await dispatch(deleteCommentThunk(commentId))
@@ -51,6 +57,19 @@ const ProjectDetails = () => {
   if (!Object.values(singleProject).length) {
     return <NotFound/>
   }
+
+  // if (!singleProject) {
+  //   return null
+  // }
+
+  if (Object.keys(singleProject).length === 0 || isLoading) {
+    return (
+      < div className="loading-screen" >
+        <img src={LoadingGIF} alt="loading" />
+      </div >
+    )
+  }
+
 
   return (
     <div className="details-main-container">
