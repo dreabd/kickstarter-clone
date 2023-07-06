@@ -16,6 +16,7 @@ import DiscoverPage from "./components/Discover";
 import SearchResults from "./components/SearchResults";
 import DiscoverCategoriesPage from "./components/DiscoverCategoriesPage";
 import FundingForm from "./components/FundingForm"
+import NotFound from "./components/404Page";
 
 function App() {
   const dispatch = useDispatch();
@@ -69,8 +70,11 @@ function App() {
         <Route exact path="/projects/:projectId/fund">
           <FundingForm />
         </Route>
+        <Route>
+          <NotFound/>
+        </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </>
   );
 }
