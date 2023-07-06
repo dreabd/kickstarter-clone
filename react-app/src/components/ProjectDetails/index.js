@@ -10,10 +10,7 @@ import UpdateCommentComponent from "../UpdateCommentComponent";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import FundingDetails from "../FundingDetails";
 import "./projectDetails.css"
-
-
-
-
+import NotFound from "../404Page";
 
 const ProjectDetails = () => {
   const dispatch = useDispatch()
@@ -51,9 +48,10 @@ const ProjectDetails = () => {
     return `$${total.toLocaleString()}`
   }
 
-  if (!singleProject) {
-    return null
+  if (!Object.values(singleProject).length) {
+    return <NotFound/>
   }
+
   return (
     <div className="details-main-container">
       <div className="header">

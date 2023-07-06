@@ -7,7 +7,7 @@ import SmallCard from "./components/SmallCard";
 import FeaturedBar from "./components/FeaturedBar";
 import './LandingPage.css';
 
-function getRandomInt(max) {
+export function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
