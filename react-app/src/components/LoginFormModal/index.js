@@ -69,7 +69,7 @@ function LoginFormModal() {
       closeModal()
     }
   }
-  console.log('beforeerrors', errors)
+
 
   return (
     <div className="form-container">
