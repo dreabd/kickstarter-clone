@@ -54,14 +54,6 @@ const ProjectDetails = () => {
     return `$${total.toLocaleString()}`
   }
 
-  if (!Object.values(singleProject).length) {
-    return <NotFound/>
-  }
-
-  // if (!singleProject) {
-  //   return null
-  // }
-
   if (Object.keys(singleProject).length === 0 || isLoading) {
     return (
       < div className="loading-screen" >
@@ -69,7 +61,15 @@ const ProjectDetails = () => {
       </div >
     )
   }
-
+  
+  // if (!singleProject) {
+    //   return null
+    // }
+    
+    if (!Object.values(singleProject).length) {
+      return <NotFound/>
+    }
+    
 
   return (
     <div className="details-main-container">
